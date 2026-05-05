@@ -4,8 +4,8 @@ const tours = [
   {
     id: "tour-island",
     tag: "Most Popular",
-    img: "https://images.unsplash.com/photo-1590074072768-935d48555f85?w=900&q=85",
-    alt: "Capri Faraglioni",
+    img: "/tours/island-tour.jpg",
+    alt: "Capri Marina Piccola coastline",
     meta: "Half Day · 4 Hours",
     title: "Capri Island Tour",
     desc: "The iconic circumnavigation. Faraglioni, Grotta Bianca, Grotta Verde, and a long swim in turquoise water.",
@@ -14,8 +14,8 @@ const tours = [
   {
     id: "tour-blue-grotto",
     tag: null,
-    img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=85",
-    alt: "Blue Grotto Capri",
+    img: "/tours/blue-grotto.jpg",
+    alt: "Casa Malaparte cliff",
     meta: "Morning · 3 Hours",
     title: "Blue Grotto Tour",
     desc: "A focused early-morning route to the Grotta Azzurra with private rowboat access.",
@@ -24,8 +24,8 @@ const tours = [
   {
     id: "tour-full-day",
     tag: "Best Value",
-    img: "https://images.unsplash.com/photo-1558489580-faa74691fdc5?w=900&q=85",
-    alt: "Positano Amalfi Coast",
+    img: "/tours/full-day.jpg",
+    alt: "Cinque Terre coastal village",
     meta: "Full Day · 8 Hours",
     title: "Full-Day Experience",
     desc: "The complete coast: Capri, Positano, Amalfi villages. Lunch on board or in a hidden harbour.",

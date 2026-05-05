@@ -223,7 +223,7 @@ body {
   inset: 0;
   z-index: 1;
   background-color: #0B0F19;
-  background-image: url('/hero-faraglioni.jpg');
+  background-image: url('/hero-faraglioni.webp');
   background-size: cover;
   background-position: center;
   animation: gentle-zoom 25s ease-in-out infinite alternate;
@@ -588,77 +588,60 @@ body {
   font-weight: 500;
 }
 
-.manifesto-features {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.manifesto-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.manifesto-feature {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  padding: 28px;
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.manifesto-list-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 32px;
+  padding: 32px 4px 32px 4px;
+  border-bottom: 1px solid var(--border-subtle);
+  align-items: baseline;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(15px);
   animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.manifesto-feature:nth-child(1) { animation-delay: 0.05s; }
-.manifesto-feature:nth-child(2) { animation-delay: 0.15s; }
-.manifesto-feature:nth-child(3) { animation-delay: 0.25s; }
+.manifesto-list-item:nth-child(1) { animation-delay: 0.05s; }
+.manifesto-list-item:nth-child(2) { animation-delay: 0.15s; }
+.manifesto-list-item:nth-child(3) { animation-delay: 0.25s; }
 
-.manifesto-feature:hover {
-  transform: translateY(-3px);
-  border-color: rgba(184, 150, 95, 0.4);
-  box-shadow: 0 12px 32px rgba(15, 22, 35, 0.08);
+.manifesto-list-item:hover {
+  padding-left: 12px;
 }
 
-.manifesto-feature-icon {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 10px;
-  background: var(--cream);
-  color: var(--bronze);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.manifesto-feature-icon svg {
-  width: 28px;
-  height: 28px;
-}
-
-.manifesto-feature-num {
+.manifesto-list-num {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: 64px;
+  font-weight: 300;
   color: var(--bronze);
-  font-weight: 500;
-  margin-bottom: 4px;
-  letter-spacing: 0.05em;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
-.manifesto-feature-title {
+.manifesto-list-title {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 26px;
   color: var(--navy);
-  margin-bottom: 6px;
-  font-weight: 500;
+  margin: 0 0 8px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
-.manifesto-feature-text {
-  font-size: 14.5px;
-  line-height: 1.6;
+.manifesto-list-text {
+  font-size: 15px;
+  line-height: 1.65;
   color: var(--text-secondary);
   font-weight: 300;
   margin: 0;
+  max-width: 420px;
 }
 
 @keyframes fade-in-up {
