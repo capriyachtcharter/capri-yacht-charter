@@ -4,7 +4,6 @@ import Manifesto from "./components/Manifesto";
 import Tours from "./components/Tours";
 import CapriMap from "./components/CapriMap";
 import Reviews from "./components/Reviews";
-import Stats from "./components/Stats";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -14,11 +13,10 @@ export default function Home() {
       <Hero />
       <div className="hero-spacer" />
       <div className="content-layer">
-        <Manifesto />
         <Tours />
         <CapriMap />
+        <Manifesto />
         <Reviews />
-        <Stats />
         <Footer />
       </div>
     </>

@@ -2,6 +2,7 @@ import Image from "next/image";
 
 const tours = [
   {
+    id: "tour-island",
     tag: "Most Popular",
     img: "https://images.unsplash.com/photo-1590074072768-935d48555f85?w=900&q=85",
     alt: "Capri Faraglioni",
@@ -11,6 +12,7 @@ const tours = [
     price: "€480",
   },
   {
+    id: "tour-blue-grotto",
     tag: null,
     img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=85",
     alt: "Blue Grotto Capri",
@@ -20,6 +22,7 @@ const tours = [
     price: "€360",
   },
   {
+    id: "tour-full-day",
     tag: "Best Value",
     img: "https://images.unsplash.com/photo-1558489580-faa74691fdc5?w=900&q=85",
     alt: "Positano Amalfi Coast",
@@ -45,7 +48,7 @@ export default function Tours() {
 
         <div className="tours-grid">
           {tours.map((t) => (
-            <div key={t.title} className="tour-card">
+            <div key={t.title} id={t.id} className="tour-card">
               <div className="tour-card-img">
                 {t.tag && <span className="tour-card-tag">{t.tag}</span>}
                 <Image
