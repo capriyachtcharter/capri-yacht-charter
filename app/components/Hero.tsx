@@ -31,23 +31,6 @@ export default function Hero() {
           <a href="#tour-island" className="btn-primary">Discover Tours</a>
           <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-secondary">Contact Us</a>
         </div>
-
-        <div className="hero-stats">
-          <div className="hero-stat">
-            <span className="hero-stat-value">4.9★</span>
-            <span className="hero-stat-label">Guest Rating</span>
-          </div>
-          <span className="hero-stat-divider" aria-hidden />
-          <div className="hero-stat">
-            <span className="hero-stat-value">500+</span>
-            <span className="hero-stat-label">Private Tours</span>
-          </div>
-          <span className="hero-stat-divider" aria-hidden />
-          <div className="hero-stat">
-            <span className="hero-stat-value">22</span>
-            <span className="hero-stat-label">Years at Sea</span>
-          </div>
-        </div>
       </div>
 
       <div className="hero-scroll">
