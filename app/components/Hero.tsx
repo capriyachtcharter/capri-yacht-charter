@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-pill">
           <span className="hero-pill-dot" />
-          Family-owned · Since 2002
+          On Sea Since 2002
         </div>
 
         <h1 className="hero-title">
