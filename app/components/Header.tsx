@@ -14,9 +14,9 @@ export default function Header() {
   return (
     <header className={`header${scrolled ? " scrolled" : ""}`} id="header">
       <div className="header-inner">
-        <a href="#" className="logo">
-          Capri Yacht Charter
-          <span className="logo-subtitle">Since 2002</span>
+        <a href="#" className="logo" aria-label="Capri Yacht Charter">
+          <img src="/logo-mark-navy.png" alt="" className="logo-img" />
+          <span className="logo-text">Capri Yacht Charter</span>
         </a>
         <nav className="nav">
           <a href="#" className="nav-link">Home</a>

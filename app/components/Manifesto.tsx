@@ -20,7 +20,7 @@ export default function Manifesto() {
   return (
     <section className="manifesto">
       <div className="manifesto-inner">
-        <div className="manifesto-intro">
+        <div className="manifesto-intro" data-reveal>
           <div className="eyebrow">The Promise</div>
           <h2 className="section-title manifesto-headline">
             The boat is <span className="accent">yours.</span>
@@ -39,8 +39,13 @@ export default function Manifesto() {
         </div>
 
         <ul className="manifesto-list">
-          {items.map((item) => (
-            <li key={item.n} className="manifesto-list-item">
+          {items.map((item, i) => (
+            <li
+              key={item.n}
+              className="manifesto-list-item"
+              data-reveal="left"
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
               <span className="manifesto-list-num">{item.n}</span>
               <div className="manifesto-list-body">
                 <h3 className="manifesto-list-title">{item.title}</h3>

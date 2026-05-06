@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Plus_Jakarta_Sans, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -17,6 +17,13 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-logo",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Capri Yacht Charter — Private Sea Experiences",
   description:
@@ -29,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jakarta.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${dmSerif.variable}`}>
       <body>{children}</body>
     </html>
   );

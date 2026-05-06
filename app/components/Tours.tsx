@@ -25,7 +25,7 @@ const tours = [
     id: "tour-full-day",
     tag: "Best Value",
     img: "/tours/full-day.jpg",
-    alt: "Cinque Terre coastal village",
+    alt: "Positano Amalfi Coast",
     meta: "Full Day · 8 Hours",
     title: "Full-Day Experience",
     desc: "The complete coast: Capri, Positano, Amalfi villages. Lunch on board or in a hidden harbour.",
@@ -37,18 +37,25 @@ export default function Tours() {
   return (
     <section className="section">
       <div className="section-inner">
-        <div className="eyebrow">Curated Experiences</div>
-        <h2 className="section-title">
-          Private Tours <span className="accent">in Capri</span>
-        </h2>
-        <p className="section-desc">
-          Five predefined routes, each entirely private. Choose your
-          experience—we handle everything else.
-        </p>
+        <div data-reveal>
+          <div className="eyebrow">Curated Experiences</div>
+          <h2 className="section-title">
+            Private Tours <span className="accent">in Capri</span>
+          </h2>
+          <p className="section-desc tours-desc">
+            Three signature experiences, each entirely private — pick a route or build your own.
+          </p>
+        </div>
 
         <div className="tours-grid">
-          {tours.map((t) => (
-            <div key={t.title} id={t.id} className="tour-card">
+          {tours.map((t, i) => (
+            <div
+              key={t.title}
+              id={t.id}
+              className="tour-card"
+              data-reveal="left"
+              style={{ transitionDelay: `${i * 0.12}s` }}
+            >
               <div className="tour-card-img">
                 {t.tag && <span className="tour-card-tag">{t.tag}</span>}
                 <Image

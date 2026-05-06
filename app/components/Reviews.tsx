@@ -29,7 +29,7 @@ export default function Reviews() {
   return (
     <section className="section">
       <div className="section-inner">
-        <div className="reviews-head">
+        <div className="reviews-head" data-reveal>
           <div className="eyebrow">Testimonials</div>
           <h2 className="section-title">
             Trusted by <span className="accent">Thousands</span>
@@ -46,8 +46,13 @@ export default function Reviews() {
         </div>
 
         <div className="reviews-grid">
-          {reviews.map((r) => (
-            <div key={r.author} className="review-card">
+          {reviews.map((r, i) => (
+            <div
+              key={r.author}
+              className="review-card"
+              data-reveal="left"
+              style={{ transitionDelay: `${i * 0.12}s` }}
+            >
               <div className="review-quote-mark" aria-hidden>&ldquo;</div>
               <p className="review-text">{r.text}</p>
               <div className="review-divider" />
