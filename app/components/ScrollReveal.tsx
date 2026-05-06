@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 
 /**
- * Activates [data-reveal] elements as they enter the viewport.
- * Adds the .is-visible class which the CSS animates from.
+ * Toggles .is-visible on [data-reveal] elements based on viewport intersection.
+ * Re-fires on every scroll-back so animations replay each visit.
  */
 export default function ScrollReveal() {
   useEffect(() => {
@@ -19,11 +19,12 @@ export default function ScrollReveal() {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove("is-visible");
           }
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
     );
 
     els.forEach((el) => io.observe(el));

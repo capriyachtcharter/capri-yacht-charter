@@ -31,6 +31,16 @@ const tours = [
     desc: "The complete coast: Capri, Positano, Amalfi villages. Lunch on board or in a hidden harbour.",
     price: "€890",
   },
+  {
+    id: "tour-custom",
+    tag: "Bespoke",
+    img: "/tours/custom.jpg",
+    alt: "Custom Mediterranean route",
+    meta: "Tailored · Any Length",
+    title: "Personalize Your Tour",
+    desc: "Build your own day on the water — choose stops, timing and rhythm. We design the route with you.",
+    price: "On Request",
+  },
 ];
 
 export default function Tours() {
@@ -75,7 +85,12 @@ export default function Tours() {
                     <span className="tour-card-price-label">From</span>
                     <span className="tour-card-price-value">{t.price}</span>
                   </div>
-                  <div className="tour-card-arrow">→</div>
+                  <div className="tour-card-arrow" aria-hidden>
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="8" x2="13" y2="8" />
+                      <polyline points="9 4 13 8 9 12" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>

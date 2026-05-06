@@ -23,13 +23,17 @@ export default function Hero() {
           Your Private<br />
           <span className="italic">Sea Experience</span>
         </h1>
-        <p className="hero-subtitle">
-          Entirely private yacht journeys around Capri and the Amalfi Coast.
-          No shared boats. No fixed schedules. Just you, the captain, and the Mediterranean.
-        </p>
+
         <div className="hero-actions">
           <a href="#tour-island" className="btn-primary">Discover Tours</a>
-          <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-secondary">Contact Us</a>
+          <a
+            href="https://wa.me/393335741333"
+            target="_blank"
+            rel="noopener"
+            className="btn-secondary"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
 
