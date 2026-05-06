@@ -699,7 +699,7 @@ body {
 }
 
 .tours-grid {
-  align-items: start;
+  align-items: stretch;
 }
 
 .tour-card {
@@ -714,6 +714,9 @@ body {
   box-shadow: 0 2px 12px rgba(15, 22, 35, 0.04);
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .tour-card:hover,
@@ -763,6 +766,9 @@ body {
 
 .tour-card-body {
   padding: 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .tour-card-meta {
@@ -789,6 +795,7 @@ body {
   color: var(--text-secondary);
   margin-bottom: 24px;
   font-weight: 300;
+  flex: 1;
 }
 
 .tour-card-footer {
@@ -1436,6 +1443,7 @@ body {
 
 .footer-legal {
   display: flex;
+  align-items: center;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -2191,19 +2199,19 @@ body {
 .lang-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
+  gap: 6px;
+  padding: 3px 8px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
-  margin-right: 8px;
+  line-height: 1;
 }
 
 .lang-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
+  gap: 5px;
+  padding: 2px 6px;
   background: transparent;
   border: 0;
   border-radius: 100px;
@@ -2213,6 +2221,7 @@ body {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
+  line-height: 1;
   transition: color 0.2s ease, background 0.2s ease;
 }
 
