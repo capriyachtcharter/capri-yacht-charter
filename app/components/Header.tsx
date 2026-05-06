@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
@@ -19,27 +21,13 @@ export default function Header() {
           <span className="logo-text">Capri Yacht Charter</span>
         </a>
         <nav className="nav">
-          <a href="#" className="nav-link">Home</a>
-          <div className="nav-dropdown">
-            <a href="#esperienze" className="nav-link">Esperienze</a>
-            <div className="nav-dropdown-menu">
-              <a href="#tour-privati">Tour Privati</a>
-              <a href="#mini-crociere">Mini Crociere</a>
-              <a href="#noleggio">Noleggio</a>
-            </div>
-          </div>
-          <div className="nav-dropdown">
-            <a href="#flotta" className="nav-link">Flotta</a>
-            <div className="nav-dropdown-menu">
-              <a href="#gabbiano">Gabbiano</a>
-              <a href="#tramontana">Tramontana</a>
-              <a href="#libeccio">Libeccio</a>
-            </div>
-          </div>
-          <a href="#storia" className="nav-link">Storia</a>
-          <a href="#contatti" className="nav-link">Contatti</a>
+          <a href="#" className="nav-link">{t.nav.home}</a>
+          <a href="#tours" className="nav-link">{t.nav.experiences}</a>
+          <a href="#fleet-primatist-g65" className="nav-link">{t.nav.fleet}</a>
+          <a href="#manifesto" className="nav-link">{t.nav.story}</a>
+          <a href="#contact" className="nav-link">{t.nav.contact}</a>
         </nav>
-        <button className="btn-header">WhatsApp</button>
+        <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-header">{t.nav.whatsapp}</a>
       </div>
     </header>
   );

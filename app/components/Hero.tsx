@@ -1,14 +1,12 @@
+"use client";
+
+import { useLang } from "../i18n/LanguageProvider";
+
 export default function Hero() {
+  const { t } = useLang();
   return (
     <section className="hero">
-      <video
-        className="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/hero-faraglioni.webp"
-      >
+      <video className="hero-video" autoPlay muted loop playsInline poster="/hero-faraglioni.webp">
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay" />
@@ -16,29 +14,24 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-pill">
           <span className="hero-pill-dot" />
-          On Sea Since 2002
+          {t.hero.pill}
         </div>
 
         <h1 className="hero-title">
-          Your Private<br />
-          <span className="italic">Sea Experience</span>
+          {t.hero.titleLine1}<br />
+          <span className="italic">{t.hero.titleAccent}</span>
         </h1>
 
         <div className="hero-actions">
-          <a href="#tour-island" className="btn-primary">Discover Tours</a>
-          <a
-            href="https://wa.me/393335741333"
-            target="_blank"
-            rel="noopener"
-            className="btn-secondary"
-          >
-            Contact Us
+          <a href="#tour-island" className="btn-primary">{t.hero.ctaPrimary}</a>
+          <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-secondary">
+            {t.hero.ctaSecondary}
           </a>
         </div>
       </div>
 
       <div className="hero-scroll">
-        <span className="hero-scroll-text">Scroll</span>
+        <span className="hero-scroll-text">{t.hero.scroll}</span>
         <div className="hero-scroll-line" />
       </div>
     </section>

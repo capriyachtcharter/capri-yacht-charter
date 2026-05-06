@@ -1,55 +1,63 @@
+"use client";
+
+import { useLang } from "../i18n/LanguageProvider";
+import LanguageSwitcher from "./LanguageSwitcher";
+
 export default function Footer() {
+  const { t } = useLang();
   return (
-    <footer className="footer">
+    <footer className="footer" id="contact">
       <div className="footer-blue">
         <div className="footer-cta">
           <div className="footer-cta-mark" aria-hidden>
             <img src="/logo-mark.png" alt="" className="footer-cta-logo" />
           </div>
           <h3 className="footer-cta-title">
-            Ready to <span className="accent-italic">Explore?</span>
+            {t.footer.cta.title} <span className="accent-italic">{t.footer.cta.titleAccent}</span>
           </h3>
           <p className="footer-cta-text">
-            Discover our private tours and book your experience
-            <br className="footer-cta-br" />
-            on the Mediterranean.
+            {t.footer.cta.text.split("\n").map((line, i, arr) => (
+              <span key={i}>
+                {line}
+                {i < arr.length - 1 && <br className="footer-cta-br" />}
+              </span>
+            ))}
           </p>
           <div className="footer-cta-buttons">
-            <button className="btn-footer-primary">View All Tours</button>
-            <button className="btn-footer-secondary">
-              Contact Us on WhatsApp
-            </button>
+            <a href="#tour-island" className="btn-footer-primary">{t.footer.cta.primary}</a>
+            <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-footer-secondary">
+              {t.footer.cta.secondary}
+            </a>
           </div>
         </div>
 
         <div className="footer-grid">
           <div>
-            <div className="footer-col-title">Experiences</div>
-            <a href="#tour-island" className="footer-link">Capri Island Tour</a>
-            <a href="#tour-blue-grotto" className="footer-link">Blue Grotto Tour</a>
-            <a href="#tour-full-day" className="footer-link">Full-Day Experience</a>
-            <a href="#tour-custom" className="footer-link">Personalize Your Tour</a>
-            <a href="/transfers" className="footer-link">Boat Transfers</a>
-            <a href="/skipper-charter" className="footer-link">Skipper Charter</a>
+            <div className="footer-col-title">{t.footer.cols.experiencesTitle}</div>
+            {t.tours.list.map((tour) => (
+              <a key={tour.id} href={`#${tour.id}`} className="footer-link">{tour.title}</a>
+            ))}
+            <a href="/transfers" className="footer-link">{t.beyond.transferTitle}</a>
+            <a href="/skipper-charter" className="footer-link">{t.beyond.skipperTitle}</a>
           </div>
           <div>
-            <div className="footer-col-title">The Fleet</div>
-            <a href="#fleet-primatist-g65" className="footer-link">Primatist G65 · 20m</a>
-            <a href="#fleet-primatist-g50" className="footer-link">Primatist G50 · 15m</a>
-            <a href="#fleet-sarima-39" className="footer-link">Sarima 39 · 12m</a>
+            <div className="footer-col-title">{t.footer.cols.fleetTitle}</div>
+            {t.fleet.boats.map((b) => (
+              <a key={b.id} href={`#fleet-${b.id}`} className="footer-link">{b.name} · {b.length}</a>
+            ))}
           </div>
           <div>
-            <div className="footer-col-title">Contact</div>
+            <div className="footer-col-title">{t.footer.cols.contactTitle}</div>
             <a href="tel:+393335741333" className="footer-link">+39 333 574 1333</a>
             <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="footer-link">WhatsApp</a>
-            <a href="mailto:info@capriyacht.com" className="footer-link">info@capriyacht.com</a>
-            <a href="https://maps.apple.com/?q=Marina+Grande+Capri" target="_blank" rel="noopener" className="footer-link">Marina Grande, Capri</a>
+            <a href="mailto:info@capriyachtcharter.com" className="footer-link">info@capriyachtcharter.com</a>
+            <a href="https://maps.apple.com/?q=Marina+Grande+Capri" target="_blank" rel="noopener" className="footer-link">Via Marina Grande 282, Capri</a>
           </div>
           <div>
-            <div className="footer-col-title">Hours &amp; Season</div>
-            <span className="footer-link is-static">Apr — Oct, daily</span>
-            <span className="footer-link is-static">Mon-Sun · 8:00 — 20:00</span>
-            <span className="footer-link is-static">Booking 48h in advance</span>
+            <div className="footer-col-title">{t.footer.cols.hoursTitle}</div>
+            <span className="footer-link is-static">{t.footer.cols.season}</span>
+            <span className="footer-link is-static">{t.footer.cols.timetable}</span>
+            <span className="footer-link is-static">{t.footer.cols.booking}</span>
           </div>
         </div>
       </div>
@@ -80,11 +88,12 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
-            <div>© 2026 Capri Yacht Charter · Sun &amp; Sea S.r.l. · VAT IT00000000000</div>
+            <div>{t.footer.bottom}</div>
             <div className="footer-legal">
-              <a className="footer-legal-link" href="/privacy">Privacy</a>
-              <a className="footer-legal-link" href="/terms">Terms</a>
-              <a className="footer-legal-link" href="/cookie">Cookie</a>
+              <LanguageSwitcher />
+              <a className="footer-legal-link" href="/privacy">{t.footer.legal.privacy}</a>
+              <a className="footer-legal-link" href="/terms">{t.footer.legal.terms}</a>
+              <a className="footer-legal-link" href="/cookie">{t.footer.legal.cookie}</a>
             </div>
           </div>
         </div>

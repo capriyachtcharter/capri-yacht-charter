@@ -1,45 +1,31 @@
-const items = [
-  {
-    n: "01",
-    title: "Entirely Private",
-    text: "Your group only. Always. No strangers, no shared decks.",
-  },
-  {
-    n: "02",
-    title: "Curated Routes",
-    text: "Predefined itineraries or fully custom — always with a professional skipper at the helm.",
-  },
-  {
-    n: "03",
-    title: "Premium Comfort",
-    text: "Prosecco on ice, snorkeling kit, sound system, fresh towels. Everything taken care of.",
-  },
-];
+"use client";
+
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function Manifesto() {
+  const { t } = useLang();
   return (
-    <section className="manifesto">
+    <section className="manifesto" id="manifesto">
       <div className="manifesto-inner">
         <div className="manifesto-intro" data-reveal>
-          <div className="eyebrow">The Promise</div>
+          <div className="eyebrow">{t.manifesto.eyebrow}</div>
           <h2 className="section-title manifesto-headline">
-            The boat is <span className="accent">yours.</span>
+            {t.manifesto.titleLine1} <span className="accent">{t.manifesto.titleAccent}</span>
             <br />
-            The day is yours.
+            {t.manifesto.titleLine2.replace(/(yours\.?|tua\.?)$/, "")}
+            <span className="accent">
+              {t.manifesto.titleLine2.match(/(yours\.?|tua\.?)$/)?.[0] ?? ""}
+            </span>
           </h2>
-          <p className="manifesto-prose">
-            Three vessels, two generations, twenty years on the same
-            stretch of sea. The Esposito family has been showing visitors
-            the Tyrrhenian coast since 2004 — one private day at a time.
-          </p>
+          <p className="manifesto-prose">{t.manifesto.prose}</p>
           <div className="manifesto-signature">
-            <div className="manifesto-signature-name">Carlo &amp; Marco Esposito</div>
-            <div className="manifesto-signature-role">Founders &amp; Captains</div>
+            <div className="manifesto-signature-name">{t.manifesto.signatureName}</div>
+            <div className="manifesto-signature-role">{t.manifesto.signatureRole}</div>
           </div>
         </div>
 
         <ul className="manifesto-list">
-          {items.map((item, i) => (
+          {t.manifesto.items.map((item, i) => (
             <li
               key={item.n}
               className="manifesto-list-item"

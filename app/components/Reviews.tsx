@@ -1,42 +1,20 @@
-const stats = [
-  { value: "4.9★", label: "Guest Rating" },
-  { value: "500+", label: "Private Tours" },
-  { value: "22", label: "Years at Sea" },
-];
+"use client";
 
-const reviews = [
-  {
-    text: "An unforgettable day on the water. The boat was immaculate, the captain incredibly knowledgeable, and the entire experience felt truly exclusive. Worth every cent.",
-    author: "Sarah M.",
-    location: "London, UK",
-    source: "TripAdvisor",
-  },
-  {
-    text: "We've chartered boats all over the Mediterranean, but Capri Yacht Charter stands out. Professional, elegant, and they know every hidden cove around the island.",
-    author: "James & Emma K.",
-    location: "New York, USA",
-    source: "Google Reviews",
-  },
-  {
-    text: "The highlight of our honeymoon. Swimming in the Blue Grotto, prosecco on deck, sunset behind the Faraglioni. Pure magic. Thank you for making it perfect.",
-    author: "Marco & Lucia",
-    location: "Milano, Italia",
-    source: "TripAdvisor",
-  },
-];
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function Reviews() {
+  const { t } = useLang();
   return (
     <section className="section">
       <div className="section-inner">
         <div className="reviews-head" data-reveal>
-          <div className="eyebrow">Testimonials</div>
+          <div className="eyebrow">{t.reviews.eyebrow}</div>
           <h2 className="section-title">
-            Trusted by <span className="accent">Thousands</span>
+            {t.reviews.title} <span className="accent">{t.reviews.titleAccent}</span>
           </h2>
 
           <div className="stats-strip">
-            {stats.map((s) => (
+            {t.reviews.stats.map((s) => (
               <div key={s.label} className="stats-strip-item">
                 <span className="stats-strip-value">{s.value}</span>
                 <span className="stats-strip-label">{s.label}</span>
@@ -46,7 +24,7 @@ export default function Reviews() {
         </div>
 
         <div className="reviews-grid">
-          {reviews.map((r, i) => (
+          {t.reviews.items.map((r, i) => (
             <div
               key={r.author}
               className="review-card"

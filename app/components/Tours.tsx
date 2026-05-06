@@ -1,89 +1,55 @@
-import Image from "next/image";
+"use client";
 
-const tours = [
-  {
-    id: "tour-island",
-    tag: "Most Popular",
-    img: "/tours/island-tour.jpg",
-    alt: "Capri Marina Piccola coastline",
-    meta: "Half Day · 4 Hours",
-    title: "Capri Island Tour",
-    desc: "The iconic circumnavigation. Faraglioni, Grotta Bianca, Grotta Verde, and a long swim in turquoise water.",
-    price: "€480",
-  },
-  {
-    id: "tour-blue-grotto",
-    tag: null,
-    img: "/tours/blue-grotto.jpg",
-    alt: "Casa Malaparte cliff",
-    meta: "Morning · 3 Hours",
-    title: "Blue Grotto Tour",
-    desc: "A focused early-morning route to the Grotta Azzurra with private rowboat access.",
-    price: "€360",
-  },
-  {
-    id: "tour-full-day",
-    tag: "Best Value",
-    img: "/tours/full-day.jpg",
-    alt: "Positano Amalfi Coast",
-    meta: "Full Day · 8 Hours",
-    title: "Full-Day Experience",
-    desc: "The complete coast: Capri, Positano, Amalfi villages. Lunch on board or in a hidden harbour.",
-    price: "€890",
-  },
-  {
-    id: "tour-custom",
-    tag: "Bespoke",
-    img: "/tours/custom.jpg",
-    alt: "Custom Mediterranean route",
-    meta: "Tailored · Any Length",
-    title: "Personalize Your Tour",
-    desc: "Build your own day on the water — choose stops, timing and rhythm. We design the route with you.",
-    price: "On Request",
-  },
-];
+import Image from "next/image";
+import { useLang } from "../i18n/LanguageProvider";
+
+const imgs: Record<string, string> = {
+  "tour-island": "/tours/island-tour.jpg",
+  "tour-blue-grotto": "/tours/blue-grotto.jpg",
+  "tour-full-day": "/tours/full-day.jpg",
+  "tour-custom": "/tours/custom.jpg",
+};
 
 export default function Tours() {
+  const { t } = useLang();
   return (
-    <section className="section">
+    <section className="section" id="tours">
       <div className="section-inner">
         <div data-reveal>
-          <div className="eyebrow">Curated Experiences</div>
+          <div className="eyebrow">{t.tours.eyebrow}</div>
           <h2 className="section-title">
-            Private Tours <span className="accent">in Capri</span>
+            {t.tours.title} <span className="accent">{t.tours.titleAccent}</span>
           </h2>
-          <p className="section-desc tours-desc">
-            Three signature experiences, each entirely private — pick a route or build your own.
-          </p>
+          <p className="section-desc tours-desc">{t.tours.desc}</p>
         </div>
 
         <div className="tours-grid">
-          {tours.map((t, i) => (
+          {t.tours.list.map((tour, i) => (
             <div
-              key={t.title}
-              id={t.id}
+              key={tour.id}
+              id={tour.id}
               className="tour-card"
               data-reveal="left"
               style={{ transitionDelay: `${i * 0.12}s` }}
             >
               <div className="tour-card-img">
-                {t.tag && <span className="tour-card-tag">{t.tag}</span>}
+                {tour.tag && <span className="tour-card-tag">{t.tours.tags[tour.tag]}</span>}
                 <Image
-                  src={t.img}
-                  alt={t.alt}
+                  src={imgs[tour.id]}
+                  alt={tour.title}
                   width={900}
                   height={1125}
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
               </div>
               <div className="tour-card-body">
-                <div className="tour-card-meta">{t.meta}</div>
-                <h3 className="tour-card-title">{t.title}</h3>
-                <p className="tour-card-desc">{t.desc}</p>
+                <div className="tour-card-meta">{tour.meta}</div>
+                <h3 className="tour-card-title">{tour.title}</h3>
+                <p className="tour-card-desc">{tour.desc}</p>
                 <div className="tour-card-footer">
                   <div className="tour-card-price">
-                    <span className="tour-card-price-label">From</span>
-                    <span className="tour-card-price-value">{t.price}</span>
+                    <span className="tour-card-price-label">{t.tours.from}</span>
+                    <span className="tour-card-price-value">{tour.price}</span>
                   </div>
                   <div className="tour-card-arrow" aria-hidden>
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
