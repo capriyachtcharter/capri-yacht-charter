@@ -6,6 +6,7 @@ import { useLang } from "../i18n/LanguageProvider";
 type Boat = {
   id: string;
   name: string;
+  model: string;
   type: string;
   length: string;
   capacity: string;
@@ -129,6 +130,7 @@ function FleetCard({ boat, delay }: { boat: Boat; delay: number }) {
 
       <div className="fleet-card-body">
         <h3 className="fleet-card-name">{boat.name}</h3>
+        <div className="fleet-card-model">{boat.model}</div>
         <div className="fleet-card-type">{boat.type}</div>
         <div className="fleet-card-specs">
           <span>{boat.length}</span>

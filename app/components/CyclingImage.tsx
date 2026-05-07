@@ -7,17 +7,26 @@ type Props = {
   alt: string;
   interval?: number;
   className?: string;
+  autoCycle?: boolean; // if true, cycles continuously without needing hover
 };
 
-export default function CyclingImage({ images, alt, interval = 2400, className }: Props) {
+export default function CyclingImage({ images, alt, interval = 2400, className, autoCycle = false }: Props) {
   const [index, setIndex] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const wrap = wrapRef.current;
     if (!wrap || images.length < 2) return;
-    // Walk up to find the closest article/card so the cycle reacts to
-    // hovering the whole card, not just the image.
+
+    if (autoCycle) {
+      const id = window.setInterval(() => {
+        setIndex((i) => (i + 1) % images.length);
+      }, interval);
+      return () => window.clearInterval(id);
+    }
+
+    // Hover-driven mode: walk up to find the closest card so the cycle reacts
+    // to hovering the whole card, not just the image.
     const card = wrap.closest("article, .fleet-card, .tour-card") as HTMLElement | null;
     const target = card ?? wrap;
 
@@ -45,7 +54,7 @@ export default function CyclingImage({ images, alt, interval = 2400, className }
       target.removeEventListener("focusin", start);
       target.removeEventListener("focusout", stop);
     };
-  }, [images.length, interval]);
+  }, [images.length, interval, autoCycle]);
 
   return (
     <div ref={wrapRef} className={`cycling-image ${className ?? ""}`}>

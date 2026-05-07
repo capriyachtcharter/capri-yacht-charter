@@ -46,18 +46,46 @@ export default function Tours() {
                 <div className="tour-card-meta">{tour.meta}</div>
                 <h3 className="tour-card-title">{tour.title}</h3>
                 <p className="tour-card-desc">{tour.desc}</p>
-                <div className="tour-card-footer">
-                  <div className="tour-card-price">
-                    <span className="tour-card-price-label">{t.tours.from}</span>
-                    <span className="tour-card-price-value">{tour.price}</span>
+                {tour.tag === "bespoke" ? (
+                  <div className="tour-card-footer tour-card-footer-bespoke">
+                    <a
+                      href="https://wa.me/393335741333"
+                      target="_blank"
+                      rel="noopener"
+                      className="tour-card-book tour-card-book-full"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {t.tours.inquire}
+                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="3" y1="8" x2="13" y2="8" />
+                        <polyline points="9 4 13 8 9 12" />
+                      </svg>
+                    </a>
                   </div>
-                  <div className="tour-card-arrow" aria-hidden>
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="3" y1="8" x2="13" y2="8" />
-                      <polyline points="9 4 13 8 9 12" />
-                    </svg>
+                ) : (
+                  <div className="tour-card-footer">
+                    <div className="tour-card-price">
+                      <span className="tour-card-price-label">{t.tours.from}</span>
+                      <span className="tour-card-price-value">{tour.price}</span>
+                    </div>
+                    <button
+                      type="button"
+                      className="tour-card-book"
+                      data-holidoit-tour={tour.id}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Hook for the Holidoit modal — wired by the booking script
+                        // (window as any).HolidoitModal?.open?.(tour.id);
+                      }}
+                    >
+                      {t.tours.book}
+                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="3" y1="8" x2="13" y2="8" />
+                        <polyline points="9 4 13 8 9 12" />
+                      </svg>
+                    </button>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           ))}

@@ -12,7 +12,7 @@ type Ctx = {
 const LanguageContext = createContext<Ctx | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("it");
+  const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
     try {
