@@ -15,31 +15,28 @@ type Boat = {
 };
 
 const boatImages: Record<string, string[]> = {
+  // Order: cover → exterior shots (varied angles) → interior
   "primatist-g65": [
-    "/fleet/primatist-g65.jpg",
-    "/fleet/g65/hero.jpg",
-    "/fleet/g65/aerial-1.jpg",
-    "/fleet/g65/solarium.jpg",
-    "/fleet/g65/salon.jpg",
-    "/fleet/g65/exterior-1.jpg",
-    "/fleet/g65/aerial-2.jpg",
+    "/fleet/primatist-g65.jpg",      // cover — sleek dark hull near cliffs
+    "/fleet/g65/side-profile.jpg",    // exterior — clean side profile in motion
+    "/fleet/g65/aerial-top.jpg",      // exterior — aerial 3/4 view
+    "/fleet/g65/exterior-1.jpg",      // interior — helm / cockpit
+    "/fleet/g65/salon.jpg",            // interior — master cabin
   ],
   "primatist-g50": [
-    "/fleet/primatist-g50.jpg",
-    "/fleet/g50/exterior.jpg",
-    "/fleet/g50/salon.jpg",
-    "/fleet/g50/cabin.jpg",
-    "/fleet/g50/bow.jpg",
-    "/fleet/g50/exterior-2.jpg",
+    "/fleet/primatist-g50.jpg",      // cover — gray hull at Capri's Faraglioni
+    "/fleet/g50/side-profile.jpg",    // exterior — clean side profile in motion
+    "/fleet/g50/bow.jpg",             // exterior — aft cockpit / champagne setup
+    "/fleet/g50/salon.jpg",           // interior — wooden salon
+    "/fleet/g50/cabin.jpg",           // interior — master cabin
   ],
   "sarima-39": [
-    "/fleet/sarima-39.jpg",
-    "/fleet/sarima/banner.jpg",
-    "/fleet/sarima/exterior-1.jpg",
-    "/fleet/sarima/exterior-2.jpg",
-    "/fleet/sarima/detail-1.jpg",
-    "/fleet/sarima/detail-2.jpg",
-    "/fleet/sarima/detail-3.jpg",
+    "/fleet/sarima/capri-anchored.jpg", // cover — dark hull anchored in Capri turquoise
+    "/fleet/sarima/navigating.jpg",     // exterior — navigating with coast behind
+    "/fleet/sarima/sunset.jpg",         // exterior — sunset golden hour with guests
+    "/fleet/sarima/at-anchor.jpg",      // exterior — white profile at anchor
+    "/fleet/sarima/detail-3.jpg",       // interior — salon
+    "/fleet/sarima/detail-2.jpg",       // interior — cabin
   ],
 };
 

@@ -4,9 +4,12 @@ import { useLang } from "../i18n/LanguageProvider";
 import CyclingImage from "./CyclingImage";
 
 const cruiseImages = [
-  "/cruises/amalfi-aerial.jpg",
-  "/cruises/sunrise-yacht.webp",
-  "/cruises/gulf-7days.jpg",
+  "/cruises/fiordo-furore.webp",   // iconic Amalfi scene — strongest opener
+  "/cruises/capri-tour.webp",       // yacht navigating through the Faraglioni
+  "/cruises/amalfi-aerial.jpg",     // aerial of the Amalfi coast
+  "/cruises/procida.jpg",           // colorful Corricella di Procida
+  "/cruises/sunrise-yacht.webp",    // yacht crossing open water
+  "/cruises/ischia.webp",           // Ischia port at golden hour
 ];
 
 export default function MiniCruises() {
