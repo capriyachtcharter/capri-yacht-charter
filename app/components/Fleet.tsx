@@ -25,7 +25,6 @@ const boatImages: Record<string, string[]> = {
   ],
   "primatist-g50": [
     "/fleet/primatist-g50.jpg",      // cover — gray hull at Capri's Faraglioni
-    "/fleet/g50/side-profile.jpg",    // exterior — clean side profile in motion
     "/fleet/g50/bow.jpg",             // exterior — aft cockpit / champagne setup
     "/fleet/g50/salon.jpg",           // interior — wooden salon
     "/fleet/g50/cabin.jpg",           // interior — master cabin
