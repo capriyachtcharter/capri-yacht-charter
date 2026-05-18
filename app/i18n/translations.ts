@@ -280,7 +280,7 @@ export const translations = {
       title: "More than a",
       titleAccent: "circumnavigation.",
       transferTitle: "Boat Transfers",
-      transferDesc: "Direct routes between Capri and the mainland — Naples, Sorrento, Positano, Amalfi. Private, point-to-point, on your schedule.",
+      transferDesc: "Direct routes between Capri and the mainland — Naples, Sorrento, Positano, Amalfi. Private, point-to-point, on your schedule — overnight transfers available.",
       transferCta: "View Transfers",
       skipperTitle: "Skipper Charter",
       skipperDesc: "The boat is yours, the captain is ours. No fixed itinerary — design the day with us, sail wherever the sea calls.",

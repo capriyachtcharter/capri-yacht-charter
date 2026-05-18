@@ -6,9 +6,9 @@ export default function BeyondTours() {
   const { t } = useLang();
 
   return (
-    <section className="beyond-tours">
+    <section className="beyond-tours" data-reveal>
       <div className="section-inner">
-        <div className="beyond-head" data-reveal>
+        <div className="beyond-head">
           <div className="eyebrow">{t.beyond.eyebrow}</div>
           <h2 className="section-title">
             {t.beyond.title} <span className="accent">{t.beyond.titleAccent}</span>
@@ -17,7 +17,7 @@ export default function BeyondTours() {
 
         <div className="beyond-grid">
           {/* Transfers card with VIP top-service highlight */}
-          <a href="/transfers" className="beyond-card" data-reveal="left">
+          <a href="/transfers" className="beyond-card">
             <div className="beyond-card-icon">
               <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 22 Q9 18 16 22 T29 22" />
@@ -50,7 +50,7 @@ export default function BeyondTours() {
           </a>
 
           {/* Skipper Charter card */}
-          <a href="/skipper-charter" className="beyond-card" data-reveal="left" style={{ transitionDelay: "0.14s" }}>
+          <a href="/skipper-charter" className="beyond-card">
             <div className="beyond-card-icon">
               <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="22" cy="9" r="3" />

@@ -1290,25 +1290,50 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .nav { display: none; }
-  .nav-dropdown { display: none; }
-  .tours-grid { grid-template-columns: 1fr; gap: 28px; }
-  .fleet-grid { grid-template-columns: 1fr; gap: 28px; }
-  .beyond-grid { grid-template-columns: 1fr; gap: 20px; }
-  .reviews-grid { grid-template-columns: 1fr; gap: 24px; }
-
-  /* On narrow stacks: kill the sibling shift on fleet (no horizontal room) */
+/* Earlier stack thresholds for content-heavy grids so cards don't get
+   visually cramped on narrow desktop/tablet widths. */
+@media (max-width: 1200px) {
+  .fleet-grid { grid-template-columns: 1fr; gap: 36px; }
+  /* No horizontal room → kill the sibling spotlight shift on fleet cards */
   .fleet-grid .fleet-card:has(~ .fleet-card:hover),
   .fleet-grid .fleet-card:hover ~ .fleet-card {
     transform: none;
   }
+}
+
+@media (max-width: 1100px) {
+  .beyond-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .nav-dropdown { display: none; }
+  .tours-grid { grid-template-columns: 1fr; gap: 28px; }
+  .reviews-grid { grid-template-columns: 1fr; gap: 24px; }
   .manifesto-inner { grid-template-columns: 1fr; gap: 60px; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
   .footer-cta { padding: 44px 32px 40px; }
   .footer-cta-buttons { flex-direction: column; width: 100%; }
   .footer-cta-buttons button { width: 100%; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* Narrow screens — stack the language switcher above the Concierge button
+   on the right side of the header so it stops fighting for horizontal room. */
+@media (max-width: 768px) {
+  .header-right {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .header .lang-switcher {
+    padding: 2px 6px;
+  }
+  .header .lang-btn {
+    padding: 2px 5px;
+    font-size: 10px;
+  }
+  .lang-flag { display: none; }
 }
 
 @media (max-width: 600px) {
@@ -2416,3 +2441,218 @@ body {
   color: var(--sea-dark);
   transform: translateX(3px);
 }
+
+/* === BLOCK: beyond-tours fade-up staggered dark reveal ===
+   Hooked into the global ScrollReveal pattern via `data-reveal` on the
+   <section>: ScrollReveal adds `.is-visible` on the first downward entry and
+   only clears it when the user scrolls back to the hero (top of page) — so
+   the reveal plays once on scroll-down and resets only on return to hero,
+   matching every other animation on the site.
+
+   The default `[data-reveal] { opacity: 0; transform: translateY(40px); }`
+   would hide the entire section: we explicitly opt out so only the inner
+   pieces (bg panel, headline, cards) carry their own staggered states.
+
+   Sequence (all slow expo-out 2.4s):
+     0.00s — dark navy panel fades + drifts up
+     0.35s — eyebrow + headline
+     0.65s — Transfers card
+     0.90s — Skipper card
+
+   Remove: delete this block + revert `data-reveal` on the <section>. */
+/* Permanent navy backdrop — the section is just blue, always.
+   As the user scrolls, it enters viewport already filled; no fade-in on the
+   bg itself. Only the headline + cards animate on top of it. */
+.beyond-tours {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--navy);
+  background-image:
+    radial-gradient(ellipse 920px 540px at 18% 18%, rgba(111, 181, 197, 0.12) 0%, transparent 62%),
+    radial-gradient(ellipse 780px 440px at 82% 96%, rgba(111, 181, 197, 0.09) 0%, transparent 60%);
+}
+
+/* Opt the section itself out of the default reveal-hide so its inner
+   pieces (controlled below) can drive their own staggered animations. */
+.beyond-tours[data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Headline cluster fade-up (just after the bg starts settling) */
+.beyond-tours .beyond-head {
+  opacity: 0;
+  translate: 0 42px;
+  transition:
+    opacity 2.4s cubic-bezier(0.19, 1, 0.22, 1) 0.35s,
+    translate 2.4s cubic-bezier(0.19, 1, 0.22, 1) 0.35s,
+    color 1.2s ease;
+}
+
+.beyond-tours[data-reveal].is-visible .beyond-head {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Text colors are permanently set for the navy backdrop — no swap on reveal. */
+.beyond-tours .eyebrow { color: var(--sea-light); }
+.beyond-tours .section-title { color: var(--cream-light); }
+
+/* Cards: dark glassy look. translate property drives the reveal so hover's
+   `transform: translateY(-4px)` stays independent and snappy. */
+.beyond-tours .beyond-card {
+  opacity: 0;
+  translate: 0 48px;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.32);
+  transition:
+    opacity 2.4s cubic-bezier(0.19, 1, 0.22, 1),
+    translate 2.4s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s ease,
+    background 0.4s ease;
+}
+
+.beyond-tours[data-reveal].is-visible .beyond-grid > .beyond-card:nth-of-type(1) {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.65s, 0.65s, 0s, 0s, 0s, 0s;
+}
+
+.beyond-tours[data-reveal].is-visible .beyond-grid > .beyond-card:nth-of-type(2) {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 0.90s, 0.90s, 0s, 0s, 0s, 0s;
+}
+
+.beyond-tours[data-reveal].is-visible .beyond-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(111, 181, 197, 0.45);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+}
+
+/* Card interior elements re-skinned for the dark glassy surface */
+.beyond-tours .beyond-card-icon {
+  background: rgba(111, 181, 197, 0.14);
+  color: var(--sea-light);
+}
+
+.beyond-tours .beyond-card-title { color: var(--cream-light); }
+.beyond-tours .beyond-card-desc { color: rgba(255, 255, 255, 0.72); }
+.beyond-tours .beyond-card-cta { color: var(--sea-light); }
+
+/* VIP callout adapted to dark card */
+.beyond-tours .vip-callout {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: var(--sea-light);
+}
+.beyond-tours .vip-callout-badge { color: var(--sea-light); }
+.beyond-tours .vip-callout-text { color: rgba(255, 255, 255, 0.82); }
+
+/* Silent reset when ScrollReveal pulls the user back to the hero. */
+.beyond-tours[data-reveal].no-transition .beyond-head,
+.beyond-tours[data-reveal].no-transition .beyond-card {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beyond-tours .beyond-head,
+  .beyond-tours .beyond-card {
+    opacity: 1;
+    translate: 0 0;
+    transition: none;
+  }
+}
+/* === END BLOCK: beyond-tours fade-up staggered dark reveal === */
+
+/* === BLOCK: fleet rise-and-cover reveal ===
+   When the user scrolls down past BeyondTours, the Fleet section rises
+   independently and slides up to physically cover the bottom of the dark
+   panel above. Two coordinated layers do this:
+
+     1. A cream `::before` panel sits 90px above the section's natural top
+        and animates UP from below. Once revealed, it overlaps BeyondTours'
+        bottom 90px — the literal "cover" effect.
+     2. `.section-inner` (head + grid) rises ~130px from below with a slow
+        expo-out, so the actual content reads as "lifted into place".
+
+   Hooked into the global ScrollReveal pattern via `data-reveal` on the
+   <section>: plays once on first scroll-down entry, resets only when the
+   user returns to the hero. Re-entry from below (after first reveal) does
+   NOT replay — same behaviour as every other animation on the site.
+
+   Fleet keeps its existing solid cream background and bumps z-index above
+   the BeyondTours panel so the cover actually layers on top.
+
+   Remove this block + revert `data-reveal` on the <section> to clean up. */
+.fleet {
+  position: relative;
+  z-index: 5;
+}
+
+.fleet[data-reveal] {
+  /* Opt out of the default reveal-hide so the section frame stays visible
+     and only the dedicated panels + inner content carry the animation. */
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Cover panel — sits above the section's top edge and slides up to physically
+   overlap the dark BeyondTours panel by 90px once revealed. */
+.fleet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -90px;
+  height: 90px;
+  background: var(--bg-secondary);
+  opacity: 0;
+  translate: 0 90px;
+  transition:
+    opacity 2.4s cubic-bezier(0.19, 1, 0.22, 1),
+    translate 2.4s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fleet[data-reveal].is-visible::before {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Inner content rises from below with a slow expo-out (the "actual" lift). */
+.fleet > .section-inner {
+  opacity: 0;
+  translate: 0 130px;
+  transition:
+    opacity 2.4s cubic-bezier(0.19, 1, 0.22, 1),
+    translate 2.4s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, translate;
+}
+
+.fleet[data-reveal].is-visible > .section-inner {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Silent reset when ScrollReveal returns the user to the hero. */
+.fleet[data-reveal].no-transition::before,
+.fleet[data-reveal].no-transition > .section-inner {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fleet::before,
+  .fleet > .section-inner {
+    opacity: 1;
+    translate: 0 0;
+    transition: none;
+  }
+}
+/* === END BLOCK: fleet rise-and-cover reveal === */

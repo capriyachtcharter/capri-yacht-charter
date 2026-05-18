@@ -8,9 +8,23 @@ type Props = {
   interval?: number;
   className?: string;
   autoCycle?: boolean; // if true, cycles continuously without needing hover
+  /** When true (autoCycle only), the interval starts only after the wrapper
+   *  is fully revealed by the user's scroll (intersectionRatio >= viewportGate)
+   *  and pauses when the image leaves the viewport. */
+  startWhenInView?: boolean;
+  /** Intersection ratio that must be reached before the cycle starts. */
+  viewportGate?: number;
 };
 
-export default function CyclingImage({ images, alt, interval = 2400, className, autoCycle = false }: Props) {
+export default function CyclingImage({
+  images,
+  alt,
+  interval = 2400,
+  className,
+  autoCycle = false,
+  startWhenInView = false,
+  viewportGate = 0.8,
+}: Props) {
   const [index, setIndex] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
 
@@ -19,10 +33,39 @@ export default function CyclingImage({ images, alt, interval = 2400, className, 
     if (!wrap || images.length < 2) return;
 
     if (autoCycle) {
-      const id = window.setInterval(() => {
-        setIndex((i) => (i + 1) % images.length);
-      }, interval);
-      return () => window.clearInterval(id);
+      let id: number | null = null;
+      const startTimer = () => {
+        if (id != null) return;
+        id = window.setInterval(() => {
+          setIndex((i) => (i + 1) % images.length);
+        }, interval);
+      };
+      const stopTimer = () => {
+        if (id != null) {
+          window.clearInterval(id);
+          id = null;
+        }
+      };
+
+      if (startWhenInView && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.intersectionRatio >= viewportGate) startTimer();
+              else stopTimer();
+            }
+          },
+          { threshold: [0, viewportGate, 1] }
+        );
+        io.observe(wrap);
+        return () => {
+          stopTimer();
+          io.disconnect();
+        };
+      }
+
+      startTimer();
+      return () => stopTimer();
     }
 
     // Hover-driven mode: walk up to find the closest card so the cycle reacts

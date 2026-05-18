@@ -151,9 +151,9 @@ export default function Fleet() {
     images: boatImages[b.id] ?? [],
   }));
   return (
-    <section className="fleet section">
+    <section className="fleet section" data-reveal>
       <div className="section-inner">
-        <div className="fleet-head" data-reveal>
+        <div className="fleet-head">
           <div className="eyebrow">{t.fleet.eyebrow}</div>
           <h2 className="section-title">
             {t.fleet.title} <span className="accent">{t.fleet.titleAccent}</span>

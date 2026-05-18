@@ -18,7 +18,14 @@ export default function MiniCruises() {
     <section className="mini-cruises">
       <div className="mini-cruises-inner">
         <div className="mini-cruises-img" data-reveal="left">
-          <CyclingImage images={cruiseImages} alt={t.miniCruises.title} interval={4500} autoCycle />
+          <CyclingImage
+            images={cruiseImages}
+            alt={t.miniCruises.title}
+            interval={7500}
+            autoCycle
+            startWhenInView
+            viewportGate={0.85}
+          />
           <div className="mini-cruises-img-overlay" aria-hidden />
         </div>
 
