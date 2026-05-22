@@ -4,11 +4,42 @@ import Link from "next/link";
 import Image from "next/image";
 import PageShell from "../components/PageShell";
 import { useLang } from "../i18n/LanguageProvider";
-import { tours, transferRoutes } from "../data/tours";
+import { tours } from "../data/tours";
+
+// Bento layout — perfect 6-column rectangle:
+// Row 1-2: LARGE Costiera (4×2)         + TALL Positano (2×2)
+// Row 3:   MEDIUM Ischia (3)            + MEDIUM Procida (3)
+// Row 4:   TALL Sorrento (2×2) starts   + SMALL Giro (2) + SMALL Grotta (2)
+// Row 5:   TALL Sorrento continues      + HALFWIDE Su Misura (4)
+const sizeByLegacy: Record<string, "large" | "tall" | "medium" | "small" | "halfwide"> = {
+  "tour-full-day": "large", // Capri & Costiera Amalfitana €890 — flagship
+  "tour-capri-positano": "tall", // €750
+  "tour-capri-ischia": "medium", // €820
+  "tour-ischia-procida": "medium", // €820
+  "tour-capri-sorrento": "tall", // €780 — vertical on the left
+  "tour-island": "small", // €480
+  "tour-blue-grotto": "small", // €360
+  "tour-custom": "halfwide", // bespoke — 4-wide banner
+};
+
+// Render order respects auto-flow so cells fill the 6×5 rectangle with no gaps.
+const renderOrder = [
+  "tour-full-day", // large rows 1-2 cols 1-4
+  "tour-capri-positano", // tall rows 1-2 cols 5-6
+  "tour-capri-ischia", // medium row 3 cols 1-3
+  "tour-ischia-procida", // medium row 3 cols 4-6
+  "tour-capri-sorrento", // tall rows 4-5 cols 1-2 (LEFT)
+  "tour-island", // small row 4 cols 3-4
+  "tour-blue-grotto", // small row 4 cols 5-6
+  "tour-custom", // halfwide row 5 cols 3-6
+];
 
 export default function ToursHubPage() {
   const { lang, t } = useLang();
-  const daily = tours.filter((tr) => tr.category === "daily");
+  const dailyMap = Object.fromEntries(
+    tours.filter((tr) => tr.category === "daily").map((tr) => [tr.legacyId, tr])
+  );
+  const daily = renderOrder.map((id) => dailyMap[id]).filter(Boolean);
 
   return (
     <PageShell>
@@ -20,8 +51,8 @@ export default function ToursHubPage() {
           </h1>
           <p className="page-hero-desc">
             {lang === "it"
-              ? "Tour giornalieri privati, noleggi brevi e mini crociere — scegli la giornata che hai in mente o costruiamola insieme."
-              : "Private day tours, short charters and mini cruises — pick the day you have in mind or build it with us."}
+              ? "Otto giornate private al mare, ognuna disegnata su un'idea di Capri diversa. Scegli quella che hai in mente — o costruiamola insieme."
+              : "Eight private days at sea, each shaped around a different idea of Capri. Pick the one you have in mind — or let's build it together."}
           </p>
         </div>
       </section>
@@ -29,50 +60,47 @@ export default function ToursHubPage() {
       <section className="section" id="daily">
         <div className="section-inner">
           <div data-reveal>
-            <div className="eyebrow">{lang === "it" ? "Tour Giornalieri" : "Day Tours"}</div>
+            <div className="eyebrow">{lang === "it" ? "Tour giornalieri" : "Day tours"}</div>
             <h2 className="section-title">
               {lang === "it" ? "Le esperienze " : "Signature "}
               <span className="accent">{lang === "it" ? "in mare" : "experiences"}</span>
             </h2>
-            <p className="section-desc tours-desc">
-              {lang === "it"
-                ? "Otto itinerari curati, ognuno interamente privato. Da Capri all'Amalfitana, fino al Golfo e alle isole."
-                : "Eight curated itineraries, each entirely private. From Capri to the Amalfi Coast and the Gulf islands."}
-            </p>
           </div>
 
-          <div className="tours-grid tours-grid-wide">
+          <div className="bento-grid">
             {daily.map((tour, i) => {
               const c = lang === "it" ? tour.it : tour.en;
               const tagLabel = tour.tag ? t.tours.tags[tour.tag] : null;
+              const size = sizeByLegacy[tour.legacyId] ?? "medium";
               return (
                 <Link
                   key={tour.slug}
                   href={`/tours/${tour.slug}`}
-                  className="tour-card tour-card-link"
-                  data-reveal="left"
-                  style={{ transitionDelay: `${(i % 4) * 0.1}s` }}
+                  className={`bento-card bento-${size}`}
+                  data-reveal="fade"
+                  style={{ transitionDelay: `${(i % 4) * 0.08}s` }}
                 >
-                  <div className="tour-card-img">
-                    {tagLabel && <span className="tour-card-tag">{tagLabel}</span>}
+                  <div className="bento-card-img">
                     <Image
                       src={tour.image}
                       alt={c.title}
-                      width={900}
-                      height={1125}
-                      style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 50vw"
+                      style={{ objectFit: "cover" }}
                     />
+                    <div className="bento-card-overlay" />
                   </div>
-                  <div className="tour-card-body">
-                    <div className="tour-card-meta">{c.meta}</div>
-                    <h3 className="tour-card-title">{c.title}</h3>
-                    <p className="tour-card-desc">{c.short}</p>
-                    <div className="tour-card-footer">
-                      <div className="tour-card-price">
-                        <span className="tour-card-price-label">{t.tours.from}</span>
-                        <span className="tour-card-price-value">{tour.priceFrom}</span>
+                  <div className="bento-card-body">
+                    {tagLabel && <span className="bento-card-tag">{tagLabel}</span>}
+                    <div className="bento-card-meta">{c.meta}</div>
+                    <h3 className="bento-card-title">{c.title}</h3>
+                    <p className="bento-card-desc">{c.short}</p>
+                    <div className="bento-card-footer">
+                      <div className="bento-card-price">
+                        <span>{t.tours.from}</span>
+                        <strong>{tour.priceFrom}</strong>
                       </div>
-                      <span className="tour-card-book">
+                      <span className="bento-card-cta">
                         {lang === "it" ? "Scopri" : "Discover"}
                         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="3" y1="8" x2="13" y2="8" />
@@ -88,68 +116,7 @@ export default function ToursHubPage() {
         </div>
       </section>
 
-      <section className="section section-alt" id="transfers">
-        <div className="section-inner">
-          <div data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Noleggio Breve & Trasferimenti" : "Short Charters & Transfers"}
-            </div>
-            <h2 className="section-title">
-              {lang === "it" ? "Tratte dirette, " : "Direct routes, "}
-              <span className="accent">
-                {lang === "it" ? "tariffe trasparenti." : "transparent rates."}
-              </span>
-            </h2>
-            <p className="section-desc">
-              {lang === "it"
-                ? "Trasferimenti privati point-to-point tra Capri, la costiera e le isole. Prezzi per barca, equipaggio e snack inclusi."
-                : "Private point-to-point transfers between Capri, the coast and the islands. Prices per boat, crew and snacks included."}
-            </p>
-          </div>
-
-          <div className="transfer-table-wrap" data-reveal>
-            <table className="transfer-table">
-              <thead>
-                <tr>
-                  <th>{lang === "it" ? "Tratta" : "Route"}</th>
-                  <th>{lang === "it" ? "Durata" : "Duration"}</th>
-                  <th>Libeccio</th>
-                  <th>Tramontana</th>
-                  <th>Gabbiano</th>
-                </tr>
-              </thead>
-              <tbody>
-                {transferRoutes.map((r) => (
-                  <tr key={`${r.from}-${r.to}`}>
-                    <td>
-                      <strong>{r.from}</strong> → {r.to}
-                    </td>
-                    <td>{r.duration}</td>
-                    <td>€{r.v65.toLocaleString("it-IT")}</td>
-                    <td>€{r.v55.toLocaleString("it-IT")}</td>
-                    <td>€{r.s38.toLocaleString("it-IT")}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="transfer-note">
-              {lang === "it"
-                ? "Il prezzo include equipaggio, carburante, IVA, snack e soft drink, porti d'imbarco e sbarco."
-                : "Price includes crew, fuel, VAT, snacks and soft drinks, embarkation and disembarkation ports."}
-            </p>
-            <a
-              href="https://wa.me/393335741333"
-              target="_blank"
-              rel="noopener"
-              className="btn-primary"
-            >
-              {lang === "it" ? "Richiedi un trasferimento" : "Request a transfer"}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="mini-cruises">
+      <section className="section section-alt" id="mini-cruises">
         <div className="section-inner">
           <div data-reveal>
             <div className="eyebrow">{t.miniCruises.eyebrow}</div>
@@ -180,19 +147,23 @@ export default function ToursHubPage() {
               <h3>{t.miniCruises.bullet3}</h3>
               <p>
                 {lang === "it"
-                  ? "Tender, SUP, snorkeling, attrezzatura snorkel — tutto a bordo."
+                  ? "Tender, SUP, attrezzatura snorkel — tutto a bordo."
                   : "Tender, SUP, snorkeling gear — all on board."}
               </p>
             </div>
           </div>
 
           <div className="cta-row" data-reveal>
-            <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-primary">
-              {t.miniCruises.cta}
+            <a
+              href={`https://wa.me/393335741333?text=${encodeURIComponent(
+                lang === "it" ? "Vorrei personalizzare una mini crociera" : "I'd like to plan a custom mini cruise"
+              )}`}
+              target="_blank"
+              rel="noopener"
+              className="btn-primary"
+            >
+              {lang === "it" ? "Personalizza la tua crociera" : "Plan your cruise"}
             </a>
-            <Link href="/fleet" className="btn-secondary-dark">
-              {lang === "it" ? "Vedi la flotta" : "View the fleet"}
-            </Link>
           </div>
         </div>
       </section>

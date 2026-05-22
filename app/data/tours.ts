@@ -140,7 +140,7 @@ export const tours: Tour[] = [
     hours: "8h",
     priceFrom: "€890",
     tag: "value",
-    image: "/tours/full-day.jpg",
+    image: "/tours/amalfi-coast.png",
     boats: ["primatist-g65", "primatist-g50"],
     it: {
       title: "Capri & Costiera Amalfitana",
@@ -190,7 +190,7 @@ export const tours: Tour[] = [
     category: "daily",
     hours: "8h",
     priceFrom: "€750",
-    image: "/tours/full-day.jpg",
+    image: "/tours/positano.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Capri & Positano",
@@ -323,7 +323,7 @@ export const tours: Tour[] = [
     category: "daily",
     hours: "8h",
     priceFrom: "€780",
-    image: "/cruises/capri-tour.webp",
+    image: "/cruises/sunrise-yacht.webp",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Capri & Sorrento",

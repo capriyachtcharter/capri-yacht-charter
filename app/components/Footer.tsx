@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLang } from "../i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { toursByLegacyId } from "../data/tours";
@@ -8,31 +9,35 @@ import { boatByLegacyId } from "../data/fleet";
 
 export default function Footer() {
   const { t } = useLang();
+  const pathname = usePathname();
+  const showCta = pathname === "/";
   return (
     <footer className="footer" id="contact">
       <div className="footer-blue">
-        <div className="footer-cta">
-          <div className="footer-cta-mark" aria-hidden>
-            <img src="/logo-mark.png" alt="" className="footer-cta-logo" />
+        {showCta && (
+          <div className="footer-cta">
+            <div className="footer-cta-mark" aria-hidden>
+              <img src="/logo-mark.png" alt="" className="footer-cta-logo" />
+            </div>
+            <h3 className="footer-cta-title">
+              {t.footer.cta.title} <span className="accent-italic">{t.footer.cta.titleAccent}</span>
+            </h3>
+            <p className="footer-cta-text">
+              {t.footer.cta.text.split("\n").map((line, i, arr) => (
+                <span key={i}>
+                  {line}
+                  {i < arr.length - 1 && <br className="footer-cta-br" />}
+                </span>
+              ))}
+            </p>
+            <div className="footer-cta-buttons">
+              <Link href="/tours" className="btn-footer-primary">{t.footer.cta.primary}</Link>
+              <Link href="/contact" className="btn-footer-secondary">
+                {t.footer.cta.secondary}
+              </Link>
+            </div>
           </div>
-          <h3 className="footer-cta-title">
-            {t.footer.cta.title} <span className="accent-italic">{t.footer.cta.titleAccent}</span>
-          </h3>
-          <p className="footer-cta-text">
-            {t.footer.cta.text.split("\n").map((line, i, arr) => (
-              <span key={i}>
-                {line}
-                {i < arr.length - 1 && <br className="footer-cta-br" />}
-              </span>
-            ))}
-          </p>
-          <div className="footer-cta-buttons">
-            <Link href="/tours" className="btn-footer-primary">{t.footer.cta.primary}</Link>
-            <Link href="/contact" className="btn-footer-secondary">
-              {t.footer.cta.secondary}
-            </Link>
-          </div>
-        </div>
+        )}
 
         <div className="footer-grid">
           <div>
@@ -76,7 +81,13 @@ export default function Footer() {
       <div className="footer-black">
         <div className="footer-black-inner">
           <div className="footer-top-row">
-            <div className="footer-logo">Capri Yacht Charter</div>
+            <Link href="/" className="footer-logo-mark" aria-label="Capri Yacht Charter">
+              <img src="/logo-mark.png" alt="" className="footer-logo-mark-img" />
+              <span className="footer-logo-text-wrap">
+                <span className="footer-logo-name">Capri Yacht Charter</span>
+                <span className="footer-logo-subtitle">Since 2002</span>
+              </span>
+            </Link>
             <div className="footer-social">
               <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" className="footer-social-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">

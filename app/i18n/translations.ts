@@ -6,6 +6,7 @@ export const translations = {
       home: "Home",
       experiences: "Esperienze",
       fleet: "Flotta",
+      transfers: "Trasferimenti",
       story: "Storia",
       contact: "Contatti",
       whatsapp: "Contattaci",
@@ -205,7 +206,7 @@ export const translations = {
       bullet1: "Da 2 a 7 giorni · cabine private",
       bullet2: "Chef a bordo · itinerario su misura",
       bullet3: "Tender, attrezzatura snorkeling e SUP inclusi",
-      cta: "Richiedi l'Itinerario",
+      cta: "Personalizza la tua crociera",
     },
     transferVip: {
       title: "Top Service",
@@ -217,6 +218,7 @@ export const translations = {
       home: "Home",
       experiences: "Experiences",
       fleet: "Fleet",
+      transfers: "Transfers",
       story: "Story",
       contact: "Contact",
       whatsapp: "Concierge",
@@ -416,7 +418,7 @@ export const translations = {
       bullet1: "2–7 days · Private cabins",
       bullet2: "Onboard chef · Tailored itinerary",
       bullet3: "Tender & snorkel gear included",
-      cta: "Request Itinerary",
+      cta: "Plan your cruise",
     },
     transferVip: {
       title: "Top Service",

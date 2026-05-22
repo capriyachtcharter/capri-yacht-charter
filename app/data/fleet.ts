@@ -152,7 +152,7 @@ export const fleet: Boat[] = [
     slug: "gabbiano",
     legacyId: "sarima-39",
     shortName: "Gabbiano",
-    cover: "/fleet/primatist-g50.jpg",
+    cover: "/fleet/sarima/at-anchor.jpg",
     gallery: [
       "/fleet/sarima/at-anchor.jpg",
       "/fleet/sarima/navigating.jpg",

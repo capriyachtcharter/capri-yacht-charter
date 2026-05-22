@@ -62,9 +62,14 @@ export default function FleetHubPage() {
                       <Link href={`/fleet/${b.slug}`} className="btn-primary">
                         {lang === "it" ? "Scopri di più" : "Discover more"}
                       </Link>
-                      <Link href="/tours" className="btn-secondary-dark">
-                        {lang === "it" ? "Vedi i tour" : "See the tours"}
-                      </Link>
+                      <a
+                        href="https://wa.me/393335741333"
+                        target="_blank"
+                        rel="noopener"
+                        className="btn-secondary-dark"
+                      >
+                        {lang === "it" ? "Prenota ora" : "Book now"}
+                      </a>
                     </div>
                   </div>
                 </article>

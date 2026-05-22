@@ -72,7 +72,7 @@ body {
   left: 0;
   right: 0;
   z-index: 9999;
-  padding: 28px 6vw;
+  padding: 28px 32px;
   backdrop-filter: blur(20px) saturate(180%);
   background: rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid transparent;
@@ -80,18 +80,24 @@ body {
 }
 
 .header.scrolled {
-  padding: 20px 6vw;
+  padding: 20px 32px;
   background: rgba(251, 250, 246, 0.92);
   box-shadow: 0 4px 24px rgba(15, 22, 35, 0.06);
   border-bottom-color: var(--border-subtle);
 }
 
 .header-inner {
-  max-width: 1600px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.header-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 56px;
 }
 
 .logo {
@@ -590,9 +596,8 @@ body {
 
 /* ===== MANIFESTO ===== */
 .manifesto {
-  padding: 160px 6vw;
+  padding: 200px 6vw 160px;
   background: var(--cream);
-  border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -713,6 +718,16 @@ body {
   .tours-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
 }
 
+@media (max-width: 640px) {
+  .tours-grid { grid-template-columns: 1fr; gap: 24px; }
+  /* On mobile a single column means descriptions don't wrap as much.
+     Relax the min-heights so cards don't have huge blank gaps. */
+  .tour-card-title { min-height: 0; }
+  .tour-card-desc { min-height: 0; }
+  .tour-card-body { padding: 24px; }
+  .tour-card-title { font-size: 24px; }
+}
+
 .tours-grid {
   align-items: stretch;
 }
@@ -802,6 +817,9 @@ body {
   line-height: 1.2;
   color: var(--navy);
   margin-bottom: 16px;
+  /* Reserve 2 lines so titles that wrap don't push the footer below the
+     other cards. Single-line titles get extra whitespace above the desc. */
+  min-height: calc(28px * 1.2 * 2);
 }
 
 .tour-card-desc {
@@ -811,6 +829,10 @@ body {
   margin-bottom: 24px;
   font-weight: 300;
   flex: 1;
+  /* Force the description block to reserve at least N rows so the divider
+     line + price + button sit at the SAME Y across all 4 cards, regardless
+     of how long the individual description is. */
+  min-height: calc(15px * 1.7 * 3);
 }
 
 .tour-card-footer {
@@ -836,7 +858,7 @@ body {
 
 .tour-card-price-value {
   font-family: var(--sans);
-  font-size: 22px;
+  font-size: 26px;
   color: var(--sea-dark);
   font-weight: 600;
   letter-spacing: -0.005em;
@@ -848,6 +870,8 @@ body {
 .tour-card-footer-bespoke {
   margin-top: auto;
   display: block;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 24, 69, 0.08);
 }
 
 .tour-card-book-full {
@@ -856,9 +880,9 @@ body {
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 12px 20px;
+  padding: 14px 20px;
   border-radius: 100px;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-decoration: none;
 }
@@ -871,19 +895,21 @@ body {
 .tour-card-book {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
+  gap: 8px;
+  padding: 10px 20px;
   border-radius: 100px;
   background: var(--navy);
   border: 1px solid var(--navy);
   color: #FFFFFF;
   font-family: var(--sans);
-  font-size: 10.5px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition: background 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 500ms cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
 .tour-card-book svg {
@@ -1260,6 +1286,45 @@ body {
   letter-spacing: 0.01em;
 }
 
+/* Branded logo in the footer black bar */
+.footer-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-logo-mark-img {
+  height: 38px;
+  width: auto;
+  filter: brightness(1.4);
+}
+
+.footer-logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.footer-logo-name {
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+}
+
+.footer-logo-subtitle {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 5px;
+}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1306,9 +1371,7 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .nav { display: none; }
   .nav-dropdown { display: none; }
-  .tours-grid { grid-template-columns: 1fr; gap: 28px; }
   .reviews-grid { grid-template-columns: 1fr; gap: 24px; }
   .manifesto-inner { grid-template-columns: 1fr; gap: 60px; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
@@ -1318,26 +1381,108 @@ body {
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
 
-/* Narrow screens — stack the language switcher above the Concierge button
-   on the right side of the header so it stops fighting for horizontal room. */
-@media (max-width: 768px) {
+/* Narrow screens — keep header readable as the viewport tightens. */
+@media (max-width: 1100px) {
+  .header { padding: 24px 24px; }
+  .header.scrolled { padding: 18px 24px; }
+  .header-left { gap: 32px; }
+  .nav { gap: 22px; }
+  .nav-link { font-size: 13px; }
+  .logo-subtitle { display: none; }
+}
+
+@media (max-width: 820px) {
+  .header { padding: 20px 18px; }
+  .header.scrolled { padding: 16px 18px; }
+  .header-left { gap: 18px; }
+  .nav { gap: 14px; }
+  .nav-link { font-size: 12px; letter-spacing: 0.05em; }
+  .logo-text { font-size: 14px; letter-spacing: 0.08em; }
+  .logo-img { height: 32px; }
+  .btn-header { padding: 8px 14px; font-size: 11px; }
+}
+
+@media (max-width: 640px) {
+  /* On phones: header wraps into 2 rows.
+     Row 1: logo (icon only) + lang + Concierge
+     Row 2: full nav, scrolls horizontally if needed */
+  .logo-text-wrap { display: none; }
+  .header-inner { flex-wrap: wrap; row-gap: 12px; }
+  .header-left {
+    width: 100%;
+    justify-content: space-between;
+    order: 2;
+    gap: 12px;
+  }
   .header-right {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
+    order: 1;
+    margin-left: auto;
   }
-  .header .lang-switcher {
-    padding: 2px 6px;
+  .logo { order: 0; }
+  .nav {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
-  .header .lang-btn {
-    padding: 2px 5px;
-    font-size: 10px;
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-link { font-size: 11px; white-space: nowrap; }
+
+  /* Hero on phones — keep title and CTAs comfortably inside the viewport */
+  .hero-title { font-size: clamp(2.2rem, 9vw, 3.4rem); line-height: 1.1; padding: 0 24px; }
+  .hero-pill { font-size: 11px; padding: 6px 14px; }
+  .hero-actions { gap: 12px; padding: 0 24px; }
+  .btn-primary, .btn-secondary {
+    padding: 14px 26px;
+    font-size: 13px;
   }
-  .lang-flag { display: none; }
+  .hero-scroll { bottom: 32px; }
+
+  /* All multi-column grids collapse to a single column on phones */
+  .mini-cruises-features-grid,
+  .vip-features-grid,
+  .skipper-steps,
+  .contact-grid,
+  .tour-boats-grid,
+  .boat-tours-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* Mini cruises layout: image stacks above text on phones */
+  .mini-cruises-inner { grid-template-columns: 1fr !important; gap: 32px; }
+  .mini-cruises-img { aspect-ratio: 4 / 3; }
 }
 
 @media (max-width: 600px) {
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* Page hero (sub-pages) — tighten padding on small screens */
+@media (max-width: 768px) {
+  .page-hero { padding: 140px 24px 56px; }
+  .page-hero-title { font-size: clamp(2rem, 6vw, 3rem); }
+  .page-hero-desc { font-size: 1rem; }
+  .section { padding: 80px 24px; }
+}
+
+/* Fleet section — smaller padding-bottom on mobile (cards already stack) */
+@media (max-width: 900px) {
+  .fleet-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 480px; }
+  .fleet { padding-bottom: 160px; }
+}
+
+@media (max-width: 640px) {
+  .fleet-grid { grid-template-columns: 1fr; grid-auto-rows: 460px; gap: 24px; }
+  .fleet { padding-bottom: 120px; }
+}
+
+/* Transfer table — make it scrollable horizontally on phones */
+@media (max-width: 720px) {
+  .transfer-table-wrap { padding: 24px; border-radius: 16px; }
+  .transfer-table { font-size: 0.85rem; min-width: 600px; }
+  .transfer-table th, .transfer-table td { padding: 12px 8px; }
 }
 
 /* ===== SCROLL REVEAL ANIMATIONS ===== */
@@ -1461,6 +1606,9 @@ body {
 /* ===== FLEET SECTION ===== */
 .fleet {
   background: var(--bg-secondary);
+  /* Extra padding so the absolute extra panel (on hover) doesn't clash
+     with the Manifesto. The card itself never grows in height. */
+  padding-bottom: 200px;
 }
 
 .fleet-head {
@@ -1479,6 +1627,10 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+  /* Row height is LOCKED so a card growing on hover does NOT push the grid
+     taller — Manifesto below never shifts. The card overflows visibly with
+     z-index 10 (overflow: visible on the card). */
+  grid-auto-rows: 480px;
 }
 
 .fleet-grid {
@@ -1489,9 +1641,11 @@ body {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  overflow: hidden;
-  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 2s cubic-bezier(0.16, 1, 0.3, 1),
+  /* Outer card keeps its corners visible but lets the absolute extra panel
+     spill below without being clipped. The image still gets its own clip. */
+  overflow: visible;
+  transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 850ms cubic-bezier(0.19, 1, 0.22, 1),
               border-color 0.8s ease;
   box-shadow: 0 2px 12px rgba(15, 22, 35, 0.04);
   position: relative;
@@ -1501,18 +1655,16 @@ body {
 .fleet-card:hover,
 .fleet-card[data-reveal]:hover,
 .fleet-card[data-reveal].is-visible:hover {
-  transform: translateY(-16px) scale(1.18);
-  box-shadow: 0 40px 90px rgba(15, 22, 35, 0.28);
-  border-color: rgba(111, 181, 197, 0.4);
-  z-index: 3;
+  transform: translateY(-6px) scale(1.035);
+  box-shadow: 0 24px 56px rgba(15, 22, 35, 0.16);
+  border-color: rgba(111, 181, 197, 0.32);
+  z-index: 10;
 }
 
-/* Spotlight: same shift trick for the fleet */
-.fleet-grid .fleet-card:has(~ .fleet-card:hover) {
-  transform: translateX(-44px);
-}
+/* No sibling shift — neighbors stay perfectly still. */
+.fleet-grid .fleet-card:has(~ .fleet-card:hover),
 .fleet-grid .fleet-card:hover ~ .fleet-card {
-  transform: translateX(44px);
+  transform: none;
 }
 
 .fleet-card-img {
@@ -1520,6 +1672,8 @@ body {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--cream-dark);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
 }
 
 .fleet-card-frame {
@@ -1558,7 +1712,9 @@ body {
   color: var(--navy);
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.4s ease, background 0.3s ease, transform 0.3s ease;
+  transition: opacity 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              background 500ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 500ms cubic-bezier(0.34, 1.2, 0.64, 1);
   z-index: 3;
 }
 
@@ -1657,12 +1813,15 @@ body {
   font-weight: 700;
 }
 
+/* Extra panel: animates open INSIDE the card (grid-template-rows trick).
+   The fleet-grid row is locked (grid-auto-rows: min-content on base card
+   height) so the card growing internally never pushes the Manifesto. */
 .fleet-card-extra {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-rows 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              opacity 600ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .fleet-card-extra > * {
@@ -1881,44 +2040,56 @@ body {
 }
 
 /* ===== SLOWER, MORE ELEGANT REVEAL ANIMATIONS ===== */
+/* Apple-style reveal: very subtle translate + micro-scale + long ease-out-expo. */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.9s cubic-bezier(0.19, 1, 0.22, 1),
-              transform 1.9s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateY(14px) scale(0.992);
+  transition: opacity 1.6s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 1.6s cubic-bezier(0.19, 1, 0.22, 1);
   will-change: opacity, transform;
 }
 
 [data-reveal="left"] {
   opacity: 0;
-  transform: translateX(-70px);
-  transition: opacity 2.1s cubic-bezier(0.19, 1, 0.22, 1),
-              transform 2.1s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateX(-18px) scale(0.992);
+  transition: opacity 1.7s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 1.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 [data-reveal="right"] {
   opacity: 0;
-  transform: translateX(70px);
-  transition: opacity 2.1s cubic-bezier(0.19, 1, 0.22, 1),
-              transform 2.1s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateX(18px) scale(0.992);
+  transition: opacity 1.7s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 1.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+[data-reveal="fade"] {
+  opacity: 0;
+  transform: none;
+  transition: opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 [data-reveal].is-visible,
 [data-reveal="left"].is-visible,
-[data-reveal="right"].is-visible {
+[data-reveal="right"].is-visible,
+[data-reveal="fade"].is-visible {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translate(0, 0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal], [data-reveal="left"], [data-reveal="right"] {
+  [data-reveal],
+  [data-reveal="left"],
+  [data-reveal="right"],
+  [data-reveal="fade"] {
     opacity: 1; transform: none; transition: none;
   }
 }
 
 [data-reveal].no-transition,
 [data-reveal="left"].no-transition,
-[data-reveal="right"].no-transition {
+[data-reveal="right"].no-transition,
+[data-reveal="fade"].no-transition {
   transition: none !important;
 }
 
@@ -2699,6 +2870,34 @@ body {
   color: var(--text-secondary);
 }
 
+.page-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.page-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(111, 181, 197, 0.12);
+  border: 1px solid rgba(111, 181, 197, 0.25);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--sea-dark);
+}
+
+.page-hero-pill svg {
+  width: 14px;
+  height: 14px;
+}
+
 .section-alt {
   background: var(--cream);
 }
@@ -2709,42 +2908,344 @@ body {
   gap: 32px;
 }
 
+/* === BENTO GRID for /tours hub === */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* Rows 1-2 keep the original height (large/tall cards already span 2).
+     Rows 3-5 are taller so medium/small/halfwide cards have more presence. */
+  grid-template-rows: 260px 260px 320px 320px 320px;
+  grid-auto-rows: 320px;
+  grid-auto-flow: row dense;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.bento-card {
+  position: relative;
+  display: block;
+  border-radius: 22px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  isolation: isolate;
+  background: var(--navy-deep);
+  transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 850ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(26, 36, 51, 0.18);
+}
+
+.bento-card:hover .bento-card-img img {
+  transform: scale(1.05);
+  filter: brightness(0.92);
+}
+
+.bento-card-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bento-card-img img {
+  transition: transform 1500ms cubic-bezier(0.19, 1, 0.22, 1),
+              filter 800ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 22, 35, 0) 30%, rgba(15, 22, 35, 0.55) 75%, rgba(15, 22, 35, 0.92) 100%);
+  z-index: 1;
+  transition: background 700ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-card:hover .bento-card-overlay {
+  background: linear-gradient(180deg, rgba(15, 22, 35, 0.25) 0%, rgba(15, 22, 35, 0.65) 50%, rgba(15, 22, 35, 0.95) 100%);
+}
+
+.bento-card-body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  color: var(--cream-light);
+}
+
+.bento-card-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-card:hover .bento-card-tag {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+
+.bento-card-meta {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+  font-weight: 500;
+  transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              max-height 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              margin-bottom 700ms cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+}
+
+.bento-card:hover .bento-card-meta {
+  opacity: 0.9;
+  max-height: 22px;
+  margin-bottom: 10px;
+}
+
+.bento-card-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+.bento-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 540px;
+  font-weight: 300;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              max-height 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              margin 700ms cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+}
+
+.bento-card:hover .bento-card-desc {
+  opacity: 0.92;
+  max-height: 120px;
+  margin: 0 0 20px;
+}
+
+/* On small cards the description stays hidden even on hover (no room) */
+.bento-small .bento-card-desc,
+.bento-small:hover .bento-card-desc {
+  display: none;
+}
+
+.bento-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1) 60ms,
+              max-height 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              padding-top 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              border-top-color 700ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-card:hover .bento-card-footer {
+  opacity: 1;
+  max-height: 80px;
+  padding-top: 16px;
+  border-top-color: rgba(255, 255, 255, 0.22);
+}
+
+.bento-card-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bento-card-price span {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.bento-card-price strong {
+  font-family: var(--sans);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  font-feature-settings: "tnum" 1;
+}
+
+.bento-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  transition: background 500ms cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-card:hover .bento-card-cta {
+  background: var(--sea);
+  border-color: var(--sea);
+  color: var(--navy);
+}
+
+.bento-card-cta svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Bento sizes — 6-column rectangle:
+   Row 1-2: LARGE (4×2) + TALL (2×2) = 6
+   Row 3:   MEDIUM (3) + MEDIUM (3)
+   Row 4:   SMALL (2) + SMALL (2) + SMALL (2)
+   Row 5:   WIDE (6) */
+.bento-large {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.bento-tall {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-medium {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.bento-small {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-wide {
+  grid-column: span 6;
+  grid-row: span 1;
+}
+
+.bento-halfwide {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+
+.bento-large .bento-card-title { font-size: clamp(2rem, 3vw, 2.8rem); }
+.bento-tall .bento-card-title { font-size: clamp(1.6rem, 2.2vw, 2rem); }
+.bento-wide .bento-card-title { font-size: clamp(1.8rem, 2.4vw, 2.4rem); }
+.bento-halfwide .bento-card-title { font-size: clamp(1.5rem, 2vw, 2rem); }
+.bento-small .bento-card-title { font-size: clamp(1.2rem, 1.6vw, 1.5rem); }
+
+@media (max-width: 1100px) {
+  .bento-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; }
+  .bento-large { grid-column: span 4; grid-row: span 2; }
+  .bento-tall { grid-column: span 2; grid-row: span 2; }
+  .bento-medium { grid-column: span 2; grid-row: span 1; }
+  .bento-small { grid-column: span 2; grid-row: span 1; }
+  .bento-wide { grid-column: span 4; grid-row: span 1; }
+  .bento-halfwide { grid-column: span 4; grid-row: span 1; }
+}
+
+@media (max-width: 640px) {
+  .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+  .bento-large,
+  .bento-tall,
+  .bento-medium,
+  .bento-small,
+  .bento-wide,
+  .bento-halfwide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
 .tour-card-link {
   display: block;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 850ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
 }
 
 .tour-card-link:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.12);
+  box-shadow: 0 22px 44px rgba(26, 36, 51, 0.12);
 }
 
 .btn-secondary-dark {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 28px;
+  padding: 16px 32px;
   font-family: var(--sans);
-  font-weight: 500;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-decoration: none;
   color: var(--navy);
   background: transparent;
-  border: 1.5px solid var(--navy);
-  border-radius: 999px;
+  border: 1px solid var(--navy);
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              color 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 450ms cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
 .btn-secondary-dark:hover {
   background: var(--navy);
   color: var(--cream-light);
+}
+
+.btn-secondary-dark:active {
+  transform: scale(0.97);
+  transition-duration: 0.12s;
 }
 
 .cta-row {
@@ -2793,6 +3294,58 @@ body {
 
 .transfer-table tbody tr:hover {
   background: var(--cream);
+}
+
+/* Interactive transfer table — row highlight + inline 'Book' CTA */
+.transfer-table-interactive tbody tr {
+  transition: background 350ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.transfer-table-interactive tbody tr:hover {
+  background: rgba(111, 181, 197, 0.14);
+}
+
+.transfer-table-cta-cell {
+  text-align: right;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.transfer-row-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--sea);
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 350ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 350ms cubic-bezier(0.19, 1, 0.22, 1),
+              background 250ms ease;
+  pointer-events: none;
+}
+
+.transfer-table-interactive tbody tr:hover .transfer-row-cta {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.transfer-row-cta:hover {
+  background: var(--sea-light);
+}
+
+.transfer-row-cta svg {
+  width: 12px;
+  height: 12px;
 }
 
 .transfer-note {
@@ -2906,9 +3459,11 @@ body {
 }
 
 .tour-hero-price-value {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  font-feature-settings: "tnum" 1;
 }
 
 .tour-detail-grid {
@@ -2963,10 +3518,13 @@ body {
 
 .tour-itinerary-num {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1.4rem;
-  color: var(--sea-dark);
-  min-width: 36px;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--bronze);
+  min-width: 64px;
 }
 
 .tour-highlights {
@@ -3069,9 +3627,11 @@ body {
 }
 
 .tour-detail-card-price strong {
-  font-family: var(--serif);
-  font-size: 1.8rem;
-  font-weight: 500;
+  font-family: var(--sans);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  font-feature-settings: "tnum" 1;
 }
 
 .tour-detail-cta {
@@ -3121,12 +3681,14 @@ body {
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 850ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
 }
 
 .tour-boat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.12);
+  box-shadow: 0 22px 44px rgba(26, 36, 51, 0.12);
 }
 
 .tour-boat-img {
@@ -3340,46 +3902,76 @@ body {
   object-fit: cover;
 }
 
+.boat-hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .boat-hero-back {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-tertiary);
   text-decoration: none;
-  display: inline-block;
-  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  margin-bottom: 28px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  transition: color 350ms cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 350ms cubic-bezier(0.19, 1, 0.22, 1),
+              background 350ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .boat-hero-back:hover {
   color: var(--navy);
+  border-color: var(--navy);
+  background: rgba(26, 36, 51, 0.04);
 }
 
 .boat-hero-model {
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--sea-dark);
+  margin-bottom: 10px;
 }
 
 .boat-hero-name {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
   color: var(--navy);
-  margin: 8px 0;
+  margin: 0;
 }
 
 .boat-hero-type {
-  font-size: 1rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--text-tertiary);
-  margin-bottom: 16px;
+  margin: 12px 0 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  width: 100%;
 }
 
 .boat-hero-tagline {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.65;
   color: var(--text-secondary);
-  margin-bottom: 28px;
+  font-weight: 300;
+  margin-bottom: 32px;
+  max-width: 480px;
 }
 
 .boat-hero-actions {
@@ -3488,6 +4080,220 @@ body {
   margin-top: 48px;
 }
 
+/* === TOUR CAROUSEL — gentle slide every few seconds on /fleet/[slug] === */
+.tour-carousel {
+  position: relative;
+  margin-top: 48px;
+}
+
+.tour-carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  padding: 8px 6vw;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tour-carousel-track::-webkit-scrollbar { display: none; }
+
+.tour-carousel-card {
+  position: relative;
+  flex: 0 0 320px;
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--navy-deep);
+  isolation: isolate;
+  transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 850ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+.tour-carousel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(15, 22, 35, 0.18);
+}
+
+.tour-carousel-card-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.tour-carousel-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1500ms cubic-bezier(0.19, 1, 0.22, 1),
+              filter 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.tour-carousel-card:hover .tour-carousel-card-img img {
+  transform: scale(1.06);
+  filter: brightness(0.92);
+}
+
+.tour-carousel-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 22, 35, 0) 30%, rgba(15, 22, 35, 0.55) 70%, rgba(15, 22, 35, 0.92) 100%);
+  z-index: 1;
+  transition: background 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.tour-carousel-card:hover .tour-carousel-card-overlay {
+  background: linear-gradient(180deg, rgba(15, 22, 35, 0.2) 0%, rgba(15, 22, 35, 0.6) 50%, rgba(15, 22, 35, 0.95) 100%);
+}
+
+.tour-carousel-card-body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  color: var(--cream-light);
+}
+
+.tour-carousel-card-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover-revealed details */
+.tour-carousel-card-hover {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              opacity 600ms cubic-bezier(0.19, 1, 0.22, 1),
+              margin-top 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  margin-top: 0;
+}
+
+.tour-carousel-card:hover .tour-carousel-card-hover {
+  max-height: 240px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.tour-carousel-card-meta {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.tour-carousel-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin: 0 0 14px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tour-carousel-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.tour-carousel-card-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tour-carousel-card-price span {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.tour-carousel-card-price strong {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-feature-settings: "tnum" 1;
+}
+
+.tour-carousel-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--sea);
+  color: var(--navy);
+}
+
+.tour-carousel-card-cta svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Navigation arrows */
+.tour-carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  color: var(--navy);
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 6px 20px rgba(15, 22, 35, 0.12);
+  transition: background 250ms ease, transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.tour-carousel-nav:hover {
+  background: var(--sea);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.tour-carousel-nav svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tour-carousel-nav-prev { left: 16px; }
+.tour-carousel-nav-next { right: 16px; }
+
+@media (max-width: 700px) {
+  .tour-carousel-card { flex-basis: 260px; height: 360px; }
+  .tour-carousel-nav { width: 40px; height: 40px; }
+}
+
 .boat-tour-card {
   display: block;
   background: var(--surface);
@@ -3495,12 +4301,14 @@ body {
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 850ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
 }
 
 .boat-tour-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.12);
+  box-shadow: 0 22px 44px rgba(26, 36, 51, 0.12);
 }
 
 .boat-tour-card img {
@@ -3535,10 +4343,12 @@ body {
 }
 
 .boat-tour-price strong {
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 500;
+  color: var(--sea-dark);
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  font-feature-settings: "tnum" 1;
 }
 
 /* Fleet home card → /fleet/[slug] CTA */
@@ -3579,13 +4389,16 @@ body {
   border: 1px solid var(--border-subtle);
   text-decoration: none;
   color: inherit;
-  transition: all 0.25s ease;
+  transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 500ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 700ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
 }
 
 .contact-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--sea-dark);
-  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.08);
+  box-shadow: 0 24px 48px rgba(26, 36, 51, 0.10);
 }
 
 .contact-card-icon {
@@ -3693,4 +4506,311 @@ body {
 .footer .lang-toggle:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* === TRANSFERS PAGE === */
+.vip-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.vip-feature {
+  padding: 28px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+}
+
+.vip-feature h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+
+.vip-feature p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.pickup-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.pickup-row {
+  padding: 28px 32px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  transition: border-color 500ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 700ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow 700ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.pickup-row:hover {
+  transform: translateY(-2px);
+  border-color: rgba(111, 181, 197, 0.4);
+  box-shadow: 0 16px 36px rgba(26, 36, 51, 0.08);
+}
+
+.pickup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pickup-route {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--navy);
+}
+
+.pickup-route svg {
+  width: 18px;
+  height: 18px;
+  color: var(--sea-dark);
+}
+
+.pickup-duration {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sea-dark);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(111, 181, 197, 0.12);
+}
+
+.pickup-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* === SKIPPER CHARTER PAGE === */
+.skipper-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.skipper-step {
+  padding: 32px;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.skipper-step-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--bronze);
+  margin-bottom: 16px;
+  font-feature-settings: "tnum" 1;
+}
+
+.skipper-step h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.skipper-step p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.skipper-included {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 48px;
+}
+
+@media (max-width: 700px) {
+  .skipper-included {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.skipper-included h4 {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 16px;
+}
+
+.skipper-included ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skipper-included li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.skipper-included li:last-child {
+  border-bottom: none;
+}
+
+/* =========================================================
+   HERO SPLASH + ENTRANCE (Apple-style landing)
+   ========================================================= */
+
+.hero-splash {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy-deep);
+  pointer-events: none;
+  transition:
+    opacity 900ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1100ms cubic-bezier(0.19, 1, 0.22, 1),
+    visibility 0s linear 0ms;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-splash.is-leaving {
+  opacity: 0;
+  transform: scale(1.04);
+  visibility: hidden;
+  transition:
+    opacity 900ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1100ms cubic-bezier(0.19, 1, 0.22, 1),
+    visibility 0s linear 1100ms;
+}
+
+.hero-splash-stage {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-splash-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(164, 208, 218, 0.18);
+  border-top-color: var(--sea-light);
+  animation: hero-splash-spin 1.2s linear infinite;
+}
+
+.hero-splash-logo {
+  width: 88px;
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+  animation: hero-splash-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes hero-splash-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-splash-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50%      { transform: scale(1.05); opacity: 1; }
+}
+
+/* === HERO ENTRANCE (after splash leaves) === */
+.hero .hero-pill,
+.hero .hero-title,
+.hero .hero-actions,
+.hero .hero-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hero.is-ready .hero-pill {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0ms;
+}
+
+.hero.is-ready .hero-title {
+  opacity: 1;
+  transform: none;
+  transition-delay: 200ms;
+}
+
+.hero.is-ready .hero-actions {
+  opacity: 1;
+  transform: none;
+  transition-delay: 450ms;
+}
+
+.hero.is-ready .hero-scroll {
+  opacity: 1;
+  transform: none;
+  transition-delay: 800ms;
+}
+
+/* Video gets a subtle zoom-out + fade after splash so it feels "alive" */
+.hero .hero-video {
+  transform: scale(1.06);
+  opacity: 0.6;
+  transition: transform 2200ms cubic-bezier(0.19, 1, 0.22, 1),
+              opacity 1400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero.is-ready .hero-video {
+  transform: scale(1);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-splash,
+  .hero-splash-logo,
+  .hero-splash-ring,
+  .hero .hero-pill,
+  .hero .hero-title,
+  .hero .hero-actions,
+  .hero .hero-scroll,
+  .hero .hero-video {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-splash { display: none; }
 }

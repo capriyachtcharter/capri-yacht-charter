@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
 import PageShell from "../../components/PageShell";
+import TourCarousel, { type CarouselItem } from "../../components/TourCarousel";
 import { useLang } from "../../i18n/LanguageProvider";
 import { boatBySlug } from "../../data/fleet";
 import { tours } from "../../data/tours";
@@ -141,24 +142,22 @@ export default function BoatDetailPage() {
                 <span className="accent">{c.name}</span>
               </h2>
             </div>
-            <div className="boat-tours-grid">
-              {compatibleTours.map((tr) => {
-                const tc = lang === "it" ? tr.it : tr.en;
-                return (
-                  <Link key={tr.slug} href={`/tours/${tr.slug}`} className="boat-tour-card">
-                    <img src={tr.image} alt={tc.title} />
-                    <div className="boat-tour-card-body">
-                      <h3>{tc.title}</h3>
-                      <div className="boat-tour-meta">{tc.meta}</div>
-                      <div className="boat-tour-price">
-                        {lang === "it" ? "Da" : "From"} <strong>{tr.priceFrom}</strong>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
           </div>
+          <TourCarousel
+            items={compatibleTours.map<CarouselItem>((tr) => {
+              const tc = lang === "it" ? tr.it : tr.en;
+              return {
+                slug: tr.slug,
+                image: tr.image,
+                title: tc.title,
+                meta: tc.meta,
+                priceFrom: tr.priceFrom,
+                short: tc.short,
+              };
+            })}
+            fromLabel={lang === "it" ? "Da" : "From"}
+            ctaLabel={lang === "it" ? "Scopri il tour" : "Discover the tour"}
+          />
         </section>
       )}
     </PageShell>
