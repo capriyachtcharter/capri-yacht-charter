@@ -58,7 +58,7 @@ export default function MiniCruises() {
           </ul>
 
           <a
-            href="https://wa.me/393335741333?text=Vorrei%20personalizzare%20una%20mini%20crociera"
+            href="https://wa.me/393335741333?text=Vorrei%20prenotare%20una%20mini%20crociera"
             target="_blank"
             rel="noopener"
             className="btn-primary"

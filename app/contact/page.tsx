@@ -3,7 +3,7 @@
 import PageShell from "../components/PageShell";
 import { useLang } from "../i18n/LanguageProvider";
 
-const channels = [
+const primaryChannels = [
   {
     key: "whatsapp",
     href: "https://wa.me/393335741333",
@@ -70,6 +70,33 @@ const channels = [
   },
 ];
 
+const socials = [
+  {
+    key: "instagram",
+    href: "https://instagram.com/capriyachtcharter",
+    label: "Instagram",
+    handle: "@capriyachtcharter",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    key: "facebook",
+    href: "https://facebook.com/capriyachtcharter",
+    label: "Facebook",
+    handle: "Capri Yacht Charter",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z" />
+      </svg>
+    ),
+  },
+];
+
 export default function ContactPage() {
   const { lang } = useLang();
   return (
@@ -93,14 +120,13 @@ export default function ContactPage() {
       <section className="section">
         <div className="section-inner">
           <div className="contact-grid">
-            {channels.map((ch) => (
+            {primaryChannels.map((ch) => (
               <a
                 key={ch.key}
                 href={ch.href}
                 target={ch.external ? "_blank" : undefined}
                 rel={ch.external ? "noopener" : undefined}
                 className="contact-card"
-                data-reveal
               >
                 <div className="contact-card-icon">{ch.icon}</div>
                 <div className="contact-card-label">{ch.label[lang]}</div>
@@ -114,7 +140,7 @@ export default function ContactPage() {
 
       <section className="section section-alt">
         <div className="section-inner contact-info-grid">
-          <div data-reveal>
+          <div>
             <div className="eyebrow">{lang === "it" ? "Stagione" : "Season"}</div>
             <h2 className="contact-info-h">
               {lang === "it" ? "Aprile — Ottobre" : "April — October"}
@@ -125,7 +151,7 @@ export default function ContactPage() {
                 : "We operate daily during the season, with morning, afternoon and full-day departures. We recommend booking at least 48 hours in advance to secure your preferred boat and time slot."}
             </p>
           </div>
-          <div data-reveal>
+          <div>
             <div className="eyebrow">{lang === "it" ? "Dove ci troviamo" : "Where to find us"}</div>
             <h2 className="contact-info-h">Marina Grande, Capri</h2>
             <p>
@@ -133,6 +159,38 @@ export default function ContactPage() {
                 ? "Imbarco diretto al porto turistico di Capri. Su richiesta organizziamo pick-up da Sorrento, Positano, Amalfi, Napoli e Salerno."
                 : "Direct boarding at Capri Marina. On request we arrange pick-up from Sorrento, Positano, Amalfi, Naples and Salerno."}
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-inner">
+          <div className="eyebrow">{lang === "it" ? "Seguici" : "Follow us"}</div>
+          <h2 className="section-title contact-social-title">
+            {lang === "it" ? "Le storie della " : "Stories from the "}
+            <span className="accent">{lang === "it" ? "stagione" : "season"}</span>
+          </h2>
+          <p className="contact-social-desc">
+            {lang === "it"
+              ? "Foto, video, recensioni e novità. Le prenotazioni passano dai canali sopra — qui raccontiamo il dietro le quinte."
+              : "Photos, video, reviews and updates. Bookings go through the channels above — here we share the behind-the-scenes."}
+          </p>
+          <div className="contact-social-row">
+            {socials.map((s) => (
+              <a
+                key={s.key}
+                href={s.href}
+                target="_blank"
+                rel="noopener"
+                className="contact-social-link"
+              >
+                <span className="contact-social-icon">{s.icon}</span>
+                <span className="contact-social-text">
+                  <span className="contact-social-label">{s.label}</span>
+                  <span className="contact-social-handle">{s.handle}</span>
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>

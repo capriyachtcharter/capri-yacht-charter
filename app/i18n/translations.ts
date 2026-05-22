@@ -206,7 +206,7 @@ export const translations = {
       bullet1: "Da 2 a 7 giorni · cabine private",
       bullet2: "Chef a bordo · itinerario su misura",
       bullet3: "Tender, attrezzatura snorkeling e SUP inclusi",
-      cta: "Personalizza la tua crociera",
+      cta: "Prenota la tua crociera",
     },
     transferVip: {
       title: "Top Service",
@@ -418,7 +418,7 @@ export const translations = {
       bullet1: "2–7 days · Private cabins",
       bullet2: "Onboard chef · Tailored itinerary",
       bullet3: "Tender & snorkel gear included",
-      cta: "Plan your cruise",
+      cta: "Book your cruise",
     },
     transferVip: {
       title: "Top Service",

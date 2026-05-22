@@ -77,8 +77,6 @@ export default function ToursHubPage() {
                   key={tour.slug}
                   href={`/tours/${tour.slug}`}
                   className={`bento-card bento-${size}`}
-                  data-reveal="fade"
-                  style={{ transitionDelay: `${(i % 4) * 0.08}s` }}
                 >
                   <div className="bento-card-img">
                     <Image
@@ -156,13 +154,13 @@ export default function ToursHubPage() {
           <div className="cta-row" data-reveal>
             <a
               href={`https://wa.me/393335741333?text=${encodeURIComponent(
-                lang === "it" ? "Vorrei personalizzare una mini crociera" : "I'd like to plan a custom mini cruise"
+                lang === "it" ? "Vorrei prenotare una mini crociera" : "I'd like to book a mini cruise"
               )}`}
               target="_blank"
               rel="noopener"
               className="btn-primary"
             >
-              {lang === "it" ? "Personalizza la tua crociera" : "Plan your cruise"}
+              {lang === "it" ? "Prenota la tua crociera" : "Book your cruise"}
             </a>
           </div>
         </div>
