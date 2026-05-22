@@ -3472,31 +3472,32 @@ body {
   gap: 14px;
 }
 
-/* Itinerary row uses the exact same column layout as the Manifesto so the
-   numerals sit in identical visual conditions. */
+/* Itinerary row: compact, balanced numeral on the left + step text on the right. */
 .tour-itinerary li {
   display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 32px;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
   align-items: center;
-  padding: 20px 24px;
+  padding: 18px 22px;
   background: var(--surface);
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
 }
 
-/* Identical to .manifesto-list-num — same font, weight, size, italic, color
-   and lining figures so the two lists are visually indistinguishable. */
+/* Smaller, upright serif numeral — proportioned to the row, not the page.
+   Cormorant Garamond at 400 weight (no italic) renders clean classic
+   figures that match the rest of the site without screaming for attention. */
 .tour-itinerary-num {
   font-family: var(--serif);
-  font-style: italic;
-  font-size: 64px;
-  font-weight: 300;
-  color: var(--bronze);
+  font-style: normal;
+  font-size: 38px;
+  font-weight: 400;
+  color: var(--sea-dark);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
+  text-align: center;
 }
 
 .manifesto-list-num {
