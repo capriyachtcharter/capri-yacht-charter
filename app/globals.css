@@ -2656,3 +2656,1041 @@ body {
   }
 }
 /* === END BLOCK: fleet rise-and-cover reveal === */
+
+/* =========================================================
+   SUB-PAGES (Tours / Fleet / Contact) — added 2026-05
+   ========================================================= */
+
+.page-shell {
+  padding-top: 0;
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero {
+  padding: 180px 0 80px;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--bg-primary) 100%);
+  position: relative;
+}
+
+.page-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.page-hero-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin: 16px 0 24px;
+}
+
+.page-hero-desc {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.section-alt {
+  background: var(--cream);
+}
+
+.tours-grid-wide {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.tour-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-card-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.12);
+}
+
+.btn-secondary-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--navy);
+  background: transparent;
+  border: 1.5px solid var(--navy);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary-dark:hover {
+  background: var(--navy);
+  color: var(--cream-light);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* Transfer table */
+.transfer-table-wrap {
+  margin-top: 48px;
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(26, 36, 51, 0.06);
+  overflow-x: auto;
+}
+
+.transfer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+}
+
+.transfer-table th,
+.transfer-table td {
+  padding: 16px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
+}
+
+.transfer-table th {
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.transfer-table tr:last-child td {
+  border-bottom: none;
+}
+
+.transfer-table tbody tr:hover {
+  background: var(--cream);
+}
+
+.transfer-note {
+  margin: 24px 0;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* Mini cruise feature blocks */
+.mini-cruises-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.mini-cruise-feature {
+  padding: 32px;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+}
+
+.mini-cruise-feature h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.mini-cruise-feature p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* === TOUR DETAIL PAGE === */
+.tour-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 460px;
+  margin-top: 0;
+}
+
+.tour-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 36, 51, 0.2) 0%, rgba(26, 36, 51, 0.75) 100%);
+}
+
+.tour-hero-inner {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  color: var(--cream-light);
+  z-index: 1;
+}
+
+.tour-hero-back {
+  display: inline-flex;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.tour-hero-back:hover {
+  color: var(--cream-light);
+}
+
+.tour-hero-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.tour-hero-meta {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.tour-hero-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+}
+
+.tour-hero-price-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.tour-hero-price-value {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.tour-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 60px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .tour-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tour-detail-main {
+  min-width: 0;
+}
+
+.tour-detail-lead {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+}
+
+.tour-detail-h {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: var(--navy);
+  margin: 48px 0 20px;
+}
+
+.tour-itinerary {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.tour-itinerary li {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 16px 20px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+}
+
+.tour-itinerary-num {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--sea-dark);
+  min-width: 36px;
+}
+
+.tour-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.tour-highlights li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--cream);
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.tour-highlights svg {
+  flex: 0 0 16px;
+  color: var(--sea-dark);
+}
+
+.tour-included-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+@media (max-width: 600px) {
+  .tour-included-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tour-included-h {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 16px;
+}
+
+.tour-included-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.tour-included-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
+}
+
+.tour-included-list-muted li {
+  color: var(--text-tertiary);
+}
+
+.tour-detail-side {
+  position: sticky;
+  top: 100px;
+}
+
+.tour-detail-card {
+  padding: 32px;
+  background: var(--navy);
+  color: var(--cream-light);
+  border-radius: 20px;
+}
+
+.tour-detail-card-h {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0 0 20px;
+}
+
+.tour-detail-card-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.tour-detail-card-price span {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.tour-detail-card-price strong {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.tour-detail-cta {
+  display: flex;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.tour-detail-card .btn-primary {
+  background: var(--cream-light);
+  color: var(--navy);
+}
+
+.tour-detail-card .btn-primary:hover {
+  background: var(--sea-light);
+}
+
+.tour-detail-card .btn-secondary-dark {
+  color: var(--cream-light);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.tour-detail-card .btn-secondary-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--cream-light);
+}
+
+.tour-detail-card-note {
+  margin-top: 20px;
+  font-size: 0.78rem;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+/* Tour → boats grid (cross-link to fleet) */
+.tour-boats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.tour-boat-card {
+  display: block;
+  background: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-boat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.12);
+}
+
+.tour-boat-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.tour-boat-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tour-boat-body {
+  padding: 20px;
+}
+
+.tour-boat-body h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin: 0 0 4px;
+}
+
+.tour-boat-model {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+.tour-boat-specs {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.tour-boat-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sea-dark);
+  font-weight: 600;
+}
+
+.tour-boat-cta svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* === FLEET HUB PAGE === */
+.fleet-detail-list {
+  display: grid;
+  gap: 80px;
+}
+
+.fleet-detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.fleet-detail-row.is-reversed .fleet-detail-img {
+  order: 2;
+}
+
+@media (max-width: 900px) {
+  .fleet-detail-row,
+  .fleet-detail-row.is-reversed {
+    grid-template-columns: 1fr;
+  }
+  .fleet-detail-row.is-reversed .fleet-detail-img {
+    order: 0;
+  }
+}
+
+.fleet-detail-img {
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.fleet-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fleet-detail-model {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sea-dark);
+  margin-bottom: 8px;
+}
+
+.fleet-detail-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+
+.fleet-detail-type {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+
+.fleet-detail-tagline {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.fleet-detail-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+}
+
+.fleet-detail-specs li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
+}
+
+.fleet-detail-specs span {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+.fleet-detail-specs strong {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fleet-detail-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* === BOAT DETAIL PAGE === */
+.boat-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  padding: 140px 32px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .boat-hero {
+    grid-template-columns: 1fr;
+    padding-top: 120px;
+  }
+}
+
+.boat-hero-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.boat-hero-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.boat-hero-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.boat-hero-thumb {
+  flex: 0 0 80px;
+  height: 60px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.boat-hero-thumb.is-active {
+  border-color: var(--sea-dark);
+}
+
+.boat-hero-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boat-hero-back {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.boat-hero-back:hover {
+  color: var(--navy);
+}
+
+.boat-hero-model {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sea-dark);
+}
+
+.boat-hero-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  color: var(--navy);
+  margin: 8px 0;
+}
+
+.boat-hero-type {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+
+.boat-hero-tagline {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.boat-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.boat-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 60px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .boat-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.boat-detail-h {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin: 0 0 16px;
+}
+
+.boat-detail-lead {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.boat-detail-amenities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.boat-detail-amenities li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--cream);
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.boat-detail-amenities svg {
+  flex: 0 0 16px;
+  color: var(--sea-dark);
+}
+
+.boat-detail-card-h {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 16px;
+}
+
+.boat-specs-list {
+  margin: 0;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+}
+
+.boat-specs-list > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.boat-specs-list > div:last-child {
+  border-bottom: none;
+}
+
+.boat-specs-list dt {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.boat-specs-list dd {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+
+.boat-tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.boat-tour-card {
+  display: block;
+  background: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boat-tour-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.12);
+}
+
+.boat-tour-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.boat-tour-card-body {
+  padding: 20px;
+}
+
+.boat-tour-card-body h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+
+.boat-tour-meta {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.boat-tour-price {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.boat-tour-price strong {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Fleet home card → /fleet/[slug] CTA */
+.fleet-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sea-dark);
+  text-decoration: none;
+}
+
+.fleet-card-cta svg {
+  width: 14px;
+  height: 14px;
+}
+
+.fleet-card-cta:hover {
+  color: var(--navy);
+}
+
+/* === CONTACT PAGE === */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  display: block;
+  padding: 32px;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--sea-dark);
+  box-shadow: 0 20px 40px rgba(26, 36, 51, 0.08);
+}
+
+.contact-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--sea-dark);
+}
+
+.contact-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-card-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.contact-card-value {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+.contact-card-note {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+@media (max-width: 700px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info-h {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--navy);
+  margin: 12px 0 16px;
+}
+
+.contact-info-grid p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* === LANG TOGGLE (single-button) === */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(26, 36, 51, 0.04);
+  border: 1px solid rgba(26, 36, 51, 0.1);
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--navy);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-toggle:hover {
+  background: rgba(26, 36, 51, 0.08);
+  border-color: rgba(26, 36, 51, 0.2);
+}
+
+.lang-toggle-flag {
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* In dark contexts (footer) */
+.footer .lang-toggle {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer .lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}

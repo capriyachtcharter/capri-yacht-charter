@@ -23,8 +23,8 @@ export default function Hero() {
         </h1>
 
         <div className="hero-actions">
-          <a href="#tour-island" className="btn-primary">{t.hero.ctaPrimary}</a>
-          <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-secondary">
+          <a href="/tours" className="btn-primary">{t.hero.ctaPrimary}</a>
+          <a href="/contact" className="btn-secondary">
             {t.hero.ctaSecondary}
           </a>
         </div>

@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
+import { toursByLegacyId } from "../data/tours";
 
 const imgs: Record<string, string> = {
   "tour-island": "/tours/island-tour.jpg",
@@ -24,71 +26,61 @@ export default function Tours() {
         </div>
 
         <div className="tours-grid">
-          {t.tours.list.map((tour, i) => (
-            <div
-              key={tour.id}
-              id={tour.id}
-              className="tour-card"
-              data-reveal="left"
-              style={{ transitionDelay: `${i * 0.12}s` }}
-            >
-              <div className="tour-card-img">
-                {tour.tag && <span className="tour-card-tag">{t.tours.tags[tour.tag]}</span>}
-                <Image
-                  src={imgs[tour.id]}
-                  alt={tour.title}
-                  width={900}
-                  height={1125}
-                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                />
-              </div>
-              <div className="tour-card-body">
-                <div className="tour-card-meta">{tour.meta}</div>
-                <h3 className="tour-card-title">{tour.title}</h3>
-                <p className="tour-card-desc">{tour.desc}</p>
-                {tour.tag === "bespoke" ? (
-                  <div className="tour-card-footer tour-card-footer-bespoke">
-                    <a
-                      href="https://wa.me/393335741333"
-                      target="_blank"
-                      rel="noopener"
-                      className="tour-card-book tour-card-book-full"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {t.tours.inquire}
-                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="3" y1="8" x2="13" y2="8" />
-                        <polyline points="9 4 13 8 9 12" />
-                      </svg>
-                    </a>
-                  </div>
-                ) : (
-                  <div className="tour-card-footer">
-                    <div className="tour-card-price">
-                      <span className="tour-card-price-label">{t.tours.from}</span>
-                      <span className="tour-card-price-value">{tour.price}</span>
+          {t.tours.list.map((tour, i) => {
+            const detail = toursByLegacyId[tour.id];
+            const detailHref = detail ? `/tours/${detail.slug}` : "/tours";
+            return (
+              <Link
+                key={tour.id}
+                id={tour.id}
+                href={detailHref}
+                className="tour-card tour-card-link"
+                data-reveal="left"
+                style={{ transitionDelay: `${i * 0.12}s` }}
+              >
+                <div className="tour-card-img">
+                  {tour.tag && <span className="tour-card-tag">{t.tours.tags[tour.tag]}</span>}
+                  <Image
+                    src={imgs[tour.id]}
+                    alt={tour.title}
+                    width={900}
+                    height={1125}
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  />
+                </div>
+                <div className="tour-card-body">
+                  <div className="tour-card-meta">{tour.meta}</div>
+                  <h3 className="tour-card-title">{tour.title}</h3>
+                  <p className="tour-card-desc">{tour.desc}</p>
+                  {tour.tag === "bespoke" ? (
+                    <div className="tour-card-footer tour-card-footer-bespoke">
+                      <span className="tour-card-book tour-card-book-full">
+                        {t.tours.inquire}
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="3" y1="8" x2="13" y2="8" />
+                          <polyline points="9 4 13 8 9 12" />
+                        </svg>
+                      </span>
                     </div>
-                    <button
-                      type="button"
-                      className="tour-card-book"
-                      data-holidoit-tour={tour.id}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Hook for the Holidoit modal — wired by the booking script
-                        // (window as any).HolidoitModal?.open?.(tour.id);
-                      }}
-                    >
-                      {t.tours.book}
-                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="3" y1="8" x2="13" y2="8" />
-                        <polyline points="9 4 13 8 9 12" />
-                      </svg>
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
+                  ) : (
+                    <div className="tour-card-footer">
+                      <div className="tour-card-price">
+                        <span className="tour-card-price-label">{t.tours.from}</span>
+                        <span className="tour-card-price-value">{tour.price}</span>
+                      </div>
+                      <span className="tour-card-book">
+                        {t.tours.book}
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="3" y1="8" x2="13" y2="8" />
+                          <polyline points="9 4 13 8 9 12" />
+                        </svg>
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

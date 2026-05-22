@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
+import { boatByLegacyId } from "../data/fleet";
 
 type Boat = {
   id: string;
@@ -54,7 +56,7 @@ function ChevronRight() {
   );
 }
 
-function FleetCard({ boat, delay }: { boat: Boat; delay: number }) {
+function FleetCard({ boat, delay, ctaLabel }: { boat: Boat; delay: number; ctaLabel: string }) {
   const [idx, setIdx] = useState(0);
   const [hovered, setHovered] = useState(false);
   const [pausedByArrow, setPausedByArrow] = useState(false);
@@ -137,6 +139,16 @@ function FleetCard({ boat, delay }: { boat: Boat; delay: number }) {
         <div className="fleet-card-extra">
           <div className="fleet-card-extra-inner">
             <p className="fleet-card-desc">{boat.desc}</p>
+            <Link
+              href={`/fleet/${boatByLegacyId[boat.id]?.slug ?? ""}`}
+              className="fleet-card-cta"
+            >
+              <span>{ctaLabel}</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="8" x2="13" y2="8" />
+                <polyline points="9 4 13 8 9 12" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>
@@ -145,11 +157,12 @@ function FleetCard({ boat, delay }: { boat: Boat; delay: number }) {
 }
 
 export default function Fleet() {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const boats: Boat[] = t.fleet.boats.map((b) => ({
     ...b,
     images: boatImages[b.id] ?? [],
   }));
+  const ctaLabel = lang === "it" ? "Scopri di più" : "Discover more";
   return (
     <section className="fleet section" data-reveal>
       <div className="section-inner">
@@ -163,7 +176,7 @@ export default function Fleet() {
 
         <div className="fleet-grid">
           {boats.map((b, i) => (
-            <FleetCard key={b.id} boat={b} delay={i * 0.14} />
+            <FleetCard key={b.id} boat={b} delay={i * 0.14} ctaLabel={ctaLabel} />
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ContactPopover from "./ContactPopover";
@@ -20,19 +21,17 @@ export default function Header() {
     <>
       <header className={`header${scrolled ? " scrolled" : ""}`} id="header">
         <div className="header-inner">
-          <a href="#" className="logo" aria-label="Capri Yacht Charter">
+          <Link href="/" className="logo" aria-label="Capri Yacht Charter">
             <img src="/logo-mark-navy.png" alt="" className="logo-img" />
             <span className="logo-text-wrap">
               <span className="logo-text">Capri Yacht Charter</span>
               <span className="logo-subtitle">Since 2002</span>
             </span>
-          </a>
+          </Link>
           <nav className="nav">
-            <a href="#" className="nav-link">{t.nav.home}</a>
-            <a href="#tours" className="nav-link">{t.nav.experiences}</a>
-            <a href="#fleet-primatist-g65" className="nav-link">{t.nav.fleet}</a>
-            <a href="#manifesto" className="nav-link">{t.nav.story}</a>
-            <a href="#contact" className="nav-link">{t.nav.contact}</a>
+            <Link href="/tours" className="nav-link">{t.nav.experiences}</Link>
+            <Link href="/fleet" className="nav-link">{t.nav.fleet}</Link>
+            <Link href="/#manifesto" className="nav-link">{t.nav.story}</Link>
           </nav>
           <div className="header-right">
             <LanguageSwitcher />

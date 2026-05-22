@@ -1,7 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { toursByLegacyId } from "../data/tours";
+import { boatByLegacyId } from "../data/fleet";
 
 export default function Footer() {
   const { t } = useLang();
@@ -24,27 +27,35 @@ export default function Footer() {
             ))}
           </p>
           <div className="footer-cta-buttons">
-            <a href="#tour-island" className="btn-footer-primary">{t.footer.cta.primary}</a>
-            <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="btn-footer-secondary">
+            <Link href="/tours" className="btn-footer-primary">{t.footer.cta.primary}</Link>
+            <Link href="/contact" className="btn-footer-secondary">
               {t.footer.cta.secondary}
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="footer-grid">
           <div>
             <div className="footer-col-title">{t.footer.cols.experiencesTitle}</div>
-            {t.tours.list.map((tour) => (
-              <a key={tour.id} href={`#${tour.id}`} className="footer-link">{tour.title}</a>
-            ))}
-            <a href="/transfers" className="footer-link">{t.beyond.transferTitle}</a>
-            <a href="/skipper-charter" className="footer-link">{t.beyond.skipperTitle}</a>
+            {t.tours.list.map((tour) => {
+              const detail = toursByLegacyId[tour.id];
+              const href = detail ? `/tours/${detail.slug}` : "/tours";
+              return (
+                <Link key={tour.id} href={href} className="footer-link">{tour.title}</Link>
+              );
+            })}
+            <Link href="/tours#transfers" className="footer-link">{t.beyond.transferTitle}</Link>
+            <Link href="/tours#mini-cruises" className="footer-link">{t.beyond.skipperTitle}</Link>
           </div>
           <div>
             <div className="footer-col-title">{t.footer.cols.fleetTitle}</div>
-            {t.fleet.boats.map((b) => (
-              <a key={b.id} href={`#fleet-${b.id}`} className="footer-link">{b.name} · {b.length}</a>
-            ))}
+            {t.fleet.boats.map((b) => {
+              const detail = boatByLegacyId[b.id];
+              const href = detail ? `/fleet/${detail.slug}` : "/fleet";
+              return (
+                <Link key={b.id} href={href} className="footer-link">{b.name} · {b.length}</Link>
+              );
+            })}
           </div>
           <div>
             <div className="footer-col-title">{t.footer.cols.contactTitle}</div>

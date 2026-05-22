@@ -4,30 +4,22 @@ import { useLang } from "../i18n/LanguageProvider";
 
 export default function LanguageSwitcher() {
   const { lang, setLang } = useLang();
+  const next = lang === "it" ? "en" : "it";
+  const flag = lang === "it" ? "🇮🇹" : "🇬🇧";
+  const code = lang.toUpperCase();
 
   return (
-    <div className="lang-switcher" role="group" aria-label="Language">
-      <button
-        type="button"
-        className={`lang-btn${lang === "it" ? " is-active" : ""}`}
-        onClick={() => setLang("it")}
-        aria-label="Italiano"
-        aria-pressed={lang === "it"}
-      >
-        <span className="lang-flag" aria-hidden>🇮🇹</span>
-        <span className="lang-code">IT</span>
-      </button>
-      <span className="lang-divider" aria-hidden />
-      <button
-        type="button"
-        className={`lang-btn${lang === "en" ? " is-active" : ""}`}
-        onClick={() => setLang("en")}
-        aria-label="English"
-        aria-pressed={lang === "en"}
-      >
-        <span className="lang-flag" aria-hidden>🇬🇧</span>
-        <span className="lang-code">EN</span>
-      </button>
-    </div>
+    <button
+      type="button"
+      className="lang-toggle"
+      onClick={() => setLang(next)}
+      aria-label={lang === "it" ? "Cambia in inglese" : "Switch to Italian"}
+      title={lang === "it" ? "EN" : "IT"}
+    >
+      <span className="lang-toggle-flag" aria-hidden>
+        {flag}
+      </span>
+      <span className="lang-toggle-code">{code}</span>
+    </button>
   );
 }
