@@ -25,12 +25,11 @@ export default function Manifesto() {
         </div>
 
         <ul className="manifesto-list">
-          {t.manifesto.items.map((item, i) => (
+          {t.manifesto.items.map((item) => (
             <li
               key={item.n}
               className="manifesto-list-item"
-              data-reveal="left"
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              data-reveal
             >
               <span className="manifesto-list-num">{item.n}</span>
               <div className="manifesto-list-body">
