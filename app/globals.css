@@ -1543,10 +1543,19 @@ body {
   .skipper-steps,
   .contact-grid,
   .tour-boats-grid,
-  .boat-tours-grid {
+  .boat-tours-grid,
+  .beyond-grid,
+  .fleet-detail-row,
+  .fleet-detail-row.is-reversed,
+  .pickup-list,
+  .tour-detail-grid,
+  .boat-detail-grid,
+  .contact-info-grid,
+  .skipper-included {
     grid-template-columns: 1fr !important;
     gap: 20px;
   }
+  .fleet-detail-row.is-reversed .fleet-detail-img { order: 0 !important; }
 
   /* Mini cruises layout: image stacks above text on phones */
   .mini-cruises-inner { grid-template-columns: 1fr !important; gap: 32px; }
@@ -1563,6 +1572,19 @@ body {
   .page-hero-title { font-size: clamp(2rem, 6vw, 3rem); }
   .page-hero-desc { font-size: 1rem; }
   .section { padding: 80px 24px; }
+  /* BeyondTours and fleet-detail rows already stack at ≤900px for the
+     latter; force the former here too so the two cards never share a row
+     on tablet/phone. */
+  .beyond-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  .fleet-detail-row,
+  .fleet-detail-row.is-reversed {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+  .fleet-detail-row.is-reversed .fleet-detail-img { order: 0 !important; }
 }
 
 /* Fleet section — smaller padding-bottom on mobile (cards already stack) */
@@ -5042,8 +5064,27 @@ body {
 /* Use `clip` instead of `hidden` so we cut horizontal overflow WITHOUT
    turning <body> into a scroll container — `hidden` was breaking vertical
    scroll on some pages. Falls back to `hidden` on old browsers. */
-body { overflow-x: clip; }
+body {
+  overflow-x: clip;
+  max-width: 100vw;
+}
 @supports not (overflow-x: clip) { body { overflow-x: hidden; } }
+
+/* MOBILE: the hero is normally position: fixed (parallax behind content),
+   but on phones that lets a fixed-width hero peek out behind any sideways
+   wiggle. Switch it to relative so it scrolls with the page, and drop the
+   spacer / rounded-corner overlay that only makes sense with the fixed hero. */
+@media (max-width: 768px) {
+  .hero {
+    position: relative !important;
+    min-height: 100svh;
+  }
+  .hero-spacer { display: none !important; }
+  .content-layer {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
 
 /* All flex children can shrink without forcing horizontal overflow */
 .header-inner > *,
