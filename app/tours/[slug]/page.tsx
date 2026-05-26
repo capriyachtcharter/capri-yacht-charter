@@ -34,7 +34,11 @@ export default function TourDetailPage() {
         <div className="tour-hero-inner">
           <div className="tour-hero-eyebrow">
             <Link href="/tours" className="tour-hero-back">
-              ← {lang === "it" ? "Tutti i tour" : "All tours"}
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <line x1="13" y1="8" x2="3" y2="8" />
+                <polyline points="7 4 3 8 7 12" />
+              </svg>
+              {lang === "it" ? "Tutti i tour" : "All tours"}
             </Link>
           </div>
           <h1 className="tour-hero-title">{c.title}</h1>

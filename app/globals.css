@@ -657,14 +657,18 @@ body {
 
 /* No hover indent — items aren't clickable, that effect was misleading */
 
+/* Identical pattern to .tour-itinerary-num — italic, light, sea-dark.
+   Same style across the whole site for every numeric in a list. */
 .manifesto-list-num {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
-  color: var(--bronze);
+  color: var(--sea-dark);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
 }
 
 .manifesto-list-title {
@@ -1876,11 +1880,12 @@ body {
   transform: translateY(-2px);
 }
 
-/* ===== STATS NUMERALS — Cormorant italic 300, matches manifesto + tour itinerary ===== */
+/* ===== STATS NUMERALS — identical to manifesto / tour itinerary / skipper ===== */
 .stats-strip-value {
   font-family: var(--serif);
   font-weight: 300;
   font-style: italic;
+  color: var(--sea-dark);
   letter-spacing: -0.01em;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
@@ -3801,15 +3806,22 @@ body {
   margin: 0 0 32px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px 24px;
+  /* Wider horizontal gap between the two columns, tighter vertical rhythm */
+  gap: 14px 64px;
 }
 
 .fleet-detail-specs li {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 18px;
   padding: 10px 0;
   border-bottom: 1px solid var(--border-subtle);
   font-size: 0.95rem;
+}
+
+.fleet-detail-specs li > span {
+  flex: 1;
 }
 
 .fleet-detail-specs span {
@@ -3916,6 +3928,12 @@ body {
   color: var(--navy);
   border-color: var(--navy);
   background: rgba(26, 36, 51, 0.04);
+}
+
+.boat-hero-back svg,
+.tour-hero-back svg {
+  width: 14px;
+  height: 14px;
 }
 
 .boat-hero-model {
@@ -4036,10 +4054,15 @@ body {
 
 .boat-specs-list > div {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: baseline;
+  gap: 18px;
   padding: 18px 0;
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.boat-specs-list dt {
+  flex: 1;
 }
 
 .boat-specs-list > div:last-child {
@@ -4686,10 +4709,10 @@ body {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 300;
-  font-size: 64px;
+  font-size: 48px;
   line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--bronze);
+  letter-spacing: -0.01em;
+  color: var(--sea-dark);
   margin-bottom: 16px;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;

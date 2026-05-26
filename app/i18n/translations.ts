@@ -175,7 +175,7 @@ export const translations = {
       cta: {
         title: "Pronti a",
         titleAccent: "salpare?",
-        text: "Disponibili tutti i giorni — telefono, WhatsApp\no email, scegli tu come scriverci.",
+        text: "Disponibili tutti i giorni — telefono, WhatsApp\no email, scegli tu come organizzare la tua giornata.",
         primary: "Vedi tutti i Tour",
         secondary: "Contattaci",
       },

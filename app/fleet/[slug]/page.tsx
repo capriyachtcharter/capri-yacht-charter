@@ -44,7 +44,11 @@ export default function BoatDetailPage() {
 
         <div className="boat-hero-info">
           <Link href="/fleet" className="boat-hero-back">
-            ← {lang === "it" ? "Tutta la flotta" : "All fleet"}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <line x1="13" y1="8" x2="3" y2="8" />
+              <polyline points="7 4 3 8 7 12" />
+            </svg>
+            {lang === "it" ? "Tutta la flotta" : "All fleet"}
           </Link>
           <div className="boat-hero-model">{c.model}</div>
           <h1 className="boat-hero-name">{c.name}</h1>
