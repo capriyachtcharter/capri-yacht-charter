@@ -659,9 +659,9 @@ body {
 
 .manifesto-list-num {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 64px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--bronze);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -1885,10 +1885,15 @@ body {
   transform: translateY(-2px);
 }
 
-/* ===== STATS NUMERALS — display font ===== */
+/* ===== STATS NUMERALS — keep the Cormorant serif at regular weight
+   (the display font read too heavy at this size). ===== */
 .stats-strip-value {
-  font-family: var(--display);
-  letter-spacing: -0.02em;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
 }
 
 /* ===== SPACING / RHYTHM — vertical scale ===== */
@@ -3484,12 +3489,12 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
-/* Smaller, upright serif numeral — proportioned to the row, not the page.
-   Cormorant Garamond at 400 weight (no italic) renders clean classic
-   figures that match the rest of the site without screaming for attention. */
+/* Italic Cormorant numeral — compact (38px) and proportioned to the row.
+   Italic distinguishes the tour-step numerals from the upright ones used
+   on the home (manifesto / reviews stats). */
 .tour-itinerary-num {
   font-family: var(--serif);
-  font-style: normal;
+  font-style: italic;
   font-size: 38px;
   font-weight: 400;
   color: var(--sea-dark);
