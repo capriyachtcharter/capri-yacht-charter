@@ -1326,7 +1326,7 @@ body {
 /* Earlier stack thresholds for content-heavy grids so cards don't get
    visually cramped on narrow desktop/tablet widths. */
 @media (max-width: 1200px) {
-  .fleet-grid { grid-template-columns: 1fr; gap: 36px; }
+  .fleet-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
   /* No horizontal room → kill the sibling spotlight shift on fleet cards */
   .fleet-grid .fleet-card:has(~ .fleet-card:hover),
   .fleet-grid .fleet-card:hover ~ .fleet-card {
@@ -1594,7 +1594,7 @@ body {
 
 /* Fleet section — smaller padding-bottom on mobile (cards already stack) */
 @media (max-width: 900px) {
-  .fleet-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 480px; }
+  .fleet-grid { grid-template-columns: 1fr !important; grid-auto-rows: auto !important; gap: 32px; }
   .fleet { padding-bottom: 160px; }
 }
 
@@ -5089,6 +5089,31 @@ body {
     border-radius: 0 !important;
     box-shadow: none !important;
   }
+  /* Stats strip: the inline-grid + huge padding ran off the right edge.
+     Stack the three stats vertically on the smallest screens, drop the
+     pill background. */
+  .stats-strip {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 32px;
+    gap: 20px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .stats-strip-item { padding: 0; }
+  .stats-strip-item + .stats-strip-item::before {
+    left: 50%;
+    top: -10px;
+    bottom: auto;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 1px;
+  }
+  /* Fleet card on phones: stops the inner absolute extra panel from poking
+     out beyond the card on hover (no hover on touch anyway, but the
+     CSS-only :hover trigger can fire briefly on tap). */
+  .fleet-card { overflow: hidden; }
 }
 
 /* All flex children can shrink without forcing horizontal overflow */
