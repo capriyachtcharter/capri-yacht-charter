@@ -658,11 +658,12 @@ body {
 /* No hover indent — items aren't clickable, that effect was misleading */
 
 /* Identical pattern to .tour-itinerary-num — italic, light, sea-dark.
-   Same style across the whole site for every numeric in a list. */
+   Same style across the whole site for every numeric in a list.
+   Kept compact (38px) so it doesn't read as "bold". */
 .manifesto-list-num {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 300;
   color: var(--sea-dark);
   line-height: 1;
@@ -1070,8 +1071,8 @@ body {
 
 .stats-strip-value {
   font-family: var(--serif);
-  font-size: clamp(34px, 4.2vw, 52px);
-  font-weight: 400;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 300;
   line-height: 1;
   color: var(--bronze);
   font-style: italic;
@@ -4709,7 +4710,7 @@ body {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 300;
-  font-size: 48px;
+  font-size: 38px;
   line-height: 1;
   letter-spacing: -0.01em;
   color: var(--sea-dark);
@@ -4902,3 +4903,91 @@ body {
   }
   .hero-splash { display: none; }
 }
+
+/* =========================================================
+   RESPONSIVE HARDENING — prevent text overlap, horizontal
+   overflow, and broken alignment on intermediate widths.
+   ========================================================= */
+
+html, body { overflow-x: hidden; }
+
+/* All flex children can shrink without forcing horizontal overflow */
+.header-inner > *,
+.header-left > *,
+.hero-content > *,
+.bento-card > *,
+.tour-card > *,
+.fleet-card > *,
+.tour-itinerary li > *,
+.manifesto-list-item > *,
+.boat-specs-list > div > *,
+.fleet-detail-specs li > * {
+  min-width: 0;
+}
+
+/* Word-break safety on every long-text container so titles and descs
+   never push beyond their card on narrow viewports */
+.tour-card-title,
+.tour-card-desc,
+.bento-card-title,
+.bento-card-desc,
+.fleet-card-name,
+.fleet-card-desc,
+.boat-hero-name,
+.boat-hero-tagline,
+.tour-hero-title,
+.tour-detail-lead,
+.section-title,
+.page-hero-title,
+.page-hero-desc,
+.manifesto-list-title,
+.manifesto-list-text,
+.review-card p,
+.skipper-step h3,
+.skipper-step p,
+.pickup-route,
+.pickup-desc,
+.transfer-note,
+.contact-card-value,
+.contact-card-note,
+.tour-carousel-card-name {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Intermediate breakpoint where things tend to crash: 900–1024px */
+@media (max-width: 1024px) {
+  .hero-content { padding-left: 24px; padding-right: 24px; }
+  .section-inner { padding-left: 0; padding-right: 0; }
+  .hero-title { font-size: clamp(2.4rem, 6vw, 4rem); }
+  .manifesto-inner { gap: 56px; }
+  .tour-detail-grid,
+  .boat-detail-grid,
+  .contact-info-grid,
+  .skipper-included {
+    gap: 36px;
+  }
+  /* Bento — collapse to a single column row layout so cards never overlap */
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: minmax(260px, auto);
+    grid-auto-flow: row;
+  }
+  .bento-large,
+  .bento-tall,
+  .bento-medium,
+  .bento-small,
+  .bento-wide,
+  .bento-halfwide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Make sure images can't push their container wider than the viewport */
+img { max-width: 100%; height: auto; }
+
+/* Tables that don't fit get a horizontal scroll instead of breaking layout */
+.transfer-table-wrap { overflow-x: auto; }
+.transfer-table { min-width: 540px; }
