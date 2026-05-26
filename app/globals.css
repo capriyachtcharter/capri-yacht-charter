@@ -5089,6 +5089,16 @@ body {
     border-radius: 0 !important;
     box-shadow: none !important;
   }
+  /* Reveal on mobile: drop the horizontal translate so cards don't appear
+     visibly off-center while the IntersectionObserver hasn't fired yet. */
+  [data-reveal="left"],
+  [data-reveal="right"] {
+    transform: translateY(14px) scale(0.992) !important;
+  }
+  [data-reveal="left"].is-visible,
+  [data-reveal="right"].is-visible {
+    transform: translate(0, 0) scale(1) !important;
+  }
   /* Stats strip: the inline-grid + huge padding ran off the right edge.
      Stack the three stats vertically on the smallest screens, drop the
      pill background. */
