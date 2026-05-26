@@ -659,9 +659,9 @@ body {
 
 .manifesto-list-num {
   font-family: var(--serif);
-  font-style: normal;
+  font-style: italic;
   font-size: 64px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--bronze);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -1107,17 +1107,8 @@ body {
   overflow: hidden;
 }
 
-.footer-cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 2px;
-  background: var(--bronze);
-  border-radius: 0 0 2px 2px;
-}
+/* Decorative top accent bar removed by request — the card stands on its
+   own without the sea-colored strip on top. */
 
 .footer-cta-mark {
   margin-bottom: 18px;
@@ -1885,12 +1876,11 @@ body {
   transform: translateY(-2px);
 }
 
-/* ===== STATS NUMERALS — keep the Cormorant serif at regular weight
-   (the display font read too heavy at this size). ===== */
+/* ===== STATS NUMERALS — Cormorant italic 300, matches manifesto + tour itinerary ===== */
 .stats-strip-value {
   font-family: var(--serif);
-  font-weight: 400;
-  font-style: normal;
+  font-weight: 300;
+  font-style: italic;
   letter-spacing: -0.01em;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
@@ -3383,16 +3373,29 @@ body {
 
 .tour-hero-back {
   display: inline-flex;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-decoration: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 14px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  transition: color 350ms cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 350ms cubic-bezier(0.19, 1, 0.22, 1),
+              background 350ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .tour-hero-back:hover {
-  color: var(--cream-light);
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
 }
 
 .tour-hero-title {
@@ -3489,13 +3492,13 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
-/* Upright Cormorant numeral — same family/weight as the home stats and
-   manifesto numerals so all numbers across the site share one style. */
+/* Cormorant italic light — same as manifesto / stats / skipper, scaled
+   smaller (38px) to fit the row. */
 .tour-itinerary-num {
   font-family: var(--serif);
-  font-style: normal;
+  font-style: italic;
   font-size: 38px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--sea-dark);
   line-height: 1;
   letter-spacing: -0.01em;
@@ -4025,7 +4028,7 @@ body {
 
 .boat-specs-list {
   margin: 0;
-  padding: 24px;
+  padding: 28px 28px;
   background: var(--surface);
   border-radius: 16px;
   border: 1px solid var(--border-subtle);
@@ -4034,7 +4037,8 @@ body {
 .boat-specs-list > div {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
+  align-items: baseline;
+  padding: 18px 0;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -4687,7 +4691,8 @@ body {
   letter-spacing: -0.02em;
   color: var(--bronze);
   margin-bottom: 16px;
-  font-feature-settings: "tnum" 1;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
 }
 
 .skipper-step h3 {
