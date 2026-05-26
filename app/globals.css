@@ -5069,11 +5069,20 @@ body {
 /* Use `clip` instead of `hidden` so we cut horizontal overflow WITHOUT
    turning <body> into a scroll container — `hidden` was breaking vertical
    scroll on some pages. Falls back to `hidden` on old browsers. */
-body {
-  overflow-x: clip;
+/* Hard horizontal containment: html + body both pinned to 100vw with
+   overflow-x clipped, and touch-action limits gestures to vertical pans
+   so a phone can't rubber-band sideways past the page. */
+html, body {
   max-width: 100vw;
+  width: 100%;
+  overflow-x: clip;
 }
-@supports not (overflow-x: clip) { body { overflow-x: hidden; } }
+@supports not (overflow-x: clip) {
+  html, body { overflow-x: hidden; }
+}
+html {
+  touch-action: pan-y;
+}
 
 /* MOBILE: the hero is normally position: fixed (parallax behind content),
    but on phones that lets a fixed-width hero peek out behind any sideways
@@ -5083,11 +5092,23 @@ body {
   .hero {
     position: relative !important;
     min-height: 100svh;
+    overflow: hidden !important; /* clip anything inside (e.g. splash scale) */
+    max-width: 100vw;
+    width: 100%;
   }
   .hero-spacer { display: none !important; }
   .content-layer {
     border-radius: 0 !important;
     box-shadow: none !important;
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+  /* The splash leaves with a 4% scale on desktop — on mobile that scale
+     was the navy sliver the user saw past the right edge. Replace with a
+     pure opacity fade. */
+  .hero-splash,
+  .hero-splash.is-leaving {
+    transform: none !important;
   }
   /* Reveal on mobile: drop the horizontal translate so cards don't appear
      visibly off-center while the IntersectionObserver hasn't fired yet. */
