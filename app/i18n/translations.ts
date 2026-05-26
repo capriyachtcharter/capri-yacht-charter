@@ -4,7 +4,7 @@ export const translations = {
   it: {
     nav: {
       home: "Home",
-      experiences: "Esperienze",
+      experiences: "Tour",
       fleet: "Flotta",
       transfers: "Trasferimenti",
       story: "Storia",
@@ -216,7 +216,7 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      experiences: "Experiences",
+      experiences: "Tours",
       fleet: "Fleet",
       transfers: "Transfers",
       story: "Story",

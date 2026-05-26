@@ -870,8 +870,8 @@ body {
 }
 
 .tour-card-book-full svg {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 }
 
 .tour-card-book {
@@ -895,8 +895,8 @@ body {
 }
 
 .tour-card-book svg {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 }
 
 .tour-card:hover .tour-card-book {
@@ -3315,8 +3315,8 @@ body {
 }
 
 .transfer-row-cta svg {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 }
 
 .transfer-note {
@@ -3489,12 +3489,11 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
-/* Italic Cormorant numeral — compact (38px) and proportioned to the row.
-   Italic distinguishes the tour-step numerals from the upright ones used
-   on the home (manifesto / reviews stats). */
+/* Upright Cormorant numeral — same family/weight as the home stats and
+   manifesto numerals so all numbers across the site share one style. */
 .tour-itinerary-num {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 38px;
   font-weight: 400;
   color: var(--sea-dark);
@@ -4234,8 +4233,8 @@ body {
 }
 
 .tour-carousel-card-cta svg {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 }
 
 /* Navigation arrows */
