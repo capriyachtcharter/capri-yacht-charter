@@ -74,7 +74,6 @@ export default function Header() {
             >
               <span aria-hidden />
               <span aria-hidden />
-              <span aria-hidden />
             </button>
           </div>
         </div>
