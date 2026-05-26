@@ -659,7 +659,10 @@ body {
 
 /* Identical pattern to .tour-itinerary-num — italic, light, sea-dark.
    Same style across the whole site for every numeric in a list.
-   Kept compact (38px) so it doesn't read as "bold". */
+   Kept compact (38px) so it doesn't read as "bold". tabular-nums forces
+   every digit (and so every "01"/"02"/"03") to occupy the same width —
+   without it Cormorant italic gives "1" a narrower glyph and "01" looks
+   visually smaller than "02"/"03". */
 .manifesto-list-num {
   font-family: var(--serif);
   font-style: italic;
@@ -668,8 +671,8 @@ body {
   color: var(--sea-dark);
   line-height: 1;
   letter-spacing: -0.01em;
-  font-variant-numeric: lining-nums;
-  font-feature-settings: "lnum" 1;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
 .manifesto-list-title {
@@ -1897,7 +1900,7 @@ body {
 .fleet-card-name {
   font-family: var(--serif);
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--navy);
   margin: 0 0 4px;
   letter-spacing: -0.01em;
@@ -2223,13 +2226,15 @@ body {
   transition: none !important;
 }
 
-/* ===== ELEGANT NUMERALS ACROSS THE SITE ===== */
-.fleet-card-name,
+/* ===== ELEGANT NUMERALS ACROSS THE SITE =====
+   NOTE: .fleet-card-name was previously included here, which forced the
+   home page boat names (Libeccio / Tramontana / Gabbiano) into the
+   heavier DM Serif Display while /fleet detail names stayed in the
+   lighter Cormorant — the two pages looked inconsistent. Boat names
+   removed; numerals only. */
 .stats-strip-value,
 .hero-stat-value,
 .manifesto-list-num {
-  font-family: var(--display), 'DM Serif Display', serif;
-  font-weight: 400;
   letter-spacing: -0.01em;
 }
 
@@ -3665,8 +3670,8 @@ body {
   color: var(--sea-dark);
   line-height: 1;
   letter-spacing: -0.01em;
-  font-variant-numeric: lining-nums;
-  font-feature-settings: "lnum" 1;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
   text-align: center;
 }
 
@@ -4872,8 +4877,8 @@ body {
   letter-spacing: -0.01em;
   color: var(--sea-dark);
   margin-bottom: 16px;
-  font-variant-numeric: lining-nums;
-  font-feature-settings: "lnum" 1;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
 .skipper-step h3 {
@@ -4998,10 +5003,19 @@ body {
 /* === HERO ENTRANCE (after splash leaves) === */
 .hero .hero-pill,
 .hero .hero-title,
-.hero .hero-actions,
-.hero .hero-scroll {
+.hero .hero-actions {
   opacity: 0;
   transform: translateY(20px);
+  transition:
+    opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* .hero-scroll is centered via translateX(-50%), so its entrance
+   animation has to compose with that, not overwrite it. */
+.hero .hero-scroll {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
   transition:
     opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
     transform 1000ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -5027,7 +5041,7 @@ body {
 
 .hero.is-ready .hero-scroll {
   opacity: 1;
-  transform: none;
+  transform: translateX(-50%);
   transition-delay: 800ms;
 }
 
