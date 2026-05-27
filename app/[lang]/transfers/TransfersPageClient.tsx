@@ -73,21 +73,21 @@ export default function TransfersPage() {
           </p>
           <div className="page-hero-pills">
             <span className="page-hero-pill">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="8" cy="8" r="6" />
                 <polyline points="8 4 8 8 11 10" />
               </svg>
               {lang === "it" ? "24/7 · anche notturni" : "24/7 · overnight available"}
             </span>
             <span className="page-hero-pill">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 13 L3 5 L13 5 L13 13" />
                 <polyline points="3 9 13 9" />
               </svg>
               {lang === "it" ? "2 ore di preavviso" : "2-hour notice"}
             </span>
             <span className="page-hero-pill">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="3 8 6.5 11.5 13 4.5" />
               </svg>
               {lang === "it" ? "Equipaggio incluso" : "Crew included"}
@@ -136,7 +136,7 @@ export default function TransfersPage() {
                       <td className="transfer-table-cta-cell">
                         <a href={wa} target="_blank" rel="noopener" className="transfer-row-cta">
                           {lang === "it" ? "Prenota" : "Book"}
-                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="3" y1="8" x2="13" y2="8" />
                             <polyline points="9 4 13 8 9 12" />
                           </svg>
@@ -241,7 +241,7 @@ export default function TransfersPage() {
                 <div className="pickup-header">
                   <div className="pickup-route">
                     <strong>{r.from[lang]}</strong>
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="3" y1="8" x2="13" y2="8" />
                       <polyline points="9 4 13 8 9 12" />
                     </svg>

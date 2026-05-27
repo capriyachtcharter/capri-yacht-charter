@@ -16,7 +16,14 @@ export default function Reviews() {
           <div className="stats-strip">
             {t.reviews.stats.map((s) => (
               <div key={s.label} className="stats-strip-item">
-                <span className="stats-strip-value">{s.value}</span>
+                <span className="stats-strip-value">
+                  {s.value}
+                  {"icon" in s && s.icon === "star" && (
+                    <svg className="stats-strip-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                      <path d="M12 2.5l2.92 6.32 6.96.59-5.28 4.57 1.65 6.82L12 17.27l-6.25 3.53 1.65-6.82L2.12 9.41l6.96-.59L12 2.5z" />
+                    </svg>
+                  )}
+                </span>
                 <span className="stats-strip-label">{s.label}</span>
               </div>
             ))}

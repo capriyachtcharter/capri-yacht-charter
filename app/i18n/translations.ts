@@ -147,7 +147,7 @@ export const translations = {
       title: "La fiducia di",
       titleAccent: "migliaia di ospiti.",
       stats: [
-        { value: "4.9★", label: "Voto Ospiti" },
+        { value: "4.9", label: "Voto Ospiti", icon: "star" as const },
         { value: "10K+", label: "Ospiti a Bordo" },
         { value: "22", label: "Anni in Mare" },
       ],
@@ -360,7 +360,7 @@ export const translations = {
       title: "Trusted by",
       titleAccent: "Thousands",
       stats: [
-        { value: "4.9★", label: "Guest Rating" },
+        { value: "4.9", label: "Guest Rating", icon: "star" as const },
         { value: "10K+", label: "Guests Aboard" },
         { value: "22", label: "Years at Sea" },
       ],

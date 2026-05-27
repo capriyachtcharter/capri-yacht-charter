@@ -44,7 +44,7 @@ export default function BoatDetailPage() {
 
         <div className="boat-hero-info">
           <Link href={path("/fleet")} className="boat-hero-back">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="13" y1="8" x2="3" y2="8" />
               <polyline points="7 4 3 8 7 12" />
             </svg>

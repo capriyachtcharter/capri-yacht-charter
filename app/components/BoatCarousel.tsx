@@ -67,7 +67,7 @@ export default function BoatCarousel({
         onMouseLeave={() => setPausedByArrow(false)}
         aria-label="Previous photo"
       >
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="10 4 6 8 10 12" />
         </svg>
       </button>
@@ -79,7 +79,7 @@ export default function BoatCarousel({
         onMouseLeave={() => setPausedByArrow(false)}
         aria-label="Next photo"
       >
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="6 4 10 8 6 12" />
         </svg>
       </button>

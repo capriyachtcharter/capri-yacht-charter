@@ -71,7 +71,7 @@ export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
         onClick={() => nudge(-1)}
         aria-label="Previous"
       >
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="10 4 6 8 10 12" />
         </svg>
       </button>
@@ -81,7 +81,7 @@ export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
         onClick={() => nudge(1)}
         aria-label="Next"
       >
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="6 4 10 8 6 12" />
         </svg>
       </button>
@@ -109,7 +109,7 @@ export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
                   </div>
                   <span className="tour-carousel-card-cta">
                     {ctaLabel}
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="3" y1="8" x2="13" y2="8" />
                       <polyline points="9 4 13 8 9 12" />
                     </svg>

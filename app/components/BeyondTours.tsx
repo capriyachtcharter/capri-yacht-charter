@@ -19,7 +19,7 @@ export default function BeyondTours() {
           {/* Transfers card with VIP top-service highlight */}
           <a href={path("/transfers")} className="beyond-card">
             <div className="beyond-card-icon">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 22 Q9 18 16 22 T29 22" />
                 <path d="M3 26 Q9 22 16 26 T29 26" opacity="0.5" />
                 <path d="M9 18 L16 8 L23 18 Z" />
@@ -31,7 +31,7 @@ export default function BeyondTours() {
 
             <div className="vip-callout">
               <div className="vip-callout-badge">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 6 L8 11 L13 6" />
                   <path d="M3 12 L13 12" />
                 </svg>
@@ -52,7 +52,7 @@ export default function BeyondTours() {
           {/* Skipper Charter card */}
           <a href={path("/charter")} className="beyond-card">
             <div className="beyond-card-icon">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="22" cy="9" r="3" />
                 <path d="M19 14 L19 26" />
                 <path d="M14 18 L24 18" />

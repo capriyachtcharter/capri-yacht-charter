@@ -84,7 +84,14 @@ export default function ToursHubPage() {
                       alt={c.title}
                       fill
                       sizes="(max-width: 900px) 100vw, 50vw"
-                      style={{ objectFit: "cover" }}
+                      style={{
+                        objectFit: "cover",
+                        // Bespoke halfwide card: anchor at the bottom so the
+                        // three yachts stay visible (the Faraglioni rocks would
+                        // otherwise crop them out).
+                        objectPosition:
+                          tour.legacyId === "tour-custom" ? "center 78%" : "center",
+                      }}
                     />
                     <div className="bento-card-overlay" />
                   </div>
