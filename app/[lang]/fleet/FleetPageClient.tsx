@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
+import BoatCarousel from "../../components/BoatCarousel";
 import { useLang } from "../../i18n/LanguageProvider";
 import { fleet } from "../../data/fleet";
 
@@ -31,7 +32,7 @@ export default function FleetHubPage() {
                   data-reveal
                 >
                   <div className="fleet-detail-img">
-                    <img src={b.gallery[0]} alt={c.name} />
+                    <BoatCarousel images={b.gallery} alt={c.name} />
                   </div>
                   <div className="fleet-detail-body">
                     <div className="fleet-detail-model">{c.model}</div>

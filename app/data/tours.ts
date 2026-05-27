@@ -48,7 +48,7 @@ export const tours: Tour[] = [
     hours: "4h",
     priceFrom: "€480",
     tag: "popular",
-    image: "/tours/faraglioni-island.jpg",
+    image: "/tours/capri-cliffs.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Giro dell'Isola di Capri",
@@ -367,7 +367,7 @@ export const tours: Tour[] = [
     hours: "Libera",
     priceFrom: "Su Richiesta",
     tag: "bespoke",
-    image: "/tours/private-cliff.jpg",
+    image: "/tours/bespoke-fleet.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Itinerario Su Misura",

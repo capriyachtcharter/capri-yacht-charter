@@ -37,12 +37,12 @@ export const fleet: Boat[] = [
     slug: "libeccio",
     legacyId: "primatist-g65",
     shortName: "Libeccio",
-    cover: "/fleet/libeccio/sunset.jpg",
+    cover: "/fleet/libeccio/golden-hour.jpg",
     gallery: [
-      "/fleet/libeccio/sunset.jpg",        // cover · exterior · moored at sunset
-      "/fleet/libeccio/aerial-top.jpg",    // exterior · drone top-down with couple
-      "/fleet/libeccio/at-faraglioni.jpg", // exterior · vertical at the Faraglioni
-      "/fleet/libeccio/golden-hour.jpg",   // exterior · sport profile in golden hour
+      "/fleet/libeccio/golden-hour.jpg",   // cover · exterior · sport profile in golden hour
+      "/fleet/libeccio/sunset.jpg",        // exterior · moored at sunset
+      "/fleet/libeccio/at-faraglioni.jpg", // exterior · vertical at the Faraglioni (lateral)
+      "/fleet/libeccio/aerial-top.jpg",    // exterior · drone top-down (the "from above")
       "/fleet/libeccio/salon.jpg",         // interior · main saloon
       "/fleet/libeccio/master-cabin.jpg",  // interior · master cabin
       "/fleet/libeccio/guest-cabin.jpg",   // interior · guest cabin
@@ -100,13 +100,14 @@ export const fleet: Boat[] = [
     shortName: "Tramontana",
     cover: "/fleet/tramontana/action.jpg",
     gallery: [
-      "/fleet/tramontana/action.jpg",     // cover · exterior · racing past the coast
-      "/fleet/tramontana/profile.jpg",    // exterior · side profile with Vesuvius
-      "/fleet/tramontana/bow-action.jpg", // exterior · bow-on action with Sorrento villa
-      "/fleet/tramontana/stern.jpg",      // exterior · stern with crew
-      "/fleet/tramontana/cockpit.jpg",    // interior · open bridge cockpit
-      "/fleet/tramontana/cabin.jpg",      // interior · master cabin
-      "/fleet/tramontana/galley.jpg",     // interior · galley
+      "/fleet/tramontana/action.jpg",       // cover · exterior · racing past the coast
+      "/fleet/tramontana/stern.jpg",        // exterior · stern with crew
+      "/fleet/tramontana/bow-action.jpg",   // exterior · bow-on action with Sorrento villa
+      "/fleet/tramontana/side-profile.jpg", // exterior · clean side profile at the cliffs
+      "/fleet/tramontana/at-cliffs.jpg",    // exterior · anchored privately with couple on bow
+      "/fleet/tramontana/cockpit.jpg",      // interior · open bridge cockpit
+      "/fleet/tramontana/cabin.jpg",        // interior · master cabin
+      "/fleet/tramontana/galley.jpg",       // interior · galley
     ],
     specs: {
       length: "17 m",
@@ -157,12 +158,14 @@ export const fleet: Boat[] = [
     slug: "gabbiano",
     legacyId: "sarima-39",
     shortName: "Gabbiano",
-    cover: "/fleet/gabbiano/at-capri.jpg",
+    cover: "/fleet/gabbiano/action.jpg",
     gallery: [
-      "/fleet/gabbiano/at-capri.jpg", // cover · exterior · at Capri cliffs
-      "/fleet/gabbiano/aerial.jpg",   // exterior · drone with Vesuvius
-      "/fleet/gabbiano/helm.jpg",     // detail · skipper at the wheel
-      "/fleet/gabbiano/cabin.jpg",    // interior · cabin
+      "/fleet/gabbiano/action.jpg",      // cover · exterior · charging past Capri cliffs
+      "/fleet/gabbiano/action-side.jpg", // exterior · side action alternate angle
+      "/fleet/gabbiano/at-capri.jpg",    // exterior · moored at Capri cliffs
+      "/fleet/gabbiano/aerial.jpg",      // exterior · drone with Vesuvius
+      "/fleet/gabbiano/helm.jpg",        // detail · skipper at the wheel
+      "/fleet/gabbiano/cabin.jpg",       // interior · cabin
     ],
     specs: {
       length: "11 m",
