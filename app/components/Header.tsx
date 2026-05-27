@@ -52,13 +52,13 @@ export default function Header() {
                 <span className="logo-subtitle">Since 2002</span>
               </span>
             </Link>
-            <nav className="nav">
-              <Link href="/tours" className="nav-link">{t.nav.experiences}</Link>
-              <Link href="/fleet" className="nav-link">{t.nav.fleet}</Link>
-              <Link href="/charter" className="nav-link">{t.nav.charter}</Link>
-              <Link href="/transfers" className="nav-link">{t.nav.transfers}</Link>
-            </nav>
           </div>
+          <nav className="nav">
+            <Link href="/tours" className="nav-link">{t.nav.experiences}</Link>
+            <Link href="/fleet" className="nav-link">{t.nav.fleet}</Link>
+            <Link href="/charter" className="nav-link">{t.nav.charter}</Link>
+            <Link href="/transfers" className="nav-link">{t.nav.transfers}</Link>
+          </nav>
           <div className="header-right">
             <LanguageSwitcher />
             <Link href="/contact" className="btn-header">
