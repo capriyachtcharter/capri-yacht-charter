@@ -55,8 +55,8 @@ export default function Header() {
             <nav className="nav">
               <Link href="/tours" className="nav-link">{t.nav.experiences}</Link>
               <Link href="/fleet" className="nav-link">{t.nav.fleet}</Link>
-              <Link href="/charter" className="nav-link">{t.nav.transfers}</Link>
-              <Link href="/#manifesto" className="nav-link">{t.nav.story}</Link>
+              <Link href="/charter" className="nav-link">{t.nav.charter}</Link>
+              <Link href="/transfers" className="nav-link">{t.nav.transfers}</Link>
             </nav>
           </div>
           <div className="header-right">
@@ -93,6 +93,9 @@ export default function Header() {
             {t.nav.fleet}
           </Link>
           <Link href="/charter" className="mobile-menu-link" onClick={closeMenu}>
+            {t.nav.charter}
+          </Link>
+          <Link href="/transfers" className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.transfers}
           </Link>
           <Link href="/#manifesto" className="mobile-menu-link" onClick={closeMenu}>
