@@ -39,11 +39,13 @@ export const fleet: Boat[] = [
     shortName: "Libeccio",
     cover: "/fleet/libeccio/sunset.jpg",
     gallery: [
-      "/fleet/libeccio/sunset.jpg",
-      "/fleet/libeccio/aerial-top.jpg",
-      "/fleet/libeccio/salon.jpg",
-      "/fleet/libeccio/master-cabin.jpg",
-      "/fleet/libeccio/guest-cabin.jpg",
+      "/fleet/libeccio/sunset.jpg",        // cover · exterior · moored at sunset
+      "/fleet/libeccio/aerial-top.jpg",    // exterior · drone top-down with couple
+      "/fleet/libeccio/at-faraglioni.jpg", // exterior · vertical at the Faraglioni
+      "/fleet/libeccio/golden-hour.jpg",   // exterior · sport profile in golden hour
+      "/fleet/libeccio/salon.jpg",         // interior · main saloon
+      "/fleet/libeccio/master-cabin.jpg",  // interior · master cabin
+      "/fleet/libeccio/guest-cabin.jpg",   // interior · guest cabin
     ],
     specs: {
       length: "21 m",

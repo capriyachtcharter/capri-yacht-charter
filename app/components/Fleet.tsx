@@ -16,30 +16,9 @@ type Boat = {
   images: string[];
 };
 
-const boatImages: Record<string, string[]> = {
-  // Order: cover → exterior shots (varied angles) → interior
-  "primatist-g65": [
-    "/fleet/primatist-g65.jpg",      // cover — sleek dark hull near cliffs
-    "/fleet/g65/side-profile.jpg",    // exterior — clean side profile in motion
-    "/fleet/g65/aerial-top.jpg",      // exterior — aerial 3/4 view
-    "/fleet/g65/exterior-1.jpg",      // interior — helm / cockpit
-    "/fleet/g65/salon.jpg",            // interior — master cabin
-  ],
-  "primatist-g50": [
-    "/fleet/primatist-g50.jpg",      // cover — gray hull at Capri's Faraglioni
-    "/fleet/g50/bow.jpg",             // exterior — aft cockpit / champagne setup
-    "/fleet/g50/salon.jpg",           // interior — wooden salon
-    "/fleet/g50/cabin.jpg",           // interior — master cabin
-  ],
-  "sarima-39": [
-    "/fleet/sarima/capri-anchored.jpg", // cover — dark hull anchored in Capri turquoise
-    "/fleet/sarima/navigating.jpg",     // exterior — navigating with coast behind
-    "/fleet/sarima/sunset.jpg",         // exterior — sunset golden hour with guests
-    "/fleet/sarima/at-anchor.jpg",      // exterior — white profile at anchor
-    "/fleet/sarima/detail-3.jpg",       // interior — salon
-    "/fleet/sarima/detail-2.jpg",       // interior — cabin
-  ],
-};
+// Photos come from a single source of truth — data/fleet.ts boat.gallery —
+// so the home Fleet section, the /fleet hub and the /fleet/[slug] detail
+// always show the same images in the same order.
 
 function ChevronLeft() {
   return (
@@ -160,7 +139,7 @@ export default function Fleet() {
   const { lang, t } = useLang();
   const boats: Boat[] = t.fleet.boats.map((b) => ({
     ...b,
-    images: boatImages[b.id] ?? [],
+    images: boatByLegacyId[b.id]?.gallery ?? [],
   }));
   const ctaLabel = lang === "it" ? "Scopri di più" : "Discover more";
   return (
