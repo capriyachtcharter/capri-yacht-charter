@@ -4,6 +4,7 @@ import Link from "next/link";
 import PageShell from "../components/PageShell";
 import { useLang } from "../i18n/LanguageProvider";
 import { transferRoutes } from "../data/tours";
+import { fleet } from "../data/fleet";
 
 type Route = {
   from: { it: string; en: string };
@@ -51,60 +52,59 @@ const pickupRoutes: Route[] = [
   },
 ];
 
-export default function TransfersPage() {
+export default function CharterPage() {
   const { lang } = useLang();
+
   return (
     <PageShell>
       <section className="page-hero">
         <div className="page-hero-inner">
-          <div className="eyebrow">
-            {lang === "it" ? "Trasferimenti in barca" : "Boat transfers"}
-          </div>
+          <div className="eyebrow">{lang === "it" ? "Charter" : "Charter"}</div>
           <h1 className="page-hero-title">
-            {lang === "it" ? "Tratte dirette nel Golfo." : "Direct routes across the Gulf."}
+            {lang === "it" ? "Trasferimenti privati e " : "Private transfers and "}
+            <span className="accent-italic">
+              {lang === "it" ? "noleggio con skipper." : "skipper charter."}
+            </span>
           </h1>
           <p className="page-hero-desc">
             {lang === "it"
-              ? "Trasferimenti privati point-to-point tra Capri, la costiera e le isole. Sui tuoi orari — anche di notte, anche all'ultimo minuto. Equipaggio, carburante e snack a bordo inclusi."
-              : "Private point-to-point transfers between Capri, the coast and the islands. On your schedule — also at night, also last-minute. Crew, fuel and onboard snacks included."}
+              ? "Due modi di salire a bordo senza un tour fisso: un trasferimento dritto da A a B con prezzi chiari, o una giornata intera con capitano dedicato — itinerario tuo, comfort nostro."
+              : "Two ways to step aboard without a fixed tour: a direct A → B transfer with clear pricing, or a full day with dedicated captain — your itinerary, our hospitality."}
           </p>
           <div className="page-hero-pills">
-            <span className="page-hero-pill">
+            <a href="#transfers" className="page-hero-pill">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="8" cy="8" r="6" />
-                <polyline points="8 4 8 8 11 10" />
+                <line x1="3" y1="8" x2="13" y2="8" />
+                <polyline points="9 4 13 8 9 12" />
               </svg>
-              {lang === "it" ? "24/7 · anche notturni" : "24/7 · overnight available"}
-            </span>
-            <span className="page-hero-pill">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 13 L3 5 L13 5 L13 13" />
-                <polyline points="3 9 13 9" />
-              </svg>
-              {lang === "it" ? "2 ore di preavviso" : "2-hour notice"}
-            </span>
-            <span className="page-hero-pill">
+              {lang === "it" ? "Trasferimenti" : "Transfers"}
+            </a>
+            <a href="#skipper" className="page-hero-pill">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="3 8 6.5 11.5 13 4.5" />
               </svg>
-              {lang === "it" ? "Equipaggio incluso" : "Crew included"}
-            </span>
+              {lang === "it" ? "Con skipper" : "With skipper"}
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      {/* === TRANSFERS === */}
+      <section className="section" id="transfers">
         <div className="section-inner">
           <div data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Tariffario" : "Pricing"}
-            </div>
+            <div className="eyebrow">{lang === "it" ? "Trasferimenti in barca" : "Boat transfers"}</div>
             <h2 className="section-title">
-              {lang === "it" ? "Prezzi per " : "Prices "}
+              {lang === "it" ? "Tratte " : "Direct routes "}
               <span className="accent">
-                {lang === "it" ? "imbarcazione." : "by vessel."}
+                {lang === "it" ? "dirette nel Golfo." : "across the Gulf."}
               </span>
             </h2>
+            <p className="section-desc">
+              {lang === "it"
+                ? "Point-to-point tra Capri, la costiera e le isole. Sui tuoi orari — anche di notte, anche all'ultimo minuto. Equipaggio, carburante e snack a bordo inclusi."
+                : "Point-to-point between Capri, the coast and the islands. On your schedule — also at night, also last-minute. Crew, fuel and onboard snacks included."}
+            </p>
           </div>
 
           <div className="transfer-table-wrap" data-reveal>
@@ -155,6 +155,7 @@ export default function TransfersPage() {
         </div>
       </section>
 
+      {/* === VIP TOP SERVICE === */}
       <section className="section section-alt">
         <div className="section-inner">
           <div data-reveal>
@@ -212,12 +213,11 @@ export default function TransfersPage() {
         </div>
       </section>
 
+      {/* === PICK-UP & DROP-OFF === */}
       <section className="section">
         <div className="section-inner">
           <div data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Pick-up & drop-off" : "Pick-up & drop-off"}
-            </div>
+            <div className="eyebrow">{lang === "it" ? "Pick-up & drop-off" : "Pick-up & drop-off"}</div>
             <h2 className="section-title">
               {lang === "it" ? "Imbarco da " : "Boarding from "}
               <span className="accent">
@@ -254,18 +254,120 @@ export default function TransfersPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* === SKIPPER CHARTER === */}
+      <section className="section section-alt" id="skipper">
+        <div className="section-inner">
+          <div data-reveal>
+            <div className="eyebrow">{lang === "it" ? "Noleggio con skipper" : "Skipper charter"}</div>
+            <h2 className="section-title">
+              {lang === "it" ? "La barca è tua. " : "The boat is yours. "}
+              <span className="accent">
+                {lang === "it" ? "Il capitano è nostro." : "The captain is ours."}
+              </span>
+            </h2>
+            <p className="section-desc">
+              {lang === "it"
+                ? "Nessun itinerario imposto, nessun orario fisso. Disegniamo la giornata insieme — tu scegli dove, noi sappiamo come."
+                : "No fixed itinerary, no rigid schedule. We design the day together — you choose where, we know how."}
+            </p>
+          </div>
+
+          <div className="skipper-steps" data-reveal>
+            <div className="skipper-step">
+              <div className="skipper-step-num">01</div>
+              <h3>{lang === "it" ? "Ci scrivi" : "You reach out"}</h3>
+              <p>
+                {lang === "it"
+                  ? "Telefono, WhatsApp o email. Raccontaci cosa hai in mente: una caletta, un tramonto, un pranzo lontano dalle folle."
+                  : "Phone, WhatsApp or email. Tell us what you have in mind: a hidden cove, a sunset, a lunch away from the crowds."}
+              </p>
+            </div>
+            <div className="skipper-step">
+              <div className="skipper-step-num">02</div>
+              <h3>{lang === "it" ? "Costruiamo l'itinerario" : "We build the route"}</h3>
+              <p>
+                {lang === "it"
+                  ? "Il capitano studia con te orari, soste, eventuali ristoranti e prenotazioni. Tutto privato, tutto flessibile."
+                  : "The captain plans with you times, stops, restaurants and reservations. Private, flexible, yours."}
+              </p>
+            </div>
+            <div className="skipper-step">
+              <div className="skipper-step-num">03</div>
+              <h3>{lang === "it" ? "Salpate" : "You sail"}</h3>
+              <p>
+                {lang === "it"
+                  ? "Sali a bordo, ci pensiamo a tutto: navigazione, ancoraggi, sicurezza, comfort. Tu pensi solo a goderti la giornata."
+                  : "Step on board, we handle everything: navigation, anchoring, safety, comfort. You just enjoy the day."}
+              </p>
+            </div>
+          </div>
+
+          <div className="skipper-included" data-reveal>
+            <div>
+              <h4>{lang === "it" ? "Sempre incluso" : "Always included"}</h4>
+              <ul>
+                <li>{lang === "it" ? "Capitano qualificato" : "Licensed captain"}</li>
+                <li>{lang === "it" ? "Carburante e ormeggi" : "Fuel and mooring"}</li>
+                <li>{lang === "it" ? "IVA" : "VAT"}</li>
+                <li>{lang === "it" ? "Snack & soft drink a bordo" : "Snacks & soft drinks on board"}</li>
+                <li>{lang === "it" ? "Attrezzatura snorkeling e SUP" : "Snorkeling gear and SUP"}</li>
+                <li>{lang === "it" ? "Asciugamani e doccia esterna" : "Towels and outdoor shower"}</li>
+              </ul>
+            </div>
+            <div>
+              <h4>{lang === "it" ? "Su richiesta" : "On request"}</h4>
+              <ul>
+                <li>{lang === "it" ? "Chef privato a bordo" : "Private chef on board"}</li>
+                <li>{lang === "it" ? "Catering / aperitivo" : "Catering / aperitivo"}</li>
+                <li>{lang === "it" ? "Wine pairing curato" : "Curated wine pairing"}</li>
+                <li>{lang === "it" ? "Trasferimento porta-a-porta" : "Door-to-door transfer"}</li>
+                <li>{lang === "it" ? "Servizio fotografico" : "Photography service"}</li>
+                <li>{lang === "it" ? "Allestimento speciale (compleanno, proposta)" : "Special setup (birthday, proposal)"}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="tour-boats-grid" data-reveal>
+            {fleet.map((b) => {
+              const c = lang === "it" ? b.it : b.en;
+              return (
+                <Link key={b.slug} href={`/fleet/${b.slug}`} className="tour-boat-card">
+                  <div className="tour-boat-img">
+                    <img src={b.cover} alt={c.name} />
+                  </div>
+                  <div className="tour-boat-body">
+                    <h3>{c.name}</h3>
+                    <div className="tour-boat-model">{c.model}</div>
+                    <div className="tour-boat-specs">
+                      {b.specs.length} · {b.specs.capacityDay}
+                    </div>
+                    <span className="tour-boat-cta">
+                      {lang === "it" ? "Dettagli" : "Details"}
+                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="3" y1="8" x2="13" y2="8" />
+                        <polyline points="9 4 13 8 9 12" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
 
           <div className="cta-row" data-reveal>
             <a
-              href="https://wa.me/393335741333"
+              href="https://wa.me/393335741333?text=Vorrei%20noleggiare%20con%20skipper"
               target="_blank"
               rel="noopener"
               className="btn-primary"
             >
-              {lang === "it" ? "Richiedi un preventivo" : "Request a quote"}
+              {lang === "it" ? "Richiedi preventivo" : "Request a quote"}
             </a>
-            <Link href="/fleet" className="btn-secondary-dark">
-              {lang === "it" ? "Vedi la flotta" : "View the fleet"}
+            <Link href="/contact" className="btn-secondary-dark">
+              {lang === "it" ? "Contattaci" : "Contact us"}
             </Link>
           </div>
         </div>
