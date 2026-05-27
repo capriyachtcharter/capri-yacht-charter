@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import PageShell from "../components/PageShell";
-import { useLang } from "../i18n/LanguageProvider";
-import { fleet } from "../data/fleet";
+import PageShell from "../../components/PageShell";
+import { useLang } from "../../i18n/LanguageProvider";
+import { fleet } from "../../data/fleet";
 
 export default function CharterPage() {
-  const { lang } = useLang();
+  const { lang, path } = useLang();
   return (
     <PageShell>
       <section className="page-hero">
@@ -176,7 +176,7 @@ export default function CharterPage() {
             {fleet.map((b) => {
               const c = lang === "it" ? b.it : b.en;
               return (
-                <Link key={b.slug} href={`/fleet/${b.slug}`} className="tour-boat-card" data-reveal="left">
+                <Link key={b.slug} href={path(`/fleet/${b.slug}`)} className="tour-boat-card" data-reveal="left">
                   <div className="tour-boat-img">
                     <img src={b.cover} alt={c.name} />
                   </div>
@@ -208,7 +208,7 @@ export default function CharterPage() {
             >
               {lang === "it" ? "Richiedi preventivo" : "Request a quote"}
             </a>
-            <Link href="/contact" className="btn-secondary-dark">
+            <Link href={path("/contact")} className="btn-secondary-dark">
               {lang === "it" ? "Contattaci" : "Contact us"}
             </Link>
           </div>

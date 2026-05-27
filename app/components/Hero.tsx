@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "../i18n/LanguageProvider";
 
 export default function Hero() {
-  const { t } = useLang();
+  const { t, path } = useLang();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [ready, setReady] = useState(false);
 
@@ -74,8 +74,8 @@ export default function Hero() {
         </h1>
 
         <div className="hero-actions">
-          <a href="/tours" className="btn-primary">{t.hero.ctaPrimary}</a>
-          <a href="/contact" className="btn-secondary">
+          <a href={path("/tours")} className="btn-primary">{t.hero.ctaPrimary}</a>
+          <a href={path("/contact")} className="btn-secondary">
             {t.hero.ctaSecondary}
           </a>
         </div>

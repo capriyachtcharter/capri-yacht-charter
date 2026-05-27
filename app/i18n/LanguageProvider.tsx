@@ -1,48 +1,53 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useMemo, type ReactNode } from "react";
 import { translations, type Lang, type Translations } from "./translations";
 
 type Ctx = {
   lang: Lang;
-  setLang: (l: Lang) => void;
   t: Translations;
+  /**
+   * Prefix an absolute in-app path with the current locale.
+   * Already-prefixed paths (eg "/en/tours") and external URLs pass through.
+   */
+  path: (p: string) => string;
 };
 
 const LanguageContext = createContext<Ctx | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
+const LOCALES: readonly string[] = ["en", "it"];
 
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem("cyc-lang") as Lang | null;
-      if (saved === "it" || saved === "en") setLangState(saved);
-    } catch {}
-  }, []);
+export function LanguageProvider({
+  initialLang,
+  children,
+}: {
+  initialLang: Lang;
+  children: ReactNode;
+}) {
+  const value = useMemo<Ctx>(() => {
+    const lang = initialLang;
+    const path = (p: string) => {
+      if (!p.startsWith("/")) return p; // external (https://…, mailto:, etc.)
+      const seg = p.split("/")[1] ?? "";
+      if (LOCALES.includes(seg)) return p; // already prefixed
+      return p === "/" ? `/${lang}` : `/${lang}${p}`;
+    };
+    return { lang, t: translations[lang] as Translations, path };
+  }, [initialLang]);
 
-  const setLang = (l: Lang) => {
-    setLangState(l);
-    try {
-      window.localStorage.setItem("cyc-lang", l);
-    } catch {}
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = l;
-    }
-  };
-
-  return (
-    <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] as Translations }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
 export function useLang() {
   const ctx = useContext(LanguageContext);
   if (!ctx) {
-    // Outside provider: fall back to Italian (no client-side toggling).
-    return { lang: "it" as Lang, setLang: () => {}, t: translations.it };
+    // Outside provider: harmless fallback (mostly for tests).
+    const lang: Lang = "en";
+    return {
+      lang,
+      t: translations[lang] as Translations,
+      path: (p: string) => p,
+    };
   }
   return ctx;
 }

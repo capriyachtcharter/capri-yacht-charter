@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import PageShell from "../components/PageShell";
-import { useLang } from "../i18n/LanguageProvider";
-import { fleet } from "../data/fleet";
+import PageShell from "../../components/PageShell";
+import { useLang } from "../../i18n/LanguageProvider";
+import { fleet } from "../../data/fleet";
 
 export default function FleetHubPage() {
-  const { lang, t } = useLang();
+  const { lang, t, path } = useLang();
   return (
     <PageShell>
       <section className="page-hero">
@@ -59,7 +59,7 @@ export default function FleetHubPage() {
                     </ul>
 
                     <div className="fleet-detail-actions">
-                      <Link href={`/fleet/${b.slug}`} className="btn-primary">
+                      <Link href={path(`/fleet/${b.slug}`)} className="btn-primary">
                         {lang === "it" ? "Scopri di più" : "Discover more"}
                       </Link>
                       <a

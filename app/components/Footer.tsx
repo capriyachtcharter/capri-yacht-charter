@@ -8,7 +8,7 @@ import { toursByLegacyId } from "../data/tours";
 import { boatByLegacyId } from "../data/fleet";
 
 export default function Footer() {
-  const { t } = useLang();
+  const { t, path } = useLang();
   const pathname = usePathname();
   const showCta = pathname === "/";
   return (
@@ -31,8 +31,8 @@ export default function Footer() {
               ))}
             </p>
             <div className="footer-cta-buttons">
-              <Link href="/tours" className="btn-footer-primary">{t.footer.cta.primary}</Link>
-              <Link href="/contact" className="btn-footer-secondary">
+              <Link href={path("/tours")} className="btn-footer-primary">{t.footer.cta.primary}</Link>
+              <Link href={path("/contact")} className="btn-footer-secondary">
                 {t.footer.cta.secondary}
               </Link>
             </div>
@@ -49,8 +49,8 @@ export default function Footer() {
                 <Link key={tour.id} href={href} className="footer-link">{tour.title}</Link>
               );
             })}
-            <Link href="/tours#transfers" className="footer-link">{t.beyond.transferTitle}</Link>
-            <Link href="/tours#mini-cruises" className="footer-link">{t.beyond.skipperTitle}</Link>
+            <Link href={path("/tours#transfers")} className="footer-link">{t.beyond.transferTitle}</Link>
+            <Link href={path("/tours#mini-cruises")} className="footer-link">{t.beyond.skipperTitle}</Link>
           </div>
           <div>
             <div className="footer-col-title">{t.footer.cols.fleetTitle}</div>
@@ -81,7 +81,7 @@ export default function Footer() {
       <div className="footer-black">
         <div className="footer-black-inner">
           <div className="footer-top-row">
-            <Link href="/" className="footer-logo-mark" aria-label="Capri Yacht Charter">
+            <Link href={path("/")} className="footer-logo-mark" aria-label="Capri Yacht Charter">
               <img src="/logo-mark.png" alt="" className="footer-logo-mark-img" />
               <span className="footer-logo-text-wrap">
                 <span className="footer-logo-name">Capri Yacht Charter</span>

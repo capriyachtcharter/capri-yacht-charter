@@ -3,16 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
-import PageShell from "../../components/PageShell";
-import TourCarousel, { type CarouselItem } from "../../components/TourCarousel";
-import { useLang } from "../../i18n/LanguageProvider";
-import { boatBySlug } from "../../data/fleet";
-import { tours } from "../../data/tours";
+import PageShell from "../../../components/PageShell";
+import TourCarousel, { type CarouselItem } from "../../../components/TourCarousel";
+import { useLang } from "../../../i18n/LanguageProvider";
+import { boatBySlug } from "../../../data/fleet";
+import { tours } from "../../../data/tours";
 
 export default function BoatDetailPage() {
   const params = useParams<{ slug: string }>();
   const boat = boatBySlug[params.slug];
-  const { lang } = useLang();
+  const { lang, path } = useLang();
   const [idx, setIdx] = useState(0);
 
   if (!boat) {
@@ -43,7 +43,7 @@ export default function BoatDetailPage() {
         </div>
 
         <div className="boat-hero-info">
-          <Link href="/fleet" className="boat-hero-back">
+          <Link href={path("/fleet")} className="boat-hero-back">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="13" y1="8" x2="3" y2="8" />
               <polyline points="7 4 3 8 7 12" />
@@ -56,7 +56,7 @@ export default function BoatDetailPage() {
           <p className="boat-hero-tagline">{c.tagline}</p>
 
           <div className="boat-hero-actions">
-            <Link href="/tours" className="btn-primary">
+            <Link href={path("/tours")} className="btn-primary">
               {lang === "it" ? "Prenota un tour" : "Book a tour"}
             </Link>
             <a

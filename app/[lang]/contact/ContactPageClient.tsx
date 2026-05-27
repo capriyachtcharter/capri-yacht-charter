@@ -1,7 +1,7 @@
 "use client";
 
-import PageShell from "../components/PageShell";
-import { useLang } from "../i18n/LanguageProvider";
+import PageShell from "../../components/PageShell";
+import { useLang } from "../../i18n/LanguageProvider";
 
 const primaryChannels = [
   {

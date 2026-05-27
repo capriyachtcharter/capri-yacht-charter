@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans, DM_Serif_Display } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
-import { LanguageProvider } from "./i18n/LanguageProvider";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -85,16 +85,19 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Middleware sets x-cyc-lang on the request, so <html lang> matches the
+  // URL even though the root layout sits above the [lang] dynamic segment.
+  const h = await headers();
+  const lang = h.get("x-cyc-lang") === "it" ? "it" : "en";
+
   return (
-    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${dmSerif.variable}`}>
-      <body>
-        <LanguageProvider>{children}</LanguageProvider>
-      </body>
+    <html lang={lang} className={`${cormorant.variable} ${jakarta.variable} ${dmSerif.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

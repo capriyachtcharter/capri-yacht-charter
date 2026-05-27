@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import PageShell from "../components/PageShell";
-import { useLang } from "../i18n/LanguageProvider";
-import { transferRoutes } from "../data/tours";
+import PageShell from "../../components/PageShell";
+import { useLang } from "../../i18n/LanguageProvider";
+import { transferRoutes } from "../../data/tours";
 
 type Route = {
   from: { it: string; en: string };
@@ -52,7 +52,7 @@ const pickupRoutes: Route[] = [
 ];
 
 export default function TransfersPage() {
-  const { lang } = useLang();
+  const { lang, path } = useLang();
   return (
     <PageShell>
       <section className="page-hero">
@@ -263,7 +263,7 @@ export default function TransfersPage() {
             >
               {lang === "it" ? "Richiedi un preventivo" : "Request a quote"}
             </a>
-            <Link href="/charter" className="btn-secondary-dark">
+            <Link href={path("/charter")} className="btn-secondary-dark">
               {lang === "it" ? "Noleggio con skipper" : "Skipper charter"}
             </Link>
           </div>

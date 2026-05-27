@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import PageShell from "../components/PageShell";
-import { useLang } from "../i18n/LanguageProvider";
-import { tours } from "../data/tours";
+import PageShell from "../../components/PageShell";
+import { useLang } from "../../i18n/LanguageProvider";
+import { tours } from "../../data/tours";
 
 // Bento layout — perfect 6-column rectangle:
 // Row 1-2: LARGE Costiera (4×2)         + TALL Positano (2×2)
@@ -35,7 +35,7 @@ const renderOrder = [
 ];
 
 export default function ToursHubPage() {
-  const { lang, t } = useLang();
+  const { lang, t, path } = useLang();
   const dailyMap = Object.fromEntries(
     tours.filter((tr) => tr.category === "daily").map((tr) => [tr.legacyId, tr])
   );
@@ -75,7 +75,7 @@ export default function ToursHubPage() {
               return (
                 <Link
                   key={tour.slug}
-                  href={`/tours/${tour.slug}`}
+                  href={path(`/tours/${tour.slug}`)}
                   className={`bento-card bento-${size}`}
                 >
                   <div className="bento-card-img">

@@ -3,15 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useParams, notFound } from "next/navigation";
-import PageShell from "../../components/PageShell";
-import { useLang } from "../../i18n/LanguageProvider";
-import { toursBySlug, includedDefault, notIncludedDefault } from "../../data/tours";
-import { boatByLegacyId } from "../../data/fleet";
+import PageShell from "../../../components/PageShell";
+import { useLang } from "../../../i18n/LanguageProvider";
+import { toursBySlug, includedDefault, notIncludedDefault } from "../../../data/tours";
+import { boatByLegacyId } from "../../../data/fleet";
 
 export default function TourDetailPage() {
   const params = useParams<{ slug: string }>();
   const tour = toursBySlug[params.slug];
-  const { lang, t } = useLang();
+  const { lang, t, path } = useLang();
 
   if (!tour) {
     notFound();
@@ -33,7 +33,7 @@ export default function TourDetailPage() {
         <div className="tour-hero-overlay" />
         <div className="tour-hero-inner">
           <div className="tour-hero-eyebrow">
-            <Link href="/tours" className="tour-hero-back">
+            <Link href={path("/tours")} className="tour-hero-back">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <line x1="13" y1="8" x2="3" y2="8" />
                 <polyline points="7 4 3 8 7 12" />
@@ -157,7 +157,7 @@ export default function TourDetailPage() {
                 return (
                   <Link
                     key={b.slug}
-                    href={`/fleet/${b.slug}`}
+                    href={path(`/fleet/${b.slug}`)}
                     className="tour-boat-card"
                     data-reveal="left"
                   >

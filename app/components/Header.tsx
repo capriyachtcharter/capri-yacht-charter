@@ -8,7 +8,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { t } = useLang();
+  const { t, path } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
@@ -45,7 +45,7 @@ export default function Header() {
       <header className={`header${scrolled ? " scrolled" : ""}`} id="header">
         <div className="header-inner">
           <div className="header-left">
-            <Link href="/" className="logo" aria-label="Capri Yacht Charter">
+            <Link href={path("/")} className="logo" aria-label="Capri Yacht Charter">
               <img src="/logo-mark-navy.png" alt="" className="logo-img" />
               <span className="logo-text-wrap">
                 <span className="logo-text">Capri Yacht Charter</span>
@@ -54,14 +54,14 @@ export default function Header() {
             </Link>
           </div>
           <nav className="nav">
-            <Link href="/tours" className="nav-link">{t.nav.experiences}</Link>
-            <Link href="/fleet" className="nav-link">{t.nav.fleet}</Link>
-            <Link href="/charter" className="nav-link">{t.nav.charter}</Link>
-            <Link href="/transfers" className="nav-link">{t.nav.transfers}</Link>
+            <Link href={path("/tours")} className="nav-link">{t.nav.experiences}</Link>
+            <Link href={path("/fleet")} className="nav-link">{t.nav.fleet}</Link>
+            <Link href={path("/charter")} className="nav-link">{t.nav.charter}</Link>
+            <Link href={path("/transfers")} className="nav-link">{t.nav.transfers}</Link>
           </nav>
           <div className="header-right">
             <LanguageSwitcher />
-            <Link href="/contact" className="btn-header">
+            <Link href={path("/contact")} className="btn-header">
               {t.nav.whatsapp}
             </Link>
             <button
@@ -86,22 +86,22 @@ export default function Header() {
         onClick={closeMenu}
       >
         <nav className="mobile-menu-nav" onClick={(e) => e.stopPropagation()}>
-          <Link href="/tours" className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/tours")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.experiences}
           </Link>
-          <Link href="/fleet" className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/fleet")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.fleet}
           </Link>
-          <Link href="/charter" className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/charter")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.charter}
           </Link>
-          <Link href="/transfers" className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/transfers")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.transfers}
           </Link>
-          <Link href="/#manifesto" className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/#manifesto")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.story}
           </Link>
-          <Link href="/contact" className="mobile-menu-link mobile-menu-link-accent" onClick={closeMenu}>
+          <Link href={path("/contact")} className="mobile-menu-link mobile-menu-link-accent" onClick={closeMenu}>
             {t.nav.contact}
           </Link>
         </nav>
