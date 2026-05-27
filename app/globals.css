@@ -5250,3 +5250,56 @@ img { max-width: 100%; height: auto; }
 /* Tables that don't fit get a horizontal scroll instead of breaking layout */
 .transfer-table-wrap { overflow-x: auto; }
 .transfer-table { min-width: 540px; }
+
+/* ============================================================================
+   Charter — Luxury on board section
+   ============================================================================ */
+.charter-luxury {
+  background: var(--bg-cream, #FBFAF6);
+}
+.charter-luxury-head {
+  max-width: 760px;
+  margin: 0 0 40px;
+}
+.charter-luxury-head .section-desc {
+  margin-top: 14px;
+  color: var(--text-secondary, #2C3A52);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.charter-luxury-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.charter-luxury-cell {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  aspect-ratio: 3 / 4;
+  background: rgba(15, 22, 35, 0.04);
+}
+.charter-luxury-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.charter-luxury-cell:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 900px) {
+  .charter-luxury-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+@media (max-width: 520px) {
+  .charter-luxury-grid {
+    grid-template-columns: 1fr;
+  }
+  .charter-luxury-cell { aspect-ratio: 4 / 3; }
+}

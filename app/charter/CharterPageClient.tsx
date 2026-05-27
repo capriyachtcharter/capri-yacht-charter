@@ -116,6 +116,48 @@ export default function CharterPage() {
         </div>
       </section>
 
+      <section className="section charter-luxury" data-reveal>
+        <div className="section-inner">
+          <div className="charter-luxury-head">
+            <div className="eyebrow">
+              {lang === "it" ? "A bordo" : "On board"}
+            </div>
+            <h2 className="section-title">
+              {lang === "it" ? "La barca è il programma. " : "The boat is the plan. "}
+              <span className="accent">
+                {lang === "it" ? "Tu, il tempo." : "You, the pace."}
+              </span>
+            </h2>
+            <p className="section-desc">
+              {lang === "it"
+                ? "Niente itinerario imposto, niente folla. Solarium, doccia esterna, chef su richiesta — l'unica cosa da decidere è quando rientrare."
+                : "No fixed itinerary, no crowd. Sun deck, outdoor shower, chef on request — the only thing to decide is when to head back."}
+            </p>
+          </div>
+
+          <div className="charter-luxury-grid">
+            <figure className="charter-luxury-cell">
+              <img src="/charter/sundeck-couple.jpg" alt={lang === "it" ? "Coppia in relax sul solarium dello yacht" : "Couple relaxing on the yacht sun deck"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/luxury-detail.jpg" alt={lang === "it" ? "Dettaglio cuscini e teli Capri Yacht Charter" : "Capri Yacht Charter towel and cushion detail"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/champagne-bow.jpg" alt={lang === "it" ? "Champagne in prua" : "Champagne on the bow"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/sunset-reading.jpg" alt={lang === "it" ? "Lettura al tramonto in prua" : "Reading on the bow at sunset"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/swim-faraglione.jpg" alt={lang === "it" ? "Tuffo davanti ai Faraglioni" : "Swimming by the Faraglioni"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/champagne-archway.jpg" alt={lang === "it" ? "Brindisi davanti all'arco dei Faraglioni" : "Toast under the Faraglioni arch"} />
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="section-inner">
           <div data-reveal>
