@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { fleet, boatBySlug } from "../../data/fleet";
+import JsonLd from "../../components/JsonLd";
 import BoatDetailClient from "./BoatDetailClient";
 
 type Props = { params: Promise<{ slug: string }> };
+
+const SITE_URL = "https://capriyachtcharter.com";
 
 export async function generateStaticParams() {
   return fleet.map((b) => ({ slug: b.slug }));
@@ -38,6 +41,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function Page() {
-  return <BoatDetailClient />;
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  const boat = boatBySlug[slug];
+
+  const breadcrumbLd = boat && {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Fleet", item: `${SITE_URL}/fleet` },
+      { "@type": "ListItem", position: 3, name: boat.en.name, item: `${SITE_URL}/fleet/${slug}` },
+    ],
+  };
+
+  return (
+    <>
+      {breadcrumbLd && <JsonLd data={breadcrumbLd} />}
+      <BoatDetailClient />
+    </>
+  );
 }
