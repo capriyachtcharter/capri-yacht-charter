@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import BoatCarousel from "./BoatCarousel";
 import { useLang } from "../i18n/LanguageProvider";
 import { boatByLegacyId } from "../data/fleet";
 
@@ -16,93 +16,16 @@ type Boat = {
   images: string[];
 };
 
-// Photos come from a single source of truth — data/fleet.ts boat.gallery —
-// so the home Fleet section, the /fleet hub and the /fleet/[slug] detail
-// always show the same images in the same order.
-
-function ChevronLeft() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="10 4 6 8 10 12" />
-    </svg>
-  );
-}
-function ChevronRight() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="6 4 10 8 6 12" />
-    </svg>
-  );
-}
-
-function FleetCard({ boat, delay, ctaLabel }: { boat: Boat; delay: number; ctaLabel: string }) {
-  const [idx, setIdx] = useState(0);
-  const [hovered, setHovered] = useState(false);
-  const [pausedByArrow, setPausedByArrow] = useState(false);
-
-  useEffect(() => {
-    if (!hovered) {
-      setIdx(0);
-      return;
-    }
-    if (pausedByArrow) return;
-    const id = setInterval(() => {
-      setIdx((i) => (i + 1) % boat.images.length);
-    }, 3200);
-    return () => clearInterval(id);
-  }, [hovered, pausedByArrow, boat.images.length]);
-
-  const next = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIdx((i) => (i + 1) % boat.images.length);
-  };
-  const prev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIdx((i) => (i - 1 + boat.images.length) % boat.images.length);
-  };
-
+function FleetCard({ boat, delay, ctaLabel, ctaHref }: { boat: Boat; delay: number; ctaLabel: string; ctaHref: string }) {
   return (
     <article
       id={`fleet-${boat.id}`}
       className="fleet-card"
       data-reveal="left"
       style={{ transitionDelay: `${delay}s` }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <div className="fleet-card-img">
-        {boat.images.map((src, i) => (
-          <img
-            key={src + i}
-            src={src}
-            alt={boat.name}
-            className={`fleet-card-frame${idx === i ? " is-active" : ""}`}
-            loading={i === 0 ? "eager" : "lazy"}
-          />
-        ))}
-        <button
-          className="fleet-card-nav fleet-card-prev"
-          onClick={prev}
-          onMouseEnter={() => setPausedByArrow(true)}
-          onMouseLeave={() => setPausedByArrow(false)}
-          aria-label="Previous photo"
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          className="fleet-card-nav fleet-card-next"
-          onClick={next}
-          onMouseEnter={() => setPausedByArrow(true)}
-          onMouseLeave={() => setPausedByArrow(false)}
-          aria-label="Next photo"
-        >
-          <ChevronRight />
-        </button>
-        <div className="fleet-card-counter">
-          <span>{String(idx + 1).padStart(2, "0")}</span>
-          <span className="fleet-card-counter-divider" aria-hidden>—</span>
-          <span>{String(boat.images.length).padStart(2, "0")}</span>
-        </div>
+        <BoatCarousel images={boat.images} alt={boat.name} />
       </div>
 
       <div className="fleet-card-body">
@@ -118,10 +41,7 @@ function FleetCard({ boat, delay, ctaLabel }: { boat: Boat; delay: number; ctaLa
         <div className="fleet-card-extra">
           <div className="fleet-card-extra-inner">
             <p className="fleet-card-desc">{boat.desc}</p>
-            <Link
-              href={`/fleet/${boatByLegacyId[boat.id]?.slug ?? ""}`}
-              className="fleet-card-cta"
-            >
+            <Link href={ctaHref} className="fleet-card-cta">
               <span>{ctaLabel}</span>
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="3" y1="8" x2="13" y2="8" />
@@ -136,7 +56,7 @@ function FleetCard({ boat, delay, ctaLabel }: { boat: Boat; delay: number; ctaLa
 }
 
 export default function Fleet() {
-  const { lang, t } = useLang();
+  const { lang, t, path } = useLang();
   const boats: Boat[] = t.fleet.boats.map((b) => ({
     ...b,
     images: boatByLegacyId[b.id]?.gallery ?? [],
@@ -155,7 +75,13 @@ export default function Fleet() {
 
         <div className="fleet-grid">
           {boats.map((b, i) => (
-            <FleetCard key={b.id} boat={b} delay={i * 0.14} ctaLabel={ctaLabel} />
+            <FleetCard
+              key={b.id}
+              boat={b}
+              delay={i * 0.14}
+              ctaLabel={ctaLabel}
+              ctaHref={path(`/fleet/${boatByLegacyId[b.id]?.slug ?? ""}`)}
+            />
           ))}
         </div>
       </div>
