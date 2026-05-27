@@ -98,14 +98,15 @@ export const fleet: Boat[] = [
     slug: "tramontana",
     legacyId: "primatist-g50",
     shortName: "Tramontana",
-    cover: "/fleet/tramontana/profile.jpg",
+    cover: "/fleet/tramontana/action.jpg",
     gallery: [
-      "/fleet/tramontana/profile.jpg",
-      "/fleet/tramontana/stern.jpg",
-      "/fleet/tramontana/action.jpg",
-      "/fleet/tramontana/cockpit.jpg",
-      "/fleet/tramontana/cabin.jpg",
-      "/fleet/tramontana/galley.jpg",
+      "/fleet/tramontana/action.jpg",     // cover · exterior · racing past the coast
+      "/fleet/tramontana/profile.jpg",    // exterior · side profile with Vesuvius
+      "/fleet/tramontana/bow-action.jpg", // exterior · bow-on action with Sorrento villa
+      "/fleet/tramontana/stern.jpg",      // exterior · stern with crew
+      "/fleet/tramontana/cockpit.jpg",    // interior · open bridge cockpit
+      "/fleet/tramontana/cabin.jpg",      // interior · master cabin
+      "/fleet/tramontana/galley.jpg",     // interior · galley
     ],
     specs: {
       length: "17 m",
@@ -158,11 +159,10 @@ export const fleet: Boat[] = [
     shortName: "Gabbiano",
     cover: "/fleet/gabbiano/at-capri.jpg",
     gallery: [
-      "/fleet/gabbiano/at-capri.jpg",
-      "/fleet/gabbiano/aerial.jpg",
-      "/fleet/gabbiano/helm.jpg",
-      "/fleet/gabbiano/aperitivo.jpg",
-      "/fleet/gabbiano/cabin.jpg",
+      "/fleet/gabbiano/at-capri.jpg", // cover · exterior · at Capri cliffs
+      "/fleet/gabbiano/aerial.jpg",   // exterior · drone with Vesuvius
+      "/fleet/gabbiano/helm.jpg",     // detail · skipper at the wheel
+      "/fleet/gabbiano/cabin.jpg",    // interior · cabin
     ],
     specs: {
       length: "11 m",

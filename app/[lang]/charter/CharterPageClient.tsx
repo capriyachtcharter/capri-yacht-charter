@@ -143,7 +143,7 @@ export default function CharterPage() {
               <img src="/charter/luxury-detail.jpg" alt={lang === "it" ? "Dettaglio cuscini e teli Capri Yacht Charter" : "Capri Yacht Charter towel and cushion detail"} />
             </figure>
             <figure className="charter-luxury-cell">
-              <img src="/charter/champagne-bow.jpg" alt={lang === "it" ? "Champagne in prua" : "Champagne on the bow"} />
+              <img src="/charter/aperitivo.jpg" alt={lang === "it" ? "Aperitivo a bordo con cuscino Capri Yacht Charter" : "Aperitivo on board with Capri Yacht Charter cushion"} />
             </figure>
             <figure className="charter-luxury-cell">
               <img src="/charter/sunset-reading.jpg" alt={lang === "it" ? "Lettura al tramonto in prua" : "Reading on the bow at sunset"} />

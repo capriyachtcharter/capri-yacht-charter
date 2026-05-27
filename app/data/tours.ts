@@ -323,7 +323,7 @@ export const tours: Tour[] = [
     category: "daily",
     hours: "8h",
     priceFrom: "€780",
-    image: "/cruises/sunrise-yacht.webp",
+    image: "/tours/sunset-action.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Capri & Sorrento",
@@ -367,7 +367,7 @@ export const tours: Tour[] = [
     hours: "Libera",
     priceFrom: "Su Richiesta",
     tag: "bespoke",
-    image: "/tours/bespoke-fleet.jpg",
+    image: "/tours/private-cliff.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Itinerario Su Misura",
