@@ -37,11 +37,8 @@ next-env.d.ts
 # claude code
 .claude/
 
-# source photo/video originals — kept inside the project as local reference
-# (to check/swap shots) but NOT committed: ~140MB of stills + a 384MB video
-# would bloat the repo, and the video exceeds GitHub's 100MB limit. The site
-# itself only uses the resized copies under public/.
-/source-materials/barche/
-/source-materials/tour/
-/source-materials/**/*.mp4
-/source-materials/**/*.MP4
+# Full-res originals of every photo/video the site uses, kept in the project
+# as local reference (source-materials/originali, mirroring public/ with the
+# same names). NOT committed: ~150MB of stills + a video would bloat the repo
+# and exceed GitHub's 100MB limit. The site only serves the resized public/ copies.
+/source-materials/originali/
