@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageShell from "../../components/PageShell";
 import { useLang } from "../../i18n/LanguageProvider";
-import { tours } from "../../data/tours";
+import { tours, tourImagePosition } from "../../data/tours";
 
 // Bento layout — perfect 6-column rectangle:
 // Row 1-2: LARGE Costiera (4×2)         + TALL Positano (2×2)
@@ -86,11 +86,7 @@ export default function ToursHubPage() {
                       sizes="(max-width: 900px) 100vw, 50vw"
                       style={{
                         objectFit: "cover",
-                        // Bespoke halfwide card: anchor at the bottom so the
-                        // three yachts stay visible (the Faraglioni rocks would
-                        // otherwise crop them out).
-                        objectPosition:
-                          tour.legacyId === "tour-custom" ? "center 78%" : "center",
+                        objectPosition: tourImagePosition[tour.legacyId] ?? "center",
                       }}
                     />
                     <div className="bento-card-overlay" />
