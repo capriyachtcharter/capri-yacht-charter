@@ -414,6 +414,7 @@ export const toursByLegacyId = Object.fromEntries(tours.map((t) => [t.legacyId, 
 // Per-tour CSS object-position for the cover crop. Shared by the home
 // "Signature experiences" cards and the /tours bento so both crop the same.
 export const tourImagePosition: Record<string, string> = {
+  "tour-island": "center 70%",            // Faraglioni-through-pines: drop down a bit, show more sea below
   "tour-capri-ischia": "center top",      // show the castle (upper part)
   "tour-ischia-procida": "center bottom", // Corricella: the colorful marina/waterfront (prettiest part)
   "tour-full-day": "center bottom",       // Amalfi: show the town/waterfront
