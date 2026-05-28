@@ -159,9 +159,10 @@ export const fleet: Boat[] = [
     shortName: "Gabbiano",
     cover: "/fleet/gabbiano/gabbiano-esterno-1.jpg",
     gallery: [
-      "/fleet/gabbiano/gabbiano-esterno-1.jpg", // cover · clean side profile along the coast
-      "/fleet/gabbiano/gabbiano-esterno-2.jpg", // exterior · at the Faraglioni from above
-      "/fleet/gabbiano/gabbiano-esterno-3.jpg", // exterior · golden-hour action
+      "/fleet/gabbiano/gabbiano-esterno-1.jpg", // cover · planing at speed (agility)
+      "/fleet/gabbiano/gabbiano-esterno-2.jpg", // exterior · clean side profile along the coast
+      "/fleet/gabbiano/gabbiano-esterno-3.jpg", // exterior · at the Faraglioni from above
+      "/fleet/gabbiano/gabbiano-esterno-4.jpg", // exterior · aerial with Vesuvius
       "/fleet/gabbiano/gabbiano-interno-1.jpg", // interior · galley
       "/fleet/gabbiano/gabbiano-interno-2.jpg", // interior · cabin
       "/fleet/gabbiano/gabbiano-interno-3.jpg", // interior · head / bathroom
