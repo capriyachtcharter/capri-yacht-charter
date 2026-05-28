@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useLang } from "../i18n/LanguageProvider";
 
 export type CarouselItem = {
   slug: string;
@@ -20,6 +21,7 @@ type Props = {
 };
 
 export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
+  const { path } = useLang();
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [paused, setPaused] = useState(false);
 
@@ -91,7 +93,7 @@ export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
         {loop.map((item, i) => (
           <Link
             key={`${item.slug}-${i}`}
-            href={`/tours/${item.slug}`}
+            href={path(`/tours/${item.slug}`)}
             className="tour-carousel-card"
           >
             <div className="tour-carousel-card-img">
