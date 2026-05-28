@@ -45,7 +45,10 @@ export function useLang() {
     const lang: Lang = "en";
     return {
       lang,
-      t: translations[lang] as Translations,
+      // it/en share the same shape but `as const` gives them divergent string
+      // literals (eg "Tour" vs "Tours"), so a direct cast trips the strict
+      // build. Route through unknown — consumers still get full Translations types.
+      t: translations[lang] as unknown as Translations,
       path: (p: string) => p,
     };
   }
