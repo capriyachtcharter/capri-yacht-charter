@@ -3,13 +3,17 @@
 import { useLang } from "../i18n/LanguageProvider";
 import CyclingImage from "./CyclingImage";
 
+// Captivating reel — our real boats at the Faraglioni, at sunset, anchored
+// in hidden coves. No stock town shots, no broken refs.
 const cruiseImages = [
-  "/cruises/fiordo-furore.webp",   // iconic Amalfi scene — strongest opener
-  "/cruises/capri-tour.webp",       // yacht navigating through the Faraglioni
-  "/cruises/amalfi-aerial.jpg",     // aerial of the Amalfi coast
-  "/cruises/procida.jpg",           // colorful Corricella di Procida
-  "/cruises/sunrise-yacht.webp",    // yacht crossing open water
-  "/cruises/ischia.webp",           // Ischia port at golden hour
+  "/cruises/crociera-1.jpg",   // the three yachts at the Faraglioni
+  "/cruises/capri-tour.webp",  // yacht slicing through the Faraglioni arch
+  "/cruises/crociera-2.jpg",   // Libeccio in golden-hour light
+  "/cruises/crociera-3.jpg",   // anchored privately at the cliffs
+  "/cruises/crociera-4.jpg",   // at the Faraglioni from above
+  "/cruises/crociera-5.jpg",   // running home at sunset
+  "/cruises/crociera-6.jpg",   // Gabbiano with Vesuvius behind
+  "/cruises/crociera-7.jpg",   // Capri's cliffs and hidden grotto
 ];
 
 export default function MiniCruises() {
@@ -21,7 +25,7 @@ export default function MiniCruises() {
           <CyclingImage
             images={cruiseImages}
             alt={t.miniCruises.title}
-            interval={7500}
+            interval={5000}
             autoCycle
             startWhenInView
             viewportGate={0.85}
