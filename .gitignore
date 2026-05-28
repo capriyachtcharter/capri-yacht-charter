@@ -42,5 +42,6 @@ next-env.d.ts
 # would bloat the repo, and the video exceeds GitHub's 100MB limit. The site
 # itself only uses the resized copies under public/.
 /source-materials/barche/
+/source-materials/tour/
 /source-materials/**/*.mp4
 /source-materials/**/*.MP4

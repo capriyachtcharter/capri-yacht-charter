@@ -233,7 +233,7 @@ export const tours: Tour[] = [
     category: "daily",
     hours: "8h",
     priceFrom: "€820",
-    image: "/cruises/ischia.webp",
+    image: "/tours/capri-ischia.jpg",
     boats: ["primatist-g65", "primatist-g50"],
     it: {
       title: "Capri & Ischia",
