@@ -5,12 +5,8 @@ import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 import { toursByLegacyId } from "../data/tours";
 
-const imgs: Record<string, string> = {
-  "tour-island": "/tours/island-tour.jpg",
-  "tour-blue-grotto": "/tours/blue-grotto.jpg",
-  "tour-full-day": "/tours/full-day.jpg",
-  "tour-custom": "/tours/custom.jpg",
-};
+// Images come from the single source of truth — data/tours.ts (tour.image) —
+// so the home Tours section never drifts from the /tours pages.
 
 export default function Tours() {
   const { t } = useLang();
@@ -41,7 +37,7 @@ export default function Tours() {
                 <div className="tour-card-img">
                   {tour.tag && <span className="tour-card-tag">{t.tours.tags[tour.tag]}</span>}
                   <Image
-                    src={imgs[tour.id]}
+                    src={detail?.image ?? "/og.jpg"}
                     alt={tour.title}
                     width={900}
                     height={1125}
