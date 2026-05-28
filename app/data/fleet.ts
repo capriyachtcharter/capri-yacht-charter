@@ -156,13 +156,14 @@ export const fleet: Boat[] = [
     slug: "gabbiano",
     legacyId: "sarima-39",
     shortName: "Gabbiano",
-    cover: "/fleet/gabbiano/action.jpg",
+    cover: "/fleet/gabbiano/gabbiano-esterno-1.jpg",
     gallery: [
-      "/fleet/gabbiano/action.jpg",   // cover · exterior · charging past Capri cliffs
-      "/fleet/gabbiano/at-capri.jpg", // exterior · moored at Capri cliffs
-      "/fleet/gabbiano/aerial.jpg",   // exterior · drone with Vesuvius
-      "/fleet/gabbiano/helm.jpg",     // detail · skipper at the wheel
-      "/fleet/gabbiano/cabin.jpg",    // interior · cabin
+      "/fleet/gabbiano/gabbiano-esterno-1.jpg", // cover · exterior · charging past Capri cliffs
+      "/fleet/gabbiano/gabbiano-esterno-2.jpg", // exterior · moored at Capri cliffs
+      "/fleet/gabbiano/gabbiano-esterno-3.jpg", // exterior · drone with Vesuvius
+      "/fleet/gabbiano/gabbiano-esterno-4.jpg", // exterior · skipper at the wheel
+      "/fleet/gabbiano/gabbiano-interno-1.jpg", // interior · salon / dinette
+      "/fleet/gabbiano/gabbiano-interno-2.jpg", // interior · V-berth cabin
     ],
     specs: {
       length: "11 m",
