@@ -16,7 +16,8 @@ export type Tour = {
   hours: string;
   priceFrom: string;
   tag?: "popular" | "value" | "bespoke";
-  image: string;
+  image: string;       // cover used in the /tours bento grid
+  imageHome?: string;  // optional override for the home "Signature experiences" card
   boats: string[];
   it: TourContent;
   en: TourContent;
@@ -49,6 +50,7 @@ export const tours: Tour[] = [
     priceFrom: "€480",
     tag: "popular",
     image: "/tours/capri-island.jpg",
+    imageHome: "/tours/capri-island-home.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Giro dell'Isola di Capri",
@@ -99,6 +101,7 @@ export const tours: Tour[] = [
     hours: "3h",
     priceFrom: "€360",
     image: "/tours/grotta-azzurra.jpg",
+    imageHome: "/tours/grotta-azzurra-home.jpg",
     boats: ["primatist-g50", "sarima-39"],
     it: {
       title: "Tour della Grotta Azzurra",
@@ -141,6 +144,7 @@ export const tours: Tour[] = [
     priceFrom: "€890",
     tag: "value",
     image: "/tours/capri-amalfi.jpg",
+    imageHome: "/tours/full-day-home.jpg",
     boats: ["primatist-g65", "primatist-g50"],
     it: {
       title: "Capri & Costiera Amalfitana",
@@ -411,7 +415,7 @@ export const toursByLegacyId = Object.fromEntries(tours.map((t) => [t.legacyId, 
 // "Signature experiences" cards and the /tours bento so both crop the same.
 export const tourImagePosition: Record<string, string> = {
   "tour-capri-ischia": "center top",      // show the castle (upper part)
-  "tour-ischia-procida": "center 70%",    // Corricella: show a bit more of the marina below
+  "tour-ischia-procida": "center bottom", // Corricella: the colorful marina/waterfront (prettiest part)
   "tour-full-day": "center bottom",       // Amalfi: show the town/waterfront
   "tour-blue-grotto": "center bottom",    // grotto: show the boat + water
   "tour-custom": "center 78%",            // bespoke: keep the three yachts in frame

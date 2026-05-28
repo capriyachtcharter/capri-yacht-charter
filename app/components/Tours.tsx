@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
-import { toursByLegacyId, tourImagePosition } from "../data/tours";
+import { toursByLegacyId } from "../data/tours";
 
 // Images come from the single source of truth — data/tours.ts (tour.image) —
 // so the home Tours section never drifts from the /tours pages.
@@ -37,13 +37,13 @@ export default function Tours() {
                 <div className="tour-card-img">
                   {tour.tag && <span className="tour-card-tag">{t.tours.tags[tour.tag]}</span>}
                   <Image
-                    src={detail?.image ?? "/og.jpg"}
+                    src={detail?.imageHome ?? detail?.image ?? "/og.jpg"}
                     alt={tour.title}
                     width={900}
                     height={1125}
                     style={{
                       objectFit: "cover",
-                      objectPosition: tourImagePosition[tour.id] ?? "center",
+                      objectPosition: "center",
                       width: "100%",
                       height: "100%",
                     }}
