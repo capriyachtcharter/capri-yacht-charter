@@ -3,17 +3,17 @@
 import { useLang } from "../i18n/LanguageProvider";
 import CyclingImage from "./CyclingImage";
 
-// Captivating reel — our real boats at the Faraglioni, at sunset, anchored
-// in hidden coves. No stock town shots, no broken refs.
+// Captivating reel — our real boats at the Faraglioni, at sunset, on the
+// move. ALL landscape so the 5:4 frame always shows the boat + the sea,
+// never just the rocks behind. No stock town shots, no broken refs.
 const cruiseImages = [
   "/cruises/crociera-1.jpg",   // the three yachts at the Faraglioni
   "/cruises/capri-tour.webp",  // yacht slicing through the Faraglioni arch
   "/cruises/crociera-2.jpg",   // Libeccio in golden-hour light
-  "/cruises/crociera-3.jpg",   // anchored privately at the cliffs
-  "/cruises/crociera-4.jpg",   // at the Faraglioni from above
+  "/cruises/crociera-3.jpg",   // Tramontana in profile, Vesuvius behind
+  "/cruises/crociera-4.jpg",   // Libeccio at the Faraglioni
   "/cruises/crociera-5.jpg",   // running home at sunset
   "/cruises/crociera-6.jpg",   // Gabbiano with Vesuvius behind
-  "/cruises/crociera-7.jpg",   // Capri's cliffs and hidden grotto
 ];
 
 export default function MiniCruises() {
