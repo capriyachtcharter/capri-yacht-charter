@@ -410,10 +410,11 @@ export const toursByLegacyId = Object.fromEntries(tours.map((t) => [t.legacyId, 
 // Per-tour CSS object-position for the cover crop. Shared by the home
 // "Signature experiences" cards and the /tours bento so both crop the same.
 export const tourImagePosition: Record<string, string> = {
-  "tour-capri-ischia": "center top",    // show the castle (upper part)
-  "tour-full-day": "center bottom",     // Amalfi: show the town/waterfront
-  "tour-blue-grotto": "center bottom",  // grotto: show the boat + water
-  "tour-custom": "center 78%",          // bespoke: keep the three yachts in frame
+  "tour-capri-ischia": "center top",      // show the castle (upper part)
+  "tour-ischia-procida": "center 70%",    // Corricella: show a bit more of the marina below
+  "tour-full-day": "center bottom",       // Amalfi: show the town/waterfront
+  "tour-blue-grotto": "center bottom",    // grotto: show the boat + water
+  "tour-custom": "center 78%",            // bespoke: keep the three yachts in frame
 };
 
 export const transferRoutes = [
