@@ -6,6 +6,7 @@ import Link from "next/link";
 export type CarouselItem = {
   slug: string;
   image: string;
+  imagePosition?: string; // CSS object-position for this card's crop
   title: string;
   meta: string;
   priceFrom: string;
@@ -94,7 +95,7 @@ export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
             className="tour-carousel-card"
           >
             <div className="tour-carousel-card-img">
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <img src={item.image} alt={item.title} loading="lazy" style={{ objectPosition: item.imagePosition ?? "center" }} />
               <div className="tour-carousel-card-overlay" />
             </div>
             <div className="tour-carousel-card-body">

@@ -150,9 +150,16 @@ export default function BoatDetailPage() {
           <TourCarousel
             items={compatibleTours.map<CarouselItem>((tr) => {
               const tc = lang === "it" ? tr.it : tr.en;
+              // Per-tour crop just for this boat-detail carousel.
+              const pos: Record<string, string> = {
+                "tour-capri-ischia": "72% 62%", // shift right to centre the islet, a touch lower
+              };
               return {
                 slug: tr.slug,
-                image: tr.image,
+                // Giro Isola, Blue Grotto (and Full Day) use their main-page
+                // shot here, matching the home; others use the bento image.
+                image: tr.imageHome ?? tr.image,
+                imagePosition: pos[tr.legacyId],
                 title: tc.title,
                 meta: tc.meta,
                 priceFrom: tr.priceFrom,
