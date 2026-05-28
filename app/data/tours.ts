@@ -98,7 +98,7 @@ export const tours: Tour[] = [
     category: "daily",
     hours: "3h",
     priceFrom: "€360",
-    image: "/tours/blue-grotto.jpg",
+    image: "/tours/grotta-azzurra.jpg",
     boats: ["primatist-g50", "sarima-39"],
     it: {
       title: "Tour della Grotta Azzurra",
@@ -140,7 +140,7 @@ export const tours: Tour[] = [
     hours: "8h",
     priceFrom: "€890",
     tag: "value",
-    image: "/tours/amalfi-coast.png",
+    image: "/tours/capri-amalfi.jpg",
     boats: ["primatist-g65", "primatist-g50"],
     it: {
       title: "Capri & Costiera Amalfitana",
@@ -190,7 +190,7 @@ export const tours: Tour[] = [
     category: "daily",
     hours: "8h",
     priceFrom: "€750",
-    image: "/tours/positano.jpg",
+    image: "/tours/capri-positano.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Capri & Positano",
@@ -278,7 +278,7 @@ export const tours: Tour[] = [
     category: "daily",
     hours: "8h",
     priceFrom: "€820",
-    image: "/cruises/procida.jpg",
+    image: "/tours/ischia-procida.jpg",
     boats: ["primatist-g65", "primatist-g50"],
     it: {
       title: "Ischia & Procida",
