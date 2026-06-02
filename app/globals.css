@@ -1788,9 +1788,9 @@ body {
   border-color: rgba(255, 255, 255, 0.3);
 }
 .beyond-cta-btn-alt:hover {
-  background: var(--cream-light);
-  color: var(--navy);
-  border-color: var(--cream-light);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--cream-light);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 520px) {
