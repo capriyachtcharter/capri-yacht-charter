@@ -69,9 +69,7 @@ export default function CharterPage() {
     </svg>
   );
 
-  // Veiled WhatsApp pre-fill for the private-service section. No port names
-  // listed in the URL or copy — the routes are arranged 1:1 in chat.
-  const waPrivate = `https://wa.me/393335741333?text=${encodeURIComponent(
+  const waBook = `https://wa.me/393335741333?text=${encodeURIComponent(
     lang === "it"
       ? "Ciao, vorrei organizzare un noleggio su misura."
       : "Hi, I'd like to arrange a tailored charter."
@@ -79,7 +77,7 @@ export default function CharterPage() {
 
   return (
     <PageShell>
-      {/* HERO — dark navy, full statement upfront */}
+      {/* HERO — navy full-viewport, "La barca è tua" lands hard */}
       <section className="page-hero charter-hero-navy">
         <div className="page-hero-inner">
           <div className="eyebrow">
@@ -100,7 +98,7 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* COME FUNZIONA — zig-zag timeline, restyled numerals */}
+      {/* COME FUNZIONA — zig-zag timeline with manifesto-style numerals */}
       <section className="section charter-howto">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
@@ -136,8 +134,51 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* COSA È INCLUSO — split list / photo / list, refined typography */}
-      <section className="section section-alt charter-included">
+      {/* A BORDO — luxury photo grid moved UP for visual movement */}
+      <section className="section section-alt charter-luxury" data-reveal>
+        <div className="section-inner">
+          <div className="charter-luxury-head">
+            <div className="eyebrow">
+              {lang === "it" ? "A bordo" : "On board"}
+            </div>
+            <h2 className="section-title">
+              {lang === "it" ? "La barca è il programma. " : "The boat is the plan. "}
+              <span className="accent">
+                {lang === "it" ? "Tu, il tempo." : "You, the pace."}
+              </span>
+            </h2>
+            <p className="section-desc">
+              {lang === "it"
+                ? "Solarium, doccia esterna, chef su richiesta — l'unica cosa da decidere è quando rientrare."
+                : "Sun deck, outdoor shower, chef on request — the only thing to decide is when to head back."}
+            </p>
+          </div>
+
+          <div className="charter-luxury-grid">
+            <figure className="charter-luxury-cell">
+              <img src="/charter/sundeck-couple.jpg" alt={lang === "it" ? "Coppia in relax sul solarium dello yacht" : "Couple relaxing on the yacht sun deck"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/luxury-detail.jpg" alt={lang === "it" ? "Dettaglio cuscini e teli Capri Yacht Charter" : "Capri Yacht Charter towel and cushion detail"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/aperitivo.jpg" alt={lang === "it" ? "Aperitivo a bordo con cuscino Capri Yacht Charter" : "Aperitivo on board with Capri Yacht Charter cushion"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/sunset-reading.jpg" alt={lang === "it" ? "Lettura al tramonto in prua" : "Reading on the bow at sunset"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/swim-faraglione.jpg" alt={lang === "it" ? "Tuffo davanti ai Faraglioni" : "Swimming by the Faraglioni"} />
+            </figure>
+            <figure className="charter-luxury-cell">
+              <img src="/charter/champagne-archway.jpg" alt={lang === "it" ? "Brindisi davanti all'arco dei Faraglioni" : "Toast under the Faraglioni arch"} />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* COSA È INCLUSO — moved DOWN, after photos. With WA CTA at end. */}
+      <section className="section charter-included">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
             <div className="eyebrow">
@@ -176,116 +217,22 @@ export default function CharterPage() {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* SU MISURA — veiled service section. No port names, no preset routes.
-          Three unified numerals — same family, same color, no decorative split. */}
-      <section className="section charter-private">
-        <div className="section-inner">
-          <header className="charter-section-head" data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Servizio privato" : "Private service"}
-            </div>
-            <h2 className="section-title">
-              {lang === "it" ? "Su misura, " : "Tailored, "}
-              <span className="accent">
-                {lang === "it" ? "come preferisci tu." : "as you wish."}
-              </span>
-            </h2>
-            <p className="section-desc">
+          <div className="charter-included-cta" data-reveal>
+            <p>
               {lang === "it"
-                ? "Ogni dettaglio della giornata — il punto d'incontro, le soste, gli orari, il rientro — lo costruiamo insieme, in privato. Una conversazione, non un listino."
-                : "Every detail of the day — the meeting point, the stops, the times, the return — is built together, privately. A conversation, not a price list."}
+                ? "Ogni dettaglio si decide insieme, in privato."
+                : "Every detail is decided together, privately."}
             </p>
-          </header>
-
-          <ul className="charter-promise" data-reveal>
-            <li className="charter-promise-item">
-              <h4>
-                {lang === "it" ? "Sempre reperibili" : "Always reachable"}
-              </h4>
-              <p>
-                {lang === "it"
-                  ? "Anche di notte, anche per richieste last-minute."
-                  : "Day or night, last-minute requests welcome."}
-              </p>
-            </li>
-            <li className="charter-promise-item">
-              <h4>
-                {lang === "it" ? "Conversazione privata" : "Private conversation"}
-              </h4>
-              <p>
-                {lang === "it"
-                  ? "Ogni dettaglio si decide insieme, via WhatsApp."
-                  : "Every detail is decided together, on WhatsApp."}
-              </p>
-            </li>
-            <li className="charter-promise-item">
-              <h4>
-                {lang === "it" ? "Itinerario su misura" : "Tailored itinerary"}
-              </h4>
-              <p>
-                {lang === "it"
-                  ? "Punto d'incontro, soste, orari — come preferisci."
-                  : "Meeting point, stops, timing — as you wish."}
-              </p>
-            </li>
-          </ul>
-
-          <div className="charter-private-cta" data-reveal>
-            <a href={waPrivate} target="_blank" rel="noopener" className="btn-primary">
+            <a href={waBook} target="_blank" rel="noopener" className="btn-primary">
               {lang === "it" ? "Parliamone su WhatsApp" : "Talk on WhatsApp"}
             </a>
           </div>
         </div>
       </section>
 
-      {/* A BORDO — luxury photo grid (uses section-alt for clean color rhythm) */}
-      <section className="section section-alt charter-luxury" data-reveal>
-        <div className="section-inner">
-          <div className="charter-luxury-head">
-            <div className="eyebrow">
-              {lang === "it" ? "A bordo" : "On board"}
-            </div>
-            <h2 className="section-title">
-              {lang === "it" ? "La barca è il programma. " : "The boat is the plan. "}
-              <span className="accent">
-                {lang === "it" ? "Tu, il tempo." : "You, the pace."}
-              </span>
-            </h2>
-            <p className="section-desc">
-              {lang === "it"
-                ? "Niente itinerario imposto, niente folla. Solarium, doccia esterna, chef su richiesta — l'unica cosa da decidere è quando rientrare."
-                : "No fixed itinerary, no crowd. Sun deck, outdoor shower, chef on request — the only thing to decide is when to head back."}
-            </p>
-          </div>
-
-          <div className="charter-luxury-grid">
-            <figure className="charter-luxury-cell">
-              <img src="/charter/sundeck-couple.jpg" alt={lang === "it" ? "Coppia in relax sul solarium dello yacht" : "Couple relaxing on the yacht sun deck"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/luxury-detail.jpg" alt={lang === "it" ? "Dettaglio cuscini e teli Capri Yacht Charter" : "Capri Yacht Charter towel and cushion detail"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/aperitivo.jpg" alt={lang === "it" ? "Aperitivo a bordo con cuscino Capri Yacht Charter" : "Aperitivo on board with Capri Yacht Charter cushion"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/sunset-reading.jpg" alt={lang === "it" ? "Lettura al tramonto in prua" : "Reading on the bow at sunset"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/swim-faraglione.jpg" alt={lang === "it" ? "Tuffo davanti ai Faraglioni" : "Swimming by the Faraglioni"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/champagne-archway.jpg" alt={lang === "it" ? "Brindisi davanti all'arco dei Faraglioni" : "Toast under the Faraglioni arch"} />
-            </figure>
-          </div>
-        </div>
-      </section>
-
       {/* SCEGLI LA BARCA */}
-      <section className="section charter-fleet">
+      <section className="section section-alt charter-fleet">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
             <div className="eyebrow">

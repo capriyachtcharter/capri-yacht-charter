@@ -102,9 +102,9 @@ export default function Footer() {
                 </svg>
               </a>
               <a href="https://wa.me/393335741333" target="_blank" rel="noopener" aria-label="WhatsApp" className="footer-social-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.5A9 9 0 1 1 21 12z" />
-                  <path d="M9 9h.5c.4 0 .7.2.9.6l.8 1.6c.1.3.1.6-.1.8l-.6.6a5.5 5.5 0 0 0 3.4 3.4l.6-.6c.2-.2.5-.2.8-.1l1.6.8c.4.2.6.5.6.9V18a1.5 1.5 0 0 1-1.5 1.5A9 9 0 0 1 7.5 10.5 1.5 1.5 0 0 1 9 9z" />
+                <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M45.4 177.7 32 224l46.3-13.4a96 96 0 1 0-32.9-32.9Z" />
+                  <path d="M152 176a72.08 72.08 0 0 1-72-72 24 24 0 0 1 24-24c2.9 0 5.6 1.5 7.1 4l11.5 23c1.4 2.8 1 6.1-1.1 8.5l-9.8 11c.8 1.6 5.7 11 16.8 22.2 11.1 11.2 20.7 16.2 22.2 16.8l11-9.8c2.3-2.1 5.6-2.5 8.5-1.1l23 11.5c2.5 1.5 4 4.2 4 7.1a24 24 0 0 1-24 24Z" />
                 </svg>
               </a>
             </div>
