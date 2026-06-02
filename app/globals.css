@@ -964,16 +964,10 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 12px rgba(15, 22, 35, 0.04);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              border-color 0.4s ease;
 }
 
-.review-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(15, 22, 35, 0.10);
-  border-color: rgba(111, 181, 197, 0.3);
-}
+/* No hover effects — review cards are not clickable, so the lift/glow
+   misled users into expecting an interaction that wasn't there. */
 
 .review-quote-mark {
   font-family: var(--serif);
