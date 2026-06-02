@@ -57,8 +57,8 @@ export default function Header() {
           </div>
           <nav className="nav">
             <Link href={path("/tours")} className="nav-link">{t.nav.experiences}</Link>
-            <Link href={path("/fleet")} className="nav-link">{t.nav.fleet}</Link>
             <Link href={path("/charter")} className="nav-link">{t.nav.charter}</Link>
+            <Link href={path("/fleet")} className="nav-link">{t.nav.fleet}</Link>
           </nav>
           <div className="header-right">
             <LanguageSwitcher />
@@ -96,11 +96,11 @@ export default function Header() {
           <Link href={path("/tours")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.experiences}
           </Link>
-          <Link href={path("/fleet")} className="mobile-menu-link" onClick={closeMenu}>
-            {t.nav.fleet}
-          </Link>
           <Link href={path("/charter")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.charter}
+          </Link>
+          <Link href={path("/fleet")} className="mobile-menu-link" onClick={closeMenu}>
+            {t.nav.fleet}
           </Link>
           <Link href={path("/#manifesto")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.story}

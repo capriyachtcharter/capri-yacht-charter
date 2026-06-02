@@ -137,7 +137,7 @@ export default function CharterPage() {
 
           <div className="skipper-steps" data-reveal>
             <div className="skipper-step">
-              <div className="skipper-step-num">A</div>
+              <div className="skipper-step-num">01</div>
               <h3>{lang === "it" ? "Pick-up" : "Pick-up"}</h3>
               <p>
                 {lang === "it"
@@ -146,7 +146,7 @@ export default function CharterPage() {
               </p>
             </div>
             <div className="skipper-step">
-              <div className="skipper-step-num">B</div>
+              <div className="skipper-step-num">02</div>
               <h3>{lang === "it" ? "Rotta su misura" : "Custom route"}</h3>
               <p>
                 {lang === "it"
@@ -155,7 +155,7 @@ export default function CharterPage() {
               </p>
             </div>
             <div className="skipper-step">
-              <div className="skipper-step-num">C</div>
+              <div className="skipper-step-num">03</div>
               <h3>{lang === "it" ? "Disponibili 24h" : "24h available"}</h3>
               <p>
                 {lang === "it"
