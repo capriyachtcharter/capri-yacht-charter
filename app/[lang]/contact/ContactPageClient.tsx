@@ -54,7 +54,7 @@ const primaryChannels = [
   },
   {
     key: "address",
-    href: "https://maps.apple.com/?q=Marina+Grande+282+Capri",
+    href: "https://www.google.com/maps/search/?api=1&query=Via+Marina+Grande+282+Capri",
     external: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

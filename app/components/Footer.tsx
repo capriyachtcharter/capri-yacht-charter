@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLang } from "../i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { toursByLegacyId } from "../data/tours";
 import { boatByLegacyId } from "../data/fleet";
 
 export default function Footer() {
@@ -42,15 +41,10 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-col-title">{t.footer.cols.experiencesTitle}</div>
-            {t.tours.list.map((tour) => {
-              const detail = toursByLegacyId[tour.id];
-              const href = detail ? `/tours/${detail.slug}` : "/tours";
-              return (
-                <Link key={tour.id} href={href} className="footer-link">{tour.title}</Link>
-              );
-            })}
-            <Link href={path("/charter")} className="footer-link">{t.beyond.transferTitle}</Link>
-            <Link href={path("/tours#mini-cruises")} className="footer-link">{t.beyond.skipperTitle}</Link>
+            <Link href={path("/tours")} className="footer-link">{t.footer.cols.services.tours}</Link>
+            <Link href={path("/tours")} className="footer-link">{t.footer.cols.services.custom}</Link>
+            <Link href={path("/tours#mini-cruises")} className="footer-link">{t.footer.cols.services.cruises}</Link>
+            <Link href={path("/charter")} className="footer-link">{t.footer.cols.services.charter}</Link>
           </div>
           <div>
             <div className="footer-col-title">{t.footer.cols.fleetTitle}</div>
@@ -67,7 +61,7 @@ export default function Footer() {
             <a href="tel:+393335741333" className="footer-link">+39 333 574 1333</a>
             <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="footer-link">WhatsApp</a>
             <a href="mailto:info@capriyachtcharter.com" className="footer-link">info@capriyachtcharter.com</a>
-            <a href="https://maps.apple.com/?q=Marina+Grande+Capri" target="_blank" rel="noopener" className="footer-link">Via Marina Grande 282, Capri</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Via+Marina+Grande+282+Capri" target="_blank" rel="noopener" className="footer-link">Via Marina Grande 282, Capri</a>
           </div>
           <div>
             <div className="footer-col-title">{t.footer.cols.hoursTitle}</div>

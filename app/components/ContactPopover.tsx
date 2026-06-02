@@ -48,7 +48,7 @@ const items = [
   },
   {
     key: "address",
-    href: "https://maps.apple.com/?q=Marina+Grande+282+Capri",
+    href: "https://www.google.com/maps/search/?api=1&query=Via+Marina+Grande+282+Capri",
     label: "Indirizzo",
     labelEn: "Address",
     value: "Via Marina Grande 282, Capri",
