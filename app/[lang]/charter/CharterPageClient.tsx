@@ -177,7 +177,7 @@ export default function CharterPage() {
             </div>
 
             <figure className="charter-included-photo">
-              <img src="/charter/aperitivo.jpg" alt={lang === "it" ? "Aperitivo a bordo" : "Aperitivo on board"} />
+              <img src="/charter/aperitivo-spread.jpg" alt={lang === "it" ? "Aperitivo a bordo: ananas, frutta fresca, caprese e prosecco in ghiaccio" : "Aperitivo on board: pineapple, fresh fruit, caprese and prosecco on ice"} />
             </figure>
 
             <div className="charter-included-col">
