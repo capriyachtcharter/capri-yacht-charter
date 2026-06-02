@@ -12,7 +12,7 @@ export default function CharterPage() {
       <section className="page-hero">
         <div className="page-hero-inner">
           <div className="eyebrow">
-            {lang === "it" ? "Charter · noleggio yacht" : "Charter · yacht hire"}
+            {lang === "it" ? "Noleggio yacht" : "Charter · yacht hire"}
           </div>
           <h1 className="page-hero-title">
             {lang === "it" ? "La barca è tua." : "The boat is yours."}

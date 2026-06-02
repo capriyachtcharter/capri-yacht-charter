@@ -6,7 +6,7 @@ export const translations = {
       home: "Home",
       experiences: "Tour",
       fleet: "Flotta",
-      charter: "Charter",
+      charter: "Noleggio",
       transfers: "Transfer",
       story: "Storia",
       contact: "Contatti",

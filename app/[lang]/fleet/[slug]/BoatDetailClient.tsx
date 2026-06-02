@@ -56,16 +56,17 @@ export default function BoatDetailPage() {
           <p className="boat-hero-tagline">{c.tagline}</p>
 
           <div className="boat-hero-actions">
-            <Link href={path("/tours")} className="btn-primary">
-              {lang === "it" ? "Prenota un tour" : "Book a tour"}
-            </Link>
             <a
-              href="https://wa.me/393335741333"
+              href={`https://wa.me/393335741333?text=${encodeURIComponent(
+                lang === "it"
+                  ? `Ciao, vorrei prenotare lo yacht ${c.name}.`
+                  : `Hi, I'd like to book the ${c.name} yacht.`
+              )}`}
               target="_blank"
               rel="noopener"
-              className="btn-secondary-dark"
+              className="btn-primary"
             >
-              {lang === "it" ? "Chiedi disponibilità" : "Check availability"}
+              {lang === "it" ? "Prenota su WhatsApp" : "Book on WhatsApp"}
             </a>
           </div>
         </div>

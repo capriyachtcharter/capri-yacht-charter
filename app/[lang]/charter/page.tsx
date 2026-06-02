@@ -15,9 +15,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "Private skipper-led yacht charter from Capri across the Amalfi Coast, Ischia, Procida and the Gulf of Naples. Daily and multi-day, fully tailored.",
     },
     it: {
-      title: "Charter con skipper",
+      title: "Noleggio con skipper",
       description:
-        "Charter privato di yacht con skipper da Capri verso la Costiera Amalfitana, Ischia, Procida e il Golfo di Napoli. Giornaliero e multi-day, su misura.",
+        "Noleggio privato di yacht con skipper da Capri verso la Costiera Amalfitana, Ischia, Procida e il Golfo di Napoli. Giornaliero e multi-day, su misura.",
     },
   });
 }
