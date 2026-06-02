@@ -16,8 +16,8 @@ export default function BeyondTours() {
         </div>
 
         <div className="beyond-grid">
-          {/* Transfers card with VIP top-service highlight */}
-          <a href={path("/transfers")} className="beyond-card">
+          {/* Pick-up & 24h availability — links to charter (where routes are custom) */}
+          <a href={path("/charter")} className="beyond-card">
             <div className="beyond-card-icon">
               <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 22 Q9 18 16 22 T29 22" />
@@ -28,18 +28,6 @@ export default function BeyondTours() {
             </div>
             <h3 className="beyond-card-title">{t.beyond.transferTitle}</h3>
             <p className="beyond-card-desc">{t.beyond.transferDesc}</p>
-
-            <div className="vip-callout">
-              <div className="vip-callout-badge">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 6 L8 11 L13 6" />
-                  <path d="M3 12 L13 12" />
-                </svg>
-                {t.transferVip.title}
-              </div>
-              <p className="vip-callout-text">{t.transferVip.desc}</p>
-            </div>
-
             <span className="beyond-card-cta">
               {t.beyond.transferCta}
               <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

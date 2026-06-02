@@ -116,6 +116,57 @@ export default function CharterPage() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="section-inner">
+          <div data-reveal>
+            <div className="eyebrow">
+              {lang === "it" ? "Pick-up · 24h" : "Pick-up · 24h"}
+            </div>
+            <h2 className="section-title">
+              {lang === "it" ? "Veniamo a prenderti, " : "We come to you, "}
+              <span className="accent">
+                {lang === "it" ? "scegli tu la rotta." : "you choose the route."}
+              </span>
+            </h2>
+            <p className="section-desc">
+              {lang === "it"
+                ? "Niente tratte preimpostate, niente listino: il porto di partenza, le mete e i tempi li scegli tu. Pick-up dal porto o dall'hotel che preferisci — Capri, Sorrento, Positano, Amalfi, Napoli — disponibili tutti i giorni, anche di notte."
+                : "No preset routes, no price list: you choose the departure port, the stops and the pace. Pick-up at the port or hotel that suits you — Capri, Sorrento, Positano, Amalfi, Naples — available every day, day or night."}
+            </p>
+          </div>
+
+          <div className="skipper-steps" data-reveal>
+            <div className="skipper-step">
+              <div className="skipper-step-num">A</div>
+              <h3>{lang === "it" ? "Pick-up" : "Pick-up"}</h3>
+              <p>
+                {lang === "it"
+                  ? "Ti raggiungiamo al porto, all'hotel o all'aeroporto. Auto privata e servizio bagagli su richiesta."
+                  : "We meet you at your port, hotel or airport. Private car and luggage service available on request."}
+              </p>
+            </div>
+            <div className="skipper-step">
+              <div className="skipper-step-num">B</div>
+              <h3>{lang === "it" ? "Rotta su misura" : "Custom route"}</h3>
+              <p>
+                {lang === "it"
+                  ? "Niente itinerario imposto: decidi tu mete e soste. Il capitano studia tempi, ancoraggi, eventuali ristoranti."
+                  : "No fixed itinerary: you choose the stops and the pace. The captain plans times, anchorages and any restaurant stops."}
+              </p>
+            </div>
+            <div className="skipper-step">
+              <div className="skipper-step-num">C</div>
+              <h3>{lang === "it" ? "Disponibili 24h" : "24h available"}</h3>
+              <p>
+                {lang === "it"
+                  ? "Tutti i giorni, anche di notte e last-minute. Una chiamata o un WhatsApp, organizziamo tutto noi."
+                  : "Every day, including overnight and last-minute. One call or WhatsApp and we handle everything."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section charter-luxury" data-reveal>
         <div className="section-inner">
           <div className="charter-luxury-head">

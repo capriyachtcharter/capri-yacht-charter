@@ -49,7 +49,7 @@ export default function Footer() {
                 <Link key={tour.id} href={href} className="footer-link">{tour.title}</Link>
               );
             })}
-            <Link href={path("/tours#transfers")} className="footer-link">{t.beyond.transferTitle}</Link>
+            <Link href={path("/charter")} className="footer-link">{t.beyond.transferTitle}</Link>
             <Link href={path("/tours#mini-cruises")} className="footer-link">{t.beyond.skipperTitle}</Link>
           </div>
           <div>

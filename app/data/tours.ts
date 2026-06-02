@@ -421,16 +421,3 @@ export const tourImagePosition: Record<string, string> = {
   "tour-blue-grotto": "center bottom",    // grotto: show the boat + water
   "tour-custom": "center 78%",            // bespoke: keep the three yachts in frame
 };
-
-export const transferRoutes = [
-  { from: "Capri", to: "Napoli", duration: "45'", v65: 3600, v55: 2350, s38: 1350 },
-  { from: "Capri", to: "Sorrento", duration: "25'", v65: 2000, v55: 1300, s38: 900 },
-  { from: "Capri", to: "Positano", duration: "30'", v65: 2600, v55: 1700, s38: 1100 },
-  { from: "Capri", to: "Amalfi", duration: "45'", v65: 3600, v55: 2350, s38: 1350 },
-  { from: "Capri", to: "Salerno", duration: "70'", v65: 5000, v55: 3250, s38: 1900 },
-  { from: "Capri", to: "Ischia", duration: "50'", v65: 4000, v55: 2600, s38: 1500 },
-  { from: "Capri", to: "Procida", duration: "50'", v65: 4000, v55: 2600, s38: 1500 },
-  { from: "Capri", to: "Nerano", duration: "15'", v65: 1350, v55: 950, s38: 600 },
-  { from: "Capri", to: "Castellammare", duration: "40'", v65: 3600, v55: 2350, s38: 1350 },
-  { from: "Capri", to: "Praiano", duration: "35'", v65: 3100, v55: 2000, s38: 1200 },
-];
