@@ -1752,52 +1752,55 @@ body {
 }
 
 /* Two-button action row at the bottom of each Beyond card.
-   The card is no longer a single link — instead it carries an explicit
-   "Discover more" CTA (to /charter) plus a WhatsApp direct contact. */
+   Primary: cream solid pill (high-contrast on dark card).
+   Secondary: ghost outline. Both use the same uppercase letter-spaced
+   sans-serif typography as the rest of the site's CTAs, no pale tints. */
 .beyond-card-actions {
   display: flex;
   gap: 10px;
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: 6px;
+  flex-wrap: wrap;
 }
 .beyond-card-btn,
 .beyond-card-btn-ghost {
-  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 13px 16px;
+  gap: 10px;
+  padding: 13px 24px;
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 11.5px;
-  letter-spacing: 0.16em;
+  font-size: 11px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 999px;
   border: 1px solid transparent;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition: background 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+              color 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
   white-space: nowrap;
 }
 .beyond-card-btn {
-  background: var(--sea-light);
-  color: var(--navy);
-  border-color: var(--sea-light);
-}
-.beyond-card-btn:hover {
   background: var(--cream-light);
   color: var(--navy);
   border-color: var(--cream-light);
 }
+.beyond-card-btn:hover {
+  background: var(--bronze);
+  color: var(--navy);
+  border-color: var(--bronze);
+}
 .beyond-card-btn-ghost {
   background: transparent;
   color: var(--cream-light);
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.24);
 }
 .beyond-card-btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: var(--sea-light);
-  color: var(--sea-light);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--cream-light);
+  color: var(--cream-light);
 }
 .beyond-card-btn svg,
 .beyond-card-btn-ghost svg {

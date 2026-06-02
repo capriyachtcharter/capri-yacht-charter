@@ -42,3 +42,9 @@ next-env.d.ts
 # same names). NOT committed: ~150MB of stills + a video would bloat the repo
 # and exceed GitHub's 100MB limit. The site only serves the resized public/ copies.
 /source-materials/originali/
+
+# User's master archive folder (3.1 GB of stills + MP4 video). Trailing space
+# in folder name is intentional — match with wildcard so the space doesn't
+# get stripped by gitignore. NEVER commit: would blow GitHub's 100MB file
+# limit and bloat history.
+/foto capri*/
