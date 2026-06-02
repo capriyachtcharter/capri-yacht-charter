@@ -1751,27 +1751,26 @@ body {
   animation: arrow-shoot 1.1s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-/* Two-button action row at the bottom of each Beyond card.
-   Primary: cream solid pill (high-contrast on dark card).
-   Secondary: ghost outline. Both use the same uppercase letter-spaced
-   sans-serif typography as the rest of the site's CTAs, no pale tints. */
-.beyond-card-actions {
+/* CTA row below both Beyond cards (one shared pair of buttons).
+   "Scopri di più" → /charter (cream solid primary).
+   "Prenota ora"   → WhatsApp (cream outline secondary, fills on hover). */
+.beyond-cta-row {
   display: flex;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 56px;
   flex-wrap: wrap;
 }
-.beyond-card-btn,
-.beyond-card-btn-ghost {
+.beyond-cta-btn,
+.beyond-cta-btn-alt {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 13px 24px;
+  padding: 16px 38px;
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
@@ -1782,39 +1781,36 @@ body {
               border-color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
   white-space: nowrap;
 }
-.beyond-card-btn {
+.beyond-cta-btn {
   background: var(--cream-light);
   color: var(--navy);
   border-color: var(--cream-light);
 }
-.beyond-card-btn:hover {
+.beyond-cta-btn:hover {
   background: var(--bronze);
-  color: var(--navy);
   border-color: var(--bronze);
 }
-.beyond-card-btn-ghost {
+.beyond-cta-btn-alt {
   background: transparent;
   color: var(--cream-light);
-  border-color: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.3);
 }
-.beyond-card-btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.06);
+.beyond-cta-btn-alt:hover {
+  background: var(--cream-light);
+  color: var(--navy);
   border-color: var(--cream-light);
-  color: var(--cream-light);
-}
-.beyond-card-btn svg,
-.beyond-card-btn-ghost svg {
-  flex-shrink: 0;
 }
 
 @media (max-width: 520px) {
-  .beyond-card-actions {
+  .beyond-cta-row {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    margin-top: 40px;
   }
-  .beyond-card-btn,
-  .beyond-card-btn-ghost {
+  .beyond-cta-btn,
+  .beyond-cta-btn-alt {
     width: 100%;
+    max-width: 320px;
   }
 }
 
