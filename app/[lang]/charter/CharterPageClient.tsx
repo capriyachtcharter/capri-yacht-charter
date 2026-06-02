@@ -8,7 +8,7 @@ import { fleet } from "../../data/fleet";
 export default function CharterPage() {
   const { lang, path } = useLang();
 
-  // Three numbered steps for the zig-zag timeline ("Come funziona").
+  // Three numbered steps for the zig-zag timeline.
   const steps = [
     {
       n: "01",
@@ -56,14 +56,12 @@ export default function CharterPage() {
 
   const includedRequest = [
     { it: "Chef privato a bordo", en: "Private chef on board" },
-    { it: "Catering / aperitivo", en: "Catering / aperitivo" },
-    { it: "Wine pairing curato", en: "Curated wine pairing" },
+    { it: "Catering / aperitivo curato", en: "Catering / curated aperitivo" },
+    { it: "Wine pairing", en: "Wine pairing" },
     { it: "Auto privata porta-a-porta", en: "Door-to-door private car" },
     { it: "Servizio fotografico", en: "Photography service" },
-    { it: "Allestimento speciale (compleanno, proposta)", en: "Special setup (birthday, proposal)" },
+    { it: "Allestimento speciale", en: "Special-occasion setup" },
   ];
-
-  const ports = ["Capri", "Sorrento", "Positano", "Amalfi", "Napoli", "Ischia", "Procida", "Nerano"];
 
   const Check = () => (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -71,10 +69,18 @@ export default function CharterPage() {
     </svg>
   );
 
+  // Veiled WhatsApp pre-fill for the private-service section. No port names
+  // listed in the URL or copy — the routes are arranged 1:1 in chat.
+  const waPrivate = `https://wa.me/393335741333?text=${encodeURIComponent(
+    lang === "it"
+      ? "Ciao, vorrei organizzare un noleggio su misura."
+      : "Hi, I'd like to arrange a tailored charter."
+  )}`;
+
   return (
     <PageShell>
-      {/* HERO */}
-      <section className="page-hero">
+      {/* HERO — dark navy, full statement upfront */}
+      <section className="page-hero charter-hero-navy">
         <div className="page-hero-inner">
           <div className="eyebrow">
             {lang === "it" ? "Noleggio yacht" : "Charter · yacht hire"}
@@ -94,25 +100,7 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* QUOTE strip — visual rhythm-breaker on dark navy */}
-      <section className="charter-quote-strip" data-reveal>
-        <div className="charter-quote-strip-inner">
-          <svg viewBox="0 0 32 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="charter-quote-mark" aria-hidden>
-            <path d="M9 4 C5 4 3 7 3 11 L3 20 L11 20 L11 12 L7 12 C7 9 8 7 11 6" />
-            <path d="M25 4 C21 4 19 7 19 11 L19 20 L27 20 L27 12 L23 12 C23 9 24 7 27 6" />
-          </svg>
-          <p className="charter-quote-text">
-            {lang === "it"
-              ? "Niente listino, niente orari fissi. Solo il mare, e la giornata che hai in mente."
-              : "No price list, no fixed schedule. Just the sea, and the day you have in mind."}
-          </p>
-          <span className="charter-quote-attrib">
-            {lang === "it" ? "Carlo & Marco Esposito · Capitani" : "Carlo & Marco Esposito · Captains"}
-          </span>
-        </div>
-      </section>
-
-      {/* COME FUNZIONA — zig-zag timeline */}
+      {/* COME FUNZIONA — zig-zag timeline, restyled numerals */}
       <section className="section charter-howto">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
@@ -136,7 +124,7 @@ export default function CharterPage() {
                   className={`charter-timeline-row${i % 2 === 1 ? " is-reverse" : ""}`}
                   data-reveal={i % 2 === 1 ? "left" : ""}
                 >
-                  <div className="charter-timeline-num">{s.n}</div>
+                  <div className="charter-timeline-num"><span>{s.n}</span></div>
                   <div className="charter-timeline-card">
                     <h3>{c.h}</h3>
                     <p>{c.p}</p>
@@ -148,7 +136,7 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* COSA È INCLUSO — split list / photo / list */}
+      {/* COSA È INCLUSO — split list / photo / list, refined typography */}
       <section className="section section-alt charter-included">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
@@ -195,79 +183,54 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* PICK-UP · 24h — stats panel + port pills */}
-      <section className="section charter-pickup">
+      {/* SU MISURA — veiled service section. No port names, no preset routes.
+          Three unified numerals — same family, same color, no decorative split. */}
+      <section className="section charter-private">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
             <div className="eyebrow">
-              {lang === "it" ? "Pick-up · 24h" : "Pick-up · 24h"}
+              {lang === "it" ? "Servizio privato" : "Private service"}
             </div>
             <h2 className="section-title">
-              {lang === "it" ? "Veniamo a prenderti, " : "We come to you, "}
+              {lang === "it" ? "Su misura, " : "Tailored, "}
               <span className="accent">
-                {lang === "it" ? "scegli tu la rotta." : "you choose the route."}
+                {lang === "it" ? "come preferisci tu." : "as you wish."}
               </span>
             </h2>
             <p className="section-desc">
               {lang === "it"
-                ? "Niente tratte preimpostate, niente listino. Il porto di partenza, le mete e i tempi li scegli tu. Pick-up dal porto o dall'hotel che preferisci, disponibili tutti i giorni, anche di notte."
-                : "No preset routes, no price list. You choose the departure port, the stops and the pace. Pick-up at the port or hotel that suits you, available every day, day or night."}
+                ? "Ogni dettaglio della giornata — il punto d'incontro, le soste, gli orari, il rientro — lo costruiamo insieme, in privato. Una conversazione, non un listino."
+                : "Every detail of the day — the meeting point, the stops, the times, the return — is built together, privately. A conversation, not a price list."}
             </p>
           </header>
 
-          <div className="charter-stats" data-reveal>
-            <div className="charter-stat">
-              <div className="charter-stat-num">
-                <span className="big">24</span>
-                <span className="small">/7</span>
+          <div className="charter-figures" data-reveal>
+            <div className="charter-figure">
+              <div className="charter-figure-num">24h</div>
+              <div className="charter-figure-label">
+                {lang === "it" ? "Reperibili" : "On call"}
               </div>
-              <div className="charter-stat-label">
-                {lang === "it" ? "Disponibili" : "Available"}
-              </div>
-              <p>
-                {lang === "it"
-                  ? "Anche di notte e last-minute"
-                  : "Day, night and last-minute"}
-              </p>
             </div>
-            <div className="charter-stat">
-              <div className="charter-stat-num">
-                <span className="big">8</span>
-                <span className="small">+</span>
+            <div className="charter-figure">
+              <div className="charter-figure-num">1:1</div>
+              <div className="charter-figure-label">
+                {lang === "it" ? "Conversazione privata" : "Private conversation"}
               </div>
-              <div className="charter-stat-label">
-                {lang === "it" ? "Porti pick-up" : "Pick-up ports"}
-              </div>
-              <p>
-                {lang === "it"
-                  ? "Da Capri all'intero Golfo"
-                  : "From Capri across the Gulf"}
-              </p>
             </div>
-            <div className="charter-stat">
-              <div className="charter-stat-num">
-                <span className="symbol">∞</span>
+            <div className="charter-figure">
+              <div className="charter-figure-num">
+                <span className="charter-figure-glyph">∞</span>
               </div>
-              <div className="charter-stat-label">
-                {lang === "it" ? "Rotte" : "Routes"}
+              <div className="charter-figure-label">
+                {lang === "it" ? "Su misura" : "Bespoke"}
               </div>
-              <p>
-                {lang === "it"
-                  ? "Costruite sulla giornata che hai in mente"
-                  : "Built around the day you have in mind"}
-              </p>
             </div>
           </div>
 
-          <div className="charter-ports" data-reveal>
-            <span className="charter-ports-label">
-              {lang === "it" ? "Pick-up disponibile da" : "Pick-up available from"}
-            </span>
-            <div className="charter-ports-row">
-              {ports.map((p) => (
-                <span key={p} className="charter-port-pill">{p}</span>
-              ))}
-            </div>
+          <div className="charter-private-cta" data-reveal>
+            <a href={waPrivate} target="_blank" rel="noopener" className="btn-primary">
+              {lang === "it" ? "Parliamone su WhatsApp" : "Talk on WhatsApp"}
+            </a>
           </div>
         </div>
       </section>
@@ -355,20 +318,6 @@ export default function CharterPage() {
                 </Link>
               );
             })}
-          </div>
-
-          <div className="cta-row" data-reveal>
-            <a
-              href="https://wa.me/393335741333?text=Vorrei%20noleggiare%20uno%20yacht%20con%20skipper"
-              target="_blank"
-              rel="noopener"
-              className="btn-primary"
-            >
-              {lang === "it" ? "Richiedi preventivo" : "Request a quote"}
-            </a>
-            <Link href={path("/contact")} className="btn-secondary-dark">
-              {lang === "it" ? "Contattaci" : "Contact us"}
-            </Link>
           </div>
         </div>
       </section>
