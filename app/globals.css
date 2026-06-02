@@ -5519,7 +5519,7 @@ img { max-width: 100%; height: auto; }
   }
 }
 
-/* Cosa è incluso — clean 2-col list, with a thin centre divider. */
+/* Cosa è incluso — clean 2-col list, no dividers. */
 .charter-included-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -5527,17 +5527,6 @@ img { max-width: 100%; height: auto; }
   align-items: start;
   max-width: 980px;
   margin: 0 auto;
-  position: relative;
-}
-.charter-included-split::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: rgba(15, 22, 35, 0.08);
-  transform: translateX(-50%);
 }
 .charter-included-col h4 {
   font-family: var(--sans);
@@ -5557,14 +5546,12 @@ img { max-width: 100%; height: auto; }
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 13px 0;
-  border-bottom: 1px solid rgba(15, 22, 35, 0.07);
+  padding: 10px 0;
   font-family: var(--sans);
   font-size: 0.97rem;
   line-height: 1.5;
   color: var(--text-secondary);
 }
-.charter-included-col li:last-child { border-bottom: none; }
 .charter-included-col li svg {
   width: 15px;
   height: 15px;
@@ -5576,15 +5563,6 @@ img { max-width: 100%; height: auto; }
   .charter-included-split {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  .charter-included-split::before {
-    left: 8px;
-    right: 8px;
-    top: 50%;
-    bottom: auto;
-    width: auto;
-    height: 1px;
-    transform: translateY(-50%);
   }
 }
 
@@ -5602,16 +5580,6 @@ img { max-width: 100%; height: auto; }
 }
 .charter-promise-item {
   text-align: center;
-  position: relative;
-}
-.charter-promise-item + .charter-promise-item::before {
-  content: "";
-  position: absolute;
-  left: -28px;
-  top: 8%;
-  bottom: 8%;
-  width: 1px;
-  background: rgba(15, 22, 35, 0.08);
 }
 .charter-promise-item h4 {
   font-family: var(--serif);
@@ -5642,15 +5610,6 @@ img { max-width: 100%; height: auto; }
   .charter-promise {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-  .charter-promise-item + .charter-promise-item::before {
-    left: 25%;
-    right: 25%;
-    top: auto;
-    bottom: auto;
-    width: auto;
-    height: 1px;
-    transform: translateY(-16px);
   }
 }
 
