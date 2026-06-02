@@ -18,6 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/fleet",    changeFrequency: "monthly", priority: 0.9 },
     { path: "/charter",  changeFrequency: "monthly", priority: 0.8 },
     { path: "/contact",  changeFrequency: "yearly",  priority: 0.6 },
+    { path: "/privacy",  changeFrequency: "yearly",  priority: 0.3 },
+    { path: "/cookie",   changeFrequency: "yearly",  priority: 0.3 },
+    { path: "/terms",    changeFrequency: "yearly",  priority: 0.3 },
   ];
 
   const dynamicPaths = [

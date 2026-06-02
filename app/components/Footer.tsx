@@ -111,9 +111,9 @@ export default function Footer() {
             <div>{t.footer.bottom}</div>
             <div className="footer-legal">
               <LanguageSwitcher />
-              <a className="footer-legal-link" href="/privacy">{t.footer.legal.privacy}</a>
-              <a className="footer-legal-link" href="/terms">{t.footer.legal.terms}</a>
-              <a className="footer-legal-link" href="/cookie">{t.footer.legal.cookie}</a>
+              <Link className="footer-legal-link" href={path("/privacy")}>{t.footer.legal.privacy}</Link>
+              <Link className="footer-legal-link" href={path("/terms")}>{t.footer.legal.terms}</Link>
+              <Link className="footer-legal-link" href={path("/cookie")}>{t.footer.legal.cookie}</Link>
             </div>
           </div>
         </div>
