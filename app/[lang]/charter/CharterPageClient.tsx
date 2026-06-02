@@ -164,10 +164,6 @@ export default function CharterPage() {
               </ul>
             </div>
 
-            <figure className="charter-included-photo">
-              <img src="/charter/aperitivo-spread.jpg" alt={lang === "it" ? "Aperitivo a bordo: ananas, frutta fresca, caprese e prosecco in ghiaccio" : "Aperitivo on board: pineapple, fresh fruit, caprese and prosecco on ice"} />
-            </figure>
-
             <div className="charter-included-col">
               <h4>{lang === "it" ? "Su richiesta" : "On request"}</h4>
               <ul>
@@ -204,28 +200,38 @@ export default function CharterPage() {
             </p>
           </header>
 
-          <div className="charter-figures" data-reveal>
-            <div className="charter-figure">
-              <div className="charter-figure-num">24h</div>
-              <div className="charter-figure-label">
-                {lang === "it" ? "Reperibili" : "On call"}
-              </div>
-            </div>
-            <div className="charter-figure">
-              <div className="charter-figure-num">1:1</div>
-              <div className="charter-figure-label">
+          <ul className="charter-promise" data-reveal>
+            <li className="charter-promise-item">
+              <h4>
+                {lang === "it" ? "Sempre reperibili" : "Always reachable"}
+              </h4>
+              <p>
+                {lang === "it"
+                  ? "Anche di notte, anche per richieste last-minute."
+                  : "Day or night, last-minute requests welcome."}
+              </p>
+            </li>
+            <li className="charter-promise-item">
+              <h4>
                 {lang === "it" ? "Conversazione privata" : "Private conversation"}
-              </div>
-            </div>
-            <div className="charter-figure">
-              <div className="charter-figure-num">
-                <span className="charter-figure-glyph">∞</span>
-              </div>
-              <div className="charter-figure-label">
-                {lang === "it" ? "Su misura" : "Bespoke"}
-              </div>
-            </div>
-          </div>
+              </h4>
+              <p>
+                {lang === "it"
+                  ? "Ogni dettaglio si decide insieme, via WhatsApp."
+                  : "Every detail is decided together, on WhatsApp."}
+              </p>
+            </li>
+            <li className="charter-promise-item">
+              <h4>
+                {lang === "it" ? "Itinerario su misura" : "Tailored itinerary"}
+              </h4>
+              <p>
+                {lang === "it"
+                  ? "Punto d'incontro, soste, orari — come preferisci."
+                  : "Meeting point, stops, timing — as you wish."}
+              </p>
+            </li>
+          </ul>
 
           <div className="charter-private-cta" data-reveal>
             <a href={waPrivate} target="_blank" rel="noopener" className="btn-primary">
@@ -235,8 +241,8 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* A BORDO — luxury photo grid (kept) */}
-      <section className="section charter-luxury" data-reveal>
+      {/* A BORDO — luxury photo grid (uses section-alt for clean color rhythm) */}
+      <section className="section section-alt charter-luxury" data-reveal>
         <div className="section-inner">
           <div className="charter-luxury-head">
             <div className="eyebrow">
@@ -279,7 +285,7 @@ export default function CharterPage() {
       </section>
 
       {/* SCEGLI LA BARCA */}
-      <section className="section section-alt charter-fleet">
+      <section className="section charter-fleet">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
             <div className="eyebrow">
