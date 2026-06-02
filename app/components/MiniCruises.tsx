@@ -5,7 +5,7 @@ import { useLang } from "../i18n/LanguageProvider";
 export default function MiniCruises() {
   const { t } = useLang();
   return (
-    <section className="mini-cruises">
+    <section className="mini-cruises" id="mini-cruises">
       <div className="mini-cruises-inner">
         <div className="mini-cruises-img" data-reveal="left">
           <video
