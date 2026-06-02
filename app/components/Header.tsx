@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ContactPopover from "./ContactPopover";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const { t, path } = useLang();
 
   useEffect(() => {
@@ -61,9 +63,15 @@ export default function Header() {
           </nav>
           <div className="header-right">
             <LanguageSwitcher />
-            <Link href={path("/contact")} className="btn-header">
+            <button
+              type="button"
+              className="btn-header"
+              onClick={() => setContactOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={contactOpen}
+            >
               {t.nav.whatsapp}
-            </Link>
+            </button>
             <button
               type="button"
               className={`header-burger${menuOpen ? " is-open" : ""}`}
@@ -106,6 +114,8 @@ export default function Header() {
           </Link>
         </nav>
       </div>
+
+      <ContactPopover open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
 }

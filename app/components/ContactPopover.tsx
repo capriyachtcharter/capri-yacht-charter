@@ -61,7 +61,7 @@ const items = [
   },
   {
     key: "instagram",
-    href: "https://instagram.com",
+    href: "https://instagram.com/capriyachtcharter",
     label: "Instagram",
     value: "@capriyachtcharter",
     icon: (
@@ -75,7 +75,7 @@ const items = [
   },
   {
     key: "facebook",
-    href: "https://facebook.com",
+    href: "https://facebook.com/capriyachtcharter",
     label: "Facebook",
     value: "Capri Yacht Charter",
     icon: (
