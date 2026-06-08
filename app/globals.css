@@ -713,7 +713,7 @@ body {
   gap: 28px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1380px) {
   .tours-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
 }
 
@@ -906,6 +906,7 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
+  white-space: nowrap;
   transition: background 600ms cubic-bezier(0.19, 1, 0.22, 1),
               border-color 600ms cubic-bezier(0.19, 1, 0.22, 1),
               transform 500ms cubic-bezier(0.34, 1.2, 0.64, 1);
@@ -1343,8 +1344,14 @@ body {
 /* Earlier stack thresholds for content-heavy grids so cards don't get
    visually cramped on narrow desktop/tablet widths. */
 @media (max-width: 1200px) {
-  .fleet-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-  /* No horizontal room → kill the sibling spotlight shift on fleet cards */
+  /* Skip the 2-col stage: specs ("11 m · Up to 6 guests · master cabin") wrap
+     too aggressively before we'd hit the 900px 1-col breakpoint. Going straight
+     1-col keeps every card readable, full width, no awkward text wrapping. */
+  .fleet-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 28px;
+  }
   .fleet-grid .fleet-card:has(~ .fleet-card:hover),
   .fleet-grid .fleet-card:hover ~ .fleet-card {
     transform: none;
