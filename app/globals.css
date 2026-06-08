@@ -3801,6 +3801,7 @@ body {
   font-size: 0.78rem;
   opacity: 0.7;
   line-height: 1.5;
+  text-align: center;
 }
 
 /* Tour → boats grid (cross-link to fleet) */

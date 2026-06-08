@@ -59,7 +59,6 @@ export default function Footer() {
           <div>
             <div className="footer-col-title">{t.footer.cols.contactTitle}</div>
             <a href="tel:+393335741333" className="footer-link">+39 333 574 1333</a>
-            <a href="https://wa.me/393335741333" target="_blank" rel="noopener" className="footer-link">WhatsApp</a>
             <a href="mailto:info@capriyachtcharter.com" className="footer-link">info@capriyachtcharter.com</a>
             <a href="https://www.google.com/maps/search/?api=1&query=Via+Marina+Grande+282+Capri" target="_blank" rel="noopener" className="footer-link">Via Marina Grande 282, Capri</a>
           </div>
