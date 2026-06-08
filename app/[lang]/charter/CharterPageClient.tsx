@@ -225,7 +225,7 @@ export default function CharterPage() {
                 : "Every detail is decided together, privately."}
             </p>
             <a href={waBook} target="_blank" rel="noopener" className="btn-primary">
-              {lang === "it" ? "Parliamone su WhatsApp" : "Talk on WhatsApp"}
+              {lang === "it" ? "Prenota ora" : "Book now"}
             </a>
           </div>
         </div>

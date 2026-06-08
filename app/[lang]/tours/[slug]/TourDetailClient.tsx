@@ -120,18 +120,12 @@ export default function TourDetailPage() {
                 rel="noopener"
                 className="btn-primary tour-detail-cta"
               >
-                {lang === "it" ? "Prenota su WhatsApp" : "Book on WhatsApp"}
-              </a>
-              <a
-                href="mailto:info@capriyachtcharter.com"
-                className="btn-secondary-dark tour-detail-cta"
-              >
-                {lang === "it" ? "Richiedi via email" : "Request by email"}
+                {lang === "it" ? "Prenota ora" : "Book now"}
               </a>
               <div className="tour-detail-card-note">
                 {lang === "it"
-                  ? "Conferma in giornata · disponibilità garantita 48h prima"
-                  : "Confirmation within the day · 48h availability"}
+                  ? "Conferma in giornata · Disponibili tutti i giorni"
+                  : "Confirmation within the day · Available every day"}
               </div>
             </div>
           </aside>
