@@ -66,7 +66,7 @@ export default function BoatDetailPage() {
               rel="noopener"
               className="btn-primary"
             >
-              {lang === "it" ? "Prenota su WhatsApp" : "Book on WhatsApp"}
+              {lang === "it" ? "Prenota ora" : "Book now"}
             </a>
           </div>
         </div>
