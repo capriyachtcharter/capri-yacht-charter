@@ -46,7 +46,6 @@ export const fleet: Boat[] = [
       "/fleet/libeccio/libeccio-interno-2.jpg", // interior · saloon / bar
       "/fleet/libeccio/libeccio-interno-3.jpg", // interior · master cabin
       "/fleet/libeccio/libeccio-interno-4.jpg", // interior · guest twin cabin
-      "/fleet/libeccio/libeccio-interno-5.jpg", // interior · helm console
     ],
     specs: {
       length: "21 m",
@@ -165,6 +164,7 @@ export const fleet: Boat[] = [
       "/fleet/gabbiano/gabbiano-interno-1.jpg", // interior · galley
       "/fleet/gabbiano/gabbiano-interno-2.jpg", // interior · cabin
       "/fleet/gabbiano/gabbiano-interno-3.jpg", // interior · head / bathroom
+      "/fleet/gabbiano/gabbiano-interno-4.jpg", // interior · helm console (moved from libeccio — actually Gabbiano)
     ],
     specs: {
       length: "11 m",
