@@ -40,6 +40,13 @@ export default function ToursHubPage() {
     tours.filter((tr) => tr.category === "daily").map((tr) => [tr.legacyId, tr])
   );
   const daily = renderOrder.map((id) => dailyMap[id]).filter(Boolean);
+  // Everything else in the daily category that isn't part of the fixed bento
+  // renders below in a simple grid ("Altri itinerari"). This lets us grow the
+  // tour catalogue without redesigning the bento every time.
+  const bentoIds = new Set(renderOrder);
+  const extraDaily = tours.filter(
+    (tr) => tr.category === "daily" && !bentoIds.has(tr.legacyId)
+  );
 
   return (
     <PageShell>
@@ -51,8 +58,8 @@ export default function ToursHubPage() {
           </h1>
           <p className="page-hero-desc">
             {lang === "it"
-              ? "Otto giornate private al mare, ognuna disegnata su un'idea di Capri diversa. Scegli quella che hai in mente — o costruiamola insieme."
-              : "Eight private days at sea, each shaped around a different idea of Capri. Pick the one you have in mind — or let's build it together."}
+              ? "Giornate private al mare, ognuna disegnata su un'idea di Capri diversa. Scegli quella che hai in mente — o costruiamola insieme."
+              : "Private days at sea, each shaped around a different idea of Capri. Pick the one you have in mind — or let's build it together."}
           </p>
         </div>
       </section>
@@ -116,6 +123,69 @@ export default function ToursHubPage() {
           </div>
         </div>
       </section>
+
+      {extraDaily.length > 0 && (
+        <section className="section" id="more-itineraries">
+          <div className="section-inner">
+            <div data-reveal>
+              <div className="eyebrow">
+                {lang === "it" ? "Altri itinerari" : "More itineraries"}
+              </div>
+              <h2 className="section-title">
+                {lang === "it" ? "Altre giornate " : "More days "}
+                <span className="accent">
+                  {lang === "it" ? "in mare" : "at sea"}
+                </span>
+              </h2>
+            </div>
+
+            <div className="tours-more-grid">
+              {extraDaily.map((tour) => {
+                const c = lang === "it" ? tour.it : tour.en;
+                return (
+                  <Link
+                    key={tour.slug}
+                    href={path(`/tours/${tour.slug}`)}
+                    className="tours-more-card"
+                  >
+                    <div className="tours-more-card-img">
+                      <Image
+                        src={tour.image}
+                        alt={c.title}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 33vw"
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: tourImagePosition[tour.legacyId] ?? "center",
+                        }}
+                      />
+                      <div className="tours-more-card-overlay" />
+                    </div>
+                    <div className="tours-more-card-body">
+                      <div className="tours-more-card-meta">{c.meta}</div>
+                      <h3 className="tours-more-card-title">{c.title}</h3>
+                      <p className="tours-more-card-desc">{c.short}</p>
+                      <div className="tours-more-card-footer">
+                        <div className="tours-more-card-price">
+                          <span>{t.tours.from}</span>
+                          <strong>{tour.priceFrom}</strong>
+                        </div>
+                        <span className="tours-more-card-cta">
+                          {lang === "it" ? "Scopri" : "Discover"}
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="3" y1="8" x2="13" y2="8" />
+                            <polyline points="9 4 13 8 9 12" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section section-alt" id="mini-cruises">
         <div className="section-inner">
