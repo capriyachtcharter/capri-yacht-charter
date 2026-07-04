@@ -15,6 +15,9 @@ export type Tour = {
   category: TourCategory;
   hours: string;
   priceFrom: string;
+  /** Full private-charter price for each boat that runs this tour.
+   * Keyed by boat legacyId. Absence = "Su richiesta". */
+  pricesByBoat?: Record<string, string>;
   tag?: "popular" | "value" | "bespoke";
   image: string;       // cover used in the /tours bento grid
   imageHome?: string;  // optional override for the home "Signature experiences" card
@@ -24,8 +27,24 @@ export type Tour = {
 };
 
 const included = {
-  it: ["Equipaggio", "Carburante", "IVA", "Snack & soft drink a bordo"],
-  en: ["Crew", "Fuel", "VAT", "Snacks & soft drinks on board"],
+  it: [
+    "Equipaggio",
+    "Carburante",
+    "IVA",
+    "Aperitivo · snack",
+    "Vino (1 bottiglia ogni 2 persone)",
+    "Soft drink",
+    "Gonfiabili, noodles, pinne e maschere",
+  ],
+  en: [
+    "Crew",
+    "Fuel",
+    "VAT",
+    "Aperitivo · snacks",
+    "Wine (1 bottle per 2 people)",
+    "Soft drinks",
+    "Inflatables, noodles, snorkelling gear",
+  ],
 };
 
 const notIncluded = {
@@ -38,6 +57,39 @@ const notIncluded = {
   en: ["Lunch", "Alcohol", "Blue Grotto entrance", "Extras not listed"],
 };
 
+// Extras "su richiesta" — same list on every tour. Moto d'acqua is exclusive
+// to Libeccio (Primatist v65); the note is surfaced in the UI.
+export const extrasDefault = {
+  it: [
+    { label: "Moto d'acqua (solo Libeccio)", price: "800 €" },
+    { label: "Sea bob (tutte le barche)", price: "600 €" },
+    { label: "SUP (tutte le barche)", price: "200 €" },
+    { label: "Auto porto Napoli → aeroporto", price: "120 €" },
+    { label: "Auto porto Napoli → stazione", price: "60 €" },
+  ],
+  en: [
+    { label: "Jet ski (Libeccio only)", price: "€800" },
+    { label: "Sea bob (all boats)", price: "€600" },
+    { label: "SUP (all boats)", price: "€200" },
+    { label: "Car Naples port → airport", price: "€120" },
+    { label: "Car Naples port → station", price: "€60" },
+  ],
+};
+
+// Pick-up dagli altri porti. Prezzi per barca (V65 / V55 / Sarima 38).
+export const pickupDefault = {
+  it: [
+    { port: "Capri", prices: "Gratuito" },
+    { port: "Positano · Amalfi · Sorrento", prices: "500 € · 300 € · 200 €" },
+    { port: "Ischia · Procida", prices: "700 € · 550 € · 350 €" },
+  ],
+  en: [
+    { port: "Capri", prices: "Free" },
+    { port: "Positano · Amalfi · Sorrento", prices: "€500 · €300 · €200" },
+    { port: "Ischia · Procida", prices: "€700 · €550 · €350" },
+  ],
+};
+
 export const includedDefault = included;
 export const notIncludedDefault = notIncluded;
 
@@ -47,7 +99,12 @@ export const tours: Tour[] = [
     legacyId: "tour-island",
     category: "daily",
     hours: "4h",
-    priceFrom: "€480",
+    priceFrom: "da 1.200 €",
+    pricesByBoat: {
+      "primatist-g65": "3.000 €",
+      "primatist-g50": "2.200 €",
+      "sarima-39": "1.200 €",
+    },
     tag: "popular",
     image: "/tours/capri-island.jpg",
     imageHome: "/tours/capri-island-home.jpg",
@@ -99,12 +156,17 @@ export const tours: Tour[] = [
     legacyId: "tour-blue-grotto",
     category: "daily",
     hours: "3h",
-    priceFrom: "€360",
+    priceFrom: "da 1.000 €",
+    pricesByBoat: {
+      "primatist-g65": "2.500 €",
+      "primatist-g50": "1.800 €",
+      "sarima-39": "1.000 €",
+    },
     image: "/tours/grotta-azzurra.jpg",
     imageHome: "/tours/grotta-azzurra-home.jpg",
-    boats: ["primatist-g50", "sarima-39"],
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
-      title: "Tour della Grotta Azzurra",
+      title: "Grotta Azzurra",
       meta: "Mattina · 3 ore",
       short:
         "Solo Grotta Azzurra, di prima mattina, con accesso privato sul barchino a remi.",
@@ -120,7 +182,7 @@ export const tours: Tour[] = [
       highlights: ["Accesso Grotta Azzurra", "Tour mattutino", "Poca affluenza", "Sosta bagno"],
     },
     en: {
-      title: "Blue Grotto Tour",
+      title: "Blue Grotto",
       meta: "Morning · 3 Hours",
       short:
         "A focused early-morning route to the Grotta Azzurra with private rowboat access.",
@@ -141,11 +203,16 @@ export const tours: Tour[] = [
     legacyId: "tour-full-day",
     category: "daily",
     hours: "8h",
-    priceFrom: "€890",
+    priceFrom: "da 2.000 €",
+    pricesByBoat: {
+      "primatist-g65": "5.000 €",
+      "primatist-g50": "3.600 €",
+      "sarima-39": "2.000 €",
+    },
     tag: "value",
     image: "/tours/capri-amalfi.jpg",
     imageHome: "/tours/full-day-home.jpg",
-    boats: ["primatist-g65", "primatist-g50"],
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Capri & Costiera Amalfitana",
       meta: "Giornata Intera · 8 ore",
@@ -193,7 +260,12 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-positano",
     category: "daily",
     hours: "8h",
-    priceFrom: "€750",
+    priceFrom: "da 2.000 €",
+    pricesByBoat: {
+      "primatist-g65": "5.000 €",
+      "primatist-g50": "3.600 €",
+      "sarima-39": "2.000 €",
+    },
     image: "/tours/capri-positano.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
@@ -236,9 +308,14 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-ischia",
     category: "daily",
     hours: "8h",
-    priceFrom: "€820",
+    priceFrom: "da 2.000 €",
+    pricesByBoat: {
+      "primatist-g65": "5.000 €",
+      "primatist-g50": "3.600 €",
+      "sarima-39": "2.000 €",
+    },
     image: "/tours/capri-ischia.jpg",
-    boats: ["primatist-g65", "primatist-g50"],
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Capri & Ischia",
       meta: "Giornata Intera · 8 ore",
@@ -281,9 +358,14 @@ export const tours: Tour[] = [
     legacyId: "tour-ischia-procida",
     category: "daily",
     hours: "8h",
-    priceFrom: "€820",
+    priceFrom: "da 2.000 €",
+    pricesByBoat: {
+      "primatist-g65": "5.000 €",
+      "primatist-g50": "3.600 €",
+      "sarima-39": "2.000 €",
+    },
     image: "/tours/ischia-procida.jpg",
-    boats: ["primatist-g65", "primatist-g50"],
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
       title: "Ischia & Procida",
       meta: "Giornata Intera · 8 ore",
@@ -326,7 +408,12 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-sorrento",
     category: "daily",
     hours: "8h",
-    priceFrom: "€780",
+    priceFrom: "da 2.000 €",
+    pricesByBoat: {
+      "primatist-g65": "5.000 €",
+      "primatist-g50": "3.600 €",
+      "sarima-39": "2.000 €",
+    },
     image: "/tours/capri-sorrento.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
@@ -362,6 +449,244 @@ export const tours: Tour[] = [
         "Expected return at 18:00",
       ],
       highlights: ["Sorrento Coast", "Sorrento town", "Capri loop", "Regina Giovanna Baths"],
+    },
+  },
+  {
+    slug: "capri-full-day",
+    legacyId: "tour-capri-full-day",
+    category: "daily",
+    hours: "7h",
+    priceFrom: "da 1.700 €",
+    pricesByBoat: {
+      "primatist-g65": "4.500 €",
+      "primatist-g50": "3.200 €",
+      "sarima-39": "1.700 €",
+    },
+    image: "/tours/capri-island.jpg",
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
+    it: {
+      title: "Capri Full Day",
+      meta: "Giornata Intera · 7 ore",
+      short:
+        "La giornata completa a Capri: giro dell'isola, tutte le grotte, soste bagno estese.",
+      long: "Imbarco al porto turistico di Capri alle 09:30. Giro completo dell'isola con visita di tutte le grotte principali, soste bagno estese nelle calette più belle e pranzo a bordo o in ristorante convenzionato. Rientro previsto alle 16:30.",
+      itinerary: [
+        "Imbarco al porto turistico di Capri (09:30)",
+        "Grotta Azzurra (ingresso non incluso)",
+        "Grotta Verde, Faro di Punta Carena",
+        "Baia di Marina Piccola · sosta bagno",
+        "Faraglioni · sosta fotografica",
+        "Grotta Bianca, Arco Naturale, Salto di Tiberio",
+        "Pranzo a bordo o in caletta",
+        "Grotta del Cuore, Cala del Rio · sosta bagno",
+        "Rientro previsto: 16:30",
+      ],
+      highlights: [
+        "Tutta l'isola in un giorno",
+        "3-4 soste bagno estese",
+        "Grotte principali di Capri",
+        "Pranzo a bordo",
+      ],
+    },
+    en: {
+      title: "Capri Full Day",
+      meta: "Full Day · 7 Hours",
+      short:
+        "The full day at Capri: island loop, all the main grottoes, extended swim stops.",
+      long: "Boarding at Capri Marina at 09:30. Full island loop with visits to all the main grottoes, extended swim stops in the most beautiful coves and lunch on board or at a partner restaurant. Expected return at 16:30.",
+      itinerary: [
+        "Boarding at Capri Marina (09:30)",
+        "Blue Grotto (entrance not included)",
+        "Green Grotto, Punta Carena Lighthouse",
+        "Marina Piccola Bay · swim stop",
+        "Faraglioni · photo stop",
+        "White Grotto, Natural Arch, Tiberius's Leap",
+        "Lunch on board or in a cove",
+        "Heart Grotto, Cala del Rio · swim stop",
+        "Expected return: 16:30",
+      ],
+      highlights: [
+        "The whole island in a day",
+        "3-4 extended swim stops",
+        "Capri's main grottoes",
+        "Lunch on board",
+      ],
+    },
+  },
+  {
+    slug: "capri-positano-mezza-giornata",
+    legacyId: "tour-capri-positano-half",
+    category: "daily",
+    hours: "4h",
+    priceFrom: "da 1.200 €",
+    pricesByBoat: {
+      "primatist-g65": "3.000 €",
+      "primatist-g50": "2.200 €",
+      "sarima-39": "1.200 €",
+    },
+    image: "/tours/capri-positano.jpg",
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
+    it: {
+      title: "Capri & Positano Mezza Giornata",
+      meta: "Mezza Giornata · 4 ore",
+      short:
+        "Positano dal mare e sosta bagno a Li Galli in mezza giornata privata.",
+      long: "Imbarco al porto di Capri alle 14:00. Navigazione verso Positano con sosta fotografica ai Faraglioni e bagno all'isolotto di Li Galli. Vista dal mare della Costiera Amalfitana più iconica. Rientro alle 18:00.",
+      itinerary: [
+        "Imbarco al porto di Capri (14:00)",
+        "Sosta fotografica ai Faraglioni",
+        "Navigazione verso Positano",
+        "Vista dal mare di Positano",
+        "Sosta bagno a Li Galli",
+        "Rientro previsto alle 18:00",
+      ],
+      highlights: [
+        "Positano dal mare",
+        "Faraglioni",
+        "Sosta bagno a Li Galli",
+        "Mezza giornata privata",
+      ],
+    },
+    en: {
+      title: "Capri & Positano Half Day",
+      meta: "Half Day · 4 Hours",
+      short:
+        "Positano from the sea and a swim stop at Li Galli in a private half day.",
+      long: "Boarding at Capri at 14:00. Sail to Positano with a photo stop at the Faraglioni and a swim at Li Galli islet. Sea view of the most iconic stretch of the Amalfi Coast. Return at 18:00.",
+      itinerary: [
+        "Boarding at Capri port (14:00)",
+        "Photo stop at the Faraglioni",
+        "Sail toward Positano",
+        "Positano from the sea",
+        "Swim stop at Li Galli",
+        "Expected return at 18:00",
+      ],
+      highlights: [
+        "Positano from the sea",
+        "Faraglioni",
+        "Li Galli swim stop",
+        "Private half day",
+      ],
+    },
+  },
+  {
+    slug: "penisola-costiera-amalfitana",
+    legacyId: "tour-penisola-amalfitana",
+    category: "daily",
+    hours: "8h",
+    priceFrom: "da 2.000 €",
+    pricesByBoat: {
+      "primatist-g65": "5.000 €",
+      "primatist-g50": "3.600 €",
+      "sarima-39": "2.000 €",
+    },
+    image: "/tours/capri-amalfi.jpg",
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
+    it: {
+      title: "Penisola & Costiera Amalfitana",
+      meta: "Giornata Intera · 8 ore",
+      short:
+        "Punta Campanella e la Costiera Amalfitana in un unico tour: Nerano, Li Galli, Positano, Amalfi.",
+      long: "Partenza dal porto scelto alle 10:00. Punta Campanella e Costiera Amalfitana con vista dal mare di Nerano, Li Galli, Positano, Praiano, Fiordo di Furore, Conca dei Marini, Amalfi. Sbarco a Positano e Amalfi per visita e shopping (opzionale). Pranzo in ristorante sul mare (non incluso). Rientro alle 18:00.",
+      itinerary: [
+        "Partenza dal porto selezionato (10:00)",
+        "Punta Campanella · Nerano · Li Galli",
+        "Positano dal mare · sbarco opzionale",
+        "Praiano · Fiordo di Furore",
+        "Conca dei Marini · Grotta dello Smeraldo",
+        "Amalfi · sbarco per shopping/pranzo",
+        "Sosta bagno tra le calette",
+        "Rientro previsto alle 18:00",
+      ],
+      highlights: [
+        "Punta Campanella",
+        "Li Galli",
+        "Fiordo di Furore",
+        "Amalfi centro",
+      ],
+    },
+    en: {
+      title: "Peninsula & Amalfi Coast",
+      meta: "Full Day · 8 Hours",
+      short:
+        "Punta Campanella and the Amalfi Coast in one tour: Nerano, Li Galli, Positano, Amalfi.",
+      long: "Departure from the selected port at 10:00. Punta Campanella and Amalfi Coast with sea views of Nerano, Li Galli, Positano, Praiano, Furore Fjord, Conca dei Marini, Amalfi. Land in Positano and Amalfi for optional visit and shopping. Lunch at a seaside restaurant (not included). Return at 18:00.",
+      itinerary: [
+        "Departure from selected port (10:00)",
+        "Punta Campanella · Nerano · Li Galli",
+        "Positano from the sea · optional landing",
+        "Praiano · Furore Fjord",
+        "Conca dei Marini · Emerald Grotto",
+        "Amalfi · landing for shopping/lunch",
+        "Swim stop in the coves",
+        "Expected return at 18:00",
+      ],
+      highlights: [
+        "Punta Campanella",
+        "Li Galli",
+        "Furore Fjord",
+        "Amalfi town",
+      ],
+    },
+  },
+  {
+    slug: "ischia-full-day",
+    legacyId: "tour-ischia",
+    category: "daily",
+    hours: "8h",
+    priceFrom: "da 2.000 €",
+    pricesByBoat: {
+      "primatist-g65": "5.000 €",
+      "primatist-g50": "3.600 €",
+      "sarima-39": "2.000 €",
+    },
+    image: "/tours/ischia-procida.jpg",
+    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
+    it: {
+      title: "Ischia Full Day",
+      meta: "Giornata Intera · 8 ore",
+      short:
+        "Giornata dedicata all'isola vulcanica: giro completo, Castello Aragonese, Sant'Angelo.",
+      long: "Imbarco al porto di Capri alle 09:30. Navigazione verso Ischia, giro completo dell'isola con vista del Castello Aragonese, delle terme naturali e delle baie più suggestive. Sosta a Sant'Angelo per pranzo opzionale. Rientro alle 18:00.",
+      itinerary: [
+        "Imbarco al porto di Capri (09:30)",
+        "Navigazione verso Ischia",
+        "Giro dell'isola · Castello Aragonese",
+        "Punta della Signora · sosta bagno",
+        "Terme naturali · bagno alle Sorgenti",
+        "Sbarco a Sant'Angelo · pranzo opzionale",
+        "Baia di San Montano · sosta bagno",
+        "Rientro previsto alle 18:00",
+      ],
+      highlights: [
+        "Isola vulcanica",
+        "Castello Aragonese",
+        "Sant'Angelo",
+        "Terme naturali",
+      ],
+    },
+    en: {
+      title: "Ischia Full Day",
+      meta: "Full Day · 8 Hours",
+      short:
+        "A full day dedicated to the volcanic island: full loop, Aragonese Castle, Sant'Angelo.",
+      long: "Boarding at Capri port at 09:30. Sail to Ischia for a full island loop with views of the Aragonese Castle, natural thermal springs and the most striking bays. Stop in Sant'Angelo for optional lunch. Return at 18:00.",
+      itinerary: [
+        "Boarding at Capri port (09:30)",
+        "Sail to Ischia",
+        "Island loop · Aragonese Castle",
+        "Punta della Signora · swim stop",
+        "Natural thermal springs · swim at Le Sorgenti",
+        "Land in Sant'Angelo · optional lunch",
+        "San Montano Bay · swim stop",
+        "Expected return at 18:00",
+      ],
+      highlights: [
+        "Volcanic island",
+        "Aragonese Castle",
+        "Sant'Angelo",
+        "Thermal springs",
+      ],
     },
   },
   {
@@ -415,9 +740,13 @@ export const toursByLegacyId = Object.fromEntries(tours.map((t) => [t.legacyId, 
 // "Signature experiences" cards and the /tours bento so both crop the same.
 export const tourImagePosition: Record<string, string> = {
   "tour-island": "center 70%",            // Faraglioni-through-pines: drop down a bit, show more sea below
+  "tour-capri-full-day": "center 70%",    // reuse of Capri-island image, same crop
   "tour-capri-ischia": "center top",      // show the castle (upper part)
+  "tour-ischia": "center top",            // reuse Ischia-Procida shot, top-focused
   "tour-ischia-procida": "center bottom", // Corricella: the colorful marina/waterfront (prettiest part)
   "tour-full-day": "center bottom",       // Amalfi: show the town/waterfront
+  "tour-penisola-amalfitana": "center bottom", // reuse Amalfi shot
   "tour-blue-grotto": "center bottom",    // grotto: show the boat + water
+  "tour-capri-positano-half": "center",   // reuse Positano shot, default center
   "tour-custom": "center 78%",            // bespoke: keep the three yachts in frame
 };

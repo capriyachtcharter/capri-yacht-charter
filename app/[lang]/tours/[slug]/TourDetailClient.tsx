@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useParams, notFound } from "next/navigation";
 import PageShell from "../../../components/PageShell";
 import { useLang } from "../../../i18n/LanguageProvider";
-import { toursBySlug, includedDefault, notIncludedDefault } from "../../../data/tours";
+import { toursBySlug, includedDefault, notIncludedDefault, extrasDefault, pickupDefault } from "../../../data/tours";
 import { boatByLegacyId } from "../../../data/fleet";
 
 export default function TourDetailPage() {
@@ -103,6 +103,68 @@ export default function TourDetailPage() {
                 </ul>
               </div>
             </div>
+
+            {tour.pricesByBoat && boats.length > 0 && (
+              <>
+                <h2 className="tour-detail-h">
+                  {lang === "it" ? "Prezzo per barca" : "Price per boat"}
+                </h2>
+                <p className="tour-detail-lead" style={{ fontSize: "0.95rem" }}>
+                  {lang === "it"
+                    ? "Il tour è privato: prenoti l'intera barca. Il prezzo dipende dall'imbarcazione scelta."
+                    : "The tour is private: you book the whole boat. Price depends on which vessel you pick."}
+                </p>
+                <ul className="tour-extras-list">
+                  {boats.map((b) => {
+                    const bc = lang === "it" ? b.it : b.en;
+                    const price = tour.pricesByBoat?.[b.legacyId];
+                    if (!price) return null;
+                    return (
+                      <li key={b.legacyId}>
+                        <span>
+                          {bc.name} · <em style={{ fontStyle: "normal", opacity: 0.7 }}>{bc.model}</em>
+                        </span>
+                        <strong>{price}</strong>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
+            )}
+
+            <h2 className="tour-detail-h">
+              {lang === "it" ? "Extra a bordo" : "On-board extras"}
+            </h2>
+            <p className="tour-detail-lead" style={{ fontSize: "0.95rem" }}>
+              {lang === "it"
+                ? "Aggiungi al tuo tour su richiesta al momento della prenotazione."
+                : "Add to your tour on request at the time of booking."}
+            </p>
+            <ul className="tour-extras-list">
+              {(lang === "it" ? extrasDefault.it : extrasDefault.en).map((e) => (
+                <li key={e.label}>
+                  <span>{e.label}</span>
+                  <strong>{e.price}</strong>
+                </li>
+              ))}
+            </ul>
+
+            <h2 className="tour-detail-h">
+              {lang === "it" ? "Pick-up dai porti" : "Pick-up from ports"}
+            </h2>
+            <p className="tour-detail-lead" style={{ fontSize: "0.95rem" }}>
+              {lang === "it"
+                ? "Prezzi per barca: Libeccio · Tramontana · Gabbiano."
+                : "Prices per boat: Libeccio · Tramontana · Gabbiano."}
+            </p>
+            <ul className="tour-extras-list">
+              {(lang === "it" ? pickupDefault.it : pickupDefault.en).map((p) => (
+                <li key={p.port}>
+                  <span>{p.port}</span>
+                  <strong>{p.prices}</strong>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <aside className="tour-detail-side">
@@ -124,8 +186,8 @@ export default function TourDetailPage() {
               </a>
               <div className="tour-detail-card-note">
                 {lang === "it"
-                  ? "Conferma in giornata · Disponibili tutti i giorni"
-                  : "Confirmation within the day · Available every day"}
+                  ? "Conferma in giornata · Cancellazione gratuita fino a 7 giorni prima"
+                  : "Confirmation within the day · Free cancellation up to 7 days before"}
               </div>
             </div>
           </aside>

@@ -155,6 +155,10 @@ export default function BoatDetailPage() {
               const pos: Record<string, string> = {
                 "tour-capri-ischia": "72% 62%", // shift right to centre the islet, a touch lower
               };
+              // Show THIS boat's specific price for that tour (not the generic
+              // "da X" fallback). Falls back to tr.priceFrom if the tour has
+              // no per-boat pricing (e.g. "Su Misura").
+              const boatPrice = tr.pricesByBoat?.[boat.legacyId] ?? tr.priceFrom;
               return {
                 slug: tr.slug,
                 // Giro Isola, Blue Grotto (and Full Day) use their main-page
@@ -163,11 +167,11 @@ export default function BoatDetailPage() {
                 imagePosition: pos[tr.legacyId],
                 title: tc.title,
                 meta: tc.meta,
-                priceFrom: tr.priceFrom,
+                priceFrom: boatPrice,
                 short: tc.short,
               };
             })}
-            fromLabel={lang === "it" ? "Da" : "From"}
+            fromLabel={lang === "it" ? "Prezzo" : "Price"}
             ctaLabel={lang === "it" ? "Scopri il tour" : "Discover the tour"}
           />
         </section>

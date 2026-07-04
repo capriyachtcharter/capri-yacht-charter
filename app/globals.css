@@ -3029,6 +3029,108 @@ body {
   gap: 32px;
 }
 
+/* === More itineraries (extra tours below the bento) === */
+.tours-more-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 56px;
+}
+.tours-more-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 12px rgba(15, 22, 35, 0.04);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s ease;
+}
+.tours-more-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(15, 22, 35, 0.10);
+  border-color: rgba(111, 181, 197, 0.3);
+}
+.tours-more-card-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.tours-more-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 22, 35, 0.35) 100%);
+}
+.tours-more-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tours-more-card-meta {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.tours-more-card-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+.tours-more-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 18px;
+  font-weight: 300;
+  flex: 1;
+}
+.tours-more-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 24, 69, 0.08);
+}
+.tours-more-card-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tours-more-card-price span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.tours-more-card-price strong {
+  font-family: var(--sans);
+  font-size: 17px;
+  color: var(--sea-dark);
+  font-weight: 500;
+}
+.tours-more-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.tours-more-card-cta svg { width: 14px; height: 14px; }
+
 /* === BENTO GRID for /tours hub === */
 .bento-grid {
   display: grid;
@@ -3729,6 +3831,33 @@ body {
 
 .tour-included-list-muted li {
   color: var(--text-tertiary);
+}
+
+/* Extras & Pickup — label + price rows */
+.tour-extras-list {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+.tour-extras-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.tour-extras-list li:last-child {
+  border-bottom: none;
+}
+.tour-extras-list li strong {
+  color: var(--navy);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .tour-detail-side {
