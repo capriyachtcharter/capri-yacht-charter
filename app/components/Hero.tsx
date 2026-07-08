@@ -52,7 +52,7 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="/hero-faraglioni.webp"
+        poster="/hero-poster.webp"
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
