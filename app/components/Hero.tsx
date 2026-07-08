@@ -9,8 +9,8 @@ export default function Hero() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    // Minimum splash time (avoids a "flash" when the video is already cached).
     const MIN_SPLASH_MS = 350;
+    const MAX_SPLASH_MS = 3500;
     const start = performance.now();
     let timer: number | undefined;
 
@@ -25,17 +25,20 @@ export default function Hero() {
       reveal();
       return;
     }
-    if (v.readyState >= 2) {
+    // readyState >= 3 (HAVE_FUTURE_DATA): the browser can start playing without
+    // an immediate stall. Waiting for this instead of "loadeddata" (readyState 2,
+    // only the first frame decoded) prevents the poster image from being visible
+    // between splash and video playback.
+    if (v.readyState >= 3) {
       reveal();
     } else {
-      v.addEventListener("loadeddata", reveal, { once: true });
-      // Fallback: never wait more than 1.2s even if the video stalls.
-      timer = window.setTimeout(() => setReady(true), 1200);
+      v.addEventListener("canplay", reveal, { once: true });
+      timer = window.setTimeout(() => setReady(true), MAX_SPLASH_MS);
     }
 
     return () => {
       if (timer) window.clearTimeout(timer);
-      v?.removeEventListener("loadeddata", reveal);
+      v?.removeEventListener("canplay", reveal);
     };
   }, []);
 
