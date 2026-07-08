@@ -1,0 +1,13 @@
+# Full-res source photos & user's archive folders — never included in build.
+# The site only serves the resized public/ copies.
+/source-materials/
+/foto capri*/
+
+# Node & build artifacts (already excluded by Vercel's defaults but explicit here)
+/node_modules
+/.next
+/.git
+/.claude
+/rebranding
+/scratchpad
+*.log

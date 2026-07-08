@@ -48,3 +48,4 @@ next-env.d.ts
 # get stripped by gitignore. NEVER commit: would blow GitHub's 100MB file
 # limit and bloat history.
 /foto capri*/
+.vercel
