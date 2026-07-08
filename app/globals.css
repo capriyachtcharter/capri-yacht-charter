@@ -869,6 +869,7 @@ body {
   font-weight: 500;
   letter-spacing: -0.005em;
   font-feature-settings: "tnum" 1;
+  white-space: nowrap;
 }
 
 /* Bespoke card: full-width Inquire button sits inside a footer with the same

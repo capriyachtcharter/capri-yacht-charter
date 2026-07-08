@@ -37,7 +37,7 @@ export const translations = {
           meta: "Mezza Giornata · 4 ore",
           title: "Giro dell'Isola",
           desc: "La circumnavigazione iconica. Faraglioni, Grotta Bianca, Grotta Verde, una lunga sosta in acque turchesi.",
-          price: "da 1.200 €",
+          price: "1.200 €",
         },
         {
           id: "tour-blue-grotto",
@@ -45,7 +45,7 @@ export const translations = {
           meta: "Mattina · 3 ore",
           title: "Grotta Azzurra",
           desc: "Solo Grotta Azzurra, di prima mattina, con accesso privato sul barchino a remi.",
-          price: "da 1.000 €",
+          price: "1.000 €",
         },
         {
           id: "tour-full-day",
@@ -53,7 +53,7 @@ export const translations = {
           meta: "Giornata Intera · 8 ore",
           title: "Capri & Costiera Amalfitana",
           desc: "L'intera costa: Capri, Positano, i borghi di Amalfi. Pranzo a bordo o in una caletta nascosta.",
-          price: "da 2.000 €",
+          price: "2.000 €",
         },
         {
           id: "tour-custom",
@@ -251,7 +251,7 @@ export const translations = {
           meta: "Half Day · 4 Hours",
           title: "Capri Island Tour",
           desc: "The iconic circumnavigation. Faraglioni, Grotta Bianca, Grotta Verde, and a long swim in turquoise water.",
-          price: "from €1,200",
+          price: "€1,200",
         },
         {
           id: "tour-blue-grotto",
@@ -259,7 +259,7 @@ export const translations = {
           meta: "Morning · 3 Hours",
           title: "Blue Grotto",
           desc: "A focused early-morning route to the Grotta Azzurra with private rowboat access.",
-          price: "from €1,000",
+          price: "€1,000",
         },
         {
           id: "tour-full-day",
@@ -267,7 +267,7 @@ export const translations = {
           meta: "Full Day · 8 Hours",
           title: "Full-Day Experience",
           desc: "The complete coast: Capri, Positano, Amalfi villages. Lunch on board or in a hidden harbour.",
-          price: "from €2,000",
+          price: "€2,000",
         },
         {
           id: "tour-custom",
