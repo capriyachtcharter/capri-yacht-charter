@@ -99,7 +99,7 @@ export const tours: Tour[] = [
     legacyId: "tour-island",
     category: "daily",
     hours: "4h",
-    priceFrom: "da 1.200 €",
+    priceFrom: "1.200 €",
     pricesByBoat: {
       "primatist-g65": "3.000 €",
       "primatist-g50": "2.200 €",
@@ -156,7 +156,7 @@ export const tours: Tour[] = [
     legacyId: "tour-blue-grotto",
     category: "daily",
     hours: "3h",
-    priceFrom: "da 1.000 €",
+    priceFrom: "1.000 €",
     pricesByBoat: {
       "primatist-g65": "2.500 €",
       "primatist-g50": "1.800 €",
@@ -203,7 +203,7 @@ export const tours: Tour[] = [
     legacyId: "tour-full-day",
     category: "daily",
     hours: "8h",
-    priceFrom: "da 2.000 €",
+    priceFrom: "2.000 €",
     pricesByBoat: {
       "primatist-g65": "5.000 €",
       "primatist-g50": "3.600 €",
@@ -260,7 +260,7 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-positano",
     category: "daily",
     hours: "8h",
-    priceFrom: "da 2.000 €",
+    priceFrom: "2.000 €",
     pricesByBoat: {
       "primatist-g65": "5.000 €",
       "primatist-g50": "3.600 €",
@@ -308,7 +308,7 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-ischia",
     category: "daily",
     hours: "8h",
-    priceFrom: "da 2.000 €",
+    priceFrom: "2.000 €",
     pricesByBoat: {
       "primatist-g65": "5.000 €",
       "primatist-g50": "3.600 €",
@@ -358,7 +358,7 @@ export const tours: Tour[] = [
     legacyId: "tour-ischia-procida",
     category: "daily",
     hours: "8h",
-    priceFrom: "da 2.000 €",
+    priceFrom: "2.000 €",
     pricesByBoat: {
       "primatist-g65": "5.000 €",
       "primatist-g50": "3.600 €",
@@ -408,7 +408,7 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-sorrento",
     category: "daily",
     hours: "8h",
-    priceFrom: "da 2.000 €",
+    priceFrom: "2.000 €",
     pricesByBoat: {
       "primatist-g65": "5.000 €",
       "primatist-g50": "3.600 €",
@@ -456,7 +456,7 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-full-day",
     category: "daily",
     hours: "7h",
-    priceFrom: "da 1.700 €",
+    priceFrom: "1.700 €",
     pricesByBoat: {
       "primatist-g65": "4.500 €",
       "primatist-g50": "3.200 €",
@@ -518,7 +518,7 @@ export const tours: Tour[] = [
     legacyId: "tour-capri-positano-half",
     category: "daily",
     hours: "4h",
-    priceFrom: "da 1.200 €",
+    priceFrom: "1.200 €",
     pricesByBoat: {
       "primatist-g65": "3.000 €",
       "primatist-g50": "2.200 €",
@@ -574,7 +574,7 @@ export const tours: Tour[] = [
     legacyId: "tour-penisola-amalfitana",
     category: "daily",
     hours: "8h",
-    priceFrom: "da 2.000 €",
+    priceFrom: "2.000 €",
     pricesByBoat: {
       "primatist-g65": "5.000 €",
       "primatist-g50": "3.600 €",
@@ -634,7 +634,7 @@ export const tours: Tour[] = [
     legacyId: "tour-ischia",
     category: "daily",
     hours: "8h",
-    priceFrom: "da 2.000 €",
+    priceFrom: "2.000 €",
     pricesByBoat: {
       "primatist-g65": "5.000 €",
       "primatist-g50": "3.600 €",
