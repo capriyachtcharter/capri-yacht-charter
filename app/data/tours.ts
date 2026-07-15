@@ -110,7 +110,7 @@ export const tours: Tour[] = [
     imageHome: "/tours/capri-island-home.jpg",
     boats: ["primatist-g65", "primatist-g50", "sarima-39"],
     it: {
-      title: "Giro dell'Isola di Capri",
+      title: "Capri Mezza Giornata",
       meta: "Mezza Giornata · 4 ore",
       short:
         "La circumnavigazione iconica. Faraglioni, Grotta Bianca, Grotta Verde, una lunga sosta in acque turchesi.",
@@ -133,7 +133,7 @@ export const tours: Tour[] = [
       ],
     },
     en: {
-      title: "Capri Island Tour",
+      title: "Capri Half Day",
       meta: "Half Day · 4 Hours",
       short:
         "The iconic circumnavigation. Faraglioni, Grotta Bianca, Grotta Verde, and a long swim in turquoise water.",
