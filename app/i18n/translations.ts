@@ -120,8 +120,8 @@ export const translations = {
       titleLine1: "La barca è",
       titleAccent: "tua.",
       titleLine2: "La giornata è tua.",
-      prose: "Tre imbarcazioni, due generazioni, oltre vent'anni sullo stesso tratto di mare. La famiglia Esposito accompagna i propri ospiti lungo la costa tirrenica dal 2002 — una giornata privata alla volta.",
-      signatureName: "Carlo & Marco Esposito",
+      prose: "Tre imbarcazioni, due generazioni, oltre vent'anni sullo stesso tratto di mare. La famiglia Grassano accompagna i propri ospiti lungo la costa tirrenica dal 2002 — una giornata privata alla volta.",
+      signatureName: "Francesco & Enrico Grassano",
       signatureRole: "Fondatori & Capitani",
       items: [
         {
@@ -334,8 +334,8 @@ export const translations = {
       titleLine1: "The boat is",
       titleAccent: "yours.",
       titleLine2: "The day is yours.",
-      prose: "Three vessels, two generations, twenty years on the same stretch of sea. The Esposito family has been showing visitors the Tyrrhenian coast since 2002 — one private day at a time.",
-      signatureName: "Carlo & Marco Esposito",
+      prose: "Three vessels, two generations, twenty years on the same stretch of sea. The Grassano family has been showing visitors the Tyrrhenian coast since 2002 — one private day at a time.",
+      signatureName: "Francesco & Enrico Grassano",
       signatureRole: "Founders & Captains",
       items: [
         {
