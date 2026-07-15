@@ -88,8 +88,8 @@ export const translations = {
       boats: [
         {
           id: "primatist-g65",
-          name: "Libeccio",
-          model: "Primatist v65",
+          name: "TENAREZE IV",
+          model: "Princess v65",
           type: "Yacht di Lusso",
           length: "21 m",
           capacity: "Fino a 12 ospiti · 3 cabine",
@@ -97,8 +97,8 @@ export const translations = {
         },
         {
           id: "primatist-g50",
-          name: "Tramontana",
-          model: "Primatist v55",
+          name: "CHITON",
+          model: "Princess v55",
           type: "Sport Cruiser",
           length: "17 m",
           capacity: "Fino a 12 ospiti · 3 cabine",
@@ -106,7 +106,7 @@ export const translations = {
         },
         {
           id: "sarima-39",
-          name: "Gabbiano",
+          name: "RORI",
           model: "Sarima 38",
           type: "Open Cruiser",
           length: "11 m",
@@ -302,8 +302,8 @@ export const translations = {
       boats: [
         {
           id: "primatist-g65",
-          name: "Libeccio",
-          model: "Primatist v65",
+          name: "TENAREZE IV",
+          model: "Princess v65",
           type: "Luxury Yacht",
           length: "21 m",
           capacity: "Up to 12 guests · 3 cabins",
@@ -311,8 +311,8 @@ export const translations = {
         },
         {
           id: "primatist-g50",
-          name: "Tramontana",
-          model: "Primatist v55",
+          name: "CHITON",
+          model: "Princess v55",
           type: "Sport Cruiser",
           length: "17 m",
           capacity: "Up to 12 guests · 3 cabins",
@@ -320,7 +320,7 @@ export const translations = {
         },
         {
           id: "sarima-39",
-          name: "Gabbiano",
+          name: "RORI",
           model: "Sarima 38",
           type: "Open Cruiser",
           length: "11 m",

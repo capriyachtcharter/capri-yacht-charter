@@ -154,8 +154,8 @@ export default function TourDetailPage() {
             </h2>
             <p className="tour-detail-lead" style={{ fontSize: "0.95rem" }}>
               {lang === "it"
-                ? "Prezzi per barca: Libeccio · Tramontana · Gabbiano."
-                : "Prices per boat: Libeccio · Tramontana · Gabbiano."}
+                ? "Prezzi per barca: TENAREZE IV · CHITON · RORI."
+                : "Prices per boat: TENAREZE IV · CHITON · RORI."}
             </p>
             <ul className="tour-extras-list">
               {(lang === "it" ? pickupDefault.it : pickupDefault.en).map((p) => (

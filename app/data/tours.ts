@@ -58,17 +58,17 @@ const notIncluded = {
 };
 
 // Extras "su richiesta" — same list on every tour. Moto d'acqua is exclusive
-// to Libeccio (Primatist v65); the note is surfaced in the UI.
+// to TENAREZE IV (Princess v65); the note is surfaced in the UI.
 export const extrasDefault = {
   it: [
-    { label: "Moto d'acqua (solo Libeccio)", price: "800 €" },
+    { label: "Moto d'acqua (solo TENAREZE IV)", price: "800 €" },
     { label: "Sea bob (tutte le barche)", price: "600 €" },
     { label: "SUP (tutte le barche)", price: "200 €" },
     { label: "Auto porto Napoli → aeroporto", price: "120 €" },
     { label: "Auto porto Napoli → stazione", price: "60 €" },
   ],
   en: [
-    { label: "Jet ski (Libeccio only)", price: "€800" },
+    { label: "Jet ski (TENAREZE IV only)", price: "€800" },
     { label: "Sea bob (all boats)", price: "€600" },
     { label: "SUP (all boats)", price: "€200" },
     { label: "Car Naples port → airport", price: "€120" },

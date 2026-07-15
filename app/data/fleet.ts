@@ -36,7 +36,7 @@ export const fleet: Boat[] = [
   {
     slug: "libeccio",
     legacyId: "primatist-g65",
-    shortName: "Libeccio",
+    shortName: "TENAREZE IV",
     cover: "/fleet/libeccio/libeccio-esterno-1.jpg",
     gallery: [
       "/fleet/libeccio/libeccio-esterno-1.jpg", // cover · clean side profile at anchor
@@ -58,8 +58,8 @@ export const fleet: Boat[] = [
       engines: "2× MAN 1000 hp",
     },
     it: {
-      name: "Libeccio",
-      model: "Primatist v65",
+      name: "TENAREZE IV",
+      model: "Princess v65",
       type: "Yacht di Lusso",
       tagline: "L'ammiraglia. Per giornate intere e crociere multi-day.",
       description:
@@ -72,13 +72,13 @@ export const fleet: Boat[] = [
         "Impianto audio Bose",
         "Wi-Fi a bordo",
         "Snorkeling e SUP",
-        "Moto d'acqua a bordo (esclusiva Libeccio)",
+        "Moto d'acqua a bordo (esclusiva TENAREZE IV)",
         "Tender al seguito",
       ],
     },
     en: {
-      name: "Libeccio",
-      model: "Primatist v65",
+      name: "TENAREZE IV",
+      model: "Princess v65",
       type: "Luxury Yacht",
       tagline: "The flagship. Full-day charters and multi-day cruises.",
       description:
@@ -91,7 +91,7 @@ export const fleet: Boat[] = [
         "Bose audio system",
         "On-board Wi-Fi",
         "Snorkeling gear & SUP",
-        "Jet ski on board (Libeccio only)",
+        "Jet ski on board (TENAREZE IV only)",
         "Tender on tow",
       ],
     },
@@ -99,7 +99,7 @@ export const fleet: Boat[] = [
   {
     slug: "tramontana",
     legacyId: "primatist-g50",
-    shortName: "Tramontana",
+    shortName: "CHITON",
     cover: "/fleet/tramontana/tramontana-esterno-1.jpg",
     gallery: [
       "/fleet/tramontana/tramontana-esterno-1.jpg", // cover · clean side profile at the cliffs
@@ -120,8 +120,8 @@ export const fleet: Boat[] = [
       engines: "2× Volvo Penta IPS",
     },
     it: {
-      name: "Tramontana",
-      model: "Primatist v55",
+      name: "CHITON",
+      model: "Princess v55",
       type: "Sport Cruiser",
       tagline: "Open bridge dinamico, perfetto compromesso tra prestazioni e comfort.",
       description:
@@ -137,8 +137,8 @@ export const fleet: Boat[] = [
       ],
     },
     en: {
-      name: "Tramontana",
-      model: "Primatist v55",
+      name: "CHITON",
+      model: "Princess v55",
       type: "Sport Cruiser",
       tagline: "Dynamic open bridge — the right balance of performance and social comfort.",
       description:
@@ -157,7 +157,7 @@ export const fleet: Boat[] = [
   {
     slug: "gabbiano",
     legacyId: "sarima-39",
-    shortName: "Gabbiano",
+    shortName: "RORI",
     cover: "/fleet/gabbiano/gabbiano-esterno-1.jpg",
     gallery: [
       "/fleet/gabbiano/gabbiano-esterno-1.jpg", // cover · planing at speed (agility)
@@ -179,7 +179,7 @@ export const fleet: Boat[] = [
       engines: "2× Mercury 350 hp",
     },
     it: {
-      name: "Gabbiano",
+      name: "RORI",
       model: "Sarima 38",
       type: "Open Cruiser",
       tagline: "Agile e veloce — entra dove le barche grandi non possono.",
@@ -195,7 +195,7 @@ export const fleet: Boat[] = [
       ],
     },
     en: {
-      name: "Gabbiano",
+      name: "RORI",
       model: "Sarima 38",
       type: "Open Cruiser",
       tagline: "Nimble and fast — reaches places larger boats can't.",
