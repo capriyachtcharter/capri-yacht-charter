@@ -53,7 +53,7 @@ export default function Tours() {
                   <div className="tour-card-meta">{tour.meta}</div>
                   <h3 className="tour-card-title">{tour.title}</h3>
                   <p className="tour-card-desc">{tour.desc}</p>
-                  {tour.tag === "bespoke" ? (
+                  {(tour.tag as string) === "bespoke" ? (
                     <div className="tour-card-footer tour-card-footer-bespoke">
                       <span className="tour-card-book tour-card-book-full">
                         {t.tours.inquire}
