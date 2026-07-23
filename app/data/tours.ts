@@ -152,53 +152,6 @@ export const tours: Tour[] = [
     },
   },
   {
-    slug: "grotta-azzurra",
-    legacyId: "tour-blue-grotto",
-    category: "daily",
-    hours: "3h",
-    priceFrom: "1.000 €",
-    pricesByBoat: {
-      "primatist-g65": "2.500 €",
-      "primatist-g50": "1.800 €",
-      "sarima-39": "1.000 €",
-    },
-    image: "/tours/grotta-azzurra.jpg",
-    imageHome: "/tours/grotta-azzurra-home.jpg",
-    boats: ["primatist-g65", "primatist-g50", "sarima-39"],
-    it: {
-      title: "Grotta Azzurra",
-      meta: "Mattina · 3 ore",
-      short:
-        "Solo Grotta Azzurra, di prima mattina, con accesso privato sul barchino a remi.",
-      long: "Un itinerario focalizzato sulla Grotta Azzurra al mattino presto, quando la luce è perfetta e l'affluenza minima. Sbarco sul barchino a remi per l'ingresso alla grotta.",
-      itinerary: [
-        "Imbarco al porto di Capri (early morning)",
-        "Navigazione verso la Grotta Azzurra",
-        "Trasbordo su barchino a remi (ingresso non incluso)",
-        "Visita esterna delle grotte minori",
-        "Sosta bagno in caletta tranquilla",
-        "Rientro al porto di Capri",
-      ],
-      highlights: ["Accesso Grotta Azzurra", "Tour mattutino", "Poca affluenza", "Sosta bagno"],
-    },
-    en: {
-      title: "Blue Grotto",
-      meta: "Morning · 3 Hours",
-      short:
-        "A focused early-morning route to the Grotta Azzurra with private rowboat access.",
-      long: "An early-morning tour focused on the Blue Grotto when the light is perfect and crowds are minimal. Transfer to a rowboat for grotto entrance.",
-      itinerary: [
-        "Boarding at Capri port (early morning)",
-        "Navigation toward the Blue Grotto",
-        "Rowboat transfer (entrance not included)",
-        "External visit of minor grottoes",
-        "Swim stop at a quiet cove",
-        "Return to Capri port",
-      ],
-      highlights: ["Blue Grotto access", "Early morning slot", "Minimal crowds", "Swim stop"],
-    },
-  },
-  {
     slug: "capri-costiera-amalfitana",
     legacyId: "tour-full-day",
     category: "daily",
@@ -746,7 +699,6 @@ export const tourImagePosition: Record<string, string> = {
   "tour-ischia-procida": "center bottom", // Corricella: the colorful marina/waterfront (prettiest part)
   "tour-full-day": "center bottom",       // Amalfi: show the town/waterfront
   "tour-penisola-amalfitana": "center bottom", // reuse Amalfi shot
-  "tour-blue-grotto": "center bottom",    // grotto: show the boat + water
   "tour-capri-positano-half": "center",   // reuse Positano shot, default center
   "tour-custom": "center 78%",            // bespoke: keep the three yachts in frame
 };

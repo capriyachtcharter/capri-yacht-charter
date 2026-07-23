@@ -9,17 +9,16 @@ import { tours, tourImagePosition } from "../../data/tours";
 // Bento layout — perfect 6-column rectangle:
 // Row 1-2: LARGE Costiera (4×2)         + TALL Positano (2×2)
 // Row 3:   MEDIUM Ischia (3)            + MEDIUM Procida (3)
-// Row 4:   TALL Sorrento (2×2) starts   + SMALL Giro (2) + SMALL Grotta (2)
+// Row 4:   TALL Sorrento (2×2) starts   + HALFWIDE Giro (4)
 // Row 5:   TALL Sorrento continues      + HALFWIDE Su Misura (4)
 const sizeByLegacy: Record<string, "large" | "tall" | "medium" | "small" | "halfwide"> = {
-  "tour-full-day": "large", // Capri & Costiera Amalfitana €890 — flagship
-  "tour-capri-positano": "tall", // €750
-  "tour-capri-ischia": "medium", // €820
-  "tour-ischia-procida": "medium", // €820
-  "tour-capri-sorrento": "tall", // €780 — vertical on the left
-  "tour-island": "small", // €480
-  "tour-blue-grotto": "small", // €360
-  "tour-custom": "halfwide", // bespoke — 4-wide banner
+  "tour-full-day": "large", // Capri & Costiera Amalfitana — flagship
+  "tour-capri-positano": "tall",
+  "tour-capri-ischia": "medium",
+  "tour-ischia-procida": "medium",
+  "tour-capri-sorrento": "tall", // vertical on the left
+  "tour-island": "halfwide", // Capri Mezza Giornata — row 4 right half
+  "tour-custom": "halfwide", // bespoke — row 5 right half
 };
 
 // Render order respects auto-flow so cells fill the 6×5 rectangle with no gaps.
@@ -29,8 +28,7 @@ const renderOrder = [
   "tour-capri-ischia", // medium row 3 cols 1-3
   "tour-ischia-procida", // medium row 3 cols 4-6
   "tour-capri-sorrento", // tall rows 4-5 cols 1-2 (LEFT)
-  "tour-island", // small row 4 cols 3-4
-  "tour-blue-grotto", // small row 4 cols 5-6
+  "tour-island", // halfwide row 4 cols 3-6
   "tour-custom", // halfwide row 5 cols 3-6
 ];
 
