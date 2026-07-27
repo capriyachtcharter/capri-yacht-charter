@@ -65,11 +65,27 @@ export const tools: Anthropic.Tool[] = [
   {
     name: "publish",
     description:
-      "Publish all staged draft changes so they go live on the website. Only call this AFTER the user has explicitly confirmed. Provide a short human message describing what changed.",
+      "Apply the confirmed changes AND publish them live, in one atomic step. Only call this AFTER the user has explicitly confirmed. You MUST pass the full list of changes to apply (each is schema-guarded) — do NOT rely on earlier draft calls, because the server keeps no state between messages. Provide the exact same values you showed the user.",
     input_schema: {
       type: "object",
-      properties: { message: { type: "string", description: "short summary of the change, e.g. 'Aggiornata tagline TENAREZE IV'" } },
-      required: ["message"],
+      properties: {
+        message: { type: "string", description: "short summary of the change, e.g. 'Aggiornata tagline TENAREZE IV'" },
+        changes: {
+          type: "array",
+          description: "Every field change to publish (the exact ones the user confirmed).",
+          items: {
+            type: "object",
+            properties: {
+              collection: { type: "string" },
+              id: { type: "string" },
+              path: { type: "string" },
+              value: { oneOf: [{ type: "string" }, { type: "array", items: { type: "string" } }] },
+            },
+            required: ["collection", "id", "path", "value"],
+          },
+        },
+      },
+      required: ["message", "changes"],
     },
   },
   {
@@ -105,9 +121,27 @@ export async function dispatchTool(
       );
     case "has_pending_changes":
       return { pending: await store.hasPendingChanges() };
-    case "publish":
-      await store.publish(String(input.message));
-      return { ok: true, published: true };
+    case "publish": {
+      const changes = (input.changes as Array<Record<string, unknown>>) ?? [];
+      const applied: unknown[] = [];
+      // Re-apply the confirmed edits in THIS request (the store is stateless across
+      // messages), each still schema-guarded, then commit them in one shot.
+      for (const ch of changes) {
+        applied.push(
+          await store.updateField(
+            String(ch.collection),
+            String(ch.id),
+            String(ch.path),
+            ch.value as string | string[],
+          ),
+        );
+      }
+      if (!(await store.hasPendingChanges())) {
+        return { ok: false, published: false, error: "no changes to publish" };
+      }
+      await store.publish(String(input.message), { push: true });
+      return { ok: true, published: true, applied };
+    }
     case "revert":
       await store.revert();
       return { ok: true, reverted: true };

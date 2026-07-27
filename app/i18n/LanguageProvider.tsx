@@ -19,21 +19,25 @@ const LOCALES: readonly string[] = ["en", "it"];
 
 export function LanguageProvider({
   initialLang,
+  content,
   children,
 }: {
   initialLang: Lang;
+  /** Live copy (fetched server-side at request time). Falls back to bundled if omitted. */
+  content?: { it: Translations; en: Translations };
   children: ReactNode;
 }) {
   const value = useMemo<Ctx>(() => {
     const lang = initialLang;
+    const source = content ?? translations;
     const path = (p: string) => {
       if (!p.startsWith("/")) return p; // external (https://…, mailto:, etc.)
       const seg = p.split("/")[1] ?? "";
       if (LOCALES.includes(seg)) return p; // already prefixed
       return p === "/" ? `/${lang}` : `/${lang}${p}`;
     };
-    return { lang, t: translations[lang] as Translations, path };
-  }, [initialLang]);
+    return { lang, t: source[lang] as Translations, path };
+  }, [initialLang, content]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }

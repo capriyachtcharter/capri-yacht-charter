@@ -1,8 +1,13 @@
 import { notFound } from "next/navigation";
 import { LanguageProvider } from "../i18n/LanguageProvider";
-import type { Lang } from "../i18n/translations";
+import { resolveTranslations, type Lang } from "../i18n/translations";
+import { getLiveContent } from "../../lib/cms/live-content";
 
 const LOCALES = ["en", "it"] as const;
+
+/** Re-fetch the live copy from the CMS branch at most this often, in seconds (ISR).
+ *  Must be a literal for Next's static analysis; keep in sync with CMS_CONTENT_REVALIDATE. */
+export const revalidate = 15;
 
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
@@ -18,5 +23,12 @@ export default async function LocaleLayout({
   const { lang } = await params;
   if (!(LOCALES as readonly string[]).includes(lang)) notFound();
 
-  return <LanguageProvider initialLang={lang as Lang}>{children}</LanguageProvider>;
+  const live = await getLiveContent();
+  const content = resolveTranslations(live ?? undefined);
+
+  return (
+    <LanguageProvider initialLang={lang as Lang} content={content}>
+      {children}
+    </LanguageProvider>
+  );
 }
