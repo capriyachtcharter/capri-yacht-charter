@@ -75,7 +75,69 @@ const tourFields: EditableField[] = [
   { path: "en.highlights", kind: "list", label: { it: "Punti forti (EN)", en: "Highlights (EN)" } },
 ];
 
+/* --------------------------- homepage copy ---------------------------
+ * The whole homepage renders from app/i18n/translations.ts, whose copy now lives
+ * in app/data/content.json (one "home" entry, it/en trees). We expose every text
+ * leaf as an editable field so the client can change any heading, description, CTA
+ * or card wording they see on the site — the thing they actually reach for first.
+ * Structural/enum keys (id, tag, icon, n) and legal footer text stay off-limits.
+ */
+import contentData from "../../app/data/content.json";
+
+const CONTENT_EXCLUDE_KEYS = new Set(["id", "tag", "icon", "n"]);
+const CONTENT_EXCLUDE_PATH = /^(it|en)\.footer\.(bottom|legal)/;
+const CONTENT_MULTILINE_KEYS = new Set([
+  "desc", "prose", "text", "long", "short", "transferDesc", "skipperDesc",
+]);
+
+function humanizeContentLabel(path: string): { it: string; en: string } {
+  const [lang, ...rest] = path.split(".");
+  const trail = rest.filter((s) => !/^\d+$/.test(s)).join(" › ");
+  const l = lang.toUpperCase();
+  return { it: `${l} · ${trail}`, en: `${l} · ${trail}` };
+}
+
+function buildContentFields(): EditableField[] {
+  const fields: EditableField[] = [];
+  const walk = (node: unknown, prefix: string, lastKey: string) => {
+    if (typeof node === "string") {
+      if (CONTENT_EXCLUDE_PATH.test(prefix)) return;
+      fields.push({
+        path: prefix,
+        kind: CONTENT_MULTILINE_KEYS.has(lastKey) ? "multiline" : "text",
+        label: humanizeContentLabel(prefix),
+      });
+      return;
+    }
+    if (Array.isArray(node)) {
+      node.forEach((v, i) => walk(v, `${prefix}.${i}`, String(i)));
+      return;
+    }
+    if (node && typeof node === "object") {
+      for (const [k, v] of Object.entries(node as Record<string, unknown>)) {
+        if (CONTENT_EXCLUDE_KEYS.has(k)) continue;
+        walk(v, prefix ? `${prefix}.${k}` : k, k);
+      }
+    }
+  };
+  const home = (contentData as Array<{ id: string; it?: unknown; en?: unknown }>).find(
+    (e) => e.id === "home",
+  );
+  if (home) {
+    walk(home.it, "it", "");
+    walk(home.en, "en", "");
+  }
+  return fields;
+}
+
 export const collections: Collection[] = [
+  {
+    key: "content",
+    file: "app/data/content.json",
+    idField: "id",
+    label: { it: "Testi del sito (home)", en: "Site copy (home)" },
+    fields: buildContentFields(),
+  },
   {
     key: "fleet",
     file: "app/data/fleet.json",

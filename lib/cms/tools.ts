@@ -13,7 +13,7 @@ export const tools: Anthropic.Tool[] = [
   {
     name: "list_editable_fields",
     description:
-      "List the collections (fleet boats, tours) and, for each, exactly which fields the user is allowed to edit, with their human labels. Call this first to know what can be changed.",
+      "List the collections (homepage site copy, fleet boats, tours) and, for each, exactly which fields the user is allowed to edit, with their human labels. Call this first to know what can be changed. Homepage headings/descriptions live in the 'content' collection, entry id 'home'.",
     input_schema: { type: "object", properties: {} },
   },
   {

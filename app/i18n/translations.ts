@@ -1,6 +1,14 @@
+import contentOverrides from "../data/content.json";
+
 export type Lang = "it" | "en";
 
-export const translations = {
+/**
+ * `base` is the typed anchor + safe fallback. The LIVE, client-editable copy lives in
+ * app/data/content.json (edited via the /admin chat) and is merged over `base` below —
+ * so published edits show on the site while the strict types and a working fallback
+ * (if content.json is ever missing/malformed) stay intact.
+ */
+const base = {
   it: {
     nav: {
       home: "Home",
@@ -431,4 +439,26 @@ export const translations = {
   },
 } as const;
 
-export type Translations = typeof translations.it;
+/** Deep-merge content.json's copy over `base` (objects recurse; arrays replaced whole). */
+function mergeCopy<T>(target: T, src: unknown): T {
+  if (src == null) return target;
+  if (Array.isArray(src) || typeof src !== "object" || typeof target !== "object" || target == null) {
+    return src as T;
+  }
+  const out: Record<string, unknown> = { ...(target as Record<string, unknown>) };
+  for (const [k, v] of Object.entries(src as Record<string, unknown>)) {
+    out[k] = mergeCopy((target as Record<string, unknown>)[k], v);
+  }
+  return out as T;
+}
+
+const home = (contentOverrides as Array<{ id: string; it?: unknown; en?: unknown }>).find(
+  (e) => e.id === "home",
+);
+
+export const translations = {
+  it: mergeCopy(base.it, home?.it),
+  en: mergeCopy(base.en, home?.en),
+} as { it: typeof base.it; en: typeof base.en };
+
+export type Translations = typeof base.it;
