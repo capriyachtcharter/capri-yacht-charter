@@ -35,14 +35,14 @@ const REPO_ROOT = process.cwd();
 
 /* ---------- dot-path helpers (support "it.tagline", "gallery.2") ---------- */
 
-function getByPath(obj: unknown, path: string): unknown {
+export function getByPath(obj: unknown, path: string): unknown {
   return path.split(".").reduce<unknown>((acc, key) => {
     if (acc == null) return undefined;
     return (acc as Record<string, unknown>)[key];
   }, obj);
 }
 
-function setByPath(obj: Record<string, unknown>, path: string, value: unknown): void {
+export function setByPath(obj: Record<string, unknown>, path: string, value: unknown): void {
   const keys = path.split(".");
   const last = keys.pop()!;
   let target: Record<string, unknown> = obj;
@@ -56,7 +56,7 @@ function setByPath(obj: Record<string, unknown>, path: string, value: unknown): 
   target[last] = value;
 }
 
-function validateValueKind(field: EditableField, value: FieldValue): void {
+export function validateValueKind(field: EditableField, value: FieldValue): void {
   const wantsList = field.kind === "list" || field.kind === "imageList";
   if (wantsList && !Array.isArray(value)) {
     throw new Error(`field "${field.path}" (${field.kind}) expects a list of strings`);
@@ -67,6 +67,23 @@ function validateValueKind(field: EditableField, value: FieldValue): void {
 }
 
 /* ------------------------------- store ------------------------------- */
+
+/**
+ * Async-tolerant view of a store, used by the tool layer / agent so it works with
+ * both the sync JsonGitStore (local) and the async GithubApiStore (serverless).
+ * Every method may return either a value or a Promise; the dispatcher always awaits.
+ */
+type Maybe<T> = T | Promise<T>;
+export interface EditStore {
+  listCollections(): Maybe<Collection[]>;
+  listEntries(collectionKey: string, lang?: "it" | "en"): Maybe<EntrySummary[]>;
+  getEntry(collectionKey: string, id: string): Maybe<Record<string, unknown>>;
+  getField(collectionKey: string, id: string, path: string): Maybe<FieldValue>;
+  updateField(collectionKey: string, id: string, path: string, value: FieldValue): Maybe<EditResult>;
+  hasPendingChanges(): Maybe<boolean>;
+  publish(message: string, opts?: { push?: boolean }): Maybe<void>;
+  revert(): Maybe<void>;
+}
 
 export interface ContentStore {
   listCollections(): Collection[];
