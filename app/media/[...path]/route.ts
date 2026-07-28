@@ -34,9 +34,9 @@ export async function GET(
   { params }: { params: Promise<{ path: string[] }> },
 ) {
   const { path } = await params;
-  // Only ever serve from public/uploads — never let the path escape it.
+  // Only ever serve committed uploads — never let the path escape public/uploads.
   const rel = (path ?? []).join("/");
-  if (!rel || rel.includes("..") || rel.includes("\\")) {
+  if (!rel || rel.includes("..") || rel.includes("\\") || !rel.startsWith("uploads/")) {
     return NextResponse.json({ error: "bad path" }, { status: 400 });
   }
   const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
@@ -45,7 +45,7 @@ export async function GET(
   const owner = process.env.CMS_REPO_OWNER || "capriyachtcharter";
   const repo = process.env.CMS_REPO_NAME || "capri-yacht-charter";
   const branch = process.env.CMS_BRANCH || "feature/cms";
-  const filePath = `public/uploads/${rel}`;
+  const filePath = `public/${rel}`;
   const url = `${API}/repos/${owner}/${repo}/contents/${filePath}?ref=${encodeURIComponent(branch)}`;
 
   const res = await fetch(url, {
