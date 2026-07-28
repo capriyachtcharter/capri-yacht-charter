@@ -14,13 +14,15 @@ export const CONTENT_REVALIDATE = Number(process.env.CMS_CONTENT_REVALIDATE || 1
 
 export type HomeCopy = { it?: unknown; en?: unknown };
 
-export async function getLiveContent(): Promise<HomeCopy | null> {
+/** Fetch and parse one data JSON file from the CMS branch at request time (ISR).
+ *  Returns null on any failure so callers fall back to the build-time bundle. */
+async function getLiveJson<T>(file: string): Promise<T | null> {
   const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
   if (!token) return null;
   const owner = process.env.CMS_REPO_OWNER || "capriyachtcharter";
   const repo = process.env.CMS_REPO_NAME || "capri-yacht-charter";
   const branch = process.env.CMS_BRANCH || "feature/cms";
-  const url = `${API}/repos/${owner}/${repo}/contents/app/data/content.json?ref=${encodeURIComponent(branch)}`;
+  const url = `${API}/repos/${owner}/${repo}/contents/${file}?ref=${encodeURIComponent(branch)}`;
   try {
     const res = await fetch(url, {
       headers: {
@@ -31,9 +33,24 @@ export async function getLiveContent(): Promise<HomeCopy | null> {
       next: { revalidate: CONTENT_REVALIDATE },
     });
     if (!res.ok) return null;
-    const entries = JSON.parse(await res.text()) as Array<{ id: string } & HomeCopy>;
-    return entries.find((e) => e.id === "home") ?? null;
+    return JSON.parse(await res.text()) as T;
   } catch {
     return null;
   }
+}
+
+export async function getLiveContent(): Promise<HomeCopy | null> {
+  const entries = await getLiveJson<Array<{ id: string } & HomeCopy>>("app/data/content.json");
+  return entries?.find((e) => e.id === "home") ?? null;
+}
+
+/** Live fleet array (images/specs/copy) so client edits — including swapped photos —
+ *  show on the home + detail pages without a rebuild. Null → fall back to bundle. */
+export function getLiveFleet<T = unknown>(): Promise<T[] | null> {
+  return getLiveJson<T[]>("app/data/fleet.json");
+}
+
+/** Live tours array — same rationale as getLiveFleet. */
+export function getLiveTours<T = unknown>(): Promise<T[] | null> {
+  return getLiveJson<T[]>("app/data/tours.json");
 }

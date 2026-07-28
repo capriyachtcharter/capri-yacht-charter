@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { LanguageProvider } from "../i18n/LanguageProvider";
 import { resolveTranslations, type Lang } from "../i18n/translations";
-import { getLiveContent } from "../../lib/cms/live-content";
+import { getLiveContent, getLiveFleet, getLiveTours } from "../../lib/cms/live-content";
+import type { Tour } from "../data/tours";
+import type { Boat } from "../data/fleet";
 
 const LOCALES = ["en", "it"] as const;
 
@@ -23,11 +25,20 @@ export default async function LocaleLayout({
   const { lang } = await params;
   if (!(LOCALES as readonly string[]).includes(lang)) notFound();
 
-  const live = await getLiveContent();
+  const [live, liveFleet, liveTours] = await Promise.all([
+    getLiveContent(),
+    getLiveFleet<Boat>(),
+    getLiveTours<Tour>(),
+  ]);
   const content = resolveTranslations(live ?? undefined);
 
   return (
-    <LanguageProvider initialLang={lang as Lang} content={content}>
+    <LanguageProvider
+      initialLang={lang as Lang}
+      content={content}
+      fleet={liveFleet ?? undefined}
+      tours={liveTours ?? undefined}
+    >
       {children}
     </LanguageProvider>
   );

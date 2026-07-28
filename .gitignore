@@ -49,3 +49,7 @@ next-env.d.ts
 # limit and bloat history.
 /foto capri*/
 .vercel
+
+# Netlify local build output
+.netlify/
+deno.lock

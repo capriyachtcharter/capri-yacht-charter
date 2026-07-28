@@ -3,13 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
-import { toursByLegacyId } from "../data/tours";
 
-// Images come from the single source of truth — data/tours.ts (tour.image) —
-// so the home Tours section never drifts from the /tours pages.
+// Images come from the single source of truth — tours data (tour.image) — resolved
+// live via context so a swapped photo shows without a rebuild, and the home Tours
+// section never drifts from the /tours pages.
 
 export default function Tours() {
-  const { t } = useLang();
+  const { t, toursByLegacyId } = useLang();
   return (
     <section className="section" id="tours">
       <div className="section-inner">

@@ -148,6 +148,24 @@ export class GithubApiStore implements EditStore {
   async revert(): Promise<void> {
     this.cache.clear(); // drop drafts; next read re-fetches pristine content
   }
+
+  /**
+   * Commit a binary asset (a client-uploaded image) to public/uploads/<name> on the
+   * CMS branch and return the same-origin path that serves it live (via /media).
+   * This commits immediately — image uploads are not part of the text draft/publish
+   * cycle; the returned path is what the agent then writes into an image field.
+   */
+  async uploadImage(name: string, base64: string, message: string): Promise<{ path: string; committedPath: string }> {
+    const committedPath = `public/uploads/${name}`;
+    const url = `${API}/repos/${this.cfg.owner}/${this.cfg.repo}/contents/${committedPath}`;
+    const res = await fetch(url, {
+      method: "PUT",
+      headers: { ...this.headers(), "Content-Type": "application/json" },
+      body: JSON.stringify({ message, content: base64, branch: this.cfg.branch }),
+    });
+    if (!res.ok) throw new Error(`GitHub upload ${committedPath} failed: ${res.status} ${await res.text()}`);
+    return { path: `/media/uploads/${name}`, committedPath };
+  }
 }
 
 /** Build a GithubApiStore from env (used by the serverless /admin route). */

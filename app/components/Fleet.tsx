@@ -3,7 +3,6 @@
 import Link from "next/link";
 import BoatCarousel from "./BoatCarousel";
 import { useLang } from "../i18n/LanguageProvider";
-import { boatByLegacyId } from "../data/fleet";
 
 type Boat = {
   id: string;
@@ -56,7 +55,7 @@ function FleetCard({ boat, delay, ctaLabel, ctaHref }: { boat: Boat; delay: numb
 }
 
 export default function Fleet() {
-  const { lang, t, path } = useLang();
+  const { lang, t, path, boatByLegacyId } = useLang();
   const boats: Boat[] = t.fleet.boats.map((b) => ({
     ...b,
     images: boatByLegacyId[b.id]?.gallery ?? [],
