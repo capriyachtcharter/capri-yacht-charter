@@ -94,7 +94,7 @@ export const translations = {
           type: "Yacht di Lusso",
           length: "21 m",
           capacity: "Fino a 12 ospiti · 3 cabine",
-          desc: "L'ammiraglia. Hard-top apribile, doppio solarium, plancetta poppiera, dinette e cabina armatoriale. Pensato per le giornate intere e le crociere multi-day verso Amalfi e oltre.",
+          desc: "L'ammiraglia. Doppio solarium, plancetta poppiera, dinette e cabina armatoriale. Pensato per le giornate intere e le crociere multi-day verso Amalfi e oltre.",
         },
         {
           id: "primatist-g50",
@@ -309,7 +309,7 @@ export const translations = {
           type: "Luxury Yacht",
           length: "21 m",
           capacity: "Up to 12 guests · 3 cabins",
-          desc: "The flagship. Retractable hardtop, dual solariums, stern swim platform, dinette and master cabin. Built for full-day charters and multi-day cruises down to Amalfi and beyond.",
+          desc: "The flagship. Dual solariums, stern swim platform, dinette and master cabin. Built for full-day charters and multi-day cruises down to Amalfi and beyond.",
         },
         {
           id: "primatist-g50",

@@ -3774,11 +3774,11 @@ body {
   gap: 14px;
 }
 
-/* Itinerary row: compact, balanced numeral on the left + step text on the right. */
+/* Itinerary row: compact, balanced bullet on the left + step text on the right. */
 .tour-itinerary li {
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 24px;
+  grid-template-columns: 32px 1fr;
+  gap: 20px;
   align-items: center;
   padding: 18px 22px;
   background: var(--surface);
@@ -3786,8 +3786,24 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
-/* Cormorant italic light — same as manifesto / stats / skipper, scaled
-   smaller (38px) to fit the row. */
+/* Snowflake bullet (Tudor-hand inspired): two stacked diamonds, sea-dark.
+   Replaces the old numeric "01 · 02..." labels; keeps the row rhythm. */
+.tour-itinerary-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 28px;
+  color: var(--sea-dark);
+  margin: 0 auto;
+}
+.tour-itinerary-bullet svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Kept for backward compatibility if any legacy call uses .tour-itinerary-num. */
 .tour-itinerary-num {
   font-family: var(--serif);
   font-style: italic;

@@ -58,14 +58,22 @@ export default function TourDetailPage() {
             <h2 className="tour-detail-h">
               {lang === "it" ? "Itinerario" : "Itinerary"}
             </h2>
-            <ol className="tour-itinerary">
+            <ul className="tour-itinerary">
               {c.itinerary.map((step, i) => (
                 <li key={i}>
-                  <span className="tour-itinerary-num">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="tour-itinerary-bullet" aria-hidden>
+                    {/* "Snowflake" bullet — a slim faceted lozenge inspired by Tudor
+                        Snowflake watch hands: two long diamond points meeting at a
+                        smaller center diamond. Neutral shape, works in EN and IT. */}
+                    <svg viewBox="0 0 12 24" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinejoin="round">
+                      <polygon points="6,0 10,6 6,12 2,6" fill="currentColor" fillOpacity="0.85" />
+                      <polygon points="6,12 10,18 6,24 2,18" fill="currentColor" fillOpacity="0.85" />
+                    </svg>
+                  </span>
                   <span>{step}</span>
                 </li>
               ))}
-            </ol>
+            </ul>
 
             <h2 className="tour-detail-h">
               {lang === "it" ? "Highlight" : "Highlights"}
