@@ -62,12 +62,9 @@ export default function TourDetailPage() {
               {c.itinerary.map((step, i) => (
                 <li key={i}>
                   <span className="tour-itinerary-bullet" aria-hidden>
-                    {/* "Snowflake" bullet — a slim faceted lozenge inspired by Tudor
-                        Snowflake watch hands: two long diamond points meeting at a
-                        smaller center diamond. Neutral shape, works in EN and IT. */}
-                    <svg viewBox="0 0 12 24" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinejoin="round">
-                      <polygon points="6,0 10,6 6,12 2,6" fill="currentColor" fillOpacity="0.85" />
-                      <polygon points="6,12 10,18 6,24 2,18" fill="currentColor" fillOpacity="0.85" />
+                    {/* Single diamond bullet — sea-dark. */}
+                    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1" strokeLinejoin="round">
+                      <polygon points="6,0 12,6 6,12 0,6" fill="currentColor" fillOpacity="0.9" />
                     </svg>
                   </span>
                   <span>{step}</span>
