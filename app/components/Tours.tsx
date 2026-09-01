@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 import { toursByLegacyId } from "../data/tours";
 
+// Home tours section — 4 curated preview cards + a CTA that links to the
+// full /tours page so the visitor can browse the complete catalogue.
+
 // Images come from the single source of truth — data/tours.ts (tour.image) —
 // so the home Tours section never drifts from the /tours pages.
 
@@ -82,6 +85,12 @@ export default function Tours() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="tours-cta-row" data-reveal>
+          <Link href="/tours" className="btn-primary">
+            {t.tours.seeAll}
+          </Link>
         </div>
       </div>
     </section>

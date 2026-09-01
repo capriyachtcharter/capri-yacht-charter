@@ -15,8 +15,8 @@ export const translations = {
     },
     hero: {
       pill: "In mare dal 2002",
-      titleLine1: "Il mare di Capri,",
-      titleAccent: "come dovrebbe essere.",
+      titleLine1: "Enjoy",
+      titleAccent: "the sea.",
       ctaPrimary: "Scopri i Tour",
       ctaSecondary: "Contattaci",
       scroll: "Scorri",
@@ -29,6 +29,7 @@ export const translations = {
       from: "A partire da",
       book: "Prenota Ora",
       inquire: "Richiedi Preventivo",
+      seeAll: "Vedi tutti i tour",
       tags: { popular: "Più Richiesto", value: "Più Completo", bespoke: "Su Misura" },
       list: [
         {
@@ -72,7 +73,7 @@ export const translations = {
       transferTitle: "Pick-up",
       transferDesc: "Puoi scegliere, laddove previsto, un pick&drop diverso dal nostro porto di partenza, che è Capri. Quando scegli il tuo tour verifica i moli disponibili per il P&D personalizzato.",
       transferCta: "Scopri il noleggio",
-      skipperTitle: "Noleggio con Skipper",
+      skipperTitle: "La barca è tutta tua.",
       skipperDesc: "La barca è tutta tua, i nostri tour sono privati. Il nostro equipaggio sarà a tua completa disposizione per tutta la durata del tour.",
       skipperCta: "Richiedi un Preventivo",
     },
@@ -88,7 +89,7 @@ export const translations = {
       boats: [
         {
           id: "primatist-g65",
-          name: "TENAREZE IV",
+          name: "TENAREZE VI",
           model: "Princess v65",
           type: "Yacht di Lusso",
           length: "21 m",
@@ -97,7 +98,7 @@ export const translations = {
         },
         {
           id: "primatist-g50",
-          name: "CHITON",
+          name: "CHITON FOUR",
           model: "Princess v55",
           type: "Sport Cruiser",
           length: "17 m",
@@ -229,8 +230,8 @@ export const translations = {
     },
     hero: {
       pill: "On Sea Since 2002",
-      titleLine1: "Your Private",
-      titleAccent: "Sea Experience",
+      titleLine1: "Enjoy",
+      titleAccent: "the sea.",
       ctaPrimary: "Discover Tours",
       ctaSecondary: "Contact Us",
       scroll: "Scroll",
@@ -243,6 +244,7 @@ export const translations = {
       from: "From",
       book: "Book Now",
       inquire: "Request Quote",
+      seeAll: "See all tours",
       tags: { popular: "Most Popular", value: "Best Value", bespoke: "Bespoke" },
       list: [
         {
@@ -286,7 +288,7 @@ export const translations = {
       transferTitle: "Pick-up",
       transferDesc: "Where offered, you can choose a pick-up/drop-off different from our home port, Capri. When you pick your tour, check the available marinas for a custom P&D.",
       transferCta: "Discover the charter",
-      skipperTitle: "Skipper Charter",
+      skipperTitle: "The boat is all yours.",
       skipperDesc: "The boat is all yours — our tours are private. Our crew is at your full service for the whole tour.",
       skipperCta: "Inquire",
     },
@@ -302,7 +304,7 @@ export const translations = {
       boats: [
         {
           id: "primatist-g65",
-          name: "TENAREZE IV",
+          name: "TENAREZE VI",
           model: "Princess v65",
           type: "Luxury Yacht",
           length: "21 m",
@@ -311,7 +313,7 @@ export const translations = {
         },
         {
           id: "primatist-g50",
-          name: "CHITON",
+          name: "CHITON FOUR",
           model: "Princess v55",
           type: "Sport Cruiser",
           length: "17 m",

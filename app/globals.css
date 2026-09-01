@@ -721,6 +721,12 @@ body {
   gap: 20px;
 }
 
+.tours-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
 @media (max-width: 1380px) {
   .tours-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
 }

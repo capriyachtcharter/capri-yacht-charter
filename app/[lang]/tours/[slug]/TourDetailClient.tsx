@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useParams, notFound } from "next/navigation";
 import PageShell from "../../../components/PageShell";
 import { useLang } from "../../../i18n/LanguageProvider";
-import { toursBySlug, includedDefault, notIncludedDefault, extrasDefault, pickupDefault } from "../../../data/tours";
+import { toursBySlug, fixedDefault, variableDefault, extrasDefault, pickupDefault } from "../../../data/tours";
 import { boatByLegacyId } from "../../../data/fleet";
 
 export default function TourDetailPage() {
@@ -84,20 +84,20 @@ export default function TourDetailPage() {
             <div className="tour-included-grid">
               <div>
                 <h3 className="tour-included-h">
-                  {lang === "it" ? "Il prezzo include" : "Price includes"}
+                  {lang === "it" ? "Prezzo fisso" : "Fixed price"}
                 </h3>
                 <ul className="tour-included-list">
-                  {(lang === "it" ? includedDefault.it : includedDefault.en).map((i) => (
+                  {(lang === "it" ? fixedDefault.it : fixedDefault.en).map((i) => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
               </div>
               <div>
                 <h3 className="tour-included-h">
-                  {lang === "it" ? "Non incluso" : "Not included"}
+                  {lang === "it" ? "Variabile" : "Variable"}
                 </h3>
                 <ul className="tour-included-list tour-included-list-muted">
-                  {(lang === "it" ? notIncludedDefault.it : notIncludedDefault.en).map((i) => (
+                  {(lang === "it" ? variableDefault.it : variableDefault.en).map((i) => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
@@ -154,17 +154,9 @@ export default function TourDetailPage() {
             </h2>
             <p className="tour-detail-lead" style={{ fontSize: "0.95rem" }}>
               {lang === "it"
-                ? "Prezzi per barca: TENAREZE IV · CHITON · RORI."
-                : "Prices per boat: TENAREZE IV · CHITON · RORI."}
+                ? "Verifica in fase di prenotazione se vuoi un P&D custom."
+                : "Ask at booking time if you'd like a custom pick-up & drop-off."}
             </p>
-            <ul className="tour-extras-list">
-              {(lang === "it" ? pickupDefault.it : pickupDefault.en).map((p) => (
-                <li key={p.port}>
-                  <span>{p.port}</span>
-                  <strong>{p.prices}</strong>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <aside className="tour-detail-side">
@@ -186,8 +178,8 @@ export default function TourDetailPage() {
               </a>
               <div className="tour-detail-card-note">
                 {lang === "it"
-                  ? "Conferma in giornata · Cancellazione gratuita fino a 7 giorni prima"
-                  : "Confirmation within the day · Free cancellation up to 7 days before"}
+                  ? "Cancellazione gratuita fino a 7 giorni prima"
+                  : "Free cancellation up to 7 days before"}
               </div>
             </div>
           </aside>
