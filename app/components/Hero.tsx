@@ -72,7 +72,12 @@ export default function Hero() {
         </div>
 
         <h1 className="hero-title">
-          {t.hero.titleLine1}<br />
+          {t.hero.titleLine1 && (
+            <>
+              {t.hero.titleLine1}
+              <br />
+            </>
+          )}
           <span className="italic">{t.hero.titleAccent}</span>
         </h1>
 

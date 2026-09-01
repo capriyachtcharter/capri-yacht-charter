@@ -15,8 +15,8 @@ export const translations = {
     },
     hero: {
       pill: "In mare dal 2002",
-      titleLine1: "Enjoy",
-      titleAccent: "the sea.",
+      titleLine1: "",
+      titleAccent: "Enjoy the sea.",
       ctaPrimary: "Scopri i Tour",
       ctaSecondary: "Contattaci",
       scroll: "Scorri",
@@ -230,8 +230,8 @@ export const translations = {
     },
     hero: {
       pill: "On Sea Since 2002",
-      titleLine1: "Enjoy",
-      titleAccent: "the sea.",
+      titleLine1: "",
+      titleAccent: "Enjoy the sea.",
       ctaPrimary: "Discover Tours",
       ctaSecondary: "Contact Us",
       scroll: "Scroll",
