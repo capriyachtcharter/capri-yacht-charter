@@ -1,3 +1,9 @@
+// Bilingual short-string helper: some spec fields carry Italian words
+// ("nodi", "ospiti", "matrimoniale"...) that need an English translation
+// when the site is rendered in EN. Neutral values (numbers, units like "m"
+// or "hp", brand names) stay as plain string.
+export type SpecText = string | { it: string; en: string };
+
 export type Boat = {
   slug: string;
   legacyId: string;
@@ -7,11 +13,11 @@ export type Boat = {
   specs: {
     length: string;
     beam: string;
-    speed: string;
-    cabins: string;
+    speed: SpecText;
+    cabins: SpecText;
     bathrooms: string;
-    capacityDay: string;
-    capacityNight: string;
+    capacityDay: SpecText;
+    capacityNight: SpecText;
     engines: string;
   };
   it: {
@@ -50,11 +56,11 @@ export const fleet: Boat[] = [
     specs: {
       length: "21 m",
       beam: "5,1 m",
-      speed: "30 nodi",
-      cabins: "2 matrimoniali + 1 doppia",
+      speed: { it: "30 nodi", en: "30 knots" },
+      cabins: { it: "2 matrimoniali + 1 doppia", en: "2 master cabins + 1 twin" },
       bathrooms: "3",
-      capacityDay: "12 ospiti",
-      capacityNight: "6 ospiti",
+      capacityDay: { it: "12 ospiti", en: "12 guests" },
+      capacityNight: { it: "6 ospiti", en: "6 guests" },
       engines: "2× MAN 1000 hp",
     },
     it: {
@@ -112,11 +118,11 @@ export const fleet: Boat[] = [
     specs: {
       length: "17 m",
       beam: "4,5 m",
-      speed: "30 nodi",
-      cabins: "1 matrimoniale + 2 doppie in piano",
+      speed: { it: "30 nodi", en: "30 knots" },
+      cabins: { it: "1 matrimoniale + 2 doppie in piano", en: "1 master + 2 twin cabins on lower deck" },
       bathrooms: "2",
-      capacityDay: "12 ospiti",
-      capacityNight: "6 ospiti",
+      capacityDay: { it: "12 ospiti", en: "12 guests" },
+      capacityNight: { it: "6 ospiti", en: "6 guests" },
       engines: "2× MAN 800 hp",
     },
     it: {
@@ -173,11 +179,11 @@ export const fleet: Boat[] = [
     specs: {
       length: "11 m",
       beam: "3,5 m",
-      speed: "35 nodi",
-      cabins: "1 master",
+      speed: { it: "35 nodi", en: "35 knots" },
+      cabins: { it: "1 master", en: "1 master" },
       bathrooms: "1",
-      capacityDay: "6 ospiti",
-      capacityNight: "2 ospiti",
+      capacityDay: { it: "6 ospiti", en: "6 guests" },
+      capacityNight: { it: "2 ospiti", en: "2 guests" },
       engines: "2× Mercury 350 hp",
     },
     it: {

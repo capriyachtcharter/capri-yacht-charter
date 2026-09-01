@@ -21,6 +21,10 @@ export default function BoatDetailPage() {
 
   const c = lang === "it" ? boat.it : boat.en;
   const compatibleTours = tours.filter((tr) => tr.boats.includes(boat.legacyId));
+  // Spec fields can be plain strings (numeric / language-neutral) or bilingual
+  // objects — pick the current language for the latter.
+  const spec = (v: string | { it: string; en: string }) =>
+    typeof v === "string" ? v : v[lang];
 
   return (
     <PageShell>
@@ -110,7 +114,7 @@ export default function BoatDetailPage() {
               </div>
               <div>
                 <dt>{lang === "it" ? "Velocità max" : "Top speed"}</dt>
-                <dd>{boat.specs.speed}</dd>
+                <dd>{spec(boat.specs.speed)}</dd>
               </div>
               <div>
                 <dt>{lang === "it" ? "Motori" : "Engines"}</dt>
@@ -118,7 +122,7 @@ export default function BoatDetailPage() {
               </div>
               <div>
                 <dt>{lang === "it" ? "Cabine" : "Cabins"}</dt>
-                <dd>{boat.specs.cabins}</dd>
+                <dd>{spec(boat.specs.cabins)}</dd>
               </div>
               <div>
                 <dt>{lang === "it" ? "Bagni" : "Bathrooms"}</dt>
@@ -126,11 +130,11 @@ export default function BoatDetailPage() {
               </div>
               <div>
                 <dt>{lang === "it" ? "Ospiti (giorno)" : "Guests (day)"}</dt>
-                <dd>{boat.specs.capacityDay}</dd>
+                <dd>{spec(boat.specs.capacityDay)}</dd>
               </div>
               <div>
                 <dt>{lang === "it" ? "Ospiti (notte)" : "Guests (night)"}</dt>
-                <dd>{boat.specs.capacityNight}</dd>
+                <dd>{spec(boat.specs.capacityNight)}</dd>
               </div>
             </dl>
           </aside>

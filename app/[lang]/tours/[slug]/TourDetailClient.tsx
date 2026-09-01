@@ -216,7 +216,7 @@ export default function TourDetailPage() {
                       <h3>{bc.name}</h3>
                       <div className="tour-boat-model">{bc.model}</div>
                       <div className="tour-boat-specs">
-                        {b.specs.length} · {b.specs.capacityDay}
+                        {b.specs.length} · {typeof b.specs.capacityDay === "string" ? b.specs.capacityDay : b.specs.capacityDay[lang]}
                       </div>
                       <span className="tour-boat-cta">
                         {lang === "it" ? "Dettagli" : "Details"}

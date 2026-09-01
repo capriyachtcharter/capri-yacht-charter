@@ -47,15 +47,15 @@ export default function FleetHubPage() {
                       </li>
                       <li>
                         <span>{lang === "it" ? "Velocità" : "Top speed"}</span>
-                        <strong>{b.specs.speed}</strong>
+                        <strong>{typeof b.specs.speed === "string" ? b.specs.speed : b.specs.speed[lang]}</strong>
                       </li>
                       <li>
                         <span>{lang === "it" ? "Ospiti" : "Guests"}</span>
-                        <strong>{b.specs.capacityDay}</strong>
+                        <strong>{typeof b.specs.capacityDay === "string" ? b.specs.capacityDay : b.specs.capacityDay[lang]}</strong>
                       </li>
                       <li>
                         <span>{lang === "it" ? "Cabine" : "Cabins"}</span>
-                        <strong>{b.specs.cabins}</strong>
+                        <strong>{typeof b.specs.cabins === "string" ? b.specs.cabins : b.specs.cabins[lang]}</strong>
                       </li>
                     </ul>
 
