@@ -50,7 +50,7 @@ export default function Footer() {
             <div className="footer-col-title">{t.footer.cols.fleetTitle}</div>
             {t.fleet.boats.map((b) => {
               const detail = boatByLegacyId[b.id];
-              const href = detail ? `/fleet/${detail.slug}` : "/fleet";
+              const href = detail ? path(`/fleet/${detail.slug}`) : path("/fleet");
               return (
                 <Link key={b.id} href={href} className="footer-link">{b.name} · {b.length}</Link>
               );

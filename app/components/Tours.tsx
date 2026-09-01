@@ -12,7 +12,7 @@ import { toursByLegacyId } from "../data/tours";
 // so the home Tours section never drifts from the /tours pages.
 
 export default function Tours() {
-  const { t } = useLang();
+  const { t, path } = useLang();
   return (
     <section className="section" id="tours">
       <div className="section-inner">
@@ -27,7 +27,7 @@ export default function Tours() {
         <div className="tours-grid">
           {t.tours.list.map((tour, i) => {
             const detail = toursByLegacyId[tour.id];
-            const detailHref = detail ? `/tours/${detail.slug}` : "/tours";
+            const detailHref = detail ? path(`/tours/${detail.slug}`) : path("/tours");
             return (
               <Link
                 key={tour.id}
@@ -88,7 +88,7 @@ export default function Tours() {
         </div>
 
         <div className="tours-cta-row" data-reveal>
-          <Link href="/tours" className="btn-primary">
+          <Link href={path("/tours")} className="btn-primary">
             {t.tours.seeAll}
           </Link>
         </div>
