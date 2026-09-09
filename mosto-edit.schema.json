@@ -1,0 +1,2573 @@
+{
+  "collections": [
+    {
+      "key": "content",
+      "file": "app/data/content.json",
+      "idField": "id",
+      "label": {
+        "it": "Testi del sito (home)",
+        "en": "Site copy (home)"
+      },
+      "fields": [
+        {
+          "path": "it.nav.home",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › home",
+            "en": "IT · nav › home"
+          }
+        },
+        {
+          "path": "it.nav.experiences",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › experiences",
+            "en": "IT · nav › experiences"
+          }
+        },
+        {
+          "path": "it.nav.fleet",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › fleet",
+            "en": "IT · nav › fleet"
+          }
+        },
+        {
+          "path": "it.nav.charter",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › charter",
+            "en": "IT · nav › charter"
+          }
+        },
+        {
+          "path": "it.nav.story",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › story",
+            "en": "IT · nav › story"
+          }
+        },
+        {
+          "path": "it.nav.contact",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › contact",
+            "en": "IT · nav › contact"
+          }
+        },
+        {
+          "path": "it.nav.whatsapp",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › whatsapp",
+            "en": "IT · nav › whatsapp"
+          }
+        },
+        {
+          "path": "it.nav.concierge",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › concierge",
+            "en": "IT · nav › concierge"
+          }
+        },
+        {
+          "path": "it.nav.whatsappLong",
+          "kind": "text",
+          "label": {
+            "it": "IT · nav › whatsappLong",
+            "en": "IT · nav › whatsappLong"
+          }
+        },
+        {
+          "path": "it.hero.pill",
+          "kind": "text",
+          "label": {
+            "it": "IT · hero › pill",
+            "en": "IT · hero › pill"
+          }
+        },
+        {
+          "path": "it.hero.titleLine1",
+          "kind": "text",
+          "label": {
+            "it": "IT · hero › titleLine1",
+            "en": "IT · hero › titleLine1"
+          }
+        },
+        {
+          "path": "it.hero.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · hero › titleAccent",
+            "en": "IT · hero › titleAccent"
+          }
+        },
+        {
+          "path": "it.hero.ctaPrimary",
+          "kind": "text",
+          "label": {
+            "it": "IT · hero › ctaPrimary",
+            "en": "IT · hero › ctaPrimary"
+          }
+        },
+        {
+          "path": "it.hero.ctaSecondary",
+          "kind": "text",
+          "label": {
+            "it": "IT · hero › ctaSecondary",
+            "en": "IT · hero › ctaSecondary"
+          }
+        },
+        {
+          "path": "it.hero.scroll",
+          "kind": "text",
+          "label": {
+            "it": "IT · hero › scroll",
+            "en": "IT · hero › scroll"
+          }
+        },
+        {
+          "path": "it.tours.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › eyebrow",
+            "en": "IT · tours › eyebrow"
+          }
+        },
+        {
+          "path": "it.tours.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › title",
+            "en": "IT · tours › title"
+          }
+        },
+        {
+          "path": "it.tours.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › titleAccent",
+            "en": "IT · tours › titleAccent"
+          }
+        },
+        {
+          "path": "it.tours.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · tours › desc",
+            "en": "IT · tours › desc"
+          }
+        },
+        {
+          "path": "it.tours.from",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › from",
+            "en": "IT · tours › from"
+          }
+        },
+        {
+          "path": "it.tours.book",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › book",
+            "en": "IT · tours › book"
+          }
+        },
+        {
+          "path": "it.tours.inquire",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › inquire",
+            "en": "IT · tours › inquire"
+          }
+        },
+        {
+          "path": "it.tours.tags.popular",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › tags › popular",
+            "en": "IT · tours › tags › popular"
+          }
+        },
+        {
+          "path": "it.tours.tags.value",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › tags › value",
+            "en": "IT · tours › tags › value"
+          }
+        },
+        {
+          "path": "it.tours.tags.bespoke",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › tags › bespoke",
+            "en": "IT · tours › tags › bespoke"
+          }
+        },
+        {
+          "path": "it.tours.list.0.meta",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › meta",
+            "en": "IT · tours › list › meta"
+          }
+        },
+        {
+          "path": "it.tours.list.0.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › title",
+            "en": "IT · tours › list › title"
+          }
+        },
+        {
+          "path": "it.tours.list.0.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · tours › list › desc",
+            "en": "IT · tours › list › desc"
+          }
+        },
+        {
+          "path": "it.tours.list.0.price",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › price",
+            "en": "IT · tours › list › price"
+          }
+        },
+        {
+          "path": "it.tours.list.1.meta",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › meta",
+            "en": "IT · tours › list › meta"
+          }
+        },
+        {
+          "path": "it.tours.list.1.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › title",
+            "en": "IT · tours › list › title"
+          }
+        },
+        {
+          "path": "it.tours.list.1.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · tours › list › desc",
+            "en": "IT · tours › list › desc"
+          }
+        },
+        {
+          "path": "it.tours.list.1.price",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › price",
+            "en": "IT · tours › list › price"
+          }
+        },
+        {
+          "path": "it.tours.list.2.meta",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › meta",
+            "en": "IT · tours › list › meta"
+          }
+        },
+        {
+          "path": "it.tours.list.2.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › title",
+            "en": "IT · tours › list › title"
+          }
+        },
+        {
+          "path": "it.tours.list.2.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · tours › list › desc",
+            "en": "IT · tours › list › desc"
+          }
+        },
+        {
+          "path": "it.tours.list.2.price",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › price",
+            "en": "IT · tours › list › price"
+          }
+        },
+        {
+          "path": "it.tours.list.3.meta",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › meta",
+            "en": "IT · tours › list › meta"
+          }
+        },
+        {
+          "path": "it.tours.list.3.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › title",
+            "en": "IT · tours › list › title"
+          }
+        },
+        {
+          "path": "it.tours.list.3.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · tours › list › desc",
+            "en": "IT · tours › list › desc"
+          }
+        },
+        {
+          "path": "it.tours.list.3.price",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › list › price",
+            "en": "IT · tours › list › price"
+          }
+        },
+        {
+          "path": "it.beyond.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › eyebrow",
+            "en": "IT · beyond › eyebrow"
+          }
+        },
+        {
+          "path": "it.beyond.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › title",
+            "en": "IT · beyond › title"
+          }
+        },
+        {
+          "path": "it.beyond.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › titleAccent",
+            "en": "IT · beyond › titleAccent"
+          }
+        },
+        {
+          "path": "it.beyond.transferTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › transferTitle",
+            "en": "IT · beyond › transferTitle"
+          }
+        },
+        {
+          "path": "it.beyond.transferDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · beyond › transferDesc",
+            "en": "IT · beyond › transferDesc"
+          }
+        },
+        {
+          "path": "it.beyond.transferCta",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › transferCta",
+            "en": "IT · beyond › transferCta"
+          }
+        },
+        {
+          "path": "it.beyond.skipperTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › skipperTitle",
+            "en": "IT · beyond › skipperTitle"
+          }
+        },
+        {
+          "path": "it.beyond.skipperDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · beyond › skipperDesc",
+            "en": "IT · beyond › skipperDesc"
+          }
+        },
+        {
+          "path": "it.beyond.skipperCta",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › skipperCta",
+            "en": "IT · beyond › skipperCta"
+          }
+        },
+        {
+          "path": "it.fleet.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › eyebrow",
+            "en": "IT · fleet › eyebrow"
+          }
+        },
+        {
+          "path": "it.fleet.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › title",
+            "en": "IT · fleet › title"
+          }
+        },
+        {
+          "path": "it.fleet.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › titleAccent",
+            "en": "IT · fleet › titleAccent"
+          }
+        },
+        {
+          "path": "it.fleet.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · fleet › desc",
+            "en": "IT · fleet › desc"
+          }
+        },
+        {
+          "path": "it.fleet.explore",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › explore",
+            "en": "IT · fleet › explore"
+          }
+        },
+        {
+          "path": "it.fleet.lengthLabel",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › lengthLabel",
+            "en": "IT · fleet › lengthLabel"
+          }
+        },
+        {
+          "path": "it.fleet.capacityPrefix",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › capacityPrefix",
+            "en": "IT · fleet › capacityPrefix"
+          }
+        },
+        {
+          "path": "it.fleet.guests",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › guests",
+            "en": "IT · fleet › guests"
+          }
+        },
+        {
+          "path": "it.fleet.boats.0.name",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › name",
+            "en": "IT · fleet › boats › name"
+          }
+        },
+        {
+          "path": "it.fleet.boats.0.model",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › model",
+            "en": "IT · fleet › boats › model"
+          }
+        },
+        {
+          "path": "it.fleet.boats.0.type",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › type",
+            "en": "IT · fleet › boats › type"
+          }
+        },
+        {
+          "path": "it.fleet.boats.0.length",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › length",
+            "en": "IT · fleet › boats › length"
+          }
+        },
+        {
+          "path": "it.fleet.boats.0.capacity",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › capacity",
+            "en": "IT · fleet › boats › capacity"
+          }
+        },
+        {
+          "path": "it.fleet.boats.0.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · fleet › boats › desc",
+            "en": "IT · fleet › boats › desc"
+          }
+        },
+        {
+          "path": "it.fleet.boats.1.name",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › name",
+            "en": "IT · fleet › boats › name"
+          }
+        },
+        {
+          "path": "it.fleet.boats.1.model",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › model",
+            "en": "IT · fleet › boats › model"
+          }
+        },
+        {
+          "path": "it.fleet.boats.1.type",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › type",
+            "en": "IT · fleet › boats › type"
+          }
+        },
+        {
+          "path": "it.fleet.boats.1.length",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › length",
+            "en": "IT · fleet › boats › length"
+          }
+        },
+        {
+          "path": "it.fleet.boats.1.capacity",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › capacity",
+            "en": "IT · fleet › boats › capacity"
+          }
+        },
+        {
+          "path": "it.fleet.boats.1.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · fleet › boats › desc",
+            "en": "IT · fleet › boats › desc"
+          }
+        },
+        {
+          "path": "it.fleet.boats.2.name",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › name",
+            "en": "IT · fleet › boats › name"
+          }
+        },
+        {
+          "path": "it.fleet.boats.2.model",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › model",
+            "en": "IT · fleet › boats › model"
+          }
+        },
+        {
+          "path": "it.fleet.boats.2.type",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › type",
+            "en": "IT · fleet › boats › type"
+          }
+        },
+        {
+          "path": "it.fleet.boats.2.length",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › length",
+            "en": "IT · fleet › boats › length"
+          }
+        },
+        {
+          "path": "it.fleet.boats.2.capacity",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › boats › capacity",
+            "en": "IT · fleet › boats › capacity"
+          }
+        },
+        {
+          "path": "it.fleet.boats.2.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · fleet › boats › desc",
+            "en": "IT · fleet › boats › desc"
+          }
+        },
+        {
+          "path": "it.manifesto.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › eyebrow",
+            "en": "IT · manifesto › eyebrow"
+          }
+        },
+        {
+          "path": "it.manifesto.titleLine1",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › titleLine1",
+            "en": "IT · manifesto › titleLine1"
+          }
+        },
+        {
+          "path": "it.manifesto.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › titleAccent",
+            "en": "IT · manifesto › titleAccent"
+          }
+        },
+        {
+          "path": "it.manifesto.titleLine2",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › titleLine2",
+            "en": "IT · manifesto › titleLine2"
+          }
+        },
+        {
+          "path": "it.manifesto.prose",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · manifesto › prose",
+            "en": "IT · manifesto › prose"
+          }
+        },
+        {
+          "path": "it.manifesto.signatureName",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › signatureName",
+            "en": "IT · manifesto › signatureName"
+          }
+        },
+        {
+          "path": "it.manifesto.signatureRole",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › signatureRole",
+            "en": "IT · manifesto › signatureRole"
+          }
+        },
+        {
+          "path": "it.manifesto.items.0.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › items › title",
+            "en": "IT · manifesto › items › title"
+          }
+        },
+        {
+          "path": "it.manifesto.items.0.text",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · manifesto › items › text",
+            "en": "IT · manifesto › items › text"
+          }
+        },
+        {
+          "path": "it.manifesto.items.1.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › items › title",
+            "en": "IT · manifesto › items › title"
+          }
+        },
+        {
+          "path": "it.manifesto.items.1.text",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · manifesto › items › text",
+            "en": "IT · manifesto › items › text"
+          }
+        },
+        {
+          "path": "it.manifesto.items.2.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · manifesto › items › title",
+            "en": "IT · manifesto › items › title"
+          }
+        },
+        {
+          "path": "it.manifesto.items.2.text",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · manifesto › items › text",
+            "en": "IT · manifesto › items › text"
+          }
+        },
+        {
+          "path": "it.reviews.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › eyebrow",
+            "en": "IT · reviews › eyebrow"
+          }
+        },
+        {
+          "path": "it.reviews.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › title",
+            "en": "IT · reviews › title"
+          }
+        },
+        {
+          "path": "it.reviews.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › titleAccent",
+            "en": "IT · reviews › titleAccent"
+          }
+        },
+        {
+          "path": "it.reviews.stats.0.value",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › stats › value",
+            "en": "IT · reviews › stats › value"
+          }
+        },
+        {
+          "path": "it.reviews.stats.0.label",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › stats › label",
+            "en": "IT · reviews › stats › label"
+          }
+        },
+        {
+          "path": "it.reviews.stats.1.value",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › stats › value",
+            "en": "IT · reviews › stats › value"
+          }
+        },
+        {
+          "path": "it.reviews.stats.1.label",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › stats › label",
+            "en": "IT · reviews › stats › label"
+          }
+        },
+        {
+          "path": "it.reviews.stats.2.value",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › stats › value",
+            "en": "IT · reviews › stats › value"
+          }
+        },
+        {
+          "path": "it.reviews.stats.2.label",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › stats › label",
+            "en": "IT · reviews › stats › label"
+          }
+        },
+        {
+          "path": "it.reviews.items.0.text",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · reviews › items › text",
+            "en": "IT · reviews › items › text"
+          }
+        },
+        {
+          "path": "it.reviews.items.0.author",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › author",
+            "en": "IT · reviews › items › author"
+          }
+        },
+        {
+          "path": "it.reviews.items.0.location",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › location",
+            "en": "IT · reviews › items › location"
+          }
+        },
+        {
+          "path": "it.reviews.items.0.source",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › source",
+            "en": "IT · reviews › items › source"
+          }
+        },
+        {
+          "path": "it.reviews.items.1.text",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · reviews › items › text",
+            "en": "IT · reviews › items › text"
+          }
+        },
+        {
+          "path": "it.reviews.items.1.author",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › author",
+            "en": "IT · reviews › items › author"
+          }
+        },
+        {
+          "path": "it.reviews.items.1.location",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › location",
+            "en": "IT · reviews › items › location"
+          }
+        },
+        {
+          "path": "it.reviews.items.1.source",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › source",
+            "en": "IT · reviews › items › source"
+          }
+        },
+        {
+          "path": "it.reviews.items.2.text",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · reviews › items › text",
+            "en": "IT · reviews › items › text"
+          }
+        },
+        {
+          "path": "it.reviews.items.2.author",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › author",
+            "en": "IT · reviews › items › author"
+          }
+        },
+        {
+          "path": "it.reviews.items.2.location",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › location",
+            "en": "IT · reviews › items › location"
+          }
+        },
+        {
+          "path": "it.reviews.items.2.source",
+          "kind": "text",
+          "label": {
+            "it": "IT · reviews › items › source",
+            "en": "IT · reviews › items › source"
+          }
+        },
+        {
+          "path": "it.footer.cta.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cta › title",
+            "en": "IT · footer › cta › title"
+          }
+        },
+        {
+          "path": "it.footer.cta.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cta › titleAccent",
+            "en": "IT · footer › cta › titleAccent"
+          }
+        },
+        {
+          "path": "it.footer.cta.text",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · footer › cta › text",
+            "en": "IT · footer › cta › text"
+          }
+        },
+        {
+          "path": "it.footer.cta.primary",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cta › primary",
+            "en": "IT · footer › cta › primary"
+          }
+        },
+        {
+          "path": "it.footer.cta.secondary",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cta › secondary",
+            "en": "IT · footer › cta › secondary"
+          }
+        },
+        {
+          "path": "it.footer.cols.experiencesTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › experiencesTitle",
+            "en": "IT · footer › cols › experiencesTitle"
+          }
+        },
+        {
+          "path": "it.footer.cols.fleetTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › fleetTitle",
+            "en": "IT · footer › cols › fleetTitle"
+          }
+        },
+        {
+          "path": "it.footer.cols.contactTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › contactTitle",
+            "en": "IT · footer › cols › contactTitle"
+          }
+        },
+        {
+          "path": "it.footer.cols.hoursTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › hoursTitle",
+            "en": "IT · footer › cols › hoursTitle"
+          }
+        },
+        {
+          "path": "it.footer.cols.season",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › season",
+            "en": "IT · footer › cols › season"
+          }
+        },
+        {
+          "path": "it.footer.cols.timetable",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › timetable",
+            "en": "IT · footer › cols › timetable"
+          }
+        },
+        {
+          "path": "it.footer.cols.booking",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › booking",
+            "en": "IT · footer › cols › booking"
+          }
+        },
+        {
+          "path": "it.footer.cols.services.tours",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › services › tours",
+            "en": "IT · footer › cols › services › tours"
+          }
+        },
+        {
+          "path": "it.footer.cols.services.custom",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › services › custom",
+            "en": "IT · footer › cols › services › custom"
+          }
+        },
+        {
+          "path": "it.footer.cols.services.cruises",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › services › cruises",
+            "en": "IT · footer › cols › services › cruises"
+          }
+        },
+        {
+          "path": "it.footer.cols.services.charter",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › cols › services › charter",
+            "en": "IT · footer › cols › services › charter"
+          }
+        },
+        {
+          "path": "it.map.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · map › eyebrow",
+            "en": "IT · map › eyebrow"
+          }
+        },
+        {
+          "path": "it.map.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · map › title",
+            "en": "IT · map › title"
+          }
+        },
+        {
+          "path": "it.map.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · map › titleAccent",
+            "en": "IT · map › titleAccent"
+          }
+        },
+        {
+          "path": "it.map.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · map › desc",
+            "en": "IT · map › desc"
+          }
+        },
+        {
+          "path": "it.map.cta",
+          "kind": "text",
+          "label": {
+            "it": "IT · map › cta",
+            "en": "IT · map › cta"
+          }
+        },
+        {
+          "path": "it.miniCruises.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › eyebrow",
+            "en": "IT · miniCruises › eyebrow"
+          }
+        },
+        {
+          "path": "it.miniCruises.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › title",
+            "en": "IT · miniCruises › title"
+          }
+        },
+        {
+          "path": "it.miniCruises.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › titleAccent",
+            "en": "IT · miniCruises › titleAccent"
+          }
+        },
+        {
+          "path": "it.miniCruises.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · miniCruises › desc",
+            "en": "IT · miniCruises › desc"
+          }
+        },
+        {
+          "path": "it.miniCruises.bullet1",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › bullet1",
+            "en": "IT · miniCruises › bullet1"
+          }
+        },
+        {
+          "path": "it.miniCruises.bullet2",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › bullet2",
+            "en": "IT · miniCruises › bullet2"
+          }
+        },
+        {
+          "path": "it.miniCruises.bullet3",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › bullet3",
+            "en": "IT · miniCruises › bullet3"
+          }
+        },
+        {
+          "path": "it.miniCruises.cta",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › cta",
+            "en": "IT · miniCruises › cta"
+          }
+        },
+        {
+          "path": "en.nav.home",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › home",
+            "en": "EN · nav › home"
+          }
+        },
+        {
+          "path": "en.nav.experiences",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › experiences",
+            "en": "EN · nav › experiences"
+          }
+        },
+        {
+          "path": "en.nav.fleet",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › fleet",
+            "en": "EN · nav › fleet"
+          }
+        },
+        {
+          "path": "en.nav.charter",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › charter",
+            "en": "EN · nav › charter"
+          }
+        },
+        {
+          "path": "en.nav.story",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › story",
+            "en": "EN · nav › story"
+          }
+        },
+        {
+          "path": "en.nav.contact",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › contact",
+            "en": "EN · nav › contact"
+          }
+        },
+        {
+          "path": "en.nav.whatsapp",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › whatsapp",
+            "en": "EN · nav › whatsapp"
+          }
+        },
+        {
+          "path": "en.nav.concierge",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › concierge",
+            "en": "EN · nav › concierge"
+          }
+        },
+        {
+          "path": "en.nav.whatsappLong",
+          "kind": "text",
+          "label": {
+            "it": "EN · nav › whatsappLong",
+            "en": "EN · nav › whatsappLong"
+          }
+        },
+        {
+          "path": "en.hero.pill",
+          "kind": "text",
+          "label": {
+            "it": "EN · hero › pill",
+            "en": "EN · hero › pill"
+          }
+        },
+        {
+          "path": "en.hero.titleLine1",
+          "kind": "text",
+          "label": {
+            "it": "EN · hero › titleLine1",
+            "en": "EN · hero › titleLine1"
+          }
+        },
+        {
+          "path": "en.hero.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · hero › titleAccent",
+            "en": "EN · hero › titleAccent"
+          }
+        },
+        {
+          "path": "en.hero.ctaPrimary",
+          "kind": "text",
+          "label": {
+            "it": "EN · hero › ctaPrimary",
+            "en": "EN · hero › ctaPrimary"
+          }
+        },
+        {
+          "path": "en.hero.ctaSecondary",
+          "kind": "text",
+          "label": {
+            "it": "EN · hero › ctaSecondary",
+            "en": "EN · hero › ctaSecondary"
+          }
+        },
+        {
+          "path": "en.hero.scroll",
+          "kind": "text",
+          "label": {
+            "it": "EN · hero › scroll",
+            "en": "EN · hero › scroll"
+          }
+        },
+        {
+          "path": "en.tours.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › eyebrow",
+            "en": "EN · tours › eyebrow"
+          }
+        },
+        {
+          "path": "en.tours.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › title",
+            "en": "EN · tours › title"
+          }
+        },
+        {
+          "path": "en.tours.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › titleAccent",
+            "en": "EN · tours › titleAccent"
+          }
+        },
+        {
+          "path": "en.tours.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · tours › desc",
+            "en": "EN · tours › desc"
+          }
+        },
+        {
+          "path": "en.tours.from",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › from",
+            "en": "EN · tours › from"
+          }
+        },
+        {
+          "path": "en.tours.book",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › book",
+            "en": "EN · tours › book"
+          }
+        },
+        {
+          "path": "en.tours.inquire",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › inquire",
+            "en": "EN · tours › inquire"
+          }
+        },
+        {
+          "path": "en.tours.tags.popular",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › tags › popular",
+            "en": "EN · tours › tags › popular"
+          }
+        },
+        {
+          "path": "en.tours.tags.value",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › tags › value",
+            "en": "EN · tours › tags › value"
+          }
+        },
+        {
+          "path": "en.tours.tags.bespoke",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › tags › bespoke",
+            "en": "EN · tours › tags › bespoke"
+          }
+        },
+        {
+          "path": "en.tours.list.0.meta",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › meta",
+            "en": "EN · tours › list › meta"
+          }
+        },
+        {
+          "path": "en.tours.list.0.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › title",
+            "en": "EN · tours › list › title"
+          }
+        },
+        {
+          "path": "en.tours.list.0.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · tours › list › desc",
+            "en": "EN · tours › list › desc"
+          }
+        },
+        {
+          "path": "en.tours.list.0.price",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › price",
+            "en": "EN · tours › list › price"
+          }
+        },
+        {
+          "path": "en.tours.list.1.meta",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › meta",
+            "en": "EN · tours › list › meta"
+          }
+        },
+        {
+          "path": "en.tours.list.1.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › title",
+            "en": "EN · tours › list › title"
+          }
+        },
+        {
+          "path": "en.tours.list.1.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · tours › list › desc",
+            "en": "EN · tours › list › desc"
+          }
+        },
+        {
+          "path": "en.tours.list.1.price",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › price",
+            "en": "EN · tours › list › price"
+          }
+        },
+        {
+          "path": "en.tours.list.2.meta",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › meta",
+            "en": "EN · tours › list › meta"
+          }
+        },
+        {
+          "path": "en.tours.list.2.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › title",
+            "en": "EN · tours › list › title"
+          }
+        },
+        {
+          "path": "en.tours.list.2.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · tours › list › desc",
+            "en": "EN · tours › list › desc"
+          }
+        },
+        {
+          "path": "en.tours.list.2.price",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › price",
+            "en": "EN · tours › list › price"
+          }
+        },
+        {
+          "path": "en.tours.list.3.meta",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › meta",
+            "en": "EN · tours › list › meta"
+          }
+        },
+        {
+          "path": "en.tours.list.3.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › title",
+            "en": "EN · tours › list › title"
+          }
+        },
+        {
+          "path": "en.tours.list.3.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · tours › list › desc",
+            "en": "EN · tours › list › desc"
+          }
+        },
+        {
+          "path": "en.tours.list.3.price",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › list › price",
+            "en": "EN · tours › list › price"
+          }
+        },
+        {
+          "path": "en.beyond.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › eyebrow",
+            "en": "EN · beyond › eyebrow"
+          }
+        },
+        {
+          "path": "en.beyond.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › title",
+            "en": "EN · beyond › title"
+          }
+        },
+        {
+          "path": "en.beyond.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › titleAccent",
+            "en": "EN · beyond › titleAccent"
+          }
+        },
+        {
+          "path": "en.beyond.transferTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › transferTitle",
+            "en": "EN · beyond › transferTitle"
+          }
+        },
+        {
+          "path": "en.beyond.transferDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · beyond › transferDesc",
+            "en": "EN · beyond › transferDesc"
+          }
+        },
+        {
+          "path": "en.beyond.transferCta",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › transferCta",
+            "en": "EN · beyond › transferCta"
+          }
+        },
+        {
+          "path": "en.beyond.skipperTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › skipperTitle",
+            "en": "EN · beyond › skipperTitle"
+          }
+        },
+        {
+          "path": "en.beyond.skipperDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · beyond › skipperDesc",
+            "en": "EN · beyond › skipperDesc"
+          }
+        },
+        {
+          "path": "en.beyond.skipperCta",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › skipperCta",
+            "en": "EN · beyond › skipperCta"
+          }
+        },
+        {
+          "path": "en.fleet.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › eyebrow",
+            "en": "EN · fleet › eyebrow"
+          }
+        },
+        {
+          "path": "en.fleet.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › title",
+            "en": "EN · fleet › title"
+          }
+        },
+        {
+          "path": "en.fleet.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › titleAccent",
+            "en": "EN · fleet › titleAccent"
+          }
+        },
+        {
+          "path": "en.fleet.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · fleet › desc",
+            "en": "EN · fleet › desc"
+          }
+        },
+        {
+          "path": "en.fleet.explore",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › explore",
+            "en": "EN · fleet › explore"
+          }
+        },
+        {
+          "path": "en.fleet.lengthLabel",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › lengthLabel",
+            "en": "EN · fleet › lengthLabel"
+          }
+        },
+        {
+          "path": "en.fleet.capacityPrefix",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › capacityPrefix",
+            "en": "EN · fleet › capacityPrefix"
+          }
+        },
+        {
+          "path": "en.fleet.guests",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › guests",
+            "en": "EN · fleet › guests"
+          }
+        },
+        {
+          "path": "en.fleet.boats.0.name",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › name",
+            "en": "EN · fleet › boats › name"
+          }
+        },
+        {
+          "path": "en.fleet.boats.0.model",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › model",
+            "en": "EN · fleet › boats › model"
+          }
+        },
+        {
+          "path": "en.fleet.boats.0.type",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › type",
+            "en": "EN · fleet › boats › type"
+          }
+        },
+        {
+          "path": "en.fleet.boats.0.length",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › length",
+            "en": "EN · fleet › boats › length"
+          }
+        },
+        {
+          "path": "en.fleet.boats.0.capacity",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › capacity",
+            "en": "EN · fleet › boats › capacity"
+          }
+        },
+        {
+          "path": "en.fleet.boats.0.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · fleet › boats › desc",
+            "en": "EN · fleet › boats › desc"
+          }
+        },
+        {
+          "path": "en.fleet.boats.1.name",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › name",
+            "en": "EN · fleet › boats › name"
+          }
+        },
+        {
+          "path": "en.fleet.boats.1.model",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › model",
+            "en": "EN · fleet › boats › model"
+          }
+        },
+        {
+          "path": "en.fleet.boats.1.type",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › type",
+            "en": "EN · fleet › boats › type"
+          }
+        },
+        {
+          "path": "en.fleet.boats.1.length",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › length",
+            "en": "EN · fleet › boats › length"
+          }
+        },
+        {
+          "path": "en.fleet.boats.1.capacity",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › capacity",
+            "en": "EN · fleet › boats › capacity"
+          }
+        },
+        {
+          "path": "en.fleet.boats.1.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · fleet › boats › desc",
+            "en": "EN · fleet › boats › desc"
+          }
+        },
+        {
+          "path": "en.fleet.boats.2.name",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › name",
+            "en": "EN · fleet › boats › name"
+          }
+        },
+        {
+          "path": "en.fleet.boats.2.model",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › model",
+            "en": "EN · fleet › boats › model"
+          }
+        },
+        {
+          "path": "en.fleet.boats.2.type",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › type",
+            "en": "EN · fleet › boats › type"
+          }
+        },
+        {
+          "path": "en.fleet.boats.2.length",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › length",
+            "en": "EN · fleet › boats › length"
+          }
+        },
+        {
+          "path": "en.fleet.boats.2.capacity",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › boats › capacity",
+            "en": "EN · fleet › boats › capacity"
+          }
+        },
+        {
+          "path": "en.fleet.boats.2.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · fleet › boats › desc",
+            "en": "EN · fleet › boats › desc"
+          }
+        },
+        {
+          "path": "en.manifesto.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › eyebrow",
+            "en": "EN · manifesto › eyebrow"
+          }
+        },
+        {
+          "path": "en.manifesto.titleLine1",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › titleLine1",
+            "en": "EN · manifesto › titleLine1"
+          }
+        },
+        {
+          "path": "en.manifesto.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › titleAccent",
+            "en": "EN · manifesto › titleAccent"
+          }
+        },
+        {
+          "path": "en.manifesto.titleLine2",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › titleLine2",
+            "en": "EN · manifesto › titleLine2"
+          }
+        },
+        {
+          "path": "en.manifesto.prose",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · manifesto › prose",
+            "en": "EN · manifesto › prose"
+          }
+        },
+        {
+          "path": "en.manifesto.signatureName",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › signatureName",
+            "en": "EN · manifesto › signatureName"
+          }
+        },
+        {
+          "path": "en.manifesto.signatureRole",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › signatureRole",
+            "en": "EN · manifesto › signatureRole"
+          }
+        },
+        {
+          "path": "en.manifesto.items.0.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › items › title",
+            "en": "EN · manifesto › items › title"
+          }
+        },
+        {
+          "path": "en.manifesto.items.0.text",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · manifesto › items › text",
+            "en": "EN · manifesto › items › text"
+          }
+        },
+        {
+          "path": "en.manifesto.items.1.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › items › title",
+            "en": "EN · manifesto › items › title"
+          }
+        },
+        {
+          "path": "en.manifesto.items.1.text",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · manifesto › items › text",
+            "en": "EN · manifesto › items › text"
+          }
+        },
+        {
+          "path": "en.manifesto.items.2.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · manifesto › items › title",
+            "en": "EN · manifesto › items › title"
+          }
+        },
+        {
+          "path": "en.manifesto.items.2.text",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · manifesto › items › text",
+            "en": "EN · manifesto › items › text"
+          }
+        },
+        {
+          "path": "en.reviews.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › eyebrow",
+            "en": "EN · reviews › eyebrow"
+          }
+        },
+        {
+          "path": "en.reviews.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › title",
+            "en": "EN · reviews › title"
+          }
+        },
+        {
+          "path": "en.reviews.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › titleAccent",
+            "en": "EN · reviews › titleAccent"
+          }
+        },
+        {
+          "path": "en.reviews.stats.0.value",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › stats › value",
+            "en": "EN · reviews › stats › value"
+          }
+        },
+        {
+          "path": "en.reviews.stats.0.label",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › stats › label",
+            "en": "EN · reviews › stats › label"
+          }
+        },
+        {
+          "path": "en.reviews.stats.1.value",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › stats › value",
+            "en": "EN · reviews › stats › value"
+          }
+        },
+        {
+          "path": "en.reviews.stats.1.label",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › stats › label",
+            "en": "EN · reviews › stats › label"
+          }
+        },
+        {
+          "path": "en.reviews.stats.2.value",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › stats › value",
+            "en": "EN · reviews › stats › value"
+          }
+        },
+        {
+          "path": "en.reviews.stats.2.label",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › stats › label",
+            "en": "EN · reviews › stats › label"
+          }
+        },
+        {
+          "path": "en.reviews.items.0.text",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · reviews › items › text",
+            "en": "EN · reviews › items › text"
+          }
+        },
+        {
+          "path": "en.reviews.items.0.author",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › author",
+            "en": "EN · reviews › items › author"
+          }
+        },
+        {
+          "path": "en.reviews.items.0.location",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › location",
+            "en": "EN · reviews › items › location"
+          }
+        },
+        {
+          "path": "en.reviews.items.0.source",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › source",
+            "en": "EN · reviews › items › source"
+          }
+        },
+        {
+          "path": "en.reviews.items.1.text",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · reviews › items › text",
+            "en": "EN · reviews › items › text"
+          }
+        },
+        {
+          "path": "en.reviews.items.1.author",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › author",
+            "en": "EN · reviews › items › author"
+          }
+        },
+        {
+          "path": "en.reviews.items.1.location",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › location",
+            "en": "EN · reviews › items › location"
+          }
+        },
+        {
+          "path": "en.reviews.items.1.source",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › source",
+            "en": "EN · reviews › items › source"
+          }
+        },
+        {
+          "path": "en.reviews.items.2.text",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · reviews › items › text",
+            "en": "EN · reviews › items › text"
+          }
+        },
+        {
+          "path": "en.reviews.items.2.author",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › author",
+            "en": "EN · reviews › items › author"
+          }
+        },
+        {
+          "path": "en.reviews.items.2.location",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › location",
+            "en": "EN · reviews › items › location"
+          }
+        },
+        {
+          "path": "en.reviews.items.2.source",
+          "kind": "text",
+          "label": {
+            "it": "EN · reviews › items › source",
+            "en": "EN · reviews › items › source"
+          }
+        },
+        {
+          "path": "en.footer.cta.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cta › title",
+            "en": "EN · footer › cta › title"
+          }
+        },
+        {
+          "path": "en.footer.cta.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cta › titleAccent",
+            "en": "EN · footer › cta › titleAccent"
+          }
+        },
+        {
+          "path": "en.footer.cta.text",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · footer › cta › text",
+            "en": "EN · footer › cta › text"
+          }
+        },
+        {
+          "path": "en.footer.cta.primary",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cta › primary",
+            "en": "EN · footer › cta › primary"
+          }
+        },
+        {
+          "path": "en.footer.cta.secondary",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cta › secondary",
+            "en": "EN · footer › cta › secondary"
+          }
+        },
+        {
+          "path": "en.footer.cols.experiencesTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › experiencesTitle",
+            "en": "EN · footer › cols › experiencesTitle"
+          }
+        },
+        {
+          "path": "en.footer.cols.fleetTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › fleetTitle",
+            "en": "EN · footer › cols › fleetTitle"
+          }
+        },
+        {
+          "path": "en.footer.cols.contactTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › contactTitle",
+            "en": "EN · footer › cols › contactTitle"
+          }
+        },
+        {
+          "path": "en.footer.cols.hoursTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › hoursTitle",
+            "en": "EN · footer › cols › hoursTitle"
+          }
+        },
+        {
+          "path": "en.footer.cols.season",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › season",
+            "en": "EN · footer › cols › season"
+          }
+        },
+        {
+          "path": "en.footer.cols.timetable",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › timetable",
+            "en": "EN · footer › cols › timetable"
+          }
+        },
+        {
+          "path": "en.footer.cols.booking",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › booking",
+            "en": "EN · footer › cols › booking"
+          }
+        },
+        {
+          "path": "en.footer.cols.services.tours",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › services › tours",
+            "en": "EN · footer › cols › services › tours"
+          }
+        },
+        {
+          "path": "en.footer.cols.services.custom",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › services › custom",
+            "en": "EN · footer › cols › services › custom"
+          }
+        },
+        {
+          "path": "en.footer.cols.services.cruises",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › services › cruises",
+            "en": "EN · footer › cols › services › cruises"
+          }
+        },
+        {
+          "path": "en.footer.cols.services.charter",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › cols › services › charter",
+            "en": "EN · footer › cols › services › charter"
+          }
+        },
+        {
+          "path": "en.map.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · map › eyebrow",
+            "en": "EN · map › eyebrow"
+          }
+        },
+        {
+          "path": "en.map.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · map › title",
+            "en": "EN · map › title"
+          }
+        },
+        {
+          "path": "en.map.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · map › titleAccent",
+            "en": "EN · map › titleAccent"
+          }
+        },
+        {
+          "path": "en.map.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · map › desc",
+            "en": "EN · map › desc"
+          }
+        },
+        {
+          "path": "en.map.cta",
+          "kind": "text",
+          "label": {
+            "it": "EN · map › cta",
+            "en": "EN · map › cta"
+          }
+        },
+        {
+          "path": "en.miniCruises.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › eyebrow",
+            "en": "EN · miniCruises › eyebrow"
+          }
+        },
+        {
+          "path": "en.miniCruises.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › title",
+            "en": "EN · miniCruises › title"
+          }
+        },
+        {
+          "path": "en.miniCruises.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › titleAccent",
+            "en": "EN · miniCruises › titleAccent"
+          }
+        },
+        {
+          "path": "en.miniCruises.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · miniCruises › desc",
+            "en": "EN · miniCruises › desc"
+          }
+        },
+        {
+          "path": "en.miniCruises.bullet1",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › bullet1",
+            "en": "EN · miniCruises › bullet1"
+          }
+        },
+        {
+          "path": "en.miniCruises.bullet2",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › bullet2",
+            "en": "EN · miniCruises › bullet2"
+          }
+        },
+        {
+          "path": "en.miniCruises.bullet3",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › bullet3",
+            "en": "EN · miniCruises › bullet3"
+          }
+        },
+        {
+          "path": "en.miniCruises.cta",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › cta",
+            "en": "EN · miniCruises › cta"
+          }
+        }
+      ]
+    },
+    {
+      "key": "fleet",
+      "file": "app/data/fleet.json",
+      "idField": "slug",
+      "label": {
+        "it": "Flotta (barche)",
+        "en": "Fleet (boats)"
+      },
+      "fields": [
+        {
+          "path": "shortName",
+          "kind": "text",
+          "label": {
+            "it": "Nome breve",
+            "en": "Short name"
+          }
+        },
+        {
+          "path": "cover",
+          "kind": "image",
+          "label": {
+            "it": "Foto di copertina",
+            "en": "Cover photo"
+          }
+        },
+        {
+          "path": "gallery",
+          "kind": "imageList",
+          "label": {
+            "it": "Galleria foto",
+            "en": "Photo gallery"
+          }
+        },
+        {
+          "path": "specs.length",
+          "kind": "text",
+          "label": {
+            "it": "Lunghezza",
+            "en": "Length"
+          }
+        },
+        {
+          "path": "specs.beam",
+          "kind": "text",
+          "label": {
+            "it": "Larghezza",
+            "en": "Beam"
+          }
+        },
+        {
+          "path": "specs.speed",
+          "kind": "text",
+          "label": {
+            "it": "Velocità",
+            "en": "Speed"
+          }
+        },
+        {
+          "path": "specs.cabins",
+          "kind": "text",
+          "label": {
+            "it": "Cabine",
+            "en": "Cabins"
+          }
+        },
+        {
+          "path": "specs.bathrooms",
+          "kind": "text",
+          "label": {
+            "it": "Bagni",
+            "en": "Bathrooms"
+          }
+        },
+        {
+          "path": "specs.capacityDay",
+          "kind": "text",
+          "label": {
+            "it": "Capienza giorno",
+            "en": "Day capacity"
+          }
+        },
+        {
+          "path": "specs.capacityNight",
+          "kind": "text",
+          "label": {
+            "it": "Capienza notte",
+            "en": "Night capacity"
+          }
+        },
+        {
+          "path": "specs.engines",
+          "kind": "text",
+          "label": {
+            "it": "Motori",
+            "en": "Engines"
+          }
+        },
+        {
+          "path": "it.name",
+          "kind": "text",
+          "label": {
+            "it": "Nome (IT)",
+            "en": "Name (IT)"
+          }
+        },
+        {
+          "path": "it.model",
+          "kind": "text",
+          "label": {
+            "it": "Modello (IT)",
+            "en": "Model (IT)"
+          }
+        },
+        {
+          "path": "it.type",
+          "kind": "text",
+          "label": {
+            "it": "Tipo (IT)",
+            "en": "Type (IT)"
+          }
+        },
+        {
+          "path": "it.tagline",
+          "kind": "text",
+          "label": {
+            "it": "Slogan (IT)",
+            "en": "Tagline (IT)"
+          }
+        },
+        {
+          "path": "it.description",
+          "kind": "multiline",
+          "label": {
+            "it": "Descrizione (IT)",
+            "en": "Description (IT)"
+          }
+        },
+        {
+          "path": "it.amenities",
+          "kind": "list",
+          "label": {
+            "it": "Dotazioni (IT)",
+            "en": "Amenities (IT)"
+          }
+        },
+        {
+          "path": "en.name",
+          "kind": "text",
+          "label": {
+            "it": "Nome (EN)",
+            "en": "Name (EN)"
+          }
+        },
+        {
+          "path": "en.model",
+          "kind": "text",
+          "label": {
+            "it": "Modello (EN)",
+            "en": "Model (EN)"
+          }
+        },
+        {
+          "path": "en.type",
+          "kind": "text",
+          "label": {
+            "it": "Tipo (EN)",
+            "en": "Type (EN)"
+          }
+        },
+        {
+          "path": "en.tagline",
+          "kind": "text",
+          "label": {
+            "it": "Slogan (EN)",
+            "en": "Tagline (EN)"
+          }
+        },
+        {
+          "path": "en.description",
+          "kind": "multiline",
+          "label": {
+            "it": "Descrizione (EN)",
+            "en": "Description (EN)"
+          }
+        },
+        {
+          "path": "en.amenities",
+          "kind": "list",
+          "label": {
+            "it": "Dotazioni (EN)",
+            "en": "Amenities (EN)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "tours",
+      "file": "app/data/tours.json",
+      "idField": "slug",
+      "label": {
+        "it": "Tour ed esperienze",
+        "en": "Tours & experiences"
+      },
+      "fields": [
+        {
+          "path": "hours",
+          "kind": "text",
+          "label": {
+            "it": "Durata",
+            "en": "Duration"
+          }
+        },
+        {
+          "path": "priceFrom",
+          "kind": "text",
+          "label": {
+            "it": "Prezzo a partire da",
+            "en": "Price from"
+          }
+        },
+        {
+          "path": "image",
+          "kind": "image",
+          "label": {
+            "it": "Foto di copertina",
+            "en": "Cover photo"
+          }
+        },
+        {
+          "path": "imageHome",
+          "kind": "image",
+          "label": {
+            "it": "Foto in home",
+            "en": "Home photo"
+          }
+        },
+        {
+          "path": "it.title",
+          "kind": "text",
+          "label": {
+            "it": "Titolo (IT)",
+            "en": "Title (IT)"
+          }
+        },
+        {
+          "path": "it.meta",
+          "kind": "text",
+          "label": {
+            "it": "Sottotitolo (IT)",
+            "en": "Meta (IT)"
+          }
+        },
+        {
+          "path": "it.short",
+          "kind": "multiline",
+          "label": {
+            "it": "Descrizione breve (IT)",
+            "en": "Short description (IT)"
+          }
+        },
+        {
+          "path": "it.long",
+          "kind": "multiline",
+          "label": {
+            "it": "Descrizione lunga (IT)",
+            "en": "Long description (IT)"
+          }
+        },
+        {
+          "path": "it.itinerary",
+          "kind": "list",
+          "label": {
+            "it": "Itinerario (IT)",
+            "en": "Itinerary (IT)"
+          }
+        },
+        {
+          "path": "it.highlights",
+          "kind": "list",
+          "label": {
+            "it": "Punti forti (IT)",
+            "en": "Highlights (IT)"
+          }
+        },
+        {
+          "path": "en.title",
+          "kind": "text",
+          "label": {
+            "it": "Titolo (EN)",
+            "en": "Title (EN)"
+          }
+        },
+        {
+          "path": "en.meta",
+          "kind": "text",
+          "label": {
+            "it": "Sottotitolo (EN)",
+            "en": "Meta (EN)"
+          }
+        },
+        {
+          "path": "en.short",
+          "kind": "multiline",
+          "label": {
+            "it": "Descrizione breve (EN)",
+            "en": "Short description (EN)"
+          }
+        },
+        {
+          "path": "en.long",
+          "kind": "multiline",
+          "label": {
+            "it": "Descrizione lunga (EN)",
+            "en": "Long description (EN)"
+          }
+        },
+        {
+          "path": "en.itinerary",
+          "kind": "list",
+          "label": {
+            "it": "Itinerario (EN)",
+            "en": "Itinerary (EN)"
+          }
+        },
+        {
+          "path": "en.highlights",
+          "kind": "list",
+          "label": {
+            "it": "Punti forti (EN)",
+            "en": "Highlights (EN)"
+          }
+        }
+      ]
+    }
+  ]
+}
