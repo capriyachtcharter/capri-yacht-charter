@@ -102,9 +102,6 @@ export default function Header() {
           <Link href={path("/fleet")} className="mobile-menu-link" onClick={closeMenu}>
             {t.nav.fleet}
           </Link>
-          <Link href={path("/#manifesto")} className="mobile-menu-link" onClick={closeMenu}>
-            {t.nav.story}
-          </Link>
           <Link href={path("/contact")} className="mobile-menu-link mobile-menu-link-accent" onClick={closeMenu}>
             {t.nav.contact}
           </Link>

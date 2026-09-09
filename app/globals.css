@@ -1586,10 +1586,15 @@ body {
   /* Hero on phones — keep title and CTAs comfortably inside the viewport */
   .hero-title { font-size: clamp(2.2rem, 9vw, 3.4rem); line-height: 1.1; padding: 0 24px; }
   .hero-pill { font-size: 11px; padding: 6px 14px; }
-  .hero-actions { gap: 12px; padding: 0 24px; }
-  .btn-primary, .btn-secondary {
-    padding: 14px 26px;
+  .hero-actions { gap: 10px; padding: 0 20px; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    padding: 14px 18px;
     font-size: 13px;
+    white-space: nowrap;
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
   }
   .hero-scroll { bottom: 32px; }
 
@@ -4192,6 +4197,13 @@ body {
     grid-template-columns: minmax(0, 1fr);
     padding-top: 120px;
     gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .fleet-detail-specs {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
 
