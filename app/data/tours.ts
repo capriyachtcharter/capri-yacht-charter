@@ -547,9 +547,9 @@ export const tours: Tour[] = [
       meta: "Giornata Intera · 8 ore",
       short:
         "Punta Campanella e la Costiera Amalfitana in un unico tour: Nerano, Li Galli, Positano, Amalfi.",
-      long: "Partenza dal porto scelto alle 10:00. Punta Campanella e Costiera Amalfitana con vista dal mare di Nerano, Li Galli, Positano, Praiano, Fiordo di Furore, Conca dei Marini, Amalfi. Sbarco a Positano e Amalfi per visita e shopping (opzionale). Pranzo in ristorante sul mare (non incluso). Rientro alle 18:00.",
+      long: "Partenza dal porto di Sorrento alle 10:00. Punta Campanella e Costiera Amalfitana con vista dal mare di Nerano, Li Galli, Positano, Praiano, Fiordo di Furore, Conca dei Marini, Amalfi. Sbarco a Positano, Amalfi o Sorrento per visita e shopping (opzionale). Pranzo in ristorante sul mare (non incluso). Rientro alle 18:00.",
       itinerary: [
-        "Partenza dal porto selezionato (10:00)",
+        "Partenza dal porto di Sorrento (10:00)",
         "Punta Campanella · Nerano · Li Galli",
         "Positano dal mare · sbarco opzionale",
         "Praiano · Fiordo di Furore",
@@ -571,9 +571,9 @@ export const tours: Tour[] = [
       meta: "Full Day · 8 Hours",
       short:
         "Punta Campanella and the Amalfi Coast in one tour: Nerano, Li Galli, Positano, Amalfi.",
-      long: "Departure from the selected port at 10:00. Punta Campanella and Amalfi Coast with sea views of Nerano, Li Galli, Positano, Praiano, Furore Fjord, Conca dei Marini, Amalfi. Land in Positano and Amalfi for optional visit and shopping. Lunch at a seaside restaurant (not included). Return at 18:00.",
+      long: "Departure from Sorrento at 10:00. Punta Campanella and Amalfi Coast with sea views of Nerano, Li Galli, Positano, Praiano, Furore Fjord, Conca dei Marini, Amalfi. Land in Positano, Amalfi or Sorrento for optional visit and shopping. Lunch at a seaside restaurant (not included). Return at 18:00.",
       itinerary: [
-        "Departure from selected port (10:00)",
+        "Departure from Sorrento (10:00)",
         "Punta Campanella · Nerano · Li Galli",
         "Positano from the sea · optional landing",
         "Praiano · Furore Fjord",
