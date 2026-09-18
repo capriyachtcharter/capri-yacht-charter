@@ -1584,9 +1584,10 @@ body {
 
 @media (max-width: 640px) {
   /* Hero on phones — keep title and CTAs comfortably inside the viewport */
-  .hero-title { font-size: clamp(2.2rem, 9vw, 3.4rem); line-height: 1.1; padding: 0 24px; }
+  .hero-content { min-width: 0; width: 100%; max-width: 100vw; box-sizing: border-box; padding-left: 20px; padding-right: 20px; }
+  .hero-title { font-size: clamp(2.2rem, 9vw, 3.4rem); line-height: 1.1; padding: 0 4px; min-width: 0; }
   .hero-pill { font-size: 11px; padding: 6px 14px; }
-  .hero-actions { gap: 10px; padding: 0 20px; }
+  .hero-actions { gap: 10px; padding: 0; min-width: 0; max-width: 100%; }
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary {
     padding: 14px 18px;
