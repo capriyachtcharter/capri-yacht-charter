@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { LanguageProvider } from "../i18n/LanguageProvider";
+import MostoOverlay from "../components/MostoOverlay";
 import { resolveTranslations, type Lang } from "../i18n/translations";
 import { getLiveContent, getLiveFleet, getLiveTours } from "../../lib/cms/live-content";
 import type { Tour } from "../data/tours";
@@ -40,6 +41,7 @@ export default async function LocaleLayout({
       tours={liveTours ?? undefined}
     >
       {children}
+      <MostoOverlay />
     </LanguageProvider>
   );
 }

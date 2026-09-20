@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "../i18n/LanguageProvider";
 
 export default function Hero() {
-  const { t, path } = useLang();
+  const { t, path, lang } = useLang();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [ready, setReady] = useState(false);
 
@@ -68,12 +68,12 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-pill">
           <span className="hero-pill-dot" />
-          {t.hero.pill}
+          <span data-mosto-field={`content:home:${lang}.hero.pill`}>{t.hero.pill}</span>
         </div>
 
         <h1 className="hero-title">
-          {t.hero.titleLine1}<br />
-          <span className="italic">{t.hero.titleAccent}</span>
+          <span data-mosto-field={`content:home:${lang}.hero.titleLine1`}>{t.hero.titleLine1}</span><br />
+          <span className="italic" data-mosto-field={`content:home:${lang}.hero.titleAccent`}>{t.hero.titleAccent}</span>
         </h1>
 
         <div className="hero-actions">
