@@ -46,13 +46,10 @@ export default function MostoOverlay() {
     // never writes the mangled proxy URL back into the field.
     const cleanSrc = (src: string | null | undefined): string => {
       if (!src) return "";
-      const m = src.match(/[/_]next\/image\?[^ ]*[?&]url=([^&]+)/);
-      if (m) {
-        try {
-          return decodeURIComponent(m[1]);
-        } catch {
-          return src;
-        }
+      if (src.includes("/_next/image")) {
+        const q = src.split("?")[1] ?? "";
+        const url = new URLSearchParams(q).get("url");
+        if (url) return url; // URLSearchParams already decodes it
       }
       return src;
     };
