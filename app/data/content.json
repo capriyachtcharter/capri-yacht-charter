@@ -19,7 +19,9 @@
         "titleAccent": "come dovrebbe essere.",
         "ctaPrimary": "Scopri i Tour",
         "ctaSecondary": "Contattaci",
-        "scroll": "Scorri"
+        "scroll": "Scorri",
+        "video": "/hero-video.mp4",
+        "poster": "/hero-poster.webp"
       },
       "tours": {
         "eyebrow": "Tour ed Escursioni",
@@ -251,7 +253,9 @@
         "titleAccent": "Sea Experience",
         "ctaPrimary": "Discover Tours",
         "ctaSecondary": "Contact Us",
-        "scroll": "Scroll"
+        "scroll": "Scroll",
+        "video": "/hero-video.mp4",
+        "poster": "/hero-poster.webp"
       },
       "tours": {
         "eyebrow": "Curated Experiences",

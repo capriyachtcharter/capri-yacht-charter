@@ -2232,6 +2232,38 @@
             "it": "EN · miniCruises › cta",
             "en": "EN · miniCruises › cta"
           }
+        },
+        {
+          "path": "it.hero.video",
+          "kind": "video",
+          "label": {
+            "it": "IT · hero › video",
+            "en": "IT · hero › video"
+          }
+        },
+        {
+          "path": "it.hero.poster",
+          "kind": "image",
+          "label": {
+            "it": "IT · hero › poster",
+            "en": "IT · hero › poster"
+          }
+        },
+        {
+          "path": "en.hero.video",
+          "kind": "video",
+          "label": {
+            "it": "EN · hero › video",
+            "en": "EN · hero › video"
+          }
+        },
+        {
+          "path": "en.hero.poster",
+          "kind": "image",
+          "label": {
+            "it": "EN · hero › poster",
+            "en": "EN · hero › poster"
+          }
         }
       ]
     },

@@ -52,10 +52,11 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="/hero-poster.webp"
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
+        poster={t.hero.poster}
+        src={t.hero.video}
+        data-mosto-field={`content:home:${lang}.hero.video`}
+        data-mosto-kind="video"
+      />
       <div className="hero-overlay" />
 
       <div className={`hero-splash${ready ? " is-leaving" : ""}`} aria-hidden={ready}>

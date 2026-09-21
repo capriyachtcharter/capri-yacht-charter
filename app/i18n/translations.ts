@@ -28,6 +28,8 @@ const base = {
       ctaPrimary: "Scopri i Tour",
       ctaSecondary: "Contattaci",
       scroll: "Scorri",
+      video: "/hero-video.mp4",
+      poster: "/hero-poster.webp",
     },
     tours: {
       eyebrow: "Tour ed Escursioni",
@@ -242,6 +244,8 @@ const base = {
       ctaPrimary: "Discover Tours",
       ctaSecondary: "Contact Us",
       scroll: "Scroll",
+      video: "/hero-video.mp4",
+      poster: "/hero-poster.webp",
     },
     tours: {
       eyebrow: "Curated Experiences",

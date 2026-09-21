@@ -34,7 +34,11 @@ export default function Tours() {
                 data-reveal="left"
                 style={{ transitionDelay: `${i * 0.12}s` }}
               >
-                <div className="tour-card-img">
+                <div
+                  className="tour-card-img"
+                  data-mosto-field={detail ? `tours:${detail.slug}:imageHome` : undefined}
+                  data-mosto-kind={detail ? "image" : undefined}
+                >
                   {tour.tag && <span className="tour-card-tag">{t.tours.tags[tour.tag]}</span>}
                   <Image
                     src={detail?.imageHome ?? detail?.image ?? "/og.jpg"}
