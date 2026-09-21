@@ -11,10 +11,18 @@ export default function BoatCarousel({
   images,
   alt,
   intervalMs = 3200,
+  fieldBase,
 }: {
   images: string[];
   alt: string;
   intervalMs?: number;
+  /**
+   * When set (e.g. "fleet:capri-full-day:gallery"), each frame is annotated for
+   * the Mosto visual CMS as `<fieldBase>.<index>` so the client can swap a single
+   * gallery photo. Only the active (visible) frame is clickable — see globals.css
+   * `.boat-carousel-frame` pointer-events — so a click edits the photo on screen.
+   */
+  fieldBase?: string;
 }) {
   const [idx, setIdx] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -56,6 +64,8 @@ export default function BoatCarousel({
           alt={alt}
           className={`boat-carousel-frame${idx === i ? " is-active" : ""}`}
           loading={i === 0 ? "eager" : "lazy"}
+          data-mosto-field={fieldBase ? `${fieldBase}.${i}` : undefined}
+          data-mosto-kind={fieldBase ? "image" : undefined}
         />
       ))}
 
