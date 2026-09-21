@@ -41,9 +41,24 @@ export default function MostoOverlay() {
     };
     const media = (el: HTMLElement, tag: "img" | "video") =>
       el.tagName === tag.toUpperCase() ? el : el.querySelector(tag);
+    // next/image serves an optimized proxy URL (/_next/image?url=<encoded>&w=…&q=…).
+    // Unwrap it so the panel shows the real source path, and a save-without-upload
+    // never writes the mangled proxy URL back into the field.
+    const cleanSrc = (src: string | null | undefined): string => {
+      if (!src) return "";
+      const m = src.match(/[/_]next\/image\?[^ ]*[?&]url=([^&]+)/);
+      if (m) {
+        try {
+          return decodeURIComponent(m[1]);
+        } catch {
+          return src;
+        }
+      }
+      return src;
+    };
     const readValue = (el: HTMLElement, kind: string) => {
-      if (kind === "image") return media(el, "img")?.getAttribute("src") ?? "";
-      if (kind === "video") return media(el, "video")?.getAttribute("src") ?? "";
+      if (kind === "image") return cleanSrc(media(el, "img")?.getAttribute("src"));
+      if (kind === "video") return cleanSrc(media(el, "video")?.getAttribute("src"));
       return (el.textContent ?? "").trim();
     };
     const writeValue = (el: HTMLElement, kind: string, value: string) => {
