@@ -1,6 +1,14 @@
+import contentOverrides from "../data/content.json";
+
 export type Lang = "it" | "en";
 
-export const translations = {
+/**
+ * `base` is the typed anchor + safe fallback. The LIVE, client-editable copy lives in
+ * app/data/content.json (edited via the /admin chat) and is merged over `base` below —
+ * so published edits show on the site while the strict types and a working fallback
+ * (if content.json is ever missing/malformed) stay intact.
+ */
+const base = {
   it: {
     nav: {
       home: "Home",
@@ -20,6 +28,8 @@ export const translations = {
       ctaPrimary: "Scopri i Tour",
       ctaSecondary: "Contattaci",
       scroll: "Scorri",
+      video: "/hero-video.mp4",
+      poster: "/hero-poster.webp",
     },
     tours: {
       eyebrow: "Tour ed Escursioni",
@@ -235,6 +245,8 @@ export const translations = {
       ctaPrimary: "Discover Tours",
       ctaSecondary: "Contact Us",
       scroll: "Scroll",
+      video: "/hero-video.mp4",
+      poster: "/hero-poster.webp",
     },
     tours: {
       eyebrow: "Curated Experiences",
@@ -433,4 +445,41 @@ export const translations = {
   },
 } as const;
 
-export type Translations = typeof translations.it;
+/** Deep-merge content.json's copy over `base` (objects recurse; arrays replaced whole). */
+function mergeCopy<T>(target: T, src: unknown): T {
+  if (src == null) return target;
+  if (Array.isArray(src) || typeof src !== "object" || typeof target !== "object" || target == null) {
+    return src as T;
+  }
+  const out: Record<string, unknown> = { ...(target as Record<string, unknown>) };
+  for (const [k, v] of Object.entries(src as Record<string, unknown>)) {
+    out[k] = mergeCopy((target as Record<string, unknown>)[k], v);
+  }
+  return out as T;
+}
+
+const bundledHome = (contentOverrides as Array<{ id: string; it?: unknown; en?: unknown }>).find(
+  (e) => e.id === "home",
+);
+
+export type Translations = typeof base.it;
+
+/**
+ * Resolve the it/en copy by merging an override (the LIVE content.json fetched at
+ * request time) over `base`. With no override it uses the build-time bundled copy —
+ * so both static fallback and live serving go through the same merge.
+ */
+export function resolveTranslations(override?: { it?: unknown; en?: unknown }): {
+  it: Translations;
+  en: Translations;
+} {
+  const src = override ?? bundledHome;
+  // it/en share a shape but `as const` gives them divergent string literals (eg
+  // "Tour" vs "Tours"), so route through unknown — consumers still get Translations.
+  return {
+    it: mergeCopy(base.it, src?.it),
+    en: mergeCopy(base.en, src?.en),
+  } as unknown as { it: Translations; en: Translations };
+}
+
+export const translations = resolveTranslations();

@@ -3,16 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
-import { toursByLegacyId } from "../data/tours";
 
 // Home tours section — 4 curated preview cards + a CTA that links to the
 // full /tours page so the visitor can browse the complete catalogue.
 
-// Images come from the single source of truth — data/tours.ts (tour.image) —
-// so the home Tours section never drifts from the /tours pages.
+// Images come from the single source of truth — tours data (tour.image) — resolved
+// live via context so a swapped photo shows without a rebuild, and the home Tours
+// section never drifts from the /tours pages.
 
 export default function Tours() {
-  const { t, path } = useLang();
+  const { t, path, toursByLegacyId } = useLang();
   return (
     <section className="section" id="tours">
       <div className="section-inner">
@@ -37,7 +37,11 @@ export default function Tours() {
                 data-reveal="left"
                 style={{ transitionDelay: `${i * 0.12}s` }}
               >
-                <div className="tour-card-img">
+                <div
+                  className="tour-card-img"
+                  data-mosto-field={detail ? `tours:${detail.slug}:imageHome` : undefined}
+                  data-mosto-kind={detail ? "image" : undefined}
+                >
                   {tour.tag && <span className="tour-card-tag">{t.tours.tags[tour.tag]}</span>}
                   <Image
                     src={detail?.imageHome ?? detail?.image ?? "/og.jpg"}

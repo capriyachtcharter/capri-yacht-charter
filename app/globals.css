@@ -5452,10 +5452,13 @@ img { max-width: 100%; height: auto; }
   object-fit: cover;
   object-position: center center;
   opacity: 0;
+  /* Stacked frames: only the visible one takes clicks, so the Mosto visual CMS
+     edits the photo actually on screen (not the last frame in DOM order). */
+  pointer-events: none;
   transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.boat-carousel-frame.is-active { opacity: 1; }
+.boat-carousel-frame.is-active { opacity: 1; pointer-events: auto; }
 .boat-carousel:hover .boat-carousel-frame.is-active { transform: scale(1.03); }
 
 .boat-carousel-nav {

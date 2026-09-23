@@ -3,7 +3,6 @@
 import Link from "next/link";
 import BoatCarousel from "./BoatCarousel";
 import { useLang } from "../i18n/LanguageProvider";
-import { boatByLegacyId } from "../data/fleet";
 
 type Boat = {
   id: string;
@@ -16,7 +15,7 @@ type Boat = {
   images: string[];
 };
 
-function FleetCard({ boat, delay, ctaLabel, ctaHref }: { boat: Boat; delay: number; ctaLabel: string; ctaHref: string }) {
+function FleetCard({ boat, delay, ctaLabel, ctaHref, fieldBase }: { boat: Boat; delay: number; ctaLabel: string; ctaHref: string; fieldBase?: string }) {
   return (
     <article
       id={`fleet-${boat.id}`}
@@ -25,7 +24,7 @@ function FleetCard({ boat, delay, ctaLabel, ctaHref }: { boat: Boat; delay: numb
       style={{ transitionDelay: `${delay}s` }}
     >
       <div className="fleet-card-img">
-        <BoatCarousel images={boat.images} alt={boat.name} />
+        <BoatCarousel images={boat.images} alt={boat.name} fieldBase={fieldBase} />
       </div>
 
       <div className="fleet-card-body">
@@ -56,7 +55,7 @@ function FleetCard({ boat, delay, ctaLabel, ctaHref }: { boat: Boat; delay: numb
 }
 
 export default function Fleet() {
-  const { lang, t, path } = useLang();
+  const { lang, t, path, boatByLegacyId } = useLang();
   const boats: Boat[] = t.fleet.boats.map((b) => ({
     ...b,
     images: boatByLegacyId[b.id]?.gallery ?? [],
@@ -74,15 +73,19 @@ export default function Fleet() {
         </div>
 
         <div className="fleet-grid">
-          {boats.map((b, i) => (
-            <FleetCard
-              key={b.id}
-              boat={b}
-              delay={i * 0.14}
-              ctaLabel={ctaLabel}
-              ctaHref={path(`/fleet/${boatByLegacyId[b.id]?.slug ?? ""}`)}
-            />
-          ))}
+          {boats.map((b, i) => {
+            const slug = boatByLegacyId[b.id]?.slug;
+            return (
+              <FleetCard
+                key={b.id}
+                boat={b}
+                delay={i * 0.14}
+                ctaLabel={ctaLabel}
+                ctaHref={path(`/fleet/${slug ?? ""}`)}
+                fieldBase={slug ? `fleet:${slug}:gallery` : undefined}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
