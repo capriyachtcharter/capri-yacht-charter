@@ -33,6 +33,7 @@ const fixed = {
   it: [
     "Equipaggio",
     "IVA",
+    "Carburante",
     "Aperitivo · snack",
     "1 bottiglia di vino",
     "1 bottiglia di prosecco",
@@ -42,6 +43,7 @@ const fixed = {
   en: [
     "Crew",
     "VAT",
+    "Fuel",
     "Aperitivo · snacks",
     "1 bottle of wine",
     "1 bottle of prosecco",
@@ -50,17 +52,16 @@ const fixed = {
   ],
 };
 
-// VARIABILE — voci opzionali o il cui costo varia (carburante consumato,
-// pranzo, alcolici, ingressi, extra).
+// VARIABILE — voci opzionali o il cui costo varia (pranzo, alcolici,
+// ingressi, extra).
 const variable = {
   it: [
-    "Carburante",
     "Pranzo",
     "Alcolici",
     "Ingresso alla Grotta Azzurra",
     "Extra non indicati",
   ],
-  en: ["Fuel", "Lunch", "Alcohol", "Blue Grotto entrance", "Extras not listed"],
+  en: ["Lunch", "Alcohol", "Blue Grotto entrance", "Extras not listed"],
 };
 
 // Extras "su richiesta" — same list on every tour. Moto d'acqua is exclusive

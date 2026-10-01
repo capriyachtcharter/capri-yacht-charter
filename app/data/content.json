@@ -33,41 +33,41 @@
         "inquire": "Richiedi Preventivo",
         "seeAll": "Vedi tutti i tour",
         "tags": {
-          "popular": "Più Richiesto",
-          "value": "Più Completo",
+          "popular": "La Più Richiesta",
+          "value": "La Più Completa",
           "bespoke": "Su Misura"
         },
         "list": [
           {
-            "id": "tour-capri-full-day",
-            "tag": "popular",
-            "meta": "Giornata Intera · 7 ore",
-            "title": "Giro di Capri",
-            "desc": "La giornata completa a Capri: giro dell'isola, tutte le grotte, soste bagno estese.",
-            "price": "1.700 €"
+            "id": "tour-full-day",
+            "tag": "value",
+            "meta": "Giornata Intera · 8 ore",
+            "title": "Capri & Costiera Amalfitana",
+            "desc": "Imbarco Capri o Amalfi. Positano, i borghi di Amalfi. Pranzo a bordo o in una caletta nascosta.",
+            "price": "2.000 €"
           },
           {
-            "id": "tour-full-day",
-            "tag": null,
+            "id": "tour-capri-positano",
+            "tag": "popular",
             "meta": "Giornata Intera · 8 ore",
-            "title": "Capri & Costiera",
-            "desc": "Capri, Positano, i borghi di Amalfi. Pranzo a bordo o in una caletta nascosta.",
+            "title": "Capri & Positano",
+            "desc": "Imbarco a Capri. Positano dal mare con sbarco opzionale, soste bagno nelle cale più belle.",
             "price": "2.000 €"
           },
           {
             "id": "tour-capri-sorrento",
             "tag": null,
             "meta": "Giornata Intera · 8 ore",
-            "title": "Capri & Penisola",
-            "desc": "Capri e la penisola sorrentina: Bagni della Regina Giovanna, Sorrento, giro dell'isola.",
+            "title": "Capri & Sorrento",
+            "desc": "Imbarco Capri o Sorrento. Bagni della Regina Giovanna, Sorrento, giro dell'isola dopo pranzo.",
             "price": "2.000 €"
           },
           {
             "id": "tour-penisola-amalfitana",
-            "tag": "value",
+            "tag": null,
             "meta": "Giornata Intera · 8 ore",
-            "title": "Costiera Amalfitana Full Day",
-            "desc": "Punta Campanella, Li Galli, Positano, Praiano, Fiordo di Furore, Amalfi — la costiera dal mare.",
+            "title": "Sorrento & Costiera Amalfitana",
+            "desc": "Partenza da Sorrento. Punta Campanella, Li Galli, Positano, Praiano, Fiordo di Furore, Amalfi.",
             "price": "2.000 €"
           }
         ]
@@ -274,35 +274,35 @@
         },
         "list": [
           {
-            "id": "tour-capri-full-day",
-            "tag": "popular",
-            "meta": "Full Day · 7 Hours",
-            "title": "Capri Full Day",
-            "desc": "The complete day around Capri: full island tour, every main grotto, extended swim stops.",
-            "price": "€1,700"
-          },
-          {
             "id": "tour-full-day",
-            "tag": null,
+            "tag": "value",
             "meta": "Full Day · 8 Hours",
             "title": "Capri & Amalfi Coast",
-            "desc": "Capri, Positano, Amalfi villages. Lunch on board or in a hidden cove.",
+            "desc": "Boarding from Capri or Amalfi. Positano, Amalfi villages. Lunch on board or in a hidden cove.",
+            "price": "€2,000"
+          },
+          {
+            "id": "tour-capri-positano",
+            "tag": "popular",
+            "meta": "Full Day · 8 Hours",
+            "title": "Capri & Positano",
+            "desc": "Boarding from Capri. Positano from the sea with optional landing, swim stops in the best coves.",
             "price": "€2,000"
           },
           {
             "id": "tour-capri-sorrento",
             "tag": null,
             "meta": "Full Day · 8 Hours",
-            "title": "Capri & Peninsula",
-            "desc": "Capri and the Sorrento peninsula: Regina Giovanna baths, Sorrento, full island tour.",
+            "title": "Capri & Sorrento",
+            "desc": "Boarding from Capri or Sorrento. Regina Giovanna baths, Sorrento, island tour after lunch.",
             "price": "€2,000"
           },
           {
             "id": "tour-penisola-amalfitana",
-            "tag": "value",
+            "tag": null,
             "meta": "Full Day · 8 Hours",
-            "title": "Amalfi Coast Full Day",
-            "desc": "Punta Campanella, Li Galli, Positano, Praiano, Furore Fjord, Amalfi — the coast from the sea.",
+            "title": "Sorrento & Amalfi Coast",
+            "desc": "Departure from Sorrento. Punta Campanella, Li Galli, Positano, Praiano, Furore Fjord, Amalfi.",
             "price": "€2,000"
           }
         ]

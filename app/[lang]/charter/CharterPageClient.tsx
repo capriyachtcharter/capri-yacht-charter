@@ -84,16 +84,18 @@ export default function CharterPage() {
             {lang === "it" ? "Noleggio yacht" : "Charter · yacht hire"}
           </div>
           <h1 className="page-hero-title">
-            {lang === "it" ? "La barca è tua." : "The boat is yours."}
+            {lang === "it" ? "Il viaggio è già parte del lusso." : "The journey is already part of the luxury."}
             <br />
             <span className="accent-italic">
-              {lang === "it" ? "Il capitano è nostro." : "The captain is ours."}
+              {lang === "it"
+                ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
+                : "Private yachts with captain, to live the sea and reach every destination in style."}
             </span>
           </h1>
           <p className="page-hero-desc">
             {lang === "it"
-              ? "Noleggia un nostro yacht con capitano dedicato per una giornata intera o multi-day. Nessun itinerario imposto, nessun orario fisso — disegniamo la giornata insieme."
-              : "Hire one of our yachts with a dedicated captain for a full day or multi-day. No fixed itinerary, no rigid schedule — we design the day together."}
+              ? "Noleggia un nostro yacht con capitano dedicato per una giornata intera, più giorni o per raggiungere la tua prossima destinazione via mare. Nessun itinerario imposto, nessun orario fisso: disegniamo ogni momento insieme, perché il lusso della vacanza inizi già dal viaggio."
+              : "Hire one of our yachts with a dedicated captain for a full day, multi-day or to reach your next destination by sea. No fixed itinerary, no rigid schedule: we design every moment together, so the luxury of your holiday begins from the journey itself."}
           </p>
         </div>
       </section>

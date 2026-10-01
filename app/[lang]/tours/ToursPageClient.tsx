@@ -6,30 +6,22 @@ import PageShell from "../../components/PageShell";
 import { useLang } from "../../i18n/LanguageProvider";
 import { tours, tourImagePosition } from "../../data/tours";
 
-// Bento layout — perfect 6-column rectangle:
-// Row 1-2: LARGE Costiera (4×2)         + TALL Positano (2×2)
-// Row 3:   MEDIUM Ischia (3)            + MEDIUM Procida (3)
-// Row 4:   TALL Sorrento (2×2) starts   + HALFWIDE Capri Full Day (4) — PIÙ RICHIESTO
-// Row 5:   TALL Sorrento continues      + HALFWIDE Su Misura (4)
+// Bento layout — 4 principali per Annalisa 01/10/2026:
+// Row 1-2: LARGE Capri & Costiera (4×2) + TALL Capri & Positano (2×2) — LA PIÙ RICHIESTA
+// Row 3-4: TALL Capri & Sorrento (2×2)  + LARGE Sorrento & Costiera (4×2)
 const sizeByLegacy: Record<string, "large" | "tall" | "medium" | "small" | "halfwide"> = {
-  "tour-full-day": "large", // Capri & Costiera Amalfitana — flagship
-  "tour-capri-positano": "tall",
-  "tour-capri-ischia": "medium",
-  "tour-ischia-procida": "medium",
-  "tour-capri-sorrento": "tall", // vertical on the left
-  "tour-capri-full-day": "halfwide", // Capri Full Day — row 4 right half (PIÙ RICHIESTO)
-  "tour-custom": "halfwide", // bespoke — row 5 right half
+  "tour-full-day": "large", // Capri & Costiera Amalfitana — LA PIÙ COMPLETA
+  "tour-capri-positano": "tall", // LA PIÙ RICHIESTA
+  "tour-capri-sorrento": "tall",
+  "tour-penisola-amalfitana": "large", // Sorrento & Costiera Amalfitana
 };
 
-// Render order respects auto-flow so cells fill the 6×5 rectangle with no gaps.
+// Render order respects auto-flow so cells fill the 6×4 rectangle with no gaps.
 const renderOrder = [
-  "tour-full-day", // large rows 1-2 cols 1-4
-  "tour-capri-positano", // tall rows 1-2 cols 5-6
-  "tour-capri-ischia", // medium row 3 cols 1-3
-  "tour-ischia-procida", // medium row 3 cols 4-6
-  "tour-capri-sorrento", // tall rows 4-5 cols 1-2 (LEFT)
-  "tour-capri-full-day", // halfwide row 4 cols 3-6 — PIÙ RICHIESTO
-  "tour-custom", // halfwide row 5 cols 3-6
+  "tour-full-day", // large rows 1-2 cols 1-4 — LA PIÙ COMPLETA
+  "tour-capri-positano", // tall rows 1-2 cols 5-6 — LA PIÙ RICHIESTA
+  "tour-capri-sorrento", // tall rows 3-4 cols 1-2
+  "tour-penisola-amalfitana", // large rows 3-4 cols 3-6
 ];
 
 export default function ToursHubPage() {

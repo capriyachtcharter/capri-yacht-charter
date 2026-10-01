@@ -85,11 +85,11 @@
       "title": "Capri & Costiera Amalfitana",
       "meta": "Giornata Intera · 8 ore",
       "short": "L'intera costa: Capri, Positano, i borghi di Amalfi. Pranzo a bordo o in una caletta nascosta.",
-      "long": "Partenza dal porto scelto alle 10:00 (Capri o Sorrento). Navigazione per Amalfi con sosta bagno a Li Galli, sbarco a Positano, Amalfi o Sorrento per visita e shopping. Pranzo opzionale in ristorante sul mare (non incluso). Rientro alle 18:00 dopo il giro dell'isola di Capri.",
+      "long": "Partenza dal porto scelto alle 10:00 (Capri o Amalfi). Navigazione per Amalfi con sosta bagno a Li Galli, sbarco a Positano o Amalfi per visita e shopping. Pranzo opzionale in ristorante sul mare (non incluso). Rientro alle 18:00 dopo il giro dell'isola di Capri.",
       "itinerary": [
-        "Partenza dal porto scelto (10:00)",
+        "Partenza dal porto scelto (10:00) — Capri o Amalfi",
         "Navigazione verso Amalfi — sosta bagno a Li Galli",
-        "Sbarco a Positano, Amalfi o Sorrento per visita e shopping",
+        "Sbarco a Positano o Amalfi per visita e shopping",
         "Pranzo opzionale in ristorante sul mare (non incluso)",
         "Giro dell'isola di Capri e visita grotte",
         "Sosta fotografica ai Faraglioni",
@@ -106,11 +106,11 @@
       "title": "Capri & Amalfi Coast",
       "meta": "Full Day · 8 Hours",
       "short": "The complete coast: Capri, Positano, Amalfi villages. Lunch on board or in a hidden harbour.",
-      "long": "Departure from the chosen port at 10:00 (Capri or Sorrento). Navigation toward Amalfi with a swim stop at Li Galli, landing in Positano, Amalfi or Sorrento for visits and shopping. Optional lunch at a seaside restaurant (not included). Return at 18:00 after the Capri island loop.",
+      "long": "Departure from the chosen port at 10:00 (Capri or Amalfi). Navigation toward Amalfi with a swim stop at Li Galli, landing in Positano or Amalfi for visits and shopping. Optional lunch at a seaside restaurant (not included). Return at 18:00 after the Capri island loop.",
       "itinerary": [
-        "Departure from chosen port (10:00)",
+        "Departure from chosen port (10:00) — Capri or Amalfi",
         "Navigation to Amalfi — swim stop at Li Galli",
-        "Landing in Positano, Amalfi or Sorrento for visit and shopping",
+        "Landing in Positano or Amalfi for visit and shopping",
         "Optional lunch at a seaside restaurant (not included)",
         "Capri island loop and grotto visits",
         "Photo stop at the Faraglioni",
@@ -135,6 +135,7 @@
       "primatist-g50": "3.600 €",
       "sarima-39": "2.000 €"
     },
+    "tag": "popular",
     "image": "/tours/capri-positano.jpg",
     "boats": [
       "primatist-g65",
@@ -144,8 +145,8 @@
     "it": {
       "title": "Capri & Positano",
       "meta": "Giornata Intera · 8 ore",
-      "short": "La giornata più richiesta: circumnavigazione di Capri al mattino, pomeriggio a Positano.",
-      "long": "Imbarco alle 10:00 al porto di Capri. Navigazione per Positano con sosta bagno a Li Galli, sbarco a Positano per visita e shopping opzionali. Giro dell'isola di Capri con visita delle grotte. Rientro alle 18:00.",
+      "short": "La giornata più richiesta: Positano al mattino, giro di Capri dopo pranzo.",
+      "long": "Imbarco alle 10:00 al porto di Capri. Navigazione per Positano con sosta bagno a Li Galli, sbarco a Positano per visita e shopping opzionali. Pranzo opzionale in ristorante sul mare. Giro dell'isola di Capri con visita delle grotte nel pomeriggio. Rientro alle 18:00.",
       "itinerary": [
         "Imbarco al porto di Capri (10:00)",
         "Navigazione verso Positano — sosta bagno a Li Galli",
@@ -165,8 +166,8 @@
     "en": {
       "title": "Capri & Positano",
       "meta": "Full Day · 8 Hours",
-      "short": "Our most requested day: morning Capri loop, afternoon ashore in Positano.",
-      "long": "Boarding at 10:00 from Capri port. Navigation to Positano with a swim stop at Li Galli, landing in Positano for optional visit and shopping. Capri island loop with grotto visits. Return at 18:00.",
+      "short": "Our most requested day: Positano in the morning, Capri loop after lunch.",
+      "long": "Boarding at 10:00 from Capri port. Navigation to Positano with a swim stop at Li Galli, landing in Positano for optional visit and shopping. Optional lunch at a seaside restaurant. Capri island loop with grotto visits in the afternoon. Return at 18:00.",
       "itinerary": [
         "Boarding at Capri port (10:00)",
         "Navigation to Positano — swim stop at Li Galli",
@@ -329,14 +330,14 @@
       "title": "Capri & Sorrento",
       "meta": "Giornata Intera · 8 ore",
       "short": "Costiera Sorrentina dal mare con sbarco a Sorrento per shopping e visita.",
-      "long": "Imbarco al porto di Capri alle 10:00. Navigazione lungo la Costiera Sorrentina con vista dal mare di Massa Lubrense e dei Bagni della Regina Giovanna. Sbarco a Sorrento per visita e shopping opzionali. Giro dell'isola di Capri con visita delle grotte e soste bagno. Rientro alle 18:00.",
+      "long": "Imbarco a Capri o Sorrento alle 10:00. Navigazione lungo la Costiera Sorrentina con vista dal mare di Massa Lubrense e dei Bagni della Regina Giovanna. Sbarco a Sorrento per visita e shopping opzionali. Pranzo opzionale in ristorante sul mare. Giro dell'isola di Capri con visita delle grotte e soste bagno nel pomeriggio. Rientro alle 18:00.",
       "itinerary": [
-        "Imbarco al porto di Capri (10:00)",
+        "Imbarco a Capri o Sorrento (10:00)",
         "Costiera Sorrentina · Massa Lubrense, Bagni Regina Giovanna",
         "Sbarco a Sorrento: visita e shopping (opzionale)",
+        "Pranzo opzionale in ristorante sul mare (non incluso)",
         "Giro dell'isola di Capri e visita grotte",
         "Sosta fotografica ai Faraglioni",
-        "Pranzo opzionale in ristorante sul mare a Marina Piccola (non incluso)",
         "Soste bagno nelle calette",
         "Rientro previsto alle 18:00"
       ],
@@ -351,14 +352,14 @@
       "title": "Capri & Sorrento",
       "meta": "Full Day · 8 Hours",
       "short": "The Sorrento Coast from the sea with a landing in Sorrento for visit and shopping.",
-      "long": "Boarding at Capri port at 10:00. Sail along the Sorrento Coast with sea-view of Massa Lubrense and the Bagni della Regina Giovanna. Landing in Sorrento for optional visit and shopping. Capri island loop with grotto visits and swim stops. Return at 18:00.",
+      "long": "Boarding at Capri or Sorrento at 10:00. Sail along the Sorrento Coast with sea-view of Massa Lubrense and the Bagni della Regina Giovanna. Landing in Sorrento for optional visit and shopping. Optional lunch at a seaside restaurant. Capri island loop with grotto visits and swim stops in the afternoon. Return at 18:00.",
       "itinerary": [
-        "Boarding at Capri port (10:00)",
+        "Boarding at Capri or Sorrento (10:00)",
         "Sorrento Coast · Massa Lubrense, Regina Giovanna Baths",
         "Land in Sorrento: visit and shopping (optional)",
+        "Optional lunch at a seaside restaurant (not included)",
         "Capri island loop and grotto visits",
         "Photo stop at the Faraglioni",
-        "Optional lunch at a seaside restaurant in Marina Piccola (not included)",
         "Swim stops at the coves",
         "Expected return at 18:00"
       ],
@@ -381,7 +382,6 @@
       "primatist-g50": "3.200 €",
       "sarima-39": "1.700 €"
     },
-    "tag": "popular",
     "image": "/tours/capri-island.jpg",
     "boats": [
       "primatist-g65",
@@ -511,7 +511,7 @@
       "sarima-39"
     ],
     "it": {
-      "title": "Penisola & Costiera Amalfitana",
+      "title": "Sorrento & Costiera Amalfitana",
       "meta": "Giornata Intera · 8 ore",
       "short": "Punta Campanella e la Costiera Amalfitana in un unico tour: Nerano, Li Galli, Positano, Amalfi.",
       "long": "Partenza dal porto di Sorrento alle 10:00. Punta Campanella e Costiera Amalfitana con vista dal mare di Nerano, Li Galli, Positano, Praiano, Fiordo di Furore, Conca dei Marini, Amalfi. Sbarco a Positano, Amalfi o Sorrento per visita e shopping (opzionale). Pranzo in ristorante sul mare (non incluso). Rientro alle 18:00.",
@@ -534,7 +534,7 @@
       ]
     },
     "en": {
-      "title": "Peninsula & Amalfi Coast",
+      "title": "Sorrento & Amalfi Coast",
       "meta": "Full Day · 8 Hours",
       "short": "Punta Campanella and the Amalfi Coast in one tour: Nerano, Li Galli, Positano, Amalfi.",
       "long": "Departure from Sorrento at 10:00. Punta Campanella and Amalfi Coast with sea views of Nerano, Li Galli, Positano, Praiano, Furore Fjord, Conca dei Marini, Amalfi. Land in Positano, Amalfi or Sorrento for optional visit and shopping. Lunch at a seaside restaurant (not included). Return at 18:00.",
