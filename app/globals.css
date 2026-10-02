@@ -3452,16 +3452,150 @@ body {
 }
 
 @media (max-width: 640px) {
-  .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
-  .bento-large,
-  .bento-tall,
-  .bento-medium,
-  .bento-small,
-  .bento-wide,
-  .bento-halfwide {
-    grid-column: span 1;
-    grid-row: span 1;
+  /* Bento cards on mobile adopt the "white card with explicit CTA" look —
+     same visual language as the Altri cards below — so all 11 tours read as
+     a uniform scrollable list, each with image + description + Scopri button. */
+  .bento-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
   }
+  .bento-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    isolation: auto;
+    box-shadow: 0 2px 12px rgba(15, 22, 35, 0.04);
+    width: 100%;
+    height: auto;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .bento-card:hover { transform: none; box-shadow: 0 2px 12px rgba(15, 22, 35, 0.04); }
+  .bento-card-img {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .bento-card-overlay { display: none; }
+  .bento-card-body {
+    position: static;
+    padding: 20px;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    flex: 1;
+  }
+  .bento-card-tag {
+    position: static;
+    display: inline-flex;
+    width: fit-content;
+    background: rgba(111, 181, 197, 0.15);
+    color: var(--sea-dark);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .bento-card-meta {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+    font-weight: 500;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .bento-card-title {
+    font-family: var(--serif);
+    font-size: 22px !important;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 0 0 10px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .bento-card-desc {
+    display: -webkit-box !important;
+    -webkit-line-clamp: unset !important;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 18px;
+    font-weight: 300;
+    flex: 1;
+    opacity: 1 !important;
+    max-height: none !important;
+    transform: none !important;
+  }
+  .bento-card-footer {
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 24, 69, 0.08);
+    opacity: 1 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .bento-card-price {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .bento-card-price span {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .bento-card-price strong {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--sea-dark);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .bento-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--sea);
+    color: var(--navy);
+    white-space: nowrap;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .bento-card-cta svg { width: 14px; height: 14px; }
+
+  /* Mobile: all tours flow as one continuous list.
+     Hide the Altri section header/eyebrow so bento + Altri read as one. */
+  .tours-more-section [data-reveal],
+  .tours-more-section .eyebrow,
+  .tours-more-section .section-title { display: none; }
+  .tours-more-section { padding-top: 0; margin-top: -32px; }
+  .tours-more-grid { margin-top: 18px; }
 }
 
 .tour-card-link {
@@ -4503,6 +4637,29 @@ body {
   background: linear-gradient(180deg, rgba(15, 22, 35, 0) 30%, rgba(15, 22, 35, 0.55) 70%, rgba(15, 22, 35, 0.92) 100%);
   z-index: 1;
   transition: background 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Tag badge mirrors the bento card tag so the "La Più Completa / La Più
+   Richiesta / Su Misura" labels are consistent between /tours and the
+   boat-detail carousels. */
+.tour-carousel-card-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
 }
 
 .tour-carousel-card:hover .tour-carousel-card-overlay {

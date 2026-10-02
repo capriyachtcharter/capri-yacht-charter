@@ -9,10 +9,45 @@ import { useLang } from "../../../i18n/LanguageProvider";
 import { boatBySlug } from "../../../data/fleet";
 import { tours } from "../../../data/tours";
 
+// Same showcase order as the /tours hub bento + Altri — tagged tours first,
+// so the carousel surfaces the recommended / most requested experiences up front.
+const TOUR_SHOWCASE_ORDER = [
+  "tour-full-day", // La Più Completa
+  "tour-capri-positano", // La Più Richiesta
+  "tour-capri-sorrento",
+  "tour-penisola-amalfitana",
+  "tour-capri-full-day",
+  "tour-ischia-procida",
+  "tour-capri-ischia",
+  "tour-island", // Capri Mezza Giornata
+  "tour-capri-positano-half",
+  "tour-ischia",
+  "tour-custom", // Su Misura
+];
+
+// On the larger overnight-ready yachts (TENAREZE VI, CHITON FOUR) the bespoke
+// multi-day itinerary is a stronger product-fit, so we surface Su Misura right
+// after the 4 principali rather than leaving it at the very end.
+const TOUR_SHOWCASE_ORDER_LARGE_YACHT = [
+  "tour-full-day", // La Più Completa
+  "tour-capri-positano", // La Più Richiesta
+  "tour-capri-sorrento",
+  "tour-penisola-amalfitana",
+  "tour-custom", // Su Misura — bumped up: multi-day fits these boats
+  "tour-capri-full-day",
+  "tour-ischia-procida",
+  "tour-capri-ischia",
+  "tour-island",
+  "tour-capri-positano-half",
+  "tour-ischia",
+];
+
+const LARGE_YACHT_IDS = new Set(["primatist-g65", "primatist-g50"]);
+
 export default function BoatDetailPage() {
   const params = useParams<{ slug: string }>();
   const boat = boatBySlug[params.slug];
-  const { lang, path } = useLang();
+  const { lang, path, t } = useLang();
   const [idx, setIdx] = useState(0);
 
   if (!boat) {
@@ -20,7 +55,17 @@ export default function BoatDetailPage() {
   }
 
   const c = lang === "it" ? boat.it : boat.en;
-  const compatibleTours = tours.filter((tr) => tr.boats.includes(boat.legacyId));
+  const showcaseOrder = LARGE_YACHT_IDS.has(boat.legacyId)
+    ? TOUR_SHOWCASE_ORDER_LARGE_YACHT
+    : TOUR_SHOWCASE_ORDER;
+  const compatibleTours = tours
+    .filter((tr) => tr.boats.includes(boat.legacyId))
+    .sort((a, b) => {
+      const ai = showcaseOrder.indexOf(a.legacyId);
+      const bi = showcaseOrder.indexOf(b.legacyId);
+      // Legacy ids not in the list fall to the end (preserve data order among themselves).
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
   // Spec fields can be plain strings (numeric / language-neutral) or bilingual
   // objects — pick the current language for the latter.
   const spec = (v: string | { it: string; en: string }) =>
@@ -163,6 +208,7 @@ export default function BoatDetailPage() {
               // "da X" fallback). Falls back to tr.priceFrom if the tour has
               // no per-boat pricing (e.g. "Su Misura").
               const boatPrice = tr.pricesByBoat?.[boat.legacyId] ?? tr.priceFrom;
+              const tagLabel = tr.tag ? t.tours.tags[tr.tag] : null;
               return {
                 slug: tr.slug,
                 // Giro Isola, Blue Grotto (and Full Day) use their main-page
@@ -173,6 +219,7 @@ export default function BoatDetailPage() {
                 meta: tc.meta,
                 priceFrom: boatPrice,
                 short: tc.short,
+                tagLabel,
               };
             })}
             fromLabel={lang === "it" ? "Prezzo" : "Price"}

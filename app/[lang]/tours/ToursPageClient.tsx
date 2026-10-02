@@ -6,22 +6,30 @@ import PageShell from "../../components/PageShell";
 import { useLang } from "../../i18n/LanguageProvider";
 import { tours, tourImagePosition } from "../../data/tours";
 
-// Bento layout — 4 principali per Annalisa 01/10/2026:
+// Bento layout — 4 principali + 3 secondari piccoli (7 cards):
 // Row 1-2: LARGE Capri & Costiera (4×2) + TALL Capri & Positano (2×2) — LA PIÙ RICHIESTA
 // Row 3-4: TALL Capri & Sorrento (2×2)  + LARGE Sorrento & Costiera (4×2)
-const sizeByLegacy: Record<string, "large" | "tall" | "medium" | "small" | "halfwide"> = {
+// Row 5:   SMALL Capri Full Day (2×1) + SMALL Ischia & Procida (2×1) + SMALL Capri & Ischia (2×1)
+// Row sotto in sezione "Altre giornate" ci sono i 4 restanti con Su Misura ultima a destra.
+const sizeByLegacy: Record<string, "large" | "tall" | "medium" | "small" | "halfwide" | "wide"> = {
   "tour-full-day": "large", // Capri & Costiera Amalfitana — LA PIÙ COMPLETA
   "tour-capri-positano": "tall", // LA PIÙ RICHIESTA
   "tour-capri-sorrento": "tall",
   "tour-penisola-amalfitana": "large", // Sorrento & Costiera Amalfitana
+  "tour-capri-full-day": "small",
+  "tour-ischia-procida": "small",
+  "tour-capri-ischia": "small",
 };
 
-// Render order respects auto-flow so cells fill the 6×4 rectangle with no gaps.
+// Render order respects auto-flow so cells fill the 6×5 rectangle with no gaps.
 const renderOrder = [
   "tour-full-day", // large rows 1-2 cols 1-4 — LA PIÙ COMPLETA
   "tour-capri-positano", // tall rows 1-2 cols 5-6 — LA PIÙ RICHIESTA
   "tour-capri-sorrento", // tall rows 3-4 cols 1-2
   "tour-penisola-amalfitana", // large rows 3-4 cols 3-6
+  "tour-capri-full-day", // small row 5 cols 1-2
+  "tour-ischia-procida", // small row 5 cols 3-4
+  "tour-capri-ischia", // small row 5 cols 5-6
 ];
 
 export default function ToursHubPage() {
@@ -111,11 +119,12 @@ export default function ToursHubPage() {
               );
             })}
           </div>
+
         </div>
       </section>
 
       {extraDaily.length > 0 && (
-        <section className="section" id="more-itineraries">
+        <section className="section tours-more-section" id="more-itineraries">
           <div className="section-inner">
             <div data-reveal>
               <div className="eyebrow">

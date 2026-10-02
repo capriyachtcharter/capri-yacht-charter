@@ -12,6 +12,7 @@ export type CarouselItem = {
   meta: string;
   priceFrom: string;
   short: string;
+  tagLabel?: string | null; // "La Più Completa" / "La Più Richiesta" / "Su Misura"
 };
 
 type Props = {
@@ -99,6 +100,9 @@ export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
             <div className="tour-carousel-card-img">
               <img src={item.image} alt={item.title} loading="lazy" style={{ objectPosition: item.imagePosition ?? "center" }} />
               <div className="tour-carousel-card-overlay" />
+              {item.tagLabel && (
+                <span className="tour-carousel-card-tag">{item.tagLabel}</span>
+              )}
             </div>
             <div className="tour-carousel-card-body">
               <div className="tour-carousel-card-name">{item.title}</div>
