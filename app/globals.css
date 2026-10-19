@@ -4538,15 +4538,11 @@ body {
 
 .boat-specs-list > div {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: baseline;
   gap: 18px;
   padding: 18px 0;
   border-bottom: 1px solid var(--border-subtle);
-}
-
-.boat-specs-list dt {
-  flex: 1;
 }
 
 .boat-specs-list > div:last-child {
@@ -4554,16 +4550,23 @@ body {
 }
 
 .boat-specs-list dt {
+  flex: 0 0 auto;
   font-size: 0.85rem;
   color: var(--text-tertiary);
   margin: 0;
+  white-space: nowrap;
 }
 
 .boat-specs-list dd {
+  flex: 1 1 0;
+  min-width: 0;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--navy);
   margin: 0;
+  text-align: right;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .boat-tours-grid {
