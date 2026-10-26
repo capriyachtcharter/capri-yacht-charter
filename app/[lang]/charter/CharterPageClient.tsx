@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
+import BoatCarousel from "../../components/BoatCarousel";
 import { useLang } from "../../i18n/LanguageProvider";
 import { fleet } from "../../data/fleet";
 
@@ -34,17 +35,6 @@ export default function CharterPage() {
       en: "Sail privately to your destination: no waiting, no crowds.",
     },
   ];
-
-  // Boats-only gallery: exterior shots from each boat's gallery (cover as fallback).
-  const boatPhotos = fleet.flatMap((b) => {
-    const c = lang === "it" ? b.it : b.en;
-    const exteriors = b.gallery.filter((src) => src.includes("esterno"));
-    return (exteriors.length ? exteriors : [b.cover]).map((src) => ({
-      src,
-      name: c.name,
-      slug: b.slug,
-    }));
-  });
 
   return (
     <PageShell>
@@ -121,18 +111,23 @@ export default function CharterPage() {
             </h2>
           </header>
 
-          <div className="charter-boat-gallery-grid">
-            {boatPhotos.map((p) => (
-              <Link
-                key={p.src}
-                href={path(`/fleet/${p.slug}`)}
-                className="charter-boat-gallery-cell"
-                data-reveal
-              >
-                <img src={p.src} alt={p.name} loading="lazy" />
-                <span className="charter-boat-gallery-name">{p.name}</span>
-              </Link>
-            ))}
+          <div className="charter-boat-cards">
+            {fleet.map((b) => {
+              const c = lang === "it" ? b.it : b.en;
+              return (
+                <Link key={b.slug} href={path(`/fleet/${b.slug}`)} className="charter-boat-card" data-reveal>
+                  <div className="charter-boat-card-img">
+                    <BoatCarousel images={b.gallery} alt={c.name} />
+                  </div>
+                  <div className="charter-boat-card-body">
+                    <h3>{c.name}</h3>
+                    <div className="charter-boat-card-specs">
+                      {b.specs.length} · {typeof b.specs.capacityDay === "string" ? b.specs.capacityDay : b.specs.capacityDay[lang]}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

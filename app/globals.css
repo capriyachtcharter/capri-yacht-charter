@@ -6186,43 +6186,40 @@ img { max-width: 100%; height: auto; }
   background: var(--sea-dark);
 }
 
-.charter-boat-gallery-grid {
+.charter-boat-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 20px;
 }
-.charter-boat-gallery-cell {
+.charter-boat-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.charter-boat-card-img {
   position: relative;
-  display: block;
-  overflow: hidden;
-  border-radius: 6px;
   aspect-ratio: 4 / 3;
-  background: rgba(15, 22, 35, 0.04);
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--cream-dark);
 }
-.charter-boat-gallery-cell img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+.charter-boat-card-body {
+  padding: 18px 6px 0;
+  text-align: center;
 }
-.charter-boat-gallery-cell:hover img { transform: scale(1.04); }
-.charter-boat-gallery-name {
-  position: absolute;
-  left: 14px;
-  bottom: 12px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cream-light);
-  text-shadow: 0 1px 8px rgba(15, 22, 35, 0.6);
+.charter-boat-card-body h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+.charter-boat-card-specs {
+  font-size: 13.5px;
+  color: var(--text-secondary);
 }
 @media (max-width: 900px) {
-  .charter-boat-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-}
-@media (max-width: 520px) {
-  .charter-boat-gallery-grid { grid-template-columns: 1fr; }
+  .charter-boat-cards { grid-template-columns: 1fr; gap: 32px; }
 }
 
 /* Home "Oltre i tour" cards: each card now carries its own CTA. */
