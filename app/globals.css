@@ -6186,6 +6186,58 @@ img { max-width: 100%; height: auto; }
   background: var(--sea-dark);
 }
 
+.charter-hire-destinations {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 860px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.charter-hire-destinations li {
+  padding: 10px 20px;
+  border: 1px solid rgba(26, 36, 51, 0.14);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.charter-hire-modes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.charter-hire-mode {
+  padding: 44px 40px;
+  background: var(--cream-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+.charter-hire-mode h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0 0 14px;
+}
+.charter-hire-mode p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+@media (max-width: 720px) {
+  .charter-hire-modes-grid { grid-template-columns: 1fr; }
+  .charter-hire-mode { padding: 32px 26px; }
+}
+
 .charter-boat-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
