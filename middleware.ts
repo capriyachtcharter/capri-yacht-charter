@@ -19,11 +19,10 @@ function detectLocale(req: NextRequest): Locale {
   const cookie = req.cookies.get("cyc-lang")?.value;
   if (isLocale(cookie)) return cookie;
 
-  // 3. Accept-Language header (Italian if it appears anywhere)
+  // 3. Accept-Language header: Italian only when it's the browser's primary
+  //    language; English for everyone else.
   const al = (req.headers.get("accept-language") || "").toLowerCase();
-  if (al.startsWith("it") || al.includes(",it") || al.includes("-it") || al.includes(" it")) {
-    return "it";
-  }
+  if (al.trim().startsWith("it")) return "it";
 
   return DEFAULT_LOCALE;
 }

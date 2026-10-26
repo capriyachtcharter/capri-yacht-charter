@@ -81,7 +81,12 @@
         "transferCta": "Scopri il noleggio",
         "skipperTitle": "La barca è tutta tua.",
         "skipperDesc": "La barca è tutta tua, i nostri tour sono privati. Il nostro equipaggio sarà a tua completa disposizione per tutta la durata del tour.",
-        "skipperCta": "Richiedi un Preventivo"
+        "skipperCta": "Richiedi un Preventivo",
+        "charterTitle": "Noleggio & transfer",
+        "charterDesc": "Raggiungi la tua prossima destinazione via mare, a bordo di uno yacht privato con capitano. Prenoti online in pochi passaggi.",
+        "tailorTitle": "Tour su misura",
+        "tailorDesc": "Una giornata, o più, disegnata su di te: itinerario, soste e orari li decidiamo insieme. La barca è tutta tua.",
+        "cardCta": "Scopri di più"
       },
       "fleet": {
         "eyebrow": "La Flotta",
@@ -316,7 +321,12 @@
         "transferCta": "Discover the charter",
         "skipperTitle": "The boat is all yours.",
         "skipperDesc": "The boat is all yours — our tours are private. Our crew is at your full service for the whole tour.",
-        "skipperCta": "Inquire"
+        "skipperCta": "Inquire",
+        "charterTitle": "Hire & transfer",
+        "charterDesc": "Reach your next destination by sea aboard a private yacht with captain. Book online in a few steps.",
+        "tailorTitle": "Tailor-made tour",
+        "tailorDesc": "A day, or more, designed around you: route, stops and timing decided together. The boat is all yours.",
+        "cardCta": "Discover more"
       },
       "fleet": {
         "eyebrow": "The Fleet",

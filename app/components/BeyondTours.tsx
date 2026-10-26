@@ -4,13 +4,7 @@ import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 
 export default function BeyondTours() {
-  const { t, path, lang } = useLang();
-
-  const waBook = `https://wa.me/393335741333?text=${encodeURIComponent(
-    lang === "it"
-      ? "Ciao, vorrei prenotare un noleggio yacht con skipper."
-      : "Hi, I'd like to book a skipper yacht charter."
-  )}`;
+  const { t, path } = useLang();
 
   return (
     <section className="beyond-tours" data-reveal>
@@ -22,7 +16,8 @@ export default function BeyondTours() {
           </h2>
         </div>
 
-        {/* Two info cards — no buttons inside */}
+        {/* Two cards, each with its own CTA: hire & transfer → /charter,
+            tailor-made tour → /tailor-made */}
         <div className="beyond-grid">
           <article className="beyond-card">
             <div className="beyond-card-icon">
@@ -33,8 +28,11 @@ export default function BeyondTours() {
                 <line x1="16" y1="8" x2="16" y2="22" />
               </svg>
             </div>
-            <h3 className="beyond-card-title">{t.beyond.transferTitle}</h3>
-            <p className="beyond-card-desc">{t.beyond.transferDesc}</p>
+            <h3 className="beyond-card-title">{t.beyond.charterTitle}</h3>
+            <p className="beyond-card-desc">{t.beyond.charterDesc}</p>
+            <Link href={path("/charter")} className="beyond-cta-btn">
+              {t.beyond.cardCta}
+            </Link>
           </article>
 
           <article className="beyond-card">
@@ -47,24 +45,12 @@ export default function BeyondTours() {
                 <path d="M3 22 Q9 18 16 22" />
               </svg>
             </div>
-            <h3 className="beyond-card-title">{t.beyond.skipperTitle}</h3>
-            <p className="beyond-card-desc">{t.beyond.skipperDesc}</p>
+            <h3 className="beyond-card-title">{t.beyond.tailorTitle}</h3>
+            <p className="beyond-card-desc">{t.beyond.tailorDesc}</p>
+            <Link href={path("/tailor-made")} className="beyond-cta-btn">
+              {t.beyond.cardCta}
+            </Link>
           </article>
-        </div>
-
-        {/* Single CTA row shared by both cards */}
-        <div className="beyond-cta-row">
-          <Link href={path("/charter")} className="beyond-cta-btn">
-            {lang === "it" ? "Scopri di più" : "Discover more"}
-          </Link>
-          <a
-            href={waBook}
-            target="_blank"
-            rel="noopener"
-            className="beyond-cta-btn-alt"
-          >
-            {lang === "it" ? "Prenota ora" : "Book now"}
-          </a>
         </div>
       </div>
     </section>
