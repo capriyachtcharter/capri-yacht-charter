@@ -214,10 +214,18 @@ export default function ToursHubPage() {
             ))}
           </div>
 
+          {/* The card above already opens the Tour su misura page: this one goes straight to a chat. */}
           <div className="cta-row" data-reveal>
-            <Link href={path("/tailor-made")} className="btn-primary">
-              {t.miniCruises.cta}
-            </Link>
+            <a
+              href={`https://wa.me/393335741333?text=${encodeURIComponent(
+                lang === "it" ? "Ciao, vorrei organizzare un tour su misura." : "Hi, I'd like to arrange a bespoke tour."
+              )}`}
+              target="_blank"
+              rel="noopener"
+              className="btn-primary"
+            >
+              {lang === "it" ? "Contattaci" : "Contact us"}
+            </a>
           </div>
         </div>
       </section>

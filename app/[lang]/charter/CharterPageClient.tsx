@@ -99,8 +99,8 @@ export default function CharterPage() {
           </h1>
           <p className="page-hero-desc">
             {lang === "it"
-              ? "Noleggia un nostro yacht con capitano dedicato."
-              : "Hire one of our yachts with a dedicated captain."}
+              ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
+              : "Private yachts with a captain, to enjoy the sea and reach every destination in style."}
           </p>
         </div>
       </section>
@@ -122,32 +122,28 @@ export default function CharterPage() {
             <div className="hire-intro-body" data-reveal="right">
               <div className="eyebrow">{lang === "it" ? "Il servizio" : "The service"}</div>
               <h2 className="section-title hire-intro-title">
-                {lang === "it" ? "Yacht privati con capitano, " : "Private yachts with a captain, "}
-                <span className="accent">
-                  {lang === "it"
-                    ? "per vivere il mare e raggiungere ogni destinazione con stile."
-                    : "to enjoy the sea and reach every destination in style."}
-                </span>
+                {lang === "it" ? "Uno yacht, " : "One yacht, "}
+                <span className="accent">{lang === "it" ? "il tuo capitano." : "your own captain."}</span>
               </h2>
               <p className="hire-intro-text">
                 {lang === "it"
-                  ? "Con il noleggio breve uno dei nostri yacht, con il suo capitano, è a tua disposizione per raggiungere via mare le località del Golfo di Napoli e della Costiera Amalfitana: da Capri a Positano, da Sorrento a Ischia."
-                  : "With our charter service one of our yachts, with its own captain, is at your disposal to reach the towns of the Gulf of Naples and the Amalfi Coast by sea: from Capri to Positano, from Sorrento to Ischia."}
+                  ? "Con il noleggio breve hai a disposizione uno dei nostri tre yacht, con il suo capitano, per muoverti via mare tra le località del Golfo di Napoli e della Costiera Amalfitana: Capri, Napoli, Sorrento, Positano, Amalfi, Ischia."
+                  : "With our charter you have one of our three yachts at your disposal, with its own captain, to travel by sea between the towns of the Gulf of Naples and the Amalfi Coast: Capri, Naples, Sorrento, Positano, Amalfi, Ischia."}
               </p>
               <p className="hire-intro-text">
                 {lang === "it"
-                  ? "Per qualche ora, una giornata intera o più giorni. Scegli tu barca, data e orario: al resto pensiamo noi, dall'imbarco all'arrivo, perché il lusso della vacanza inizi già dal viaggio."
-                  : "For a few hours, a full day or several days. You choose the boat, the date and the time: we take care of the rest, from boarding to arrival, so the luxury of your holiday begins with the journey itself."}
+                  ? "Per una giornata intera, più giorni o solo per raggiungere la tua prossima destinazione. Scegli la barca, la data e l'orario: il capitano ti aspetta al molo e ti porta dove vuoi, nel comfort e nella privacy di uno yacht tutto per te."
+                  : "For a full day, several days or just to reach your next destination. Choose the boat, the date and the time: your captain meets you at the pier and takes you wherever you want, in the comfort and privacy of a yacht all to yourself."}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* COME FUNZIONA — four numbered steps in a row (stacked on phones) */}
-      <section className="section hire-howto">
+      {/* COME FUNZIONA — same zig-zag timeline as the Tour su misura page */}
+      <section className="section charter-howto">
         <div className="section-inner">
-          <header className="hire-head" data-reveal>
+          <header className="charter-section-head" data-reveal>
             <div className="eyebrow">
               {lang === "it" ? "Come funziona" : "How it works"}
             </div>
@@ -159,14 +155,20 @@ export default function CharterPage() {
             </h2>
           </header>
 
-          <ol className="hire-steps" data-reveal>
-            {steps.map((s) => {
+          <ol className="charter-timeline">
+            {steps.map((s, i) => {
               const c = lang === "it" ? s.it : s.en;
               return (
-                <li key={s.n} className="hire-step">
-                  <span className="hire-step-num">{s.n}</span>
-                  <h3>{c.h}</h3>
-                  <p>{c.p}</p>
+                <li
+                  key={s.n}
+                  className={`charter-timeline-row${i % 2 === 1 ? " is-reverse" : ""}`}
+                  data-reveal={i % 2 === 1 ? "left" : ""}
+                >
+                  <div className="charter-timeline-num"><span>{s.n}</span></div>
+                  <div className="charter-timeline-card">
+                    <h3>{c.h}</h3>
+                    <p>{c.p}</p>
+                  </div>
                 </li>
               );
             })}
@@ -192,20 +194,21 @@ export default function CharterPage() {
                 ? "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
                 : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with a captain. An exclusive, efficient way to travel: comfortable and fast."}
             </p>
-            {/* Departure/destination towns. Static line on desktop; on mobile it becomes an
-                auto-scrolling strip (the list is rendered twice for a seamless loop). */}
-            <div className="charter-hire-destinations">
-              <div className="charter-hire-destinations-track">
-                {[...destinations, ...destinations].map((d, i) => (
-                  <span
-                    key={`${d}-${i}`}
-                    className={`charter-hire-dest${i === destinations.length - 1 ? " is-last" : ""}`}
-                    aria-hidden={i >= destinations.length ? true : undefined}
-                  >
-                    {d}
-                  </span>
-                ))}
-              </div>
+          </div>
+
+          {/* Departure/destination towns: one strip as wide as the photo grid below, scrolling
+              left → right in a continuous loop (list repeated so the loop never shows a gap). */}
+          <div className="charter-hire-destinations" data-reveal>
+            <div className="charter-hire-destinations-track">
+              {Array.from({ length: 6 }, () => destinations).flat().map((d, i) => (
+                <span
+                  key={`${d}-${i}`}
+                  className="charter-hire-dest"
+                  aria-hidden={i >= destinations.length ? true : undefined}
+                >
+                  {d}
+                </span>
+              ))}
             </div>
           </div>
 
