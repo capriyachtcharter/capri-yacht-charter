@@ -39,6 +39,22 @@ export default function CharterPage() {
     },
   ];
 
+  // PLACEHOLDER — merged from the current site's "always included" list and the old
+  // site's charter services. To be confirmed by the client.
+  const included = [
+    { it: "Capitano dedicato", en: "Dedicated captain" },
+    { it: "Carburante e ormeggi", en: "Fuel and mooring" },
+    { it: "Soft drink e piccoli snack", en: "Soft drinks and small snacks" },
+    { it: "Teli mare a bordo", en: "Beach towels on board" },
+    { it: "IVA inclusa", en: "VAT included" },
+  ];
+
+  const Check = () => (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <polyline points="3 8.5 6.5 12 13 5" />
+    </svg>
+  );
+
   return (
     <PageShell>
       {/* HERO — photo + navy veil, copy from the 01/10 charter header */}
@@ -119,7 +135,24 @@ export default function CharterPage() {
             ))}
           </ul>
 
+          <div className="charter-hire-included" data-reveal>
+            <h4>{lang === "it" ? "Sempre incluso" : "Always included"}</h4>
+            <ul>
+              {included.map((item) => (
+                <li key={item.it}>
+                  <Check />
+                  <span>{lang === "it" ? item.it : item.en}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="charter-included-cta" data-reveal>
+            <p>
+              {lang === "it"
+                ? "Scegli barca, data e orario: al resto pensiamo noi."
+                : "Pick the boat, date and time: we take care of the rest."}
+            </p>
             <a href={FAREHARBOR_URL} target="_blank" rel="noopener" className="btn-primary">
               {lang === "it" ? "Prenota ora" : "Book now"}
             </a>
