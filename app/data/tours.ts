@@ -108,8 +108,8 @@ export const tours: Tour[] = toursData as unknown as Tour[];
 /** Tour prices are stored Italian-style ("2.000 €", "Su Richiesta"); show them in the
  *  English format on EN pages ("€2,000", "On request"). */
 export function formatPrice(price: string, lang: string): string {
+  if (/su richiesta/i.test(price)) return lang === "en" ? "On request" : "Su richiesta";
   if (lang !== "en") return price;
-  if (/su richiesta/i.test(price)) return "On request";
   const m = price.match(/^\s*([\d.]+)\s*€\s*$/);
   return m ? `€${m[1].replace(/\./g, ",")}` : price;
 }

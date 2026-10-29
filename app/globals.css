@@ -4730,6 +4730,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
   padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.22);
 }
@@ -4758,6 +4760,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
   font-family: var(--sans);
   font-size: 10.5px;
   font-weight: 600;
@@ -6265,3 +6269,11 @@ img { max-width: 100%; height: auto; }
 /* Noleggio breve: intro under the hero flows straight into "Come funziona". */
 .charter-hire-intro { padding-bottom: 0; }
 .charter-hire-intro .charter-section-head { margin-bottom: 0; }
+
+/* Phone: balance multi-line headings so no single word is left alone on the last line
+   ("Half / Day", "your / sea.", "Sail aboard TENAREZE / VI"). */
+@media (max-width: 640px) {
+  .page-hero-title,
+  .tour-hero-title,
+  .section-title { text-wrap: balance; }
+}
