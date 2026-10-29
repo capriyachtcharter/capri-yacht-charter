@@ -228,7 +228,7 @@ const base = {
       bullet3: "Chef a bordo",
       bullet4: "Itinerario su misura",
       bullet5: "Tender, snorkeling e SUP inclusi",
-      cta: "Crea il tuo tour",
+      cta: "Scopri di più",
     },
   },
   en: {
@@ -450,7 +450,7 @@ const base = {
       bullet3: "Onboard chef",
       bullet4: "Tailored itinerary",
       bullet5: "Tender, snorkel & SUP included",
-      cta: "Tailor your tour",
+      cta: "Discover more",
     },
   },
 } as const;
