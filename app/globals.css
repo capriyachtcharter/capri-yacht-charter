@@ -2423,6 +2423,16 @@ body {
   padding-right: 2vw;
 }
 
+.mini-cruises-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .mini-cruises-ctas { flex-direction: column; }
+  .mini-cruises-ctas > a { width: 100%; }
+}
+
 .mini-cruises-title {
   font-size: clamp(34px, 4.4vw, 56px);
   margin-bottom: 24px;

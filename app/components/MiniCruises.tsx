@@ -4,7 +4,10 @@ import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 
 export default function MiniCruises() {
-  const { t, path } = useLang();
+  const { t, path, lang } = useLang();
+  const waTour = `https://wa.me/393335741333?text=${encodeURIComponent(
+    lang === "it" ? "Ciao, vorrei organizzare un tour su misura." : "Hi, I'd like to arrange a bespoke tour."
+  )}`;
   return (
     <section className="mini-cruises" id="mini-cruises">
       <div className="mini-cruises-inner">
@@ -41,9 +44,14 @@ export default function MiniCruises() {
             ))}
           </ul>
 
-          <Link href={path("/tailor-made")} className="btn-primary">
-            {t.miniCruises.cta}
-          </Link>
+          <div className="mini-cruises-ctas">
+            <Link href={path("/tailor-made")} className="btn-primary">
+              {t.miniCruises.cta}
+            </Link>
+            <a href={waTour} target="_blank" rel="noopener" className="btn-secondary">
+              {lang === "it" ? "Contattaci" : "Contact us"}
+            </a>
+          </div>
         </div>
       </div>
     </section>
