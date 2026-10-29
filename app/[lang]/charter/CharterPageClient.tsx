@@ -8,7 +8,7 @@ import { fleet } from "../../data/fleet";
 import { FAREHARBOR_URL } from "../../data/booking";
 
 // Noleggio breve — same structure as the Tour su misura page (/tailor-made):
-// hero → numbered steps → photo grid → what's included + CTA → choose the boat.
+// hero → intro → numbered steps → photo grid → what's included + CTA → choose the boat.
 // Never call it "transfer" on the site: the client can't legally advertise transfers.
 // Booking happens on FareHarbor; no prices shown.
 
@@ -103,30 +103,31 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* INTRO — the rest of the hero copy, moved out of the photo so the header stays light */}
+      {/* INTRO — the rest of the hero copy, moved out of the photo so the header stays light.
+          Left-aligned like the rest of the page: statement on the left, details on the right. */}
       <section className="section charter-hire-intro">
         <div className="section-inner">
-          <header className="charter-section-head" data-reveal>
-            <h2 className="section-title">
+          <div className="hire-intro" data-reveal>
+            <h2 className="section-title hire-intro-title">
               <span className="accent">
                 {lang === "it"
                   ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
                   : "Private yachts with a captain, to enjoy the sea and reach every destination in style."}
               </span>
             </h2>
-            <p className="section-desc">
+            <p className="hire-intro-text">
               {lang === "it"
                 ? "Per una giornata intera, più giorni o per raggiungere la tua prossima destinazione via mare. Nessun itinerario imposto, nessun orario fisso: disegniamo ogni momento insieme, perché il lusso della vacanza inizi già dal viaggio."
                 : "For a full day, several days or to reach your next destination by sea. No fixed itinerary, no rigid schedule: we design every moment together, so the luxury of your holiday begins from the journey itself."}
             </p>
-          </header>
+          </div>
         </div>
       </section>
 
-      {/* COME FUNZIONA — same zig-zag timeline as the Tour su misura page */}
-      <section className="section charter-howto">
+      {/* COME FUNZIONA — four numbered steps in a row (stacked on phones) */}
+      <section className="section hire-howto">
         <div className="section-inner">
-          <header className="charter-section-head" data-reveal>
+          <header className="hire-head" data-reveal>
             <div className="eyebrow">
               {lang === "it" ? "Come funziona" : "How it works"}
             </div>
@@ -138,20 +139,14 @@ export default function CharterPage() {
             </h2>
           </header>
 
-          <ol className="charter-timeline">
-            {steps.map((s, i) => {
+          <ol className="hire-steps" data-reveal>
+            {steps.map((s) => {
               const c = lang === "it" ? s.it : s.en;
               return (
-                <li
-                  key={s.n}
-                  className={`charter-timeline-row${i % 2 === 1 ? " is-reverse" : ""}`}
-                  data-reveal={i % 2 === 1 ? "left" : ""}
-                >
-                  <div className="charter-timeline-num"><span>{s.n}</span></div>
-                  <div className="charter-timeline-card">
-                    <h3>{c.h}</h3>
-                    <p>{c.p}</p>
-                  </div>
+                <li key={s.n} className="hire-step">
+                  <span className="hire-step-num">{s.n}</span>
+                  <h3>{c.h}</h3>
+                  <p>{c.p}</p>
                 </li>
               );
             })}

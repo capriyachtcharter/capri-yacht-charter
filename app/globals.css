@@ -6275,9 +6275,78 @@ img { max-width: 100%; height: auto; }
 .photo-lightbox-nav.is-prev { left: 16px; }
 .photo-lightbox-nav.is-next { right: 16px; }
 
-/* Noleggio breve: intro under the hero flows straight into "Come funziona". */
+/* Noleggio breve: left-aligned intro (statement | details) and a 4-step row for "Come funziona". */
 .charter-hire-intro { padding-bottom: 0; }
-.charter-hire-intro .charter-section-head { margin-bottom: 0; }
+.hire-intro {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 72px;
+  align-items: end;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--border-medium);
+}
+.hire-intro-title {
+  margin: 0;
+  font-size: clamp(30px, 3.3vw, 46px);
+  line-height: 1.15;
+}
+.hire-intro-text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.75;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+.hire-head { max-width: 760px; margin-bottom: 56px; }
+.hire-head .eyebrow { margin-bottom: 14px; }
+.hire-head .section-title { margin: 0; }
+.hire-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.hire-step {
+  border-top: 1px solid var(--border-medium);
+  padding-top: 24px;
+}
+.hire-step-num {
+  display: block;
+  margin-bottom: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--sea-dark);
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
+.hire-step h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 1.8vw, 1.55rem);
+  font-weight: 400;
+  color: var(--navy);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+.hire-step p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .hire-intro { gap: 40px; }
+  .hire-steps { grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
+}
+@media (max-width: 640px) {
+  .hire-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 48px; }
+  .hire-head { margin-bottom: 36px; }
+  .hire-steps { grid-template-columns: 1fr; gap: 28px; }
+  .hire-step-num { font-size: 36px; margin-bottom: 12px; }
+}
 
 /* Phone: balance multi-line headings so no single word is left alone on the last line
    ("Half / Day", "your / sea.", "Sail aboard TENAREZE / VI"). */
