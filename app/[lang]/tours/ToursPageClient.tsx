@@ -74,6 +74,7 @@ export default function ToursHubPage() {
                   src={bespoke.image}
                   alt={lang === "it" ? "Tour su misura" : "Tailor-made tour"}
                   fill
+                  priority
                   sizes="100vw"
                   style={{ objectFit: "cover", objectPosition: tourImagePosition[bespoke.legacyId] ?? "center" }}
                 />
@@ -241,21 +242,26 @@ export default function ToursHubPage() {
             {[
               {
                 h: t.miniCruises.bullet1,
-                it: "Cabine private, bagno con doccia, aria condizionata, biancheria fornita.",
-                en: "Private cabins, bathroom with shower, air conditioning, linens provided.",
+                it: "Una giornata, un weekend o una settimana intera: la durata la scegli tu.",
+                en: "A single day, a weekend or a whole week: you choose how long.",
               },
               {
                 h: t.miniCruises.bullet2,
+                it: "Per i più giorni: cabine private, bagno con doccia, aria condizionata, biancheria fornita.",
+                en: "For multi-day trips: private cabins, bathroom with shower, air conditioning, linens provided.",
+              },
+              {
+                h: t.miniCruises.bullet3,
                 it: "Chef a bordo su richiesta, con menù pensati sui tuoi gusti.",
                 en: "On-board chef on request, with menus built around your taste.",
               },
               {
-                h: t.miniCruises.bullet3,
+                h: t.miniCruises.bullet4,
                 it: "Soste, orari e ristoranti li scegli tu: costruiamo l'itinerario insieme.",
                 en: "You choose the stops, timing and restaurants: we build the route together.",
               },
               {
-                h: t.miniCruises.bullet4,
+                h: t.miniCruises.bullet5,
                 it: "Tender, SUP, attrezzatura snorkel — tutto a bordo.",
                 en: "Tender, SUP, snorkeling gear — all on board.",
               },
