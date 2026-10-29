@@ -7,7 +7,7 @@ import PageShell from "../../../components/PageShell";
 import TourCarousel, { type CarouselItem } from "../../../components/TourCarousel";
 import { useLang } from "../../../i18n/LanguageProvider";
 import { boatBySlug } from "../../../data/fleet";
-import { tours } from "../../../data/tours";
+import { tours, formatPrice } from "../../../data/tours";
 
 // Same showcase order as the /tours hub bento + Altri — tagged tours first,
 // so the carousel surfaces the recommended / most requested experiences up front.
@@ -207,7 +207,7 @@ export default function BoatDetailPage() {
               // Show THIS boat's specific price for that tour (not the generic
               // "da X" fallback). Falls back to tr.priceFrom if the tour has
               // no per-boat pricing (e.g. "Su Misura").
-              const boatPrice = tr.pricesByBoat?.[boat.legacyId] ?? tr.priceFrom;
+              const boatPrice = formatPrice(tr.pricesByBoat?.[boat.legacyId] ?? tr.priceFrom, lang);
               const tagLabel = tr.tag ? t.tours.tags[tr.tag] : null;
               return {
                 slug: tr.slug,

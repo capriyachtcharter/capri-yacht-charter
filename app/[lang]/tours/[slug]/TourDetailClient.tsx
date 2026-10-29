@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useParams, notFound } from "next/navigation";
 import PageShell from "../../../components/PageShell";
 import { useLang } from "../../../i18n/LanguageProvider";
-import { toursBySlug, fixedDefault, variableDefault, extrasDefault, pickupDefault } from "../../../data/tours";
+import { toursBySlug, fixedDefault, variableDefault, extrasDefault, pickupDefault, formatPrice } from "../../../data/tours";
 import { boatByLegacyId } from "../../../data/fleet";
 
 export default function TourDetailPage() {
@@ -45,7 +45,7 @@ export default function TourDetailPage() {
           <div className="tour-hero-meta">{c.meta}</div>
           <div className="tour-hero-price">
             <span className="tour-hero-price-label">{t.tours.from}</span>
-            <span className="tour-hero-price-value">{tour.priceFrom}</span>
+            <span className="tour-hero-price-value">{formatPrice(tour.priceFrom, lang)}</span>
           </div>
         </div>
       </section>
@@ -129,7 +129,7 @@ export default function TourDetailPage() {
                         <span>
                           {bc.name} · <em style={{ fontStyle: "normal", opacity: 0.7 }}>{bc.model}</em>
                         </span>
-                        <strong>{price}</strong>
+                        <strong>{formatPrice(price, lang)}</strong>
                       </li>
                     );
                   })}
@@ -171,7 +171,7 @@ export default function TourDetailPage() {
               </h3>
               <div className="tour-detail-card-price">
                 <span>{t.tours.from}</span>
-                <strong>{tour.priceFrom}</strong>
+                <strong>{formatPrice(tour.priceFrom, lang)}</strong>
               </div>
               <a
                 href="https://wa.me/393335741333"

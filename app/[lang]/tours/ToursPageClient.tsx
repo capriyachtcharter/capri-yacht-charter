@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageShell from "../../components/PageShell";
 import { useLang } from "../../i18n/LanguageProvider";
-import { tours, tourImagePosition, tourPath, TAILOR_MADE_SLUG } from "../../data/tours";
+import { tours, tourImagePosition, tourPath, formatPrice, TAILOR_MADE_SLUG } from "../../data/tours";
 
 // Bento layout — 4 principali + 3 secondari piccoli (7 cards):
 // Row 1-2: LARGE Capri & Costiera (4×2) + TALL Capri & Positano (2×2) — LA PIÙ RICHIESTA
@@ -73,7 +73,7 @@ export default function ToursHubPage() {
         <div className="bento-card-footer">
           <div className="bento-card-price">
             <span>{t.tours.from}</span>
-            <strong>{bespoke.priceFrom}</strong>
+            <strong>{formatPrice(bespoke.priceFrom, lang)}</strong>
           </div>
           <span className="bento-card-cta">
             {lang === "it" ? "Scopri" : "Discover"}
@@ -145,7 +145,7 @@ export default function ToursHubPage() {
                     <div className="bento-card-footer">
                       <div className="bento-card-price">
                         <span>{t.tours.from}</span>
-                        <strong>{tour.priceFrom}</strong>
+                        <strong>{formatPrice(tour.priceFrom, lang)}</strong>
                       </div>
                       <span className="bento-card-cta">
                         {lang === "it" ? "Scopri" : "Discover"}
@@ -218,7 +218,7 @@ export default function ToursHubPage() {
                       <div className="tours-more-card-footer">
                         <div className="tours-more-card-price">
                           <span>{t.tours.from}</span>
-                          <strong>{tour.priceFrom}</strong>
+                          <strong>{formatPrice(tour.priceFrom, lang)}</strong>
                         </div>
                         <span className="tours-more-card-cta">
                           {lang === "it" ? "Scopri" : "Discover"}

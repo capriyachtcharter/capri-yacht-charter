@@ -33,19 +33,19 @@ const GALLERY = [
 export default function CharterPage() {
   const { lang, path } = useLang();
 
-  const destinations = ["Capri", "Napoli", "Sorrento", "Positano", "Amalfi", "Ravello", "Salerno", "Ischia"];
+  const destinations = ["Capri", lang === "it" ? "Napoli" : "Naples", "Sorrento", "Positano", "Amalfi", "Ravello", "Salerno", "Ischia"];
 
   // PLACEHOLDER steps — to be confirmed by the client.
   const steps = [
     {
       n: "01",
       it: { h: "Scegli barca e data", p: "Scegli la barca, il giorno e l'orario che preferisci." },
-      en: { h: "Pick boat and date", p: "Choose the boat, the day and the time that suit you." },
+      en: { h: "Choose boat and date", p: "Pick the boat, the day and the time that suit you." },
     },
     {
       n: "02",
       it: { h: "Indica la rotta", p: "Dicci da dove parti e dove vuoi arrivare: Capri, Napoli, Sorrento, la Costiera, Ischia e non solo." },
-      en: { h: "Tell us the route", p: "Tell us where you depart from and where you're headed: Capri, Naples, Sorrento, the Coast, Ischia and more." },
+      en: { h: "Tell us the route", p: "Tell us where you depart from and where you're headed: Capri, Naples, Sorrento, the Amalfi Coast, Ischia and more." },
     },
     {
       n: "03",
@@ -70,7 +70,7 @@ export default function CharterPage() {
   ];
 
   const includedRequest = [
-    { it: "Bollicine e vino a bordo", en: "Sparkling wine and wine on board" },
+    { it: "Bollicine e vino a bordo", en: "Sparkling and still wine on board" },
     { it: "Aperitivo o catering curato", en: "Curated aperitivo or catering" },
     { it: "Allestimento per occasioni speciali", en: "Special-occasion setup" },
   ];
@@ -111,7 +111,7 @@ export default function CharterPage() {
               <span className="accent">
                 {lang === "it"
                   ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
-                  : "Private yachts with captain, to live the sea and reach every destination in style."}
+                  : "Private yachts with a captain, to enjoy the sea and reach every destination in style."}
               </span>
             </h2>
             <p className="section-desc">
@@ -175,7 +175,7 @@ export default function CharterPage() {
             <p className="section-desc">
               {lang === "it"
                 ? "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
-                : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with captain. An exclusive, efficient way to travel, comfortable and fast."}
+                : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with a captain. An exclusive, efficient way to travel: comfortable and fast."}
             </p>
             {/* Departure/destination towns. Static line on desktop; on mobile it becomes an
                 auto-scrolling strip (the list is rendered twice for a seamless loop). */}

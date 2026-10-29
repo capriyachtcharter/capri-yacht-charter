@@ -95,7 +95,7 @@ export default function TailorMadePage() {
           <p className="page-hero-desc">
             {lang === "it"
               ? "Noleggia un nostro yacht con capitano dedicato per una giornata intera o multi-day. Nessun itinerario imposto, nessun orario fisso — disegniamo la giornata insieme."
-              : "Hire one of our yachts with a dedicated captain for a full day or multi-day. No fixed itinerary, no rigid schedule — we design the day together."}
+              : "Hire one of our yachts with a dedicated captain for a full day or several days. No fixed itinerary, no rigid schedule — we design the day together."}
           </p>
         </div>
       </section>

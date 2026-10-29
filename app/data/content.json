@@ -186,7 +186,7 @@
           {
             "text": "Il momento più bello della nostra luna di miele. Nuotare nella Grotta Azzurra, prosecco in coperta, tramonto dietro i Faraglioni. Pura magia. Grazie per averla resa perfetta.",
             "author": "Marco & Lucia",
-            "location": "Milano, Italia",
+            "location": "Milan, Italy",
             "source": "TripAdvisor"
           }
         ]
@@ -246,7 +246,7 @@
         "home": "Home",
         "experiences": "Tours",
         "fleet": "Fleet",
-        "charter": "Charter",
+        "charter": "Yacht hire",
         "story": "Story",
         "contact": "Contact",
         "whatsapp": "Concierge",
@@ -254,7 +254,7 @@
         "whatsappLong": "Chat with us on WhatsApp"
       },
       "hero": {
-        "pill": "On Sea Since 2002",
+        "pill": "At Sea Since 2002",
         "titleLine1": "",
         "titleAccent": "Enjoy the sea.",
         "ctaPrimary": "Discover Tours",
@@ -267,7 +267,7 @@
         "eyebrow": "Curated Experiences",
         "title": "Private Tours",
         "titleAccent": "in Capri",
-        "desc": "Three signature experiences, each entirely private — pick a route or build your own.",
+        "desc": "Four signature experiences, each entirely private — pick a route or build your own.",
         "from": "From",
         "book": "Book Now",
         "inquire": "Request Quote",
