@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
-import BoatCarousel from "../../components/BoatCarousel";
 import { useLang } from "../../i18n/LanguageProvider";
 import { fleet } from "../../data/fleet";
+
+// Noleggio breve — same structure as the Tour su misura page (/tailor-made):
+// hero → numbered steps → photo grid → what's included + CTA → choose the boat.
+// Never call it "transfer" on the site: the client can't legally advertise transfers.
+// Booking happens on FareHarbor; no prices shown.
 
 // TODO(client): FareHarbor booking link not provided yet — swap in the real URL.
 const FAREHARBOR_URL = "#";
@@ -13,29 +17,42 @@ const FAREHARBOR_URL = "#";
 // on board. Replace when it arrives.
 const HERO_IMAGE = "/tours/capri-amalfi.jpg";
 
+// TODO(client): placeholder boat photos — Gabriele is sending the 6 final ones.
+const GALLERY = [
+  "/fleet/libeccio/libeccio-esterno-1.jpg",
+  "/fleet/tramontana/tramontana-esterno-2.jpg",
+  "/fleet/gabbiano/gabbiano-esterno-1.jpg",
+  "/fleet/libeccio/libeccio-esterno-3.jpg",
+  "/fleet/gabbiano/gabbiano-esterno-3.jpg",
+  "/fleet/tramontana/tramontana-esterno-1.jpg",
+];
+
 export default function CharterPage() {
   const { lang, path } = useLang();
 
-  // Short-term hire ("noleggio breve"). Never call it "transfer" on the site: the client
-  // can't legally advertise transfers. Booking happens on FareHarbor; no prices shown.
   const destinations = ["Capri", "Napoli", "Sorrento", "Positano", "Amalfi", "Ravello", "Salerno", "Ischia"];
 
-  const howItWorks = [
+  // PLACEHOLDER steps — to be confirmed by the client.
+  const steps = [
     {
-      it: "Scegli la barca, la data e l'orario.",
-      en: "Pick the boat, the date and the time.",
+      n: "01",
+      it: { h: "Scegli barca e data", p: "Scegli la barca, il giorno e l'orario che preferisci." },
+      en: { h: "Pick boat and date", p: "Choose the boat, the day and the time that suit you." },
     },
     {
-      it: "Indica da dove parti e dove vuoi arrivare.",
-      en: "Tell us where you depart from and where you want to go.",
+      n: "02",
+      it: { h: "Indica la rotta", p: "Dicci da dove parti e dove vuoi arrivare: Capri, Napoli, Sorrento, la Costiera, Ischia e non solo." },
+      en: { h: "Tell us the route", p: "Tell us where you depart from and where you're headed: Capri, Naples, Sorrento, the Coast, Ischia and more." },
     },
     {
-      it: "Prenoti e paghi online in pochi passaggi.",
-      en: "Book and pay online in a few steps.",
+      n: "03",
+      it: { h: "Prenota online", p: "Prenoti e paghi online in pochi passaggi, senza attese." },
+      en: { h: "Book online", p: "Book and pay online in a few steps, no waiting." },
     },
     {
-      it: "Il capitano ti aspetta al molo all'orario concordato.",
-      en: "Your captain meets you at the pier at the agreed time.",
+      n: "04",
+      it: { h: "Salpate", p: "Il capitano ti aspetta al molo all'orario concordato. Tu pensi solo al viaggio." },
+      en: { h: "Set sail", p: "Your captain meets you at the pier at the agreed time. You just enjoy the journey." },
     },
   ];
 
@@ -63,7 +80,7 @@ export default function CharterPage() {
 
   return (
     <PageShell>
-      {/* HERO — photo + navy veil, copy from the 01/10 charter header */}
+      {/* HERO — photo + navy veil */}
       <section
         className="page-hero charter-hero-navy charter-hero-photo"
         style={{ backgroundImage: `url(${HERO_IMAGE})` }}
@@ -89,39 +106,8 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* IL SERVIZIO — intro + destinations */}
-      <section className="section charter-hire-intro">
-        <div className="section-inner">
-          <header className="charter-section-head" data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Il servizio" : "The service"}
-            </div>
-            <h2 className="section-title">
-              {lang === "it" ? "Ovunque nel Golfo, " : "Anywhere in the Gulf, "}
-              <span className="accent">
-                {lang === "it" ? "in totale libertà." : "in complete freedom."}
-              </span>
-            </h2>
-            <p className="section-desc">
-              {lang === "it"
-                ? "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
-                : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with captain. An exclusive, efficient way to travel, comfortable and fast."}
-            </p>
-          </header>
-
-          <p className="charter-hire-destinations" data-reveal>
-            {destinations.map((d, i) => (
-              <span key={d}>
-                {i > 0 && <span className="charter-hire-destinations-sep" aria-hidden>·</span>}
-                {d}
-              </span>
-            ))}
-          </p>
-        </div>
-      </section>
-
-      {/* COME FUNZIONA — same diamond list as the tour itinerary */}
-      <section className="section section-alt charter-hire-how">
+      {/* COME FUNZIONA — same zig-zag timeline as the Tour su misura page */}
+      <section className="section charter-howto">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
             <div className="eyebrow">
@@ -135,22 +121,66 @@ export default function CharterPage() {
             </h2>
           </header>
 
-          <ul className="tour-itinerary charter-hire-steps" data-reveal>
-            {howItWorks.map((item) => (
-              <li key={item.it}>
-                <span className="tour-itinerary-bullet" aria-hidden>
-                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1" strokeLinejoin="round">
-                    <polygon points="6,0 12,6 6,12 0,6" fill="currentColor" fillOpacity="0.9" />
-                  </svg>
-                </span>
-                <span>{lang === "it" ? item.it : item.en}</span>
-              </li>
-            ))}
-          </ul>
+          <ol className="charter-timeline">
+            {steps.map((s, i) => {
+              const c = lang === "it" ? s.it : s.en;
+              return (
+                <li
+                  key={s.n}
+                  className={`charter-timeline-row${i % 2 === 1 ? " is-reverse" : ""}`}
+                  data-reveal={i % 2 === 1 ? "left" : ""}
+                >
+                  <div className="charter-timeline-num"><span>{s.n}</span></div>
+                  <div className="charter-timeline-card">
+                    <h3>{c.h}</h3>
+                    <p>{c.p}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </section>
 
-      {/* COSA È INCLUSO — same 2-col list as the tailor-made page, then the booking CTA */}
+      {/* LE BARCHE — same photo grid as "A bordo" on the Tour su misura page */}
+      <section className="section section-alt charter-luxury" data-reveal>
+        <div className="section-inner">
+          <div className="charter-luxury-head">
+            <div className="eyebrow">
+              {lang === "it" ? "Ovunque nel Golfo" : "Anywhere in the Gulf"}
+            </div>
+            <h2 className="section-title">
+              {lang === "it" ? "Raggiungi ogni destinazione, " : "Reach every destination, "}
+              <span className="accent">
+                {lang === "it" ? "in totale libertà." : "in complete freedom."}
+              </span>
+            </h2>
+            <p className="section-desc">
+              {lang === "it"
+                ? "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
+                : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with captain. An exclusive, efficient way to travel, comfortable and fast."}
+            </p>
+            <p className="charter-hire-destinations">
+              {destinations.map((d, i) => (
+                <span key={d}>
+                  {i > 0 && <span className="charter-hire-destinations-sep" aria-hidden>·</span>}
+                  {d}
+                </span>
+              ))}
+            </p>
+          </div>
+
+          <div className="charter-luxury-grid">
+            {GALLERY.map((src) => (
+              <figure key={src} className="charter-luxury-cell">
+                <img src={src} alt={lang === "it" ? "Yacht Capri Yacht Charter" : "Capri Yacht Charter yacht"} />
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COSA È INCLUSO — same 2-col list as the Tour su misura page, then the booking CTA */}
       <section className="section charter-included">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
@@ -204,12 +234,12 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* GALLERY — boats only */}
-      <section className="section section-alt charter-boat-gallery">
+      {/* SCEGLI LA BARCA — same cards as the Tour su misura page */}
+      <section className="section section-alt charter-fleet">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
             <div className="eyebrow">
-              {lang === "it" ? "Le nostre barche" : "Our boats"}
+              {lang === "it" ? "Scegli la barca" : "Choose the boat"}
             </div>
             <h2 className="section-title">
               {lang === "it" ? "Tre imbarcazioni, " : "Three vessels, "}
@@ -219,19 +249,27 @@ export default function CharterPage() {
             </h2>
           </header>
 
-          <div className="charter-boat-cards">
+          <div className="tour-boats-grid">
             {fleet.map((b) => {
               const c = lang === "it" ? b.it : b.en;
               return (
-                <Link key={b.slug} href={path(`/fleet/${b.slug}`)} className="charter-boat-card" data-reveal>
-                  <div className="charter-boat-card-img">
-                    <BoatCarousel images={b.gallery} alt={c.name} />
+                <Link key={b.slug} href={path(`/fleet/${b.slug}`)} className="tour-boat-card" data-reveal="left">
+                  <div className="tour-boat-img">
+                    <img src={b.cover} alt={c.name} />
                   </div>
-                  <div className="charter-boat-card-body">
+                  <div className="tour-boat-body">
                     <h3>{c.name}</h3>
-                    <div className="charter-boat-card-specs">
+                    <div className="tour-boat-model">{c.model}</div>
+                    <div className="tour-boat-specs">
                       {b.specs.length} · {typeof b.specs.capacityDay === "string" ? b.specs.capacityDay : b.specs.capacityDay[lang]}
                     </div>
+                    <span className="tour-boat-cta">
+                      {lang === "it" ? "Dettagli" : "Details"}
+                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="3" y1="8" x2="13" y2="8" />
+                        <polyline points="9 4 13 8 9 12" />
+                      </svg>
+                    </span>
                   </div>
                 </Link>
               );
