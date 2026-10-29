@@ -72,8 +72,8 @@ export default function TailorMadePage() {
 
   const waBook = `https://wa.me/393335741333?text=${encodeURIComponent(
     lang === "it"
-      ? "Ciao, vorrei organizzare un noleggio su misura."
-      : "Hi, I'd like to arrange a tailored charter."
+      ? "Ciao, vorrei organizzare un tour su misura."
+      : "Hi, I'd like to arrange a tailor-made tour."
   )}`;
 
   return (

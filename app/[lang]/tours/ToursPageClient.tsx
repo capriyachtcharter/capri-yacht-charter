@@ -288,7 +288,7 @@ export default function ToursHubPage() {
 
           <div className="cta-row" data-reveal>
             <Link href={path("/tailor-made")} className="btn-primary">
-              {lang === "it" ? "Prenota la tua crociera" : "Book your cruise"}
+              {t.miniCruises.cta}
             </Link>
           </div>
         </div>

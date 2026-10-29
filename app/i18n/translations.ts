@@ -107,7 +107,7 @@ const base = {
           type: "Yacht di Lusso",
           length: "21 m",
           capacity: "Fino a 12 ospiti · 3 cabine",
-          desc: "L'ammiraglia. Doppio solarium, plancetta poppiera, dinette e cabina armatoriale. Pensato per le giornate intere e le crociere multi-day verso Amalfi e oltre.",
+          desc: "L'ammiraglia. Doppio solarium, plancetta poppiera, dinette e cabina armatoriale. Pensato per le giornate intere e i tour su misura di più giorni verso Amalfi e oltre.",
         },
         {
           id: "primatist-g50",
@@ -205,7 +205,7 @@ const base = {
           tours: "Tour organizzati",
           custom: "Tour su misura",
           cruises: "Mini crociere",
-          charter: "Noleggio con skipper",
+          charter: "Noleggio breve",
         },
       },
       bottom: "© 2026 Capri Yacht Charter · Sun & Sea S.r.l. · P.IVA IT07755820631",
@@ -228,7 +228,7 @@ const base = {
       bullet3: "Chef a bordo",
       bullet4: "Itinerario su misura",
       bullet5: "Tender, snorkeling e SUP inclusi",
-      cta: "Prenota la tua crociera",
+      cta: "Scopri il tour su misura",
     },
   },
   en: {
@@ -262,7 +262,7 @@ const base = {
       book: "Book Now",
       inquire: "Request Quote",
       seeAll: "See all tours",
-      tags: { popular: "Most Popular", value: "Best Value", bespoke: "Bespoke" },
+      tags: { popular: "Most Popular", value: "Best Value", bespoke: "Tailor-made" },
       list: [
         {
           id: "tour-full-day",
@@ -329,7 +329,7 @@ const base = {
           type: "Luxury Yacht",
           length: "21 m",
           capacity: "Up to 12 guests · 3 cabins",
-          desc: "The flagship. Dual solariums, stern swim platform, dinette and master cabin. Built for full-day charters and multi-day cruises down to Amalfi and beyond.",
+          desc: "The flagship. Dual solariums, stern swim platform, dinette and master cabin. Built for full days and multi-day tailor-made tours down to Amalfi and beyond.",
         },
         {
           id: "primatist-g50",
@@ -425,9 +425,9 @@ const base = {
         booking: "Booking 48h in advance",
         services: {
           tours: "Curated tours",
-          custom: "Bespoke tours",
+          custom: "Tailor-made tours",
           cruises: "Mini cruises",
-          charter: "Skipper charter",
+          charter: "Short-term hire",
         },
       },
       bottom: "© 2026 Capri Yacht Charter · Sun & Sea S.r.l. · VAT IT07755820631",
@@ -450,7 +450,7 @@ const base = {
       bullet3: "Onboard chef",
       bullet4: "Tailored itinerary",
       bullet5: "Tender, snorkel & SUP included",
-      cta: "Book your cruise",
+      cta: "Discover the tailor-made tour",
     },
   },
 } as const;

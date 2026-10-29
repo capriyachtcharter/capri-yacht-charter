@@ -641,8 +641,8 @@
       "sarima-39"
     ],
     "it": {
-      "title": "Itinerario Su Misura",
-      "meta": "Su Misura · Durata Libera",
+      "title": "Tour su misura",
+      "meta": "Su misura · Da 1 a 7 giorni",
       "short": "Sorrento, Ischia, Procida — o un itinerario disegnato interamente con te lungo il Golfo.",
       "long": "Costruiamo insieme la giornata perfetta: orari, tappe, soste bagno, eventuali pranzi. Il capitano resta a tua disposizione per consigli e modifiche in tempo reale.",
       "itinerary": [
@@ -661,9 +661,9 @@
       ]
     },
     "en": {
-      "title": "Bespoke Itinerary",
-      "meta": "Tailored · Any Length",
-      "short": "Sorrento, Ischia, Procida — or a bespoke itinerary across the Gulf and its islands.",
+      "title": "Tailor-made tour",
+      "meta": "Tailor-made · 1–7 days",
+      "short": "Sorrento, Ischia, Procida — or a tailor-made itinerary across the Gulf and its islands.",
       "long": "We build the perfect day with you: schedule, stops, swim breaks, lunches. The captain remains available for advice and real-time adjustments.",
       "itinerary": [
         "Initial briefing via WhatsApp or phone",
