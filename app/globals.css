@@ -6180,8 +6180,8 @@ img { max-width: 100%; height: auto; }
 }
 
 
-/* Tours page: highlighted "Tour su misura" card above the day tours. */
-.tours-bespoke-section { padding-bottom: 0; }
+/* Tours page: highlighted "Tour su misura" card between the day tours and "Altre giornate". */
+.tours-bespoke-section { padding-top: 0; padding-bottom: 0; }
 .bento-card.tours-bespoke-highlight {
   display: block;
   height: 420px;
