@@ -17,15 +17,17 @@ const FAREHARBOR_URL = "#";
 // on board. Replace when it arrives.
 const HERO_IMAGE = "/tours/capri-amalfi.jpg";
 
-// Boat photos for the grid (sent by Gabriele, 2026-10-29).
-// Cells are portrait (3:4): objectPosition keeps each boat inside the crop.
+// Boat photos for the grid (from Gabriele's upload, 2026-10-29). Picked for a short-hire
+// page: boats under way, one per boat, a few recognisable places, the captain at the helm.
+// None of them repeats the photos on the Tour su misura page. Cells are portrait (3:4):
+// objectPosition keeps each boat inside the crop.
 const GALLERY = [
-  { src: "/charter/noleggio-1.jpg", pos: "60% center" },
-  { src: "/charter/noleggio-2.jpg", pos: "center" },
-  { src: "/charter/noleggio-3.jpg", pos: "78% center" },
-  { src: "/charter/noleggio-4.jpg", pos: "30% center" },
-  { src: "/charter/noleggio-5.jpg", pos: "center" },
-  { src: "/charter/noleggio-6.jpg", pos: "center" },
+  { src: "/charter/noleggio-1.jpg", pos: "center", alt: { it: "A bordo di TENAREZE VI, con vista sul Vesuvio", en: "On board TENAREZE VI, facing Vesuvius" } },
+  { src: "/charter/noleggio-2.jpg", pos: "88% center", alt: { it: "RORI in navigazione nel Golfo", en: "RORI cruising the Gulf" } },
+  { src: "/charter/noleggio-3.jpg", pos: "35% center", alt: { it: "CHITON FOUR al tramonto", en: "CHITON FOUR at sunset" } },
+  { src: "/charter/noleggio-4.jpg", pos: "center", alt: { it: "La flotta ai Faraglioni", en: "The fleet at the Faraglioni" } },
+  { src: "/charter/noleggio-5.jpg", pos: "center", alt: { it: "TENAREZE VI lungo la costa di Sorrento", en: "TENAREZE VI along the Sorrento coast" } },
+  { src: "/charter/noleggio-6.jpg", pos: "center", alt: { it: "Il capitano al timone", en: "The captain at the helm" } },
 ];
 
 export default function CharterPage() {
@@ -174,7 +176,7 @@ export default function CharterPage() {
           <div className="charter-luxury-grid">
             {GALLERY.map((g) => (
               <figure key={g.src} className="charter-luxury-cell">
-                <img src={g.src} alt={lang === "it" ? "Yacht Capri Yacht Charter" : "Capri Yacht Charter yacht"} style={{ objectPosition: g.pos }} />
+                <img src={g.src} alt={g.alt[lang]} style={{ objectPosition: g.pos }} />
               </figure>
             ))}
           </div>
