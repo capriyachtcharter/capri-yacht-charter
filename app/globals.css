@@ -5752,6 +5752,11 @@ img { max-width: 100%; height: auto; }
   }
   .charter-luxury-cell { aspect-ratio: 1 / 1; border-radius: 12px; }
 }
+@media (max-width: 640px) {
+  /* Phones: 2 columns × 3 rows so the photos are big enough to read. */
+  .charter-luxury-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .charter-luxury-cell { border-radius: 16px; }
+}
 
 /* ----------------------------------------------------------------- */
 /* /charter (noleggio) — varied section layouts                       */

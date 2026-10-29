@@ -13,7 +13,7 @@ import { tourPath } from "../data/tours";
 // section never drifts from the /tours pages.
 
 export default function Tours() {
-  const { t, path, toursByLegacyId } = useLang();
+  const { t, path, toursByLegacyId, lang } = useLang();
   return (
     <section className="section" id="tours">
       <div className="section-inner">
@@ -64,7 +64,7 @@ export default function Tours() {
                   {(tour.tag as string) === "bespoke" ? (
                     <div className="tour-card-footer tour-card-footer-bespoke">
                       <span className="tour-card-book tour-card-book-full">
-                        {t.tours.inquire}
+                        {lang === "it" ? "Scopri di più" : "Discover more"}
                         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="3" y1="8" x2="13" y2="8" />
                           <polyline points="9 4 13 8 9 12" />
@@ -78,7 +78,7 @@ export default function Tours() {
                         <span className="tour-card-price-value">{tour.price}</span>
                       </div>
                       <span className="tour-card-book">
-                        {t.tours.book}
+                        {lang === "it" ? "Scopri di più" : "Discover more"}
                         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="3" y1="8" x2="13" y2="8" />
                           <polyline points="9 4 13 8 9 12" />
