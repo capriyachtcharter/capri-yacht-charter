@@ -6214,9 +6214,13 @@ img { max-width: 100%; height: auto; }
   display: block;
   height: 420px;
 }
+.tours-bespoke-mobile { display: none; }
 @media (max-width: 640px) {
   /* On phones bento cards become image-on-top white cards with auto height. */
   .bento-card.tours-bespoke-highlight { height: auto; }
+  /* Phone order: all tours first, then the "Tour su misura" text, its card, the rest. */
+  .tours-bespoke-section { display: none; }
+  .tours-bespoke-mobile { display: block; margin-top: 28px; }
 }
 
 /* Lightbox for PhotoGrid */

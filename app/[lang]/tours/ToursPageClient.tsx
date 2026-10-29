@@ -48,6 +48,45 @@ export default function ToursHubPage() {
     (tr) => tr.category === "daily" && !bentoIds.has(tr.legacyId) && tr.slug !== TAILOR_MADE_SLUG
   );
 
+  // Highlighted "Tour su misura" card. Desktop: between the day tours and "Altre giornate".
+  // Mobile: inside the "Tour su misura" section at the bottom, after its intro text,
+  // so the phone list shows all tours first (CSS toggles the two placements).
+  const BespokeCard = ({ className = "" }: { className?: string }) =>
+    bespoke ? (
+    <Link href={path(tourPath(bespoke.slug))} className={`bento-card tours-bespoke-highlight ${className}`} data-reveal>
+      <div className="bento-card-img">
+        <Image
+          src={bespoke.image}
+          alt={lang === "it" ? "Tour su misura" : "Tailor-made tour"}
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: tourImagePosition[bespoke.legacyId] ?? "center" }}
+        />
+        <div className="bento-card-overlay" />
+      </div>
+      <div className="bento-card-body">
+        <span className="bento-card-tag">{t.tours.tags.bespoke}</span>
+        <div className="bento-card-meta">{lang === "it" ? "Da 1 a 7 giorni" : "1–7 days"}</div>
+        <h3 className="bento-card-title">{lang === "it" ? "Tour su misura" : "Tailor-made tour"}</h3>
+        <p className="bento-card-desc">{t.miniCruises.desc}</p>
+        <div className="bento-card-footer">
+          <div className="bento-card-price">
+            <span>{t.tours.from}</span>
+            <strong>{bespoke.priceFrom}</strong>
+          </div>
+          <span className="bento-card-cta">
+            {lang === "it" ? "Scopri" : "Discover"}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="8" x2="13" y2="8" />
+              <polyline points="9 4 13 8 9 12" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </Link>
+    ) : null;
+
   return (
     <PageShell>
       <section className="page-hero">
@@ -130,38 +169,7 @@ export default function ToursHubPage() {
       {bespoke && (
         <section className="section tours-bespoke-section">
           <div className="section-inner">
-            <Link href={path(tourPath(bespoke.slug))} className="bento-card tours-bespoke-highlight" data-reveal>
-              <div className="bento-card-img">
-                <Image
-                  src={bespoke.image}
-                  alt={lang === "it" ? "Tour su misura" : "Tailor-made tour"}
-                  fill
-                  priority
-                  sizes="100vw"
-                  style={{ objectFit: "cover", objectPosition: tourImagePosition[bespoke.legacyId] ?? "center" }}
-                />
-                <div className="bento-card-overlay" />
-              </div>
-              <div className="bento-card-body">
-                <span className="bento-card-tag">{t.tours.tags.bespoke}</span>
-                <div className="bento-card-meta">{lang === "it" ? "Da 1 a 7 giorni" : "1–7 days"}</div>
-                <h3 className="bento-card-title">{lang === "it" ? "Tour su misura" : "Tailor-made tour"}</h3>
-                <p className="bento-card-desc">{t.miniCruises.desc}</p>
-                <div className="bento-card-footer">
-                  <div className="bento-card-price">
-                    <span>{t.tours.from}</span>
-                    <strong>{bespoke.priceFrom}</strong>
-                  </div>
-                  <span className="bento-card-cta">
-                    {lang === "it" ? "Scopri" : "Discover"}
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="3" y1="8" x2="13" y2="8" />
-                      <polyline points="9 4 13 8 9 12" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </Link>
+            <BespokeCard />
           </div>
         </section>
       )}
@@ -237,6 +245,10 @@ export default function ToursHubPage() {
               {t.miniCruises.title} <span className="accent">{t.miniCruises.titleAccent}</span>
             </h2>
             <p className="section-desc">{t.miniCruises.desc}</p>
+          </div>
+
+          <div className="tours-bespoke-mobile">
+            <BespokeCard />
           </div>
 
           <div className="mini-cruises-features-grid" data-reveal>
