@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageShell from "../../components/PageShell";
 import { useLang } from "../../i18n/LanguageProvider";
-import { tours, tourImagePosition } from "../../data/tours";
+import { tours, tourImagePosition, tourPath, TAILOR_MADE_SLUG } from "../../data/tours";
 
 // Bento layout — 4 principali + 3 secondari piccoli (7 cards):
 // Row 1-2: LARGE Capri & Costiera (4×2) + TALL Capri & Positano (2×2) — LA PIÙ RICHIESTA
@@ -42,6 +42,7 @@ export default function ToursHubPage() {
   // renders below in a simple grid ("Altri itinerari"). This lets us grow the
   // tour catalogue without redesigning the bento every time.
   const bentoIds = new Set(renderOrder);
+  const bespoke = tours.find((tr) => tr.slug === TAILOR_MADE_SLUG);
   const extraDaily = tours.filter(
     (tr) => tr.category === "daily" && !bentoIds.has(tr.legacyId)
   );
@@ -62,6 +63,46 @@ export default function ToursHubPage() {
         </div>
       </section>
 
+      {/* TOUR SU MISURA — highlighted at the top (client request): same bento card
+          look as the day tours, opens the dedicated /tailor-made page. */}
+      {bespoke && (
+        <section className="section tours-bespoke-section">
+          <div className="section-inner">
+            <Link href={path(tourPath(bespoke.slug))} className="bento-card tours-bespoke-highlight" data-reveal>
+              <div className="bento-card-img">
+                <Image
+                  src={bespoke.image}
+                  alt={lang === "it" ? "Tour su misura" : "Tailor-made tour"}
+                  fill
+                  sizes="100vw"
+                  style={{ objectFit: "cover", objectPosition: tourImagePosition[bespoke.legacyId] ?? "center" }}
+                />
+                <div className="bento-card-overlay" />
+              </div>
+              <div className="bento-card-body">
+                <span className="bento-card-tag">{t.tours.tags.bespoke}</span>
+                <div className="bento-card-meta">{lang === "it" ? "Da 1 a 7 giorni" : "1–7 days"}</div>
+                <h3 className="bento-card-title">{lang === "it" ? "Tour su misura" : "Tailor-made tour"}</h3>
+                <p className="bento-card-desc">{t.miniCruises.desc}</p>
+                <div className="bento-card-footer">
+                  <div className="bento-card-price">
+                    <span>{t.tours.from}</span>
+                    <strong>{bespoke.priceFrom}</strong>
+                  </div>
+                  <span className="bento-card-cta">
+                    {lang === "it" ? "Scopri" : "Discover"}
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="3" y1="8" x2="13" y2="8" />
+                      <polyline points="9 4 13 8 9 12" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+
       <section className="section" id="daily">
         <div className="section-inner">
           <div data-reveal>
@@ -80,7 +121,7 @@ export default function ToursHubPage() {
               return (
                 <Link
                   key={tour.slug}
-                  href={path(`/tours/${tour.slug}`)}
+                  href={path(tourPath(tour.slug))}
                   className={`bento-card bento-${size}`}
                 >
                   <div className="bento-card-img">
@@ -144,7 +185,7 @@ export default function ToursHubPage() {
                 return (
                   <Link
                     key={tour.slug}
-                    href={path(`/tours/${tour.slug}`)}
+                    href={path(tourPath(tour.slug))}
                     className="tours-more-card"
                   >
                     <div className="tours-more-card-img">

@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const dynamicPaths = [
-    ...tours.map((t) => ({ path: `/tours/${t.slug}`, changeFrequency: "monthly" as const, priority: 0.8 })),
+    ...tours.filter((t) => t.slug !== "su-misura").map((t) => ({ path: `/tours/${t.slug}`, changeFrequency: "monthly" as const, priority: 0.8 })),
     ...fleet.map((b) => ({ path: `/fleet/${b.slug}`, changeFrequency: "monthly" as const, priority: 0.7 })),
   ];
 

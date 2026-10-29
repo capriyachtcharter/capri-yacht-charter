@@ -6222,3 +6222,14 @@ img { max-width: 100%; height: auto; }
   align-self: flex-start;
   margin-top: 8px;
 }
+
+/* Tours page: highlighted "Tour su misura" card above the day tours. */
+.tours-bespoke-section { padding-bottom: 0; }
+.bento-card.tours-bespoke-highlight {
+  display: block;
+  height: 420px;
+}
+@media (max-width: 640px) {
+  /* On phones bento cards become image-on-top white cards with auto height. */
+  .bento-card.tours-bespoke-highlight { height: auto; }
+}

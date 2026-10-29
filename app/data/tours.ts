@@ -105,6 +105,13 @@ export const notIncludedDefault = variable;
 
 export const tours: Tour[] = toursData as unknown as Tour[];
 
+/** The bespoke tour ("Su Misura") has its own dedicated page; every other tour
+ *  opens its detail page under /tours. */
+export const TAILOR_MADE_SLUG = "su-misura";
+export function tourPath(slug: string): string {
+  return slug === TAILOR_MADE_SLUG ? "/tailor-made" : `/tours/${slug}`;
+}
+
 export const toursBySlug = Object.fromEntries(tours.map((t) => [t.slug, t]));
 export const toursByLegacyId = Object.fromEntries(tours.map((t) => [t.legacyId, t]));
 

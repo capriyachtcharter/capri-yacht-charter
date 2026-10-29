@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
+import { tourPath } from "../data/tours";
 
 // Home tours section — 4 curated preview cards + a CTA that links to the
 // full /tours page so the visitor can browse the complete catalogue.
@@ -27,7 +28,7 @@ export default function Tours() {
         <div className="tours-grid">
           {t.tours.list.map((tour, i) => {
             const detail = toursByLegacyId[tour.id];
-            const detailHref = detail ? path(`/tours/${detail.slug}`) : path("/tours");
+            const detailHref = detail ? path(tourPath(detail.slug)) : path("/tours");
             return (
               <Link
                 key={tour.id}

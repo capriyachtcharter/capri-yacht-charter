@@ -42,8 +42,7 @@ export default function Footer() {
           <div>
             <div className="footer-col-title">{t.footer.cols.experiencesTitle}</div>
             <Link href={path("/tours")} className="footer-link">{t.footer.cols.services.tours}</Link>
-            <Link href={path("/tours/su-misura")} className="footer-link">{t.footer.cols.services.custom}</Link>
-            <Link href={path("/#mini-cruises")} className="footer-link">{t.footer.cols.services.cruises}</Link>
+            <Link href={path("/tailor-made")} className="footer-link">{t.footer.cols.services.custom}</Link>
             <Link href={path("/charter")} className="footer-link">{t.footer.cols.services.charter}</Link>
           </div>
           <div>

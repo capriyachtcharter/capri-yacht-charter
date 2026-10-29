@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
+import { tourPath } from "../data/tours";
 
 export type CarouselItem = {
   slug: string;
@@ -94,7 +95,7 @@ export default function TourCarousel({ items, fromLabel, ctaLabel }: Props) {
         {loop.map((item, i) => (
           <Link
             key={`${item.slug}-${i}`}
-            href={path(`/tours/${item.slug}`)}
+            href={path(tourPath(item.slug))}
             className="tour-carousel-card"
           >
             <div className="tour-carousel-card-img">
