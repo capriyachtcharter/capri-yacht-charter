@@ -5730,7 +5730,7 @@ img { max-width: 100%; height: auto; }
   border: 0;
   cursor: zoom-in;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 22px;
   aspect-ratio: 3 / 4;
   background: rgba(15, 22, 35, 0.04);
 }
@@ -5750,7 +5750,7 @@ img { max-width: 100%; height: auto; }
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
   }
-  .charter-luxury-cell { aspect-ratio: 1 / 1; border-radius: 4px; }
+  .charter-luxury-cell { aspect-ratio: 1 / 1; border-radius: 12px; }
 }
 
 /* ----------------------------------------------------------------- */
@@ -6285,7 +6285,7 @@ img { max-width: 100%; height: auto; }
 .hire-intro-photo {
   position: relative;
   aspect-ratio: 3 / 2;
-  border-radius: 8px;
+  border-radius: 22px;
   overflow: hidden;
   background: var(--cream-dark);
 }
