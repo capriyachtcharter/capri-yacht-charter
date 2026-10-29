@@ -197,30 +197,33 @@ export default function ToursHubPage() {
           </div>
 
           <div className="mini-cruises-features-grid" data-reveal>
-            <div className="mini-cruise-feature">
-              <h3>{t.miniCruises.bullet1}</h3>
-              <p>
-                {lang === "it"
-                  ? "Cabine private, bagno con doccia, aria condizionata, biancheria fornita."
-                  : "Private cabins, bathroom with shower, air conditioning, linens provided."}
-              </p>
-            </div>
-            <div className="mini-cruise-feature">
-              <h3>{t.miniCruises.bullet2}</h3>
-              <p>
-                {lang === "it"
-                  ? "Chef a bordo su richiesta, itinerario costruito intorno ai tuoi gusti."
-                  : "On-board chef on request, itinerary built around your taste."}
-              </p>
-            </div>
-            <div className="mini-cruise-feature">
-              <h3>{t.miniCruises.bullet3}</h3>
-              <p>
-                {lang === "it"
-                  ? "Tender, SUP, attrezzatura snorkel — tutto a bordo."
-                  : "Tender, SUP, snorkeling gear — all on board."}
-              </p>
-            </div>
+            {[
+              {
+                h: t.miniCruises.bullet1,
+                it: "Cabine private, bagno con doccia, aria condizionata, biancheria fornita.",
+                en: "Private cabins, bathroom with shower, air conditioning, linens provided.",
+              },
+              {
+                h: t.miniCruises.bullet2,
+                it: "Chef a bordo su richiesta, con menù pensati sui tuoi gusti.",
+                en: "On-board chef on request, with menus built around your taste.",
+              },
+              {
+                h: t.miniCruises.bullet3,
+                it: "Soste, orari e ristoranti li scegli tu: costruiamo l'itinerario insieme.",
+                en: "You choose the stops, timing and restaurants: we build the route together.",
+              },
+              {
+                h: t.miniCruises.bullet4,
+                it: "Tender, SUP, attrezzatura snorkel — tutto a bordo.",
+                en: "Tender, SUP, snorkeling gear — all on board.",
+              },
+            ].map((f) => (
+              <div key={f.h} className="mini-cruise-feature">
+                <h3>{f.h}</h3>
+                <p>{lang === "it" ? f.it : f.en}</p>
+              </div>
+            ))}
           </div>
 
           <div className="cta-row" data-reveal>

@@ -41,12 +41,18 @@ export default function CharterPage() {
 
   // PLACEHOLDER — merged from the current site's "always included" list and the old
   // site's charter services. To be confirmed by the client.
-  const included = [
+  const includedAlways = [
     { it: "Capitano dedicato", en: "Dedicated captain" },
     { it: "Carburante e ormeggi", en: "Fuel and mooring" },
+    { it: "IVA inclusa", en: "VAT included" },
     { it: "Soft drink e piccoli snack", en: "Soft drinks and small snacks" },
     { it: "Teli mare a bordo", en: "Beach towels on board" },
-    { it: "IVA inclusa", en: "VAT included" },
+  ];
+
+  const includedRequest = [
+    { it: "Bollicine e vino a bordo", en: "Sparkling wine and wine on board" },
+    { it: "Aperitivo o catering curato", en: "Curated aperitivo or catering" },
+    { it: "Allestimento per occasioni speciali", en: "Special-occasion setup" },
   ];
 
   const Check = () => (
@@ -103,16 +109,19 @@ export default function CharterPage() {
             </p>
           </header>
 
-          <ul className="charter-hire-destinations" data-reveal>
-            {destinations.map((d) => (
-              <li key={d}>{d}</li>
+          <p className="charter-hire-destinations" data-reveal>
+            {destinations.map((d, i) => (
+              <span key={d}>
+                {i > 0 && <span className="charter-hire-destinations-sep" aria-hidden>·</span>}
+                {d}
+              </span>
             ))}
-          </ul>
+          </p>
         </div>
       </section>
 
-      {/* COME FUNZIONA — steps + FareHarbor CTA */}
-      <section className="section charter-hire-how">
+      {/* COME FUNZIONA — same diamond list as the tour itinerary */}
+      <section className="section section-alt charter-hire-how">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
             <div className="eyebrow">
@@ -126,25 +135,60 @@ export default function CharterPage() {
             </h2>
           </header>
 
-          <ul className="charter-hire-list" data-reveal>
+          <ul className="tour-itinerary charter-hire-steps" data-reveal>
             {howItWorks.map((item) => (
               <li key={item.it}>
-                <span className="charter-hire-bullet" aria-hidden />
+                <span className="tour-itinerary-bullet" aria-hidden>
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1" strokeLinejoin="round">
+                    <polygon points="6,0 12,6 6,12 0,6" fill="currentColor" fillOpacity="0.9" />
+                  </svg>
+                </span>
                 <span>{lang === "it" ? item.it : item.en}</span>
               </li>
             ))}
           </ul>
+        </div>
+      </section>
 
-          <div className="charter-hire-included" data-reveal>
-            <h4>{lang === "it" ? "Sempre incluso" : "Always included"}</h4>
-            <ul>
-              {included.map((item) => (
-                <li key={item.it}>
-                  <Check />
-                  <span>{lang === "it" ? item.it : item.en}</span>
-                </li>
-              ))}
-            </ul>
+      {/* COSA È INCLUSO — same 2-col list as the tailor-made page, then the booking CTA */}
+      <section className="section charter-included">
+        <div className="section-inner">
+          <header className="charter-section-head" data-reveal>
+            <div className="eyebrow">
+              {lang === "it" ? "Cosa è incluso" : "What's included"}
+            </div>
+            <h2 className="section-title">
+              {lang === "it" ? "Tutto, " : "Everything, "}
+              <span className="accent">
+                {lang === "it" ? "senza extra nascosti." : "no hidden extras."}
+              </span>
+            </h2>
+          </header>
+
+          <div className="charter-included-split" data-reveal>
+            <div className="charter-included-col">
+              <h4>{lang === "it" ? "Sempre incluso" : "Always included"}</h4>
+              <ul>
+                {includedAlways.map((item) => (
+                  <li key={item.it}>
+                    <Check />
+                    <span>{lang === "it" ? item.it : item.en}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="charter-included-col">
+              <h4>{lang === "it" ? "Su richiesta" : "On request"}</h4>
+              <ul>
+                {includedRequest.map((item) => (
+                  <li key={item.it}>
+                    <Check />
+                    <span>{lang === "it" ? item.it : item.en}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="charter-included-cta" data-reveal>

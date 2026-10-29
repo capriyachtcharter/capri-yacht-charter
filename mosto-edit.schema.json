@@ -1114,6 +1114,14 @@
           }
         },
         {
+          "path": "it.miniCruises.bullet4",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › bullet4",
+            "en": "IT · miniCruises › bullet4"
+          }
+        },
+        {
           "path": "it.miniCruises.cta",
           "kind": "text",
           "label": {
@@ -2215,6 +2223,14 @@
           "label": {
             "it": "EN · miniCruises › bullet2",
             "en": "EN · miniCruises › bullet2"
+          }
+        },
+        {
+          "path": "en.miniCruises.bullet4",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › bullet4",
+            "en": "EN · miniCruises › bullet4"
           }
         },
         {

@@ -6158,89 +6158,27 @@ img { max-width: 100%; height: auto; }
   z-index: 1;
 }
 
-.charter-hire-list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 720px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-.charter-hire-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 18px;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--border-subtle);
-}
-.charter-hire-list li:last-child { border-bottom: 0; padding-bottom: 0; }
-.charter-hire-bullet {
-  flex: none;
-  width: 7px;
-  height: 7px;
-  transform: rotate(45deg) translateY(-2px);
-  background: var(--sea-dark);
-}
-
 .charter-hire-destinations {
-  list-style: none;
   margin: 0 auto;
-  padding: 0;
-  max-width: 860px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-.charter-hire-destinations li {
-  padding: 10px 20px;
-  border: 1px solid rgba(26, 36, 51, 0.14);
-  border-radius: 999px;
-  font-size: 13px;
+  max-width: 980px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  line-height: 2;
   color: var(--navy);
 }
+.charter-hire-destinations-sep {
+  margin: 0 14px;
+  color: var(--sea-dark);
+}
 
-.charter-hire-included {
+/* Come funziona: reuse .tour-itinerary rows, centred in the page column. */
+.charter-hire-steps {
   max-width: 720px;
-  margin: 56px auto 0;
-  text-align: center;
-}
-.charter-hire-included h4 {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--sea-dark);
-  margin: 0 0 20px;
-}
-.charter-hire-included ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px 28px;
-}
-.charter-hire-included li {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  color: var(--text-secondary);
-}
-.charter-hire-included svg {
-  width: 16px;
-  height: 16px;
-  color: var(--sea-dark);
-  flex: none;
+  margin: 0 auto;
 }
 
 .charter-boat-cards {

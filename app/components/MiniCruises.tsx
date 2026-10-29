@@ -31,24 +31,14 @@ export default function MiniCruises() {
           <p className="mini-cruises-desc">{t.miniCruises.desc}</p>
 
           <ul className="mini-cruises-features">
-            <li>
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="3 8 6.5 11.5 13 4.5" />
-              </svg>
-              <span>{t.miniCruises.bullet1}</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="3 8 6.5 11.5 13 4.5" />
-              </svg>
-              <span>{t.miniCruises.bullet2}</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="3 8 6.5 11.5 13 4.5" />
-              </svg>
-              <span>{t.miniCruises.bullet3}</span>
-            </li>
+            {[t.miniCruises.bullet1, t.miniCruises.bullet2, t.miniCruises.bullet3, t.miniCruises.bullet4].map((b) => (
+              <li key={b}>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="3 8 6.5 11.5 13 4.5" />
+                </svg>
+                <span>{b}</span>
+              </li>
+            ))}
           </ul>
 
           <Link href={path("/tailor-made")} className="btn-primary">
