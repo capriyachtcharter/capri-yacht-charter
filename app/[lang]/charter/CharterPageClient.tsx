@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import PhotoGrid from "../../components/PhotoGrid";
@@ -15,14 +16,14 @@ import { FAREHARBOR_URL } from "../../data/booking";
 
 // TODO(client): placeholder hero — the client is sending a photo of people (dressed)
 // on board. Replace when it arrives.
-const HERO_IMAGE = "/tours/capri-amalfi.jpg";
+const INTRO_IMAGE = "/charter/noleggio-intro.jpg";
 
 // Boat photos for the grid (from Gabriele's upload, 2026-10-29). Picked for a short-hire
 // page: boats under way, one per boat, a few recognisable places, the captain at the helm.
 // None of them repeats the photos on the Tour su misura page. Cells are portrait (3:4):
 // objectPosition keeps each boat inside the crop.
 const GALLERY = [
-  { src: "/charter/noleggio-1.jpg", pos: "center", alt: { it: "A bordo di TENAREZE VI, con vista sul Vesuvio", en: "On board TENAREZE VI, facing Vesuvius" } },
+  { src: "/charter/noleggio-1.jpg", pos: "center", alt: { it: "CHITON FOUR vista dall'alto, ospiti sul prendisole", en: "CHITON FOUR from above, guests on the sun deck" } },
   { src: "/charter/noleggio-2.jpg", pos: "88% center", alt: { it: "RORI in navigazione nel Golfo", en: "RORI cruising the Gulf" } },
   { src: "/charter/noleggio-3.jpg", pos: "35% center", alt: { it: "CHITON FOUR al tramonto", en: "CHITON FOUR at sunset" } },
   { src: "/charter/noleggio-4.jpg", pos: "center", alt: { it: "La flotta ai Faraglioni", en: "The fleet at the Faraglioni" } },
@@ -83,17 +84,18 @@ export default function CharterPage() {
 
   return (
     <PageShell>
-      {/* HERO — photo + navy veil */}
-      <section
-        className="page-hero charter-hero-navy charter-hero-photo"
-        style={{ backgroundImage: `url(${HERO_IMAGE})` }}
-      >
+      {/* HERO — navy full-viewport, same treatment as the Tour su misura page */}
+      <section className="page-hero charter-hero-navy">
         <div className="page-hero-inner">
           <div className="eyebrow">
             {lang === "it" ? "Noleggio breve" : "Charter"}
           </div>
           <h1 className="page-hero-title">
-            {lang === "it" ? "Il viaggio è già parte del lusso." : "The journey is already part of the luxury."}
+            {lang === "it" ? "Il viaggio è già" : "The journey is already"}
+            <br />
+            <span className="accent-italic">
+              {lang === "it" ? "parte del lusso." : "part of the luxury."}
+            </span>
           </h1>
           <p className="page-hero-desc">
             {lang === "it"
@@ -103,23 +105,41 @@ export default function CharterPage() {
         </div>
       </section>
 
-      {/* INTRO — the rest of the hero copy, moved out of the photo so the header stays light.
-          Left-aligned like the rest of the page: statement on the left, details on the right. */}
+      {/* IL SERVIZIO — photo on the left, what the charter is on the right.
+          Photo: TENAREZE VI with the crew (DSC05464, horizontal crop). */}
       <section className="section charter-hire-intro">
         <div className="section-inner">
-          <div className="hire-intro" data-reveal>
-            <h2 className="section-title hire-intro-title">
-              <span className="accent">
+          <div className="hire-intro">
+            <div className="hire-intro-photo" data-reveal="left">
+              <Image
+                src={INTRO_IMAGE}
+                alt={lang === "it" ? "TENAREZE VI con l'equipaggio, sullo sfondo il Vesuvio" : "TENAREZE VI with its crew, Vesuvius in the background"}
+                fill
+                sizes="(max-width: 900px) 100vw, 45vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div className="hire-intro-body" data-reveal="right">
+              <div className="eyebrow">{lang === "it" ? "Il servizio" : "The service"}</div>
+              <h2 className="section-title hire-intro-title">
+                {lang === "it" ? "Yacht privati con capitano, " : "Private yachts with a captain, "}
+                <span className="accent">
+                  {lang === "it"
+                    ? "per vivere il mare e raggiungere ogni destinazione con stile."
+                    : "to enjoy the sea and reach every destination in style."}
+                </span>
+              </h2>
+              <p className="hire-intro-text">
                 {lang === "it"
-                  ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
-                  : "Private yachts with a captain, to enjoy the sea and reach every destination in style."}
-              </span>
-            </h2>
-            <p className="hire-intro-text">
-              {lang === "it"
-                ? "Per una giornata intera, più giorni o per raggiungere la tua prossima destinazione via mare. Nessun itinerario imposto, nessun orario fisso: disegniamo ogni momento insieme, perché il lusso della vacanza inizi già dal viaggio."
-                : "For a full day, several days or to reach your next destination by sea. No fixed itinerary, no rigid schedule: we design every moment together, so the luxury of your holiday begins from the journey itself."}
-            </p>
+                  ? "Con il noleggio breve uno dei nostri yacht, con il suo capitano, è a tua disposizione per raggiungere via mare le località del Golfo di Napoli e della Costiera Amalfitana: da Capri a Positano, da Sorrento a Ischia."
+                  : "With our charter service one of our yachts, with its own captain, is at your disposal to reach the towns of the Gulf of Naples and the Amalfi Coast by sea: from Capri to Positano, from Sorrento to Ischia."}
+              </p>
+              <p className="hire-intro-text">
+                {lang === "it"
+                  ? "Per qualche ora, una giornata intera o più giorni. Scegli tu barca, data e orario: al resto pensiamo noi, dall'imbarco all'arrivo, perché il lusso della vacanza inizi già dal viaggio."
+                  : "For a few hours, a full day or several days. You choose the boat, the date and the time: we take care of the rest, from boarding to arrival, so the luxury of your holiday begins with the journey itself."}
+              </p>
+            </div>
           </div>
         </div>
       </section>

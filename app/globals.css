@@ -6276,27 +6276,34 @@ img { max-width: 100%; height: auto; }
 .photo-lightbox-nav.is-next { right: 16px; }
 
 /* Noleggio breve: left-aligned intro (statement | details) and a 4-step row for "Come funziona". */
-.charter-hire-intro { padding-bottom: 0; }
 .hire-intro {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: 72px;
-  align-items: end;
-  padding-bottom: 64px;
-  border-bottom: 1px solid var(--border-medium);
+  align-items: center;
 }
+.hire-intro-photo {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--cream-dark);
+}
+.hire-intro-body .eyebrow { margin-bottom: 14px; }
 .hire-intro-title {
-  margin: 0;
-  font-size: clamp(30px, 3.3vw, 46px);
+  margin: 0 0 24px;
+  font-size: clamp(30px, 3.2vw, 44px);
   line-height: 1.15;
 }
 .hire-intro-text {
-  margin: 0;
+  margin: 0 0 16px;
   font-size: 17px;
   line-height: 1.75;
   font-weight: 300;
   color: var(--text-secondary);
+  max-width: 540px;
 }
+.hire-intro-text:last-child { margin-bottom: 0; }
 .hire-head { max-width: 760px; margin-bottom: 56px; }
 .hire-head .eyebrow { margin-bottom: 14px; }
 .hire-head .section-title { margin: 0; }
@@ -6338,11 +6345,11 @@ img { max-width: 100%; height: auto; }
   margin: 0;
 }
 @media (max-width: 1024px) {
-  .hire-intro { gap: 40px; }
+  .hire-intro { gap: 48px; }
   .hire-steps { grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
 }
 @media (max-width: 640px) {
-  .hire-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 48px; }
+  .hire-intro { grid-template-columns: 1fr; gap: 32px; }
   .hire-head { margin-bottom: 36px; }
   .hire-steps { grid-template-columns: 1fr; gap: 28px; }
   .hire-step-num { font-size: 36px; margin-bottom: 12px; }
