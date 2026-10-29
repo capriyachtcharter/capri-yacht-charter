@@ -6189,7 +6189,7 @@ img { max-width: 100%; height: auto; }
   display: flex;
   width: max-content;
   white-space: nowrap;
-  animation: charter-dest-marquee 40s linear infinite;
+  animation: charter-dest-marquee 55s linear infinite;
 }
 .charter-hire-dest::after {
   content: "·";
@@ -6203,7 +6203,7 @@ img { max-width: 100%; height: auto; }
 }
 @media (max-width: 640px) {
   .charter-hire-destinations { margin-bottom: 20px; }
-  .charter-hire-destinations-track { animation-duration: 30s; }
+  .charter-hire-destinations-track { animation-duration: 42s; }
 }
 @media (prefers-reduced-motion: reduce) {
   .charter-hire-destinations { overflow-x: auto; }
