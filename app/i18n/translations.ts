@@ -228,7 +228,7 @@ const base = {
       bullet3: "Chef a bordo",
       bullet4: "Itinerario su misura",
       bullet5: "Tender, snorkeling e SUP inclusi",
-      cta: "Scopri il tour su misura",
+      cta: "Crea il tuo tour",
     },
   },
   en: {
@@ -236,7 +236,7 @@ const base = {
       home: "Home",
       experiences: "Tours",
       fleet: "Fleet",
-      charter: "Yacht hire",
+      charter: "Charter",
       story: "Story",
       contact: "Contact",
       whatsapp: "Concierge",
@@ -450,7 +450,7 @@ const base = {
       bullet3: "Onboard chef",
       bullet4: "Tailored itinerary",
       bullet5: "Tender, snorkel & SUP included",
-      cta: "Discover the tailor-made tour",
+      cta: "Tailor your tour",
     },
   },
 } as const;
