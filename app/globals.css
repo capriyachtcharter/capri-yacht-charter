@@ -6222,19 +6222,18 @@ img { max-width: 100%; height: auto; }
 }
 
 
-/* Tours page: highlighted "Tour su misura" card between the day tours and "Altre giornate". */
-.tours-bespoke-section { padding-top: 0; padding-bottom: 0; }
+/* Tours page: day tours → Tour su misura block (text + card + details) → "Altre giornate".
+   Phones: all tours first (day tours + Altre read as one list), then the Tour su misura block. */
+.tours-flow { display: flex; flex-direction: column; }
+.tours-bespoke-card { margin-top: 32px; }
 .bento-card.tours-bespoke-highlight {
   display: block;
   height: 420px;
 }
-.tours-bespoke-mobile { display: none; }
 @media (max-width: 640px) {
   /* On phones bento cards become image-on-top white cards with auto height. */
   .bento-card.tours-bespoke-highlight { height: auto; }
-  /* Phone order: all tours first, then the "Tour su misura" text, its card, the rest. */
-  .tours-bespoke-section { display: none; }
-  .tours-bespoke-mobile { display: block; margin-top: 28px; }
+  .tours-flow-tailor { order: 3; }
 }
 
 /* Lightbox for PhotoGrid */

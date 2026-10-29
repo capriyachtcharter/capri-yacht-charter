@@ -48,9 +48,8 @@ export default function ToursHubPage() {
     (tr) => tr.category === "daily" && !bentoIds.has(tr.legacyId) && tr.slug !== TAILOR_MADE_SLUG
   );
 
-  // Highlighted "Tour su misura" card. Desktop: between the day tours and "Altre giornate".
-  // Mobile: inside the "Tour su misura" section at the bottom, after its intro text,
-  // so the phone list shows all tours first (CSS toggles the two placements).
+  // Highlighted "Tour su misura" card, shown inside the Tour su misura block right after its
+  // intro text (so it carries no description of its own).
   const BespokeCard = ({ className = "" }: { className?: string }) =>
     bespoke ? (
     <Link href={path(tourPath(bespoke.slug))} className={`bento-card tours-bespoke-highlight ${className}`} data-reveal>
@@ -69,7 +68,6 @@ export default function ToursHubPage() {
         <span className="bento-card-tag">{t.tours.tags.bespoke}</span>
         <div className="bento-card-meta">{lang === "it" ? "Da 1 a 7 giorni" : "1–7 days"}</div>
         <h3 className="bento-card-title">{lang === "it" ? "Tour su misura" : "Bespoke tour"}</h3>
-        <p className="bento-card-desc">{t.miniCruises.desc}</p>
         <div className="bento-card-footer">
           <div className="bento-card-price">
             <span>{t.tours.from}</span>
@@ -103,6 +101,7 @@ export default function ToursHubPage() {
         </div>
       </section>
 
+      <div className="tours-flow">
       <section className="section" id="daily">
         <div className="section-inner">
           <div data-reveal>
@@ -164,15 +163,64 @@ export default function ToursHubPage() {
         </div>
       </section>
 
-      {/* TOUR SU MISURA — highlighted right under the day tours (client request): same bento card
-          look as the day tours, opens the dedicated /tailor-made page. */}
-      {bespoke && (
-        <section className="section tours-bespoke-section">
-          <div className="section-inner">
+      {/* TOUR SU MISURA — one block right under the day tours (desktop): intro text, its card,
+          the details and the CTA. On phones it moves after all the tours (CSS order). */}
+      <section className="section section-alt tours-flow-tailor" id="mini-cruises">
+        <div className="section-inner">
+          <div data-reveal>
+            <div className="eyebrow">{t.miniCruises.eyebrow}</div>
+            <h2 className="section-title">
+              {t.miniCruises.title} <span className="accent">{t.miniCruises.titleAccent}</span>
+            </h2>
+            <p className="section-desc">{t.miniCruises.desc}</p>
+          </div>
+
+          <div className="tours-bespoke-card">
             <BespokeCard />
           </div>
-        </section>
-      )}
+
+          <div className="mini-cruises-features-grid" data-reveal>
+            {[
+              {
+                h: t.miniCruises.bullet1,
+                it: "Una giornata, un weekend o una settimana intera: la durata la scegli tu.",
+                en: "A single day, a weekend or a whole week: you choose how long.",
+              },
+              {
+                h: t.miniCruises.bullet2,
+                it: "Per i più giorni: cabine private, bagno con doccia, aria condizionata, biancheria fornita.",
+                en: "For multi-day trips: private cabins, bathroom with shower, air conditioning, linens provided.",
+              },
+              {
+                h: t.miniCruises.bullet3,
+                it: "Chef a bordo su richiesta, con menù pensati sui tuoi gusti.",
+                en: "On-board chef on request, with menus built around your taste.",
+              },
+              {
+                h: t.miniCruises.bullet4,
+                it: "Soste, orari e ristoranti li scegli tu: costruiamo l'itinerario insieme.",
+                en: "You choose the stops, timing and restaurants: we build the route together.",
+              },
+              {
+                h: t.miniCruises.bullet5,
+                it: "Tender, SUP, attrezzatura snorkel — tutto a bordo.",
+                en: "Tender, SUP, snorkeling gear — all on board.",
+              },
+            ].map((f) => (
+              <div key={f.h} className="mini-cruise-feature">
+                <h3>{f.h}</h3>
+                <p>{lang === "it" ? f.it : f.en}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="cta-row" data-reveal>
+            <Link href={path("/tailor-made")} className="btn-primary">
+              {t.miniCruises.cta}
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {extraDaily.length > 0 && (
         <section className="section tours-more-section" id="more-itineraries">
@@ -237,62 +285,7 @@ export default function ToursHubPage() {
         </section>
       )}
 
-      <section className="section section-alt" id="mini-cruises">
-        <div className="section-inner">
-          <div data-reveal>
-            <div className="eyebrow">{t.miniCruises.eyebrow}</div>
-            <h2 className="section-title">
-              {t.miniCruises.title} <span className="accent">{t.miniCruises.titleAccent}</span>
-            </h2>
-            <p className="section-desc">{t.miniCruises.desc}</p>
-          </div>
-
-          <div className="tours-bespoke-mobile">
-            <BespokeCard />
-          </div>
-
-          <div className="mini-cruises-features-grid" data-reveal>
-            {[
-              {
-                h: t.miniCruises.bullet1,
-                it: "Una giornata, un weekend o una settimana intera: la durata la scegli tu.",
-                en: "A single day, a weekend or a whole week: you choose how long.",
-              },
-              {
-                h: t.miniCruises.bullet2,
-                it: "Per i più giorni: cabine private, bagno con doccia, aria condizionata, biancheria fornita.",
-                en: "For multi-day trips: private cabins, bathroom with shower, air conditioning, linens provided.",
-              },
-              {
-                h: t.miniCruises.bullet3,
-                it: "Chef a bordo su richiesta, con menù pensati sui tuoi gusti.",
-                en: "On-board chef on request, with menus built around your taste.",
-              },
-              {
-                h: t.miniCruises.bullet4,
-                it: "Soste, orari e ristoranti li scegli tu: costruiamo l'itinerario insieme.",
-                en: "You choose the stops, timing and restaurants: we build the route together.",
-              },
-              {
-                h: t.miniCruises.bullet5,
-                it: "Tender, SUP, attrezzatura snorkel — tutto a bordo.",
-                en: "Tender, SUP, snorkeling gear — all on board.",
-              },
-            ].map((f) => (
-              <div key={f.h} className="mini-cruise-feature">
-                <h3>{f.h}</h3>
-                <p>{lang === "it" ? f.it : f.en}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="cta-row" data-reveal>
-            <Link href={path("/tailor-made")} className="btn-primary">
-              {t.miniCruises.cta}
-            </Link>
-          </div>
-        </div>
-      </section>
+      </div>
     </PageShell>
   );
 }
