@@ -10,9 +10,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     lang,
     path: "/charter",
     en: {
-      title: "Short-term Yacht Hire",
+      title: "Yacht Charter",
       description:
-        "Private yacht hire with a dedicated captain from Capri to the Amalfi Coast, Ischia, Procida and the Gulf of Naples.",
+        "Private yacht charter with a dedicated captain from Capri to the Amalfi Coast, Ischia, Procida and the Gulf of Naples.",
     },
     it: {
       title: "Noleggio breve",

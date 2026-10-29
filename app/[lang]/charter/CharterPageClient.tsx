@@ -90,7 +90,7 @@ export default function CharterPage() {
       >
         <div className="page-hero-inner">
           <div className="eyebrow">
-            {lang === "it" ? "Noleggio breve" : "Short-term hire"}
+            {lang === "it" ? "Noleggio breve" : "Charter"}
           </div>
           <h1 className="page-hero-title">
             {lang === "it" ? "Il viaggio è già parte del lusso." : "The journey is already part of the luxury."}
