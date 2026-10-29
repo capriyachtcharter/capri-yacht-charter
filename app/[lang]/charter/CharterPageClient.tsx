@@ -17,14 +17,15 @@ const FAREHARBOR_URL = "#";
 // on board. Replace when it arrives.
 const HERO_IMAGE = "/tours/capri-amalfi.jpg";
 
-// TODO(client): placeholder boat photos — Gabriele is sending the 6 final ones.
+// Boat photos for the grid (sent by Gabriele, 2026-10-29).
+// Cells are portrait (3:4): objectPosition keeps each boat inside the crop.
 const GALLERY = [
-  "/fleet/libeccio/libeccio-esterno-1.jpg",
-  "/fleet/tramontana/tramontana-esterno-2.jpg",
-  "/fleet/gabbiano/gabbiano-esterno-1.jpg",
-  "/fleet/libeccio/libeccio-esterno-3.jpg",
-  "/fleet/gabbiano/gabbiano-esterno-3.jpg",
-  "/fleet/tramontana/tramontana-esterno-1.jpg",
+  { src: "/charter/noleggio-1.jpg", pos: "60% center" },
+  { src: "/charter/noleggio-2.jpg", pos: "center" },
+  { src: "/charter/noleggio-3.jpg", pos: "78% center" },
+  { src: "/charter/noleggio-4.jpg", pos: "30% center" },
+  { src: "/charter/noleggio-5.jpg", pos: "center" },
+  { src: "/charter/noleggio-6.jpg", pos: "center" },
 ];
 
 export default function CharterPage() {
@@ -171,9 +172,9 @@ export default function CharterPage() {
           </div>
 
           <div className="charter-luxury-grid">
-            {GALLERY.map((src) => (
-              <figure key={src} className="charter-luxury-cell">
-                <img src={src} alt={lang === "it" ? "Yacht Capri Yacht Charter" : "Capri Yacht Charter yacht"} />
+            {GALLERY.map((g) => (
+              <figure key={g.src} className="charter-luxury-cell">
+                <img src={g.src} alt={lang === "it" ? "Yacht Capri Yacht Charter" : "Capri Yacht Charter yacht"} style={{ objectPosition: g.pos }} />
               </figure>
             ))}
           </div>
