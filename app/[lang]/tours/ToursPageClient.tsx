@@ -57,7 +57,7 @@ export default function ToursHubPage() {
       <div className="bento-card-img">
         <Image
           src={bespoke.image}
-          alt={lang === "it" ? "Tour su misura" : "Tailor-made tour"}
+          alt={lang === "it" ? "Tour su misura" : "Bespoke tour"}
           fill
           priority
           sizes="100vw"
@@ -68,7 +68,7 @@ export default function ToursHubPage() {
       <div className="bento-card-body">
         <span className="bento-card-tag">{t.tours.tags.bespoke}</span>
         <div className="bento-card-meta">{lang === "it" ? "Da 1 a 7 giorni" : "1–7 days"}</div>
-        <h3 className="bento-card-title">{lang === "it" ? "Tour su misura" : "Tailor-made tour"}</h3>
+        <h3 className="bento-card-title">{lang === "it" ? "Tour su misura" : "Bespoke tour"}</h3>
         <p className="bento-card-desc">{t.miniCruises.desc}</p>
         <div className="bento-card-footer">
           <div className="bento-card-price">

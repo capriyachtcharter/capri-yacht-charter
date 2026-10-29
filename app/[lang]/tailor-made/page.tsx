@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     lang,
     path: "/tailor-made",
     en: {
-      title: "Tailor-made Yacht Tour",
+      title: "Bespoke Yacht Tour",
       description:
         "A private yacht tour designed around you: dedicated captain, no fixed itinerary, full day or multi-day from Capri across the Amalfi Coast and the Gulf of Naples.",
     },

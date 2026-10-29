@@ -262,7 +262,7 @@ const base = {
       book: "Book Now",
       inquire: "Request Quote",
       seeAll: "See all tours",
-      tags: { popular: "Most Popular", value: "Best Value", bespoke: "Tailor-made" },
+      tags: { popular: "Most Popular", value: "Best Value", bespoke: "Bespoke" },
       list: [
         {
           id: "tour-full-day",
@@ -329,7 +329,7 @@ const base = {
           type: "Luxury Yacht",
           length: "21 m",
           capacity: "Up to 12 guests · 3 cabins",
-          desc: "The flagship. Dual solariums, stern swim platform, dinette and master cabin. Built for full days and multi-day tailor-made tours down to Amalfi and beyond.",
+          desc: "The flagship. Dual solariums, stern swim platform, dinette and master cabin. Built for full days and multi-day bespoke tours down to Amalfi and beyond.",
         },
         {
           id: "primatist-g50",
@@ -425,7 +425,7 @@ const base = {
         booking: "Booking 48h in advance",
         services: {
           tours: "Curated tours",
-          custom: "Tailor-made tours",
+          custom: "Bespoke tours",
           cruises: "Mini cruises",
           charter: "Charter",
         },
@@ -441,7 +441,7 @@ const base = {
       cta: "Personalize Your Tour",
     },
     miniCruises: {
-      eyebrow: "Tailor-made tour",
+      eyebrow: "Bespoke tour",
       title: "Your tour,",
       titleAccent: "your way.",
       desc: "From a single day up to a week on board, across Capri, Ischia, Procida, the Amalfi Coast, all the way to Ponza and Ventotene. Length, route, stops and timing: you choose every detail, with a dedicated crew and private cabins for multi-day trips.",

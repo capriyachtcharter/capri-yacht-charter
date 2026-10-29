@@ -73,7 +73,7 @@ export default function TailorMadePage() {
   const waBook = `https://wa.me/393335741333?text=${encodeURIComponent(
     lang === "it"
       ? "Ciao, vorrei organizzare un tour su misura."
-      : "Hi, I'd like to arrange a tailor-made tour."
+      : "Hi, I'd like to arrange a bespoke tour."
   )}`;
 
   return (
@@ -83,7 +83,7 @@ export default function TailorMadePage() {
       <section className="page-hero charter-hero-navy">
         <div className="page-hero-inner">
           <div className="eyebrow">
-            {lang === "it" ? "Tour su misura" : "Tailor-made tour"}
+            {lang === "it" ? "Tour su misura" : "Bespoke tour"}
           </div>
           <h1 className="page-hero-title">
             {lang === "it" ? "La barca è tua." : "The boat is yours."}
