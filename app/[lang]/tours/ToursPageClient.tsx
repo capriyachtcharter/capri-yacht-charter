@@ -43,8 +43,9 @@ export default function ToursHubPage() {
   // tour catalogue without redesigning the bento every time.
   const bentoIds = new Set(renderOrder);
   const bespoke = tours.find((tr) => tr.slug === TAILOR_MADE_SLUG);
+  // The bespoke tour is shown as its own highlighted card above, so it's left out here.
   const extraDaily = tours.filter(
-    (tr) => tr.category === "daily" && !bentoIds.has(tr.legacyId)
+    (tr) => tr.category === "daily" && !bentoIds.has(tr.legacyId) && tr.slug !== TAILOR_MADE_SLUG
   );
 
   return (
