@@ -4,14 +4,13 @@ import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import { useLang } from "../../i18n/LanguageProvider";
 import { fleet } from "../../data/fleet";
+import { FAREHARBOR_URL } from "../../data/booking";
 
 // Noleggio breve — same structure as the Tour su misura page (/tailor-made):
 // hero → numbered steps → photo grid → what's included + CTA → choose the boat.
 // Never call it "transfer" on the site: the client can't legally advertise transfers.
 // Booking happens on FareHarbor; no prices shown.
 
-// TODO(client): FareHarbor booking link not provided yet — swap in the real URL.
-const FAREHARBOR_URL = "#";
 
 // TODO(client): placeholder hero — the client is sending a photo of people (dressed)
 // on board. Replace when it arrives.

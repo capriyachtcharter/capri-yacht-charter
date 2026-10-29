@@ -6179,11 +6179,6 @@ img { max-width: 100%; height: auto; }
   color: var(--sea-dark);
 }
 
-/* Home "Oltre i tour" cards: each card now carries its own CTA. */
-.beyond-card .beyond-cta-btn {
-  align-self: flex-start;
-  margin-top: 8px;
-}
 
 /* Tours page: highlighted "Tour su misura" card above the day tours. */
 .tours-bespoke-section { padding-bottom: 0; }
