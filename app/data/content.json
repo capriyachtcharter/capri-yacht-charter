@@ -82,7 +82,7 @@
         "skipperTitle": "La barca è tutta tua.",
         "skipperDesc": "La barca è tutta tua, i nostri tour sono privati. Il nostro equipaggio sarà a tua completa disposizione per tutta la durata del tour.",
         "skipperCta": "Richiedi un Preventivo",
-        "charterTitle": "Noleggio & transfer",
+        "charterTitle": "Noleggio breve",
         "charterDesc": "Raggiungi la tua prossima destinazione via mare, a bordo di uno yacht privato con capitano. Prenoti online in pochi passaggi.",
         "tailorTitle": "Tour su misura",
         "tailorDesc": "Una giornata, o più, disegnata su di te: itinerario, soste e orari li decidiamo insieme. La barca è tutta tua.",
@@ -231,11 +231,11 @@
         "cta": "Personalizza il Tuo Tour"
       },
       "miniCruises": {
-        "eyebrow": "Mini Crociere",
+        "eyebrow": "Tour su misura",
         "title": "Quando un giorno",
         "titleAccent": "non basta.",
         "desc": "Itinerari di più giorni vissuti a bordo. Capri, Ischia, Procida, la Costiera Amalfitana, fino a Ponza e Ventotene — cabine private, equipaggio dedicato, soste scelte da voi.",
-        "bullet1": "Da 2 a 7 giorni · cabine private",
+        "bullet1": "Da 1 a 7 giorni · cabine private",
         "bullet2": "Chef a bordo · itinerario su misura",
         "bullet3": "Tender, attrezzatura snorkeling e SUP inclusi",
         "cta": "Prenota la tua crociera"
@@ -322,7 +322,7 @@
         "skipperTitle": "The boat is all yours.",
         "skipperDesc": "The boat is all yours — our tours are private. Our crew is at your full service for the whole tour.",
         "skipperCta": "Inquire",
-        "charterTitle": "Hire & transfer",
+        "charterTitle": "Short-term hire",
         "charterDesc": "Reach your next destination by sea aboard a private yacht with captain. Book online in a few steps.",
         "tailorTitle": "Tailor-made tour",
         "tailorDesc": "A day, or more, designed around you: route, stops and timing decided together. The boat is all yours.",
@@ -471,11 +471,11 @@
         "cta": "Personalize Your Tour"
       },
       "miniCruises": {
-        "eyebrow": "Mini Cruises",
+        "eyebrow": "Tailor-made tour",
         "title": "Beyond the",
         "titleAccent": "Day Tour.",
         "desc": "Multi-day cruises aboard — Capri, Ischia, Procida, the Amalfi Coast, all the way to Ponza and Ventotene. Private cabins, dedicated crew, stops chosen by you.",
-        "bullet1": "2–7 days · Private cabins",
+        "bullet1": "1–7 days · Private cabins",
         "bullet2": "Onboard chef · Tailored itinerary",
         "bullet3": "Tender & snorkel gear included",
         "cta": "Book your cruise"

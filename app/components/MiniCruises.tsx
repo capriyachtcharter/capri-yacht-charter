@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 
 export default function MiniCruises() {
-  const { t } = useLang();
+  const { t, path } = useLang();
   return (
     <section className="mini-cruises" id="mini-cruises">
       <div className="mini-cruises-inner">
@@ -50,14 +51,9 @@ export default function MiniCruises() {
             </li>
           </ul>
 
-          <a
-            href="https://wa.me/393335741333?text=Vorrei%20prenotare%20una%20mini%20crociera"
-            target="_blank"
-            rel="noopener"
-            className="btn-primary"
-          >
+          <Link href={path("/tailor-made")} className="btn-primary">
             {t.miniCruises.cta}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

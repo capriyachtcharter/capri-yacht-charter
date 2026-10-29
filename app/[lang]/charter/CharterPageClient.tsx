@@ -9,56 +9,33 @@ import { fleet } from "../../data/fleet";
 // TODO(client): FareHarbor booking link not provided yet — swap in the real URL.
 const FAREHARBOR_URL = "#";
 
-// TODO(client): placeholder hero — the brief asks for people (dressed) on board,
-// conveying a transfer. Replace with the client's photo when it arrives.
+// TODO(client): placeholder hero — the client is sending a photo of people (dressed)
+// on board. Replace when it arrives.
 const HERO_IMAGE = "/tours/capri-amalfi.jpg";
 
 export default function CharterPage() {
   const { lang, path } = useLang();
 
-  // Content adapted from the old site's Transfers page (capriyachtcharter.com/transfers)
-  // — to be confirmed by the client.
-  const destinations = ["Capri", "Napoli", "Sorrento", "Positano", "Amalfi", "Ravello", "Salerno", "Ischia", "Roma"];
-
-  const modes = [
-    {
-      it: {
-        h: "Solo barca",
-        p: "Da porto a porto, a bordo di uno yacht privato con capitano. Il modo più rapido ed esclusivo per spostarsi tra le isole e la costa, anche di notte.",
-      },
-      en: {
-        h: "Boat only",
-        p: "Port to port, aboard a private yacht with captain. The fastest, most exclusive way to move between the islands and the coast, overnight too.",
-      },
-    },
-    {
-      it: {
-        h: "Barca + auto · Top Service",
-        p: "Dall'hotel all'aeroporto, o viceversa, senza pensieri: transfer in barca più auto privata, con assistenza e facchinaggio inclusi.",
-      },
-      en: {
-        h: "Boat + car · Top Service",
-        p: "From your hotel to the airport, or the other way round, worry-free: boat transfer plus private car, with assistance and porterage included.",
-      },
-    },
-  ];
+  // Short-term hire ("noleggio breve"). Never call it "transfer" on the site: the client
+  // can't legally advertise transfers. Booking happens on FareHarbor; no prices shown.
+  const destinations = ["Capri", "Napoli", "Sorrento", "Positano", "Amalfi", "Ravello", "Salerno", "Ischia"];
 
   const howItWorks = [
     {
-      it: "Indicaci partenza e destinazione, data e orario.",
-      en: "Tell us departure and destination, date and time.",
+      it: "Scegli la barca, la data e l'orario.",
+      en: "Pick the boat, the date and the time.",
     },
     {
-      it: "Dicci quante persone siete e quanti bagagli avete.",
-      en: "Let us know how many guests and how much luggage.",
+      it: "Indica da dove parti e dove vuoi arrivare.",
+      en: "Tell us where you depart from and where you want to go.",
     },
     {
-      it: "Per il Top Service, aggiungi il tuo hotel e il numero di volo o treno.",
-      en: "For the Top Service, add your hotel and flight or train number.",
+      it: "Prenoti e paghi online in pochi passaggi.",
+      en: "Book and pay online in a few steps.",
     },
     {
-      it: "Prenoti e il capitano ti aspetta al molo all'orario concordato.",
-      en: "Book, and your captain meets you at the pier at the agreed time.",
+      it: "Il capitano ti aspetta al molo all'orario concordato.",
+      en: "Your captain meets you at the pier at the agreed time.",
     },
   ];
 
@@ -71,7 +48,7 @@ export default function CharterPage() {
       >
         <div className="page-hero-inner">
           <div className="eyebrow">
-            {lang === "it" ? "Noleggio & transfer" : "Hire & transfer"}
+            {lang === "it" ? "Noleggio breve" : "Short-term hire"}
           </div>
           <h1 className="page-hero-title">
             {lang === "it" ? "Il viaggio è già parte del lusso." : "The journey is already part of the luxury."}
@@ -105,8 +82,8 @@ export default function CharterPage() {
             </h2>
             <p className="section-desc">
               {lang === "it"
-                ? "Transfer in barca, anche notturni, verso tutte le località turistiche del Golfo di Napoli e della Costiera Amalfitana. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
-                : "Boat transfers, overnight too, to every resort in the Gulf of Naples and along the Amalfi Coast. An exclusive, efficient way to travel, comfortable and fast."}
+                ? "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
+                : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with captain. An exclusive, efficient way to travel, comfortable and fast."}
             </p>
           </header>
 
@@ -115,23 +92,6 @@ export default function CharterPage() {
               <li key={d}>{d}</li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* DUE MODALITÀ — boat only / boat + car */}
-      <section className="section section-alt charter-hire-modes">
-        <div className="section-inner">
-          <div className="charter-hire-modes-grid">
-            {modes.map((m) => {
-              const c = lang === "it" ? m.it : m.en;
-              return (
-                <article key={m.it.h} className="charter-hire-mode" data-reveal>
-                  <h3>{c.h}</h3>
-                  <p>{c.p}</p>
-                </article>
-              );
-            })}
-          </div>
         </div>
       </section>
 

@@ -224,16 +224,9 @@ export default function ToursHubPage() {
           </div>
 
           <div className="cta-row" data-reveal>
-            <a
-              href={`https://wa.me/393335741333?text=${encodeURIComponent(
-                lang === "it" ? "Vorrei prenotare una mini crociera" : "I'd like to book a mini cruise"
-              )}`}
-              target="_blank"
-              rel="noopener"
-              className="btn-primary"
-            >
+            <Link href={path("/tailor-made")} className="btn-primary">
               {lang === "it" ? "Prenota la tua crociera" : "Book your cruise"}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
