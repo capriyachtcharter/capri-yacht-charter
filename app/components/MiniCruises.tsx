@@ -49,7 +49,7 @@ export default function MiniCruises() {
               {t.miniCruises.cta}
             </Link>
             <a href={waTour} target="_blank" rel="noopener" className="btn-secondary">
-              {lang === "it" ? "Contattaci" : "Contact us"}
+              {t.miniCruises.ctaBook}
             </a>
           </div>
         </div>

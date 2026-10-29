@@ -1138,6 +1138,14 @@
           }
         },
         {
+          "path": "it.miniCruises.ctaBook",
+          "kind": "text",
+          "label": {
+            "it": "IT · miniCruises › ctaBook",
+            "en": "IT · miniCruises › ctaBook"
+          }
+        },
+        {
           "path": "en.nav.home",
           "kind": "text",
           "label": {
@@ -2263,6 +2271,14 @@
           "label": {
             "it": "EN · miniCruises › cta",
             "en": "EN · miniCruises › cta"
+          }
+        },
+        {
+          "path": "en.miniCruises.ctaBook",
+          "kind": "text",
+          "label": {
+            "it": "EN · miniCruises › ctaBook",
+            "en": "EN · miniCruises › ctaBook"
           }
         },
         {

@@ -223,7 +223,7 @@ export default function BoatDetailPage() {
               };
             })}
             fromLabel={lang === "it" ? "Prezzo" : "Price"}
-            ctaLabel={lang === "it" ? "Scopri il tour" : "Discover the tour"}
+            ctaLabel={lang === "it" ? "Scopri di più" : "Discover more"}
           />
         </section>
       )}

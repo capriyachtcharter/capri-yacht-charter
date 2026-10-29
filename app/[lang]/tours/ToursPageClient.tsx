@@ -74,7 +74,7 @@ export default function ToursHubPage() {
             <strong>{formatPrice(bespoke.priceFrom, lang)}</strong>
           </div>
           <span className="bento-card-cta">
-            {lang === "it" ? "Scopri" : "Discover"}
+            {lang === "it" ? "Scopri di più" : "Discover more"}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="3" y1="8" x2="13" y2="8" />
               <polyline points="9 4 13 8 9 12" />
@@ -147,7 +147,7 @@ export default function ToursHubPage() {
                         <strong>{formatPrice(tour.priceFrom, lang)}</strong>
                       </div>
                       <span className="bento-card-cta">
-                        {lang === "it" ? "Scopri" : "Discover"}
+                        {lang === "it" ? "Scopri di più" : "Discover more"}
                         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="3" y1="8" x2="13" y2="8" />
                           <polyline points="9 4 13 8 9 12" />
@@ -214,7 +214,7 @@ export default function ToursHubPage() {
             ))}
           </div>
 
-          {/* The card above already opens the Tour su misura page: this one goes straight to a chat. */}
+          {/* The card above already opens the Tour su misura page: this one books it straight on WhatsApp. */}
           <div className="cta-row" data-reveal>
             <a
               href={`https://wa.me/393335741333?text=${encodeURIComponent(
@@ -224,7 +224,7 @@ export default function ToursHubPage() {
               rel="noopener"
               className="btn-primary"
             >
-              {lang === "it" ? "Contattaci" : "Contact us"}
+              {t.miniCruises.ctaBook}
             </a>
           </div>
         </div>
@@ -277,7 +277,7 @@ export default function ToursHubPage() {
                           <strong>{formatPrice(tour.priceFrom, lang)}</strong>
                         </div>
                         <span className="tours-more-card-cta">
-                          {lang === "it" ? "Scopri" : "Discover"}
+                          {lang === "it" ? "Scopri di più" : "Discover more"}
                           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="3" y1="8" x2="13" y2="8" />
                             <polyline points="9 4 13 8 9 12" />

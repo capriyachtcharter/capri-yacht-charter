@@ -229,6 +229,7 @@ const base = {
       bullet4: "Itinerario su misura",
       bullet5: "Tender, snorkeling e SUP inclusi",
       cta: "Scopri di più",
+      ctaBook: "Crea il tuo tour",
     },
   },
   en: {
@@ -248,7 +249,7 @@ const base = {
       titleLine1: "",
       titleAccent: "Enjoy the sea.",
       ctaPrimary: "Discover Tours",
-      ctaSecondary: "Contact Us",
+      ctaSecondary: "Contact us",
       scroll: "Scroll",
       video: "/hero-video.mp4",
       poster: "/hero-poster.webp",
@@ -413,7 +414,7 @@ const base = {
         titleAccent: "Explore?",
         text: "Discover our private tours and book your experience\non the Mediterranean.",
         primary: "View All Tours",
-        secondary: "Contact Us",
+        secondary: "Contact us",
       },
       cols: {
         experiencesTitle: "Experiences",
@@ -451,6 +452,7 @@ const base = {
       bullet4: "Tailored itinerary",
       bullet5: "Tender, snorkel & SUP included",
       cta: "Discover more",
+      ctaBook: "Tailor your tour",
     },
   },
 } as const;
