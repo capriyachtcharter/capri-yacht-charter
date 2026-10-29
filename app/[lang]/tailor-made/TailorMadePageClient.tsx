@@ -217,7 +217,7 @@ export default function TailorMadePage() {
                 : "Every detail is decided together, privately."}
             </p>
             <a href={waBook} target="_blank" rel="noopener" className="btn-primary">
-              {lang === "it" ? "Prenota ora" : "Book now"}
+              {lang === "it" ? "Crea il tuo tour" : "Tailor your tour"}
             </a>
           </div>
         </div>
