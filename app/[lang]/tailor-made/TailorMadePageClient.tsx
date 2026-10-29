@@ -78,9 +78,12 @@ export default function TailorMadePage() {
 
   return (
     <PageShell>
-      {/* HERO — navy full-viewport, "La barca è tua" lands hard.
+      {/* HERO — the fleet at the Faraglioni (same photo as the Tour su misura card) under a navy veil.
           Copy restored to the pre-01/10 version (client request 23/10). */}
-      <section className="page-hero charter-hero-navy">
+      <section
+        className="page-hero charter-hero-navy charter-hero-photo"
+        style={{ backgroundImage: "url(/tours/bespoke-fleet.jpg)" }}
+      >
         <div className="page-hero-inner">
           <div className="eyebrow">
             {lang === "it" ? "Tour su misura" : "Bespoke tour"}
