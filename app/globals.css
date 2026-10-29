@@ -5709,7 +5709,12 @@ img { max-width: 100%; height: auto; }
 }
 .charter-luxury-cell {
   position: relative;
+  display: block;
+  width: 100%;
   margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
   overflow: hidden;
   border-radius: 6px;
   aspect-ratio: 3 / 4;
@@ -5720,21 +5725,18 @@ img { max-width: 100%; height: auto; }
   height: 100%;
   object-fit: cover;
   display: block;
-  /* No hover zoom — cells are not clickable, so motion would suggest
-     interactivity that isn't there. */
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
+/* Cells open a lightbox, so a gentle hover zoom signals they're clickable. */
+.charter-luxury-cell:hover img { transform: scale(1.03); }
 
 @media (max-width: 900px) {
+  /* Stays a compact grid on phones: decorative, tap to enlarge. */
   .charter-luxury-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
   }
-}
-@media (max-width: 520px) {
-  .charter-luxury-grid {
-    grid-template-columns: 1fr;
-  }
-  .charter-luxury-cell { aspect-ratio: 4 / 3; }
+  .charter-luxury-cell { aspect-ratio: 1 / 1; border-radius: 4px; }
 }
 
 /* ----------------------------------------------------------------- */
@@ -6159,9 +6161,8 @@ img { max-width: 100%; height: auto; }
 }
 
 .charter-hire-destinations {
-  margin: 0 auto;
-  max-width: 980px;
-  text-align: center;
+  margin: 18px 0 0;
+  overflow: hidden;
   font-family: var(--sans);
   font-size: 0.78rem;
   font-weight: 600;
@@ -6170,13 +6171,40 @@ img { max-width: 100%; height: auto; }
   line-height: 2;
   color: var(--navy);
 }
-.charter-luxury-head .charter-hire-destinations {
-  text-align: left;
-  margin: 18px 0 0;
+.charter-hire-destinations-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
 }
-.charter-hire-destinations-sep {
+.charter-hire-dest::after {
+  content: "·";
   margin: 0 14px;
   color: var(--sea-dark);
+}
+/* Desktop: one static line — hide the loop copy and the trailing separator, and let
+   the line run wider than the (760px) section head it sits in. */
+@media (min-width: 1101px) {
+  .charter-hire-destinations { width: max-content; overflow: visible; }
+  .charter-hire-dest[aria-hidden="true"] { display: none; }
+  .charter-hire-dest.is-last::after { content: none; }
+}
+/* Mobile/tablet: the line doesn't fit, so it scrolls by itself. */
+@media (max-width: 1100px) {
+  .charter-hire-destinations {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  }
+  .charter-hire-destinations-track {
+    animation: charter-dest-marquee 22s linear infinite;
+  }
+}
+@keyframes charter-dest-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (max-width: 1100px) and (prefers-reduced-motion: reduce) {
+  .charter-hire-destinations { overflow-x: auto; }
+  .charter-hire-destinations-track { animation: none; }
 }
 
 
@@ -6190,3 +6218,46 @@ img { max-width: 100%; height: auto; }
   /* On phones bento cards become image-on-top white cards with auto height. */
   .bento-card.tours-bespoke-highlight { height: auto; }
 }
+
+/* Lightbox for PhotoGrid */
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 22, 35, 0.92);
+  cursor: zoom-out;
+}
+.photo-lightbox img {
+  max-width: 92vw;
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: default;
+}
+.photo-lightbox-close,
+.photo-lightbox-nav {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(15, 22, 35, 0.4);
+  color: var(--cream-light);
+  cursor: pointer;
+}
+.photo-lightbox-close svg,
+.photo-lightbox-nav svg { width: 16px; height: 16px; }
+.photo-lightbox-close { top: 20px; right: 20px; }
+.photo-lightbox-nav { top: 50%; transform: translateY(-50%); }
+.photo-lightbox-nav.is-prev { left: 16px; }
+.photo-lightbox-nav.is-next { right: 16px; }
+
+/* Noleggio breve: intro under the hero flows straight into "Come funziona". */
+.charter-hire-intro { padding-bottom: 0; }
+.charter-hire-intro .charter-section-head { margin-bottom: 0; }

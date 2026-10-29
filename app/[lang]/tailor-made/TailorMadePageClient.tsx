@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
+import PhotoGrid from "../../components/PhotoGrid";
 import { useLang } from "../../i18n/LanguageProvider";
 import { fleet } from "../../data/fleet";
 
@@ -155,26 +156,16 @@ export default function TailorMadePage() {
             </p>
           </div>
 
-          <div className="charter-luxury-grid">
-            <figure className="charter-luxury-cell">
-              <img src="/charter/sundeck-couple.jpg" alt={lang === "it" ? "Coppia in relax sul solarium dello yacht" : "Couple relaxing on the yacht sun deck"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/luxury-detail.jpg" alt={lang === "it" ? "Dettaglio cuscini e teli Capri Yacht Charter" : "Capri Yacht Charter towel and cushion detail"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/aperitivo.jpg" alt={lang === "it" ? "Aperitivo a bordo con cuscino Capri Yacht Charter" : "Aperitivo on board with Capri Yacht Charter cushion"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/sunset-reading.jpg" alt={lang === "it" ? "Lettura al tramonto in prua" : "Reading on the bow at sunset"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/swim-faraglione.jpg" alt={lang === "it" ? "Tuffo davanti ai Faraglioni" : "Swimming by the Faraglioni"} />
-            </figure>
-            <figure className="charter-luxury-cell">
-              <img src="/charter/champagne-archway.jpg" alt={lang === "it" ? "Brindisi davanti all'arco dei Faraglioni" : "Toast under the Faraglioni arch"} />
-            </figure>
-          </div>
+          <PhotoGrid
+            photos={[
+              { src: "/charter/sundeck-couple.jpg", alt: lang === "it" ? "Coppia in relax sul solarium dello yacht" : "Couple relaxing on the yacht sun deck" },
+              { src: "/charter/luxury-detail.jpg", alt: lang === "it" ? "Dettaglio cuscini e teli Capri Yacht Charter" : "Capri Yacht Charter towel and cushion detail" },
+              { src: "/charter/aperitivo.jpg", alt: lang === "it" ? "Aperitivo a bordo con cuscino Capri Yacht Charter" : "Aperitivo on board with Capri Yacht Charter cushion" },
+              { src: "/charter/sunset-reading.jpg", alt: lang === "it" ? "Lettura al tramonto in prua" : "Reading on the bow at sunset" },
+              { src: "/charter/swim-faraglione.jpg", alt: lang === "it" ? "Tuffo davanti ai Faraglioni" : "Swimming by the Faraglioni" },
+              { src: "/charter/champagne-archway.jpg", alt: lang === "it" ? "Brindisi davanti all'arco dei Faraglioni" : "Toast under the Faraglioni arch" },
+            ]}
+          />
         </div>
       </section>
 

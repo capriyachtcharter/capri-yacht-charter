@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
+import PhotoGrid from "../../components/PhotoGrid";
 import { useLang } from "../../i18n/LanguageProvider";
 import { fleet } from "../../data/fleet";
 import { FAREHARBOR_URL } from "../../data/booking";
@@ -93,18 +94,32 @@ export default function CharterPage() {
           </div>
           <h1 className="page-hero-title">
             {lang === "it" ? "Il viaggio è già parte del lusso." : "The journey is already part of the luxury."}
-            <br />
-            <span className="accent-italic">
-              {lang === "it"
-                ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
-                : "Private yachts with captain, to live the sea and reach every destination in style."}
-            </span>
           </h1>
           <p className="page-hero-desc">
             {lang === "it"
-              ? "Noleggia un nostro yacht con capitano dedicato per una giornata intera, più giorni o per raggiungere la tua prossima destinazione via mare. Nessun itinerario imposto, nessun orario fisso: disegniamo ogni momento insieme, perché il lusso della vacanza inizi già dal viaggio."
-              : "Hire one of our yachts with a dedicated captain for a full day, multi-day or to reach your next destination by sea. No fixed itinerary, no rigid schedule: we design every moment together, so the luxury of your holiday begins from the journey itself."}
+              ? "Noleggia un nostro yacht con capitano dedicato."
+              : "Hire one of our yachts with a dedicated captain."}
           </p>
+        </div>
+      </section>
+
+      {/* INTRO — the rest of the hero copy, moved out of the photo so the header stays light */}
+      <section className="section charter-hire-intro">
+        <div className="section-inner">
+          <header className="charter-section-head" data-reveal>
+            <h2 className="section-title">
+              <span className="accent">
+                {lang === "it"
+                  ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
+                  : "Private yachts with captain, to live the sea and reach every destination in style."}
+              </span>
+            </h2>
+            <p className="section-desc">
+              {lang === "it"
+                ? "Per una giornata intera, più giorni o per raggiungere la tua prossima destinazione via mare. Nessun itinerario imposto, nessun orario fisso: disegniamo ogni momento insieme, perché il lusso della vacanza inizi già dal viaggio."
+                : "For a full day, several days or to reach your next destination by sea. No fixed itinerary, no rigid schedule: we design every moment together, so the luxury of your holiday begins from the journey itself."}
+            </p>
+          </header>
         </div>
       </section>
 
@@ -162,23 +177,24 @@ export default function CharterPage() {
                 ? "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
                 : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with captain. An exclusive, efficient way to travel, comfortable and fast."}
             </p>
-            <p className="charter-hire-destinations">
-              {destinations.map((d, i) => (
-                <span key={d}>
-                  {i > 0 && <span className="charter-hire-destinations-sep" aria-hidden>·</span>}
-                  {d}
-                </span>
-              ))}
-            </p>
+            {/* Departure/destination towns. Static line on desktop; on mobile it becomes an
+                auto-scrolling strip (the list is rendered twice for a seamless loop). */}
+            <div className="charter-hire-destinations">
+              <div className="charter-hire-destinations-track">
+                {[...destinations, ...destinations].map((d, i) => (
+                  <span
+                    key={`${d}-${i}`}
+                    className={`charter-hire-dest${i === destinations.length - 1 ? " is-last" : ""}`}
+                    aria-hidden={i >= destinations.length ? true : undefined}
+                  >
+                    {d}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="charter-luxury-grid">
-            {GALLERY.map((g) => (
-              <figure key={g.src} className="charter-luxury-cell">
-                <img src={g.src} alt={g.alt[lang]} style={{ objectPosition: g.pos }} />
-              </figure>
-            ))}
-          </div>
+          <PhotoGrid photos={GALLERY.map((g) => ({ src: g.src, alt: g.alt[lang], pos: g.pos }))} />
         </div>
       </section>
 
