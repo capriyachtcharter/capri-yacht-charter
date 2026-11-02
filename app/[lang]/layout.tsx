@@ -1,15 +1,16 @@
 import { notFound } from "next/navigation";
 import { LanguageProvider } from "../i18n/LanguageProvider";
-import MostoOverlay from "../components/MostoOverlay";
+import { MostoOverlay } from "@mosto-cms/next/overlay";
 import { resolveTranslations, type Lang } from "../i18n/translations";
 import { getLiveContent, getLiveFleet, getLiveTours } from "../../lib/cms/live-content";
 import type { Tour } from "../data/tours";
 import type { Boat } from "../data/fleet";
+import { OVERLAY_ORIGINS } from "../../mosto-cms.config";
 
 const LOCALES = ["en", "it"] as const;
 
-/** Re-fetch the live copy from the CMS branch at most this often, in seconds (ISR).
- *  Must be a literal for Next's static analysis; keep in sync with CMS_CONTENT_REVALIDATE. */
+/** Re-render at most this often, in seconds (ISR). A publish through /api/mosto-cms
+ *  expires the cached content and pages right away anyway. Must be a literal. */
 export const revalidate = 15;
 
 export function generateStaticParams() {
@@ -41,7 +42,7 @@ export default async function LocaleLayout({
       tours={liveTours ?? undefined}
     >
       {children}
-      <MostoOverlay />
+      <MostoOverlay allowedOrigins={OVERLAY_ORIGINS} />
     </LanguageProvider>
   );
 }
