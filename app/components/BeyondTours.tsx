@@ -5,15 +5,15 @@ import { useLang } from "../i18n/LanguageProvider";
 import { FAREHARBOR_URL } from "../data/booking";
 
 export default function BeyondTours() {
-  const { t, path, lang } = useLang();
+  const { t, path, f } = useLang();
 
   return (
     <section className="beyond-tours" data-reveal>
       <div className="section-inner">
         <div className="beyond-head">
-          <div className="eyebrow">{t.beyond.eyebrow}</div>
+          <div className="eyebrow" {...f("beyond.eyebrow")}>{t.beyond.eyebrow}</div>
           <h2 className="section-title">
-            {t.beyond.title} <span className="accent">{t.beyond.titleAccent}</span>
+            <span {...f("beyond.title")}>{t.beyond.title}</span> <span className="accent" {...f("beyond.titleAccent")}>{t.beyond.titleAccent}</span>
           </h2>
         </div>
 
@@ -29,8 +29,8 @@ export default function BeyondTours() {
                 <line x1="16" y1="8" x2="16" y2="22" />
               </svg>
             </div>
-            <h3 className="beyond-card-title">{t.beyond.charterTitle}</h3>
-            <p className="beyond-card-desc">{t.beyond.charterDesc}</p>
+            <h3 className="beyond-card-title" {...f("beyond.charterTitle")}>{t.beyond.charterTitle}</h3>
+            <p className="beyond-card-desc" {...f("beyond.charterDesc", "multiline")}>{t.beyond.charterDesc}</p>
           </article>
 
           <article className="beyond-card">
@@ -43,18 +43,18 @@ export default function BeyondTours() {
                 <path d="M3 22 Q9 18 16 22" />
               </svg>
             </div>
-            <h3 className="beyond-card-title">{t.beyond.skipperTitle}</h3>
-            <p className="beyond-card-desc">{t.beyond.skipperDesc}</p>
+            <h3 className="beyond-card-title" {...f("beyond.skipperTitle")}>{t.beyond.skipperTitle}</h3>
+            <p className="beyond-card-desc" {...f("beyond.skipperDesc", "multiline")}>{t.beyond.skipperDesc}</p>
           </article>
         </div>
 
         {/* Single CTA row shared by both cards */}
         <div className="beyond-cta-row">
-          <Link href={path("/charter")} className="beyond-cta-btn">
+          <Link href={path("/charter")} className="beyond-cta-btn" {...f("beyond.cardCta")}>
             {t.beyond.cardCta}
           </Link>
-          <a href={FAREHARBOR_URL} target="_blank" rel="noopener" className="beyond-cta-btn-alt">
-            {lang === "it" ? "Prenota ora" : "Book now"}
+          <a href={FAREHARBOR_URL} target="_blank" rel="noopener" className="beyond-cta-btn-alt" {...f("beyond.book")}>
+            {t.beyond.book}
           </a>
         </div>
       </div>

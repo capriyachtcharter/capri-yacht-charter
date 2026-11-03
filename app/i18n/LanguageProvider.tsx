@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { mostoField, type FieldKind, type MostoFieldAttributes } from "@mosto-cms/overlay";
 import { translations, type Lang, type Translations } from "./translations";
 import { toursByLegacyId as staticToursByLegacyId, type Tour } from "../data/tours";
 import { boatByLegacyId as staticBoatByLegacyId, type Boat } from "../data/fleet";
@@ -19,7 +20,22 @@ type Ctx = {
   toursByLegacyId: Record<string, Tour>;
   /** Boats keyed by legacyId — same live-or-bundled rationale as toursByLegacyId. */
   boatByLegacyId: Record<string, Boat>;
+  /**
+   * Click-to-edit address of a site copy field in the current language (`t.tours.title` →
+   * `f("tours.title")`), for the Mosto CMS visual editor. Only data attributes: nothing
+   * changes for visitors. Paths must be declared in mosto-cms.schema.json.
+   */
+  f: (path: string, kind?: FieldKind) => MostoFieldAttributes;
 };
+
+/** Click-to-edit address of a field of any entry (tours:<slug>, fleet:<slug>). */
+export function cmsField(entry: string, path: string, kind?: FieldKind): MostoFieldAttributes {
+  return mostoField(entry, path, null, kind ? { kind } : {});
+}
+
+function copyField(lang: string) {
+  return (path: string, kind?: FieldKind) => cmsField("content:home", `${lang}.${path}`, kind);
+}
 
 const LanguageContext = createContext<Ctx | null>(null);
 
@@ -56,7 +72,7 @@ export function LanguageProvider({
     const boatByLegacyId = fleet?.length
       ? Object.fromEntries(fleet.map((b) => [b.legacyId, b]))
       : staticBoatByLegacyId;
-    return { lang, t: source[lang] as Translations, path, toursByLegacyId, boatByLegacyId };
+    return { lang, t: source[lang] as Translations, path, toursByLegacyId, boatByLegacyId, f: copyField(lang) };
   }, [initialLang, content, fleet, tours]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
@@ -76,6 +92,7 @@ export function useLang() {
       path: (p: string) => p,
       toursByLegacyId: staticToursByLegacyId,
       boatByLegacyId: staticBoatByLegacyId,
+      f: copyField(lang),
     };
   }
   return ctx;

@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import PhotoGrid from "../../components/PhotoGrid";
-import { useLang } from "../../i18n/LanguageProvider";
-import { fleet } from "../../data/fleet";
+import { cmsField, useLang } from "../../i18n/LanguageProvider";
 import { FAREHARBOR_URL } from "../../data/booking";
 
 // Noleggio breve — same structure as the Tour su misura page (/tailor-made):
@@ -32,7 +31,10 @@ const GALLERY = [
 ];
 
 export default function CharterPage() {
-  const { lang, path } = useLang();
+  const { lang, path, t, f, boatByLegacyId } = useLang();
+  const p = t.pages.charter;
+  // Live boats (published edits show without a rebuild), in fleet order.
+  const fleet = Object.values(boatByLegacyId);
 
   const destinations = ["Capri", lang === "it" ? "Napoli" : "Naples", "Sorrento", "Positano", "Amalfi", "Ravello", "Salerno", "Ischia"];
 
@@ -87,20 +89,18 @@ export default function CharterPage() {
       {/* HERO — navy full-viewport, same treatment as the Tour su misura page */}
       <section className="page-hero charter-hero-navy">
         <div className="page-hero-inner">
-          <div className="eyebrow">
-            {lang === "it" ? "Noleggio breve" : "Charter"}
+          <div className="eyebrow" {...f("pages.charter.eyebrow")}>
+            {p.eyebrow}
           </div>
           <h1 className="page-hero-title">
-            {lang === "it" ? "Il viaggio è già" : "The journey is already"}
+            <span {...f("pages.charter.title")}>{p.title}</span>
             <br />
-            <span className="accent-italic">
-              {lang === "it" ? "parte del lusso." : "part of the luxury."}
+            <span className="accent-italic" {...f("pages.charter.titleAccent")}>
+              {p.titleAccent}
             </span>
           </h1>
-          <p className="page-hero-desc">
-            {lang === "it"
-              ? "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile."
-              : "Private yachts with a captain, to enjoy the sea and reach every destination in style."}
+          <p className="page-hero-desc" {...f("pages.charter.desc", "multiline")}>
+            {p.desc}
           </p>
         </div>
       </section>
@@ -120,20 +120,16 @@ export default function CharterPage() {
               />
             </div>
             <div className="hire-intro-body" data-reveal="right">
-              <div className="eyebrow">{lang === "it" ? "Il servizio" : "The service"}</div>
+              <div className="eyebrow" {...f("pages.charter.serviceEyebrow")}>{p.serviceEyebrow}</div>
               <h2 className="section-title hire-intro-title">
-                {lang === "it" ? "Uno yacht, " : "One yacht, "}
-                <span className="accent">{lang === "it" ? "il tuo capitano." : "your own captain."}</span>
+                <span {...f("pages.charter.serviceTitle")}>{p.serviceTitle}</span>{" "}
+                <span className="accent" {...f("pages.charter.serviceTitleAccent")}>{p.serviceTitleAccent}</span>
               </h2>
-              <p className="hire-intro-text">
-                {lang === "it"
-                  ? "Con il noleggio breve hai a disposizione uno dei nostri tre yacht, con il suo capitano, per muoverti via mare tra le località del Golfo di Napoli e della Costiera Amalfitana: Capri, Napoli, Sorrento, Positano, Amalfi, Ischia."
-                  : "With our charter you have one of our three yachts at your disposal, with its own captain, to travel by sea between the towns of the Gulf of Naples and the Amalfi Coast: Capri, Naples, Sorrento, Positano, Amalfi, Ischia."}
+              <p className="hire-intro-text" {...f("pages.charter.serviceText1", "multiline")}>
+                {p.serviceText1}
               </p>
-              <p className="hire-intro-text">
-                {lang === "it"
-                  ? "Per una giornata intera, più giorni o solo per raggiungere la tua prossima destinazione. Scegli la barca, la data e l'orario: il capitano ti aspetta al molo e ti porta dove vuoi, nel comfort e nella privacy di uno yacht tutto per te."
-                  : "For a full day, several days or just to reach your next destination. Choose the boat, the date and the time: your captain meets you at the pier and takes you wherever you want, in the comfort and privacy of a yacht all to yourself."}
+              <p className="hire-intro-text" {...f("pages.charter.serviceText2", "multiline")}>
+                {p.serviceText2}
               </p>
             </div>
           </div>
@@ -144,20 +140,20 @@ export default function CharterPage() {
       <section className="section charter-howto">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Come funziona" : "How it works"}
+            <div className="eyebrow" {...f("pages.charter.howEyebrow")}>
+              {p.howEyebrow}
             </div>
             <h2 className="section-title">
-              {lang === "it" ? "Dal molo a destinazione, " : "From pier to destination, "}
-              <span className="accent">
-                {lang === "it" ? "senza pensieri." : "worry-free."}
+              <span {...f("pages.charter.howTitle")}>{p.howTitle}</span>{" "}
+              <span className="accent" {...f("pages.charter.howTitleAccent")}>
+                {p.howTitleAccent}
               </span>
             </h2>
           </header>
 
           <ol className="charter-timeline">
             {steps.map((s, i) => {
-              const c = lang === "it" ? s.it : s.en;
+              const c = p.steps[i] ?? (lang === "it" ? s.it : s.en);
               return (
                 <li
                   key={s.n}
@@ -166,8 +162,8 @@ export default function CharterPage() {
                 >
                   <div className="charter-timeline-num"><span>{s.n}</span></div>
                   <div className="charter-timeline-card">
-                    <h3>{c.h}</h3>
-                    <p>{c.p}</p>
+                    <h3 {...f(`pages.charter.steps.${i}.h`)}>{c.h}</h3>
+                    <p {...f(`pages.charter.steps.${i}.p`, "multiline")}>{c.p}</p>
                   </div>
                 </li>
               );
@@ -180,19 +176,17 @@ export default function CharterPage() {
       <section className="section section-alt charter-luxury" data-reveal>
         <div className="section-inner">
           <div className="charter-luxury-head">
-            <div className="eyebrow">
-              {lang === "it" ? "Ovunque nel Golfo" : "Anywhere in the Gulf"}
+            <div className="eyebrow" {...f("pages.charter.gulfEyebrow")}>
+              {p.gulfEyebrow}
             </div>
             <h2 className="section-title">
-              {lang === "it" ? "Raggiungi ogni destinazione, " : "Reach every destination, "}
-              <span className="accent">
-                {lang === "it" ? "in totale libertà." : "in complete freedom."}
+              <span {...f("pages.charter.gulfTitle")}>{p.gulfTitle}</span>{" "}
+              <span className="accent" {...f("pages.charter.gulfTitleAccent")}>
+                {p.gulfTitleAccent}
               </span>
             </h2>
-            <p className="section-desc">
-              {lang === "it"
-                ? "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce."
-                : "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with a captain. An exclusive, efficient way to travel: comfortable and fast."}
+            <p className="section-desc" {...f("pages.charter.gulfDesc", "multiline")}>
+              {p.gulfDesc}
             </p>
           </div>
 
@@ -220,37 +214,37 @@ export default function CharterPage() {
       <section className="section charter-included">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Cosa è incluso" : "What's included"}
+            <div className="eyebrow" {...f("pages.charter.includedEyebrow")}>
+              {p.includedEyebrow}
             </div>
             <h2 className="section-title">
-              {lang === "it" ? "Tutto, " : "Everything, "}
-              <span className="accent">
-                {lang === "it" ? "senza extra nascosti." : "no hidden extras."}
+              <span {...f("pages.charter.includedTitle")}>{p.includedTitle}</span>{" "}
+              <span className="accent" {...f("pages.charter.includedTitleAccent")}>
+                {p.includedTitleAccent}
               </span>
             </h2>
           </header>
 
           <div className="charter-included-split" data-reveal>
             <div className="charter-included-col">
-              <h4>{lang === "it" ? "Sempre incluso" : "Always included"}</h4>
+              <h4 {...f("pages.charter.alwaysTitle")}>{p.alwaysTitle}</h4>
               <ul>
-                {includedAlways.map((item) => (
-                  <li key={item.it}>
+                {p.always.map((item, i) => (
+                  <li key={includedAlways[i]?.it ?? item}>
                     <Check />
-                    <span>{lang === "it" ? item.it : item.en}</span>
+                    <span {...f(`pages.charter.always.${i}`)}>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div className="charter-included-col">
-              <h4>{lang === "it" ? "Su richiesta" : "On request"}</h4>
+              <h4 {...f("pages.charter.requestTitle")}>{p.requestTitle}</h4>
               <ul>
-                {includedRequest.map((item) => (
-                  <li key={item.it}>
+                {p.request.map((item, i) => (
+                  <li key={includedRequest[i]?.it ?? item}>
                     <Check />
-                    <span>{lang === "it" ? item.it : item.en}</span>
+                    <span {...f(`pages.charter.request.${i}`)}>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -258,13 +252,11 @@ export default function CharterPage() {
           </div>
 
           <div className="charter-included-cta" data-reveal>
-            <p>
-              {lang === "it"
-                ? "Scegli barca, data e orario: al resto pensiamo noi."
-                : "Pick the boat, date and time: we take care of the rest."}
+            <p {...f("pages.charter.ctaText", "multiline")}>
+              {p.ctaText}
             </p>
-            <a href={FAREHARBOR_URL} target="_blank" rel="noopener" className="btn-primary">
-              {lang === "it" ? "Prenota ora" : "Book now"}
+            <a href={FAREHARBOR_URL} target="_blank" rel="noopener" className="btn-primary" {...f("pages.charter.book")}>
+              {p.book}
             </a>
           </div>
         </div>
@@ -274,13 +266,13 @@ export default function CharterPage() {
       <section className="section section-alt charter-fleet">
         <div className="section-inner">
           <header className="charter-section-head" data-reveal>
-            <div className="eyebrow">
-              {lang === "it" ? "Scegli la barca" : "Choose the boat"}
+            <div className="eyebrow" {...f("pages.charter.fleetEyebrow")}>
+              {p.fleetEyebrow}
             </div>
             <h2 className="section-title">
-              {lang === "it" ? "Tre imbarcazioni, " : "Three vessels, "}
-              <span className="accent">
-                {lang === "it" ? "un'unica promessa." : "one promise."}
+              <span {...f("pages.charter.fleetTitle")}>{p.fleetTitle}</span>{" "}
+              <span className="accent" {...f("pages.charter.fleetTitleAccent")}>
+                {p.fleetTitleAccent}
               </span>
             </h2>
           </header>
@@ -288,19 +280,20 @@ export default function CharterPage() {
           <div className="tour-boats-grid">
             {fleet.map((b) => {
               const c = lang === "it" ? b.it : b.en;
+              const boat = `fleet:${b.slug}`;
               return (
                 <Link key={b.slug} href={path(`/fleet/${b.slug}`)} className="tour-boat-card" data-reveal="left">
-                  <div className="tour-boat-img">
+                  <div className="tour-boat-img" {...cmsField(boat, "cover", "image")}>
                     <img src={b.cover} alt={c.name} />
                   </div>
                   <div className="tour-boat-body">
-                    <h3>{c.name}</h3>
-                    <div className="tour-boat-model">{c.model}</div>
+                    <h3 {...cmsField(boat, `${lang}.name`)}>{c.name}</h3>
+                    <div className="tour-boat-model" {...cmsField(boat, `${lang}.model`)}>{c.model}</div>
                     <div className="tour-boat-specs">
                       {b.specs.length} · {typeof b.specs.capacityDay === "string" ? b.specs.capacityDay : b.specs.capacityDay[lang]}
                     </div>
                     <span className="tour-boat-cta">
-                      {lang === "it" ? "Scopri di più" : "Discover more"}
+                      <span {...f("fleet.discover")}>{t.fleet.discover}</span>
                       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="3" y1="8" x2="13" y2="8" />
                         <polyline points="9 4 13 8 9 12" />

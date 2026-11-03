@@ -7,7 +7,8 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { boatByLegacyId } from "../data/fleet";
 
 export default function Footer() {
-  const { t, path } = useLang();
+  const { t, path, f } = useLang();
+  const contact = t.footer.contact;
   const pathname = usePathname();
   const showCta = pathname === "/";
   return (
@@ -19,9 +20,9 @@ export default function Footer() {
               <img src="/logo-mark.png" alt="" className="footer-cta-logo" />
             </div>
             <h3 className="footer-cta-title">
-              {t.footer.cta.title} <span className="accent-italic">{t.footer.cta.titleAccent}</span>
+              <span {...f("footer.cta.title")}>{t.footer.cta.title}</span> <span className="accent-italic" {...f("footer.cta.titleAccent")}>{t.footer.cta.titleAccent}</span>
             </h3>
-            <p className="footer-cta-text">
+            <p className="footer-cta-text" {...f("footer.cta.text", "multiline")}>
               {t.footer.cta.text.split("\n").map((line, i, arr) => (
                 <span key={i}>
                   {line}
@@ -30,8 +31,8 @@ export default function Footer() {
               ))}
             </p>
             <div className="footer-cta-buttons">
-              <Link href={path("/tours")} className="btn-footer-primary">{t.footer.cta.primary}</Link>
-              <Link href={path("/contact")} className="btn-footer-secondary">
+              <Link href={path("/tours")} className="btn-footer-primary" {...f("footer.cta.primary")}>{t.footer.cta.primary}</Link>
+              <Link href={path("/contact")} className="btn-footer-secondary" {...f("footer.cta.secondary")}>
                 {t.footer.cta.secondary}
               </Link>
             </div>
@@ -40,32 +41,32 @@ export default function Footer() {
 
         <div className="footer-grid">
           <div>
-            <div className="footer-col-title">{t.footer.cols.experiencesTitle}</div>
-            <Link href={path("/tours")} className="footer-link">{t.footer.cols.services.tours}</Link>
-            <Link href={path("/tailor-made")} className="footer-link">{t.footer.cols.services.custom}</Link>
-            <Link href={path("/charter")} className="footer-link">{t.footer.cols.services.charter}</Link>
+            <div className="footer-col-title" {...f("footer.cols.experiencesTitle")}>{t.footer.cols.experiencesTitle}</div>
+            <Link href={path("/tours")} className="footer-link" {...f("footer.cols.services.tours")}>{t.footer.cols.services.tours}</Link>
+            <Link href={path("/tailor-made")} className="footer-link" {...f("footer.cols.services.custom")}>{t.footer.cols.services.custom}</Link>
+            <Link href={path("/charter")} className="footer-link" {...f("footer.cols.services.charter")}>{t.footer.cols.services.charter}</Link>
           </div>
           <div>
-            <div className="footer-col-title">{t.footer.cols.fleetTitle}</div>
-            {t.fleet.boats.map((b) => {
+            <div className="footer-col-title" {...f("footer.cols.fleetTitle")}>{t.footer.cols.fleetTitle}</div>
+            {t.fleet.boats.map((b, i) => {
               const detail = boatByLegacyId[b.id];
               const href = detail ? path(`/fleet/${detail.slug}`) : path("/fleet");
               return (
-                <Link key={b.id} href={href} className="footer-link">{b.name} · {b.length}</Link>
+                <Link key={b.id} href={href} className="footer-link"><span {...f(`fleet.boats.${i}.name`)}>{b.name}</span> · <span {...f(`fleet.boats.${i}.length`)}>{b.length}</span></Link>
               );
             })}
           </div>
           <div>
-            <div className="footer-col-title">{t.footer.cols.contactTitle}</div>
-            <a href="tel:+393335741333" className="footer-link">+39 333 574 1333</a>
-            <a href="mailto:info@capriyachtcharter.com" className="footer-link">info@capriyachtcharter.com</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Via+Marina+Grande+282+Capri" target="_blank" rel="noopener" className="footer-link">Via Marina Grande 282, Capri</a>
+            <div className="footer-col-title" {...f("footer.cols.contactTitle")}>{t.footer.cols.contactTitle}</div>
+            <a href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`} className="footer-link" {...f("footer.contact.phone")}>{contact.phone}</a>
+            <a href={`mailto:${contact.email}`} className="footer-link" {...f("footer.contact.email")}>{contact.email}</a>
+            <a href={`https://www.google.com/maps/search/?api=1&query=${contact.address.replace(/,/g, "").trim().split(/\s+/).map(encodeURIComponent).join("+")}`} target="_blank" rel="noopener" className="footer-link" {...f("footer.contact.address")}>{contact.address}</a>
           </div>
           <div>
-            <div className="footer-col-title">{t.footer.cols.hoursTitle}</div>
-            <span className="footer-link is-static">{t.footer.cols.season}</span>
-            <span className="footer-link is-static">{t.footer.cols.timetable}</span>
-            <span className="footer-link is-static">{t.footer.cols.booking}</span>
+            <div className="footer-col-title" {...f("footer.cols.hoursTitle")}>{t.footer.cols.hoursTitle}</div>
+            <span className="footer-link is-static" {...f("footer.cols.season")}>{t.footer.cols.season}</span>
+            <span className="footer-link is-static" {...f("footer.cols.timetable")}>{t.footer.cols.timetable}</span>
+            <span className="footer-link is-static" {...f("footer.cols.booking")}>{t.footer.cols.booking}</span>
           </div>
         </div>
       </div>
@@ -102,12 +103,12 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
-            <div>{t.footer.bottom}</div>
+            <div {...f("footer.bottom")}>{t.footer.bottom}</div>
             <div className="footer-legal">
               <LanguageSwitcher />
-              <Link className="footer-legal-link" href={path("/privacy")}>{t.footer.legal.privacy}</Link>
-              <Link className="footer-legal-link" href={path("/terms")}>{t.footer.legal.terms}</Link>
-              <Link className="footer-legal-link" href={path("/cookie")}>{t.footer.legal.cookie}</Link>
+              <Link className="footer-legal-link" href={path("/privacy")} {...f("footer.legal.privacy")}>{t.footer.legal.privacy}</Link>
+              <Link className="footer-legal-link" href={path("/terms")} {...f("footer.legal.terms")}>{t.footer.legal.terms}</Link>
+              <Link className="footer-legal-link" href={path("/cookie")} {...f("footer.legal.cookie")}>{t.footer.legal.cookie}</Link>
             </div>
           </div>
         </div>

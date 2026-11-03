@@ -70,7 +70,8 @@
             "desc": "Partenza da Sorrento. Punta Campanella, Li Galli, Positano, Praiano, Fiordo di Furore, Amalfi.",
             "price": "2.000 €"
           }
-        ]
+        ],
+        "discover": "Scopri di più"
       },
       "beyond": {
         "eyebrow": "Oltre i Tour",
@@ -84,7 +85,8 @@
         "skipperCta": "Richiedi un Preventivo",
         "charterTitle": "Noleggio breve",
         "charterDesc": "Raggiungi in barca ogni destinazione del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano dedicato.",
-        "cardCta": "Scopri di più"
+        "cardCta": "Scopri di più",
+        "book": "Prenota ora"
       },
       "fleet": {
         "eyebrow": "La Flotta",
@@ -123,7 +125,8 @@
             "capacity": "Fino a 6 ospiti · cabina master",
             "desc": "Linea sportiva, ampio solarium poppiero, fino a 35 nodi. Agile fra le calette e le grotte che le barche più grandi non raggiungono."
           }
-        ]
+        ],
+        "discover": "Scopri di più"
       },
       "manifesto": {
         "eyebrow": "La Promessa",
@@ -219,6 +222,11 @@
           "privacy": "Privacy",
           "terms": "Termini",
           "cookie": "Cookie"
+        },
+        "contact": {
+          "phone": "+39 333 574 1333",
+          "email": "info@capriyachtcharter.com",
+          "address": "Via Marina Grande 282, Capri"
         }
       },
       "map": {
@@ -239,7 +247,96 @@
         "bullet4": "Itinerario su misura",
         "bullet5": "Tender, snorkeling e SUP inclusi",
         "cta": "Scopri di più",
-        "ctaBook": "Crea il tuo tour"
+        "ctaBook": "Crea il tuo tour",
+        "video": "/cruises/mini-crociere.mp4",
+        "poster": "/cruises/crociera-1.jpg"
+      },
+      "pages": {
+        "tours": {
+          "title": "Tour & escursioni",
+          "desc": "Giornate private al mare, ognuna disegnata su un'idea di Capri diversa. Scegli quella che hai in mente — o costruiamola insieme.",
+          "dailyEyebrow": "Tour giornalieri",
+          "dailyTitle": "Le esperienze",
+          "dailyTitleAccent": "in mare",
+          "bespokeMeta": "Da 1 a 7 giorni",
+          "bespokeTitle": "Tour su misura",
+          "features": [
+            "Una giornata, un weekend o una settimana intera: la durata la scegli tu.",
+            "Per i più giorni: cabine private, bagno con doccia, aria condizionata, biancheria fornita.",
+            "Chef a bordo su richiesta, con menù pensati sui tuoi gusti.",
+            "Soste, orari e ristoranti li scegli tu: costruiamo l'itinerario insieme.",
+            "Tender, SUP, attrezzatura snorkel — tutto a bordo."
+          ],
+          "moreEyebrow": "Altri itinerari",
+          "moreTitle": "Altre giornate",
+          "moreTitleAccent": "in mare"
+        },
+        "fleet": {
+          "title": "La nostra flotta",
+          "length": "Lunghezza",
+          "speed": "Velocità",
+          "guests": "Ospiti",
+          "cabins": "Cabine",
+          "book": "Prenota ora"
+        },
+        "charter": {
+          "eyebrow": "Noleggio breve",
+          "title": "Il viaggio è già",
+          "titleAccent": "parte del lusso.",
+          "desc": "Yacht privati con capitano, per vivere il mare e raggiungere ogni destinazione con stile.",
+          "serviceEyebrow": "Il servizio",
+          "serviceTitle": "Uno yacht,",
+          "serviceTitleAccent": "il tuo capitano.",
+          "serviceText1": "Con il noleggio breve hai a disposizione uno dei nostri tre yacht, con il suo capitano, per muoverti via mare tra le località del Golfo di Napoli e della Costiera Amalfitana: Capri, Napoli, Sorrento, Positano, Amalfi, Ischia.",
+          "serviceText2": "Per una giornata intera, più giorni o solo per raggiungere la tua prossima destinazione. Scegli la barca, la data e l'orario: il capitano ti aspetta al molo e ti porta dove vuoi, nel comfort e nella privacy di uno yacht tutto per te.",
+          "howEyebrow": "Come funziona",
+          "howTitle": "Dal molo a destinazione,",
+          "howTitleAccent": "senza pensieri.",
+          "steps": [
+            {
+              "h": "Scegli barca e data",
+              "p": "Scegli la barca, il giorno e l'orario che preferisci."
+            },
+            {
+              "h": "Indica la rotta",
+              "p": "Dicci da dove parti e dove vuoi arrivare: Capri, Napoli, Sorrento, la Costiera, Ischia e non solo."
+            },
+            {
+              "h": "Prenota online",
+              "p": "Prenoti e paghi online in pochi passaggi, senza attese."
+            },
+            {
+              "h": "Salpate",
+              "p": "Il capitano ti aspetta al molo all'orario concordato. Tu pensi solo al viaggio."
+            }
+          ],
+          "gulfEyebrow": "Ovunque nel Golfo",
+          "gulfTitle": "Raggiungi ogni destinazione,",
+          "gulfTitleAccent": "in totale libertà.",
+          "gulfDesc": "Raggiungi in barca tutte le località del Golfo di Napoli e della Costiera Amalfitana, a bordo di uno yacht privato con capitano. Un modo esclusivo ed efficiente per spostarti, comodo e veloce.",
+          "includedEyebrow": "Cosa è incluso",
+          "includedTitle": "Tutto,",
+          "includedTitleAccent": "senza extra nascosti.",
+          "alwaysTitle": "Sempre incluso",
+          "always": [
+            "Capitano dedicato",
+            "Carburante e ormeggi",
+            "IVA inclusa",
+            "Soft drink e piccoli snack",
+            "Teli mare a bordo"
+          ],
+          "requestTitle": "Su richiesta",
+          "request": [
+            "Bollicine e vino a bordo",
+            "Aperitivo o catering curato",
+            "Allestimento per occasioni speciali"
+          ],
+          "ctaText": "Scegli barca, data e orario: al resto pensiamo noi.",
+          "book": "Prenota ora",
+          "fleetEyebrow": "Scegli la barca",
+          "fleetTitle": "Tre imbarcazioni,",
+          "fleetTitleAccent": "un'unica promessa."
+        }
       }
     },
     "en": {
@@ -311,7 +408,8 @@
             "desc": "Departure from Sorrento. Punta Campanella, Li Galli, Positano, Praiano, Furore Fjord, Amalfi.",
             "price": "€2,000"
           }
-        ]
+        ],
+        "discover": "Discover more"
       },
       "beyond": {
         "eyebrow": "Beyond Tours",
@@ -325,7 +423,8 @@
         "skipperCta": "Inquire",
         "charterTitle": "Charter",
         "charterDesc": "Reach every destination in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with a dedicated captain.",
-        "cardCta": "Discover more"
+        "cardCta": "Discover more",
+        "book": "Book now"
       },
       "fleet": {
         "eyebrow": "The Fleet",
@@ -364,7 +463,8 @@
             "capacity": "Up to 6 guests · master cabin",
             "desc": "Sporty profile, wide rear solarium, top speed 35 knots. Nimble enough for the smaller coves and grottoes the larger boats can't reach."
           }
-        ]
+        ],
+        "discover": "Discover more"
       },
       "manifesto": {
         "eyebrow": "The Promise",
@@ -460,6 +560,11 @@
           "privacy": "Privacy",
           "terms": "Terms",
           "cookie": "Cookie"
+        },
+        "contact": {
+          "phone": "+39 333 574 1333",
+          "email": "info@capriyachtcharter.com",
+          "address": "Via Marina Grande 282, Capri"
         }
       },
       "map": {
@@ -480,7 +585,96 @@
         "bullet4": "Tailored itinerary",
         "bullet5": "Tender, snorkel & SUP included",
         "cta": "Discover more",
-        "ctaBook": "Tailor your tour"
+        "ctaBook": "Tailor your tour",
+        "video": "/cruises/mini-crociere.mp4",
+        "poster": "/cruises/crociera-1.jpg"
+      },
+      "pages": {
+        "tours": {
+          "title": "Tours & experiences",
+          "desc": "Private days at sea, each shaped around a different idea of Capri. Pick the one you have in mind — or let's build it together.",
+          "dailyEyebrow": "Day tours",
+          "dailyTitle": "Signature",
+          "dailyTitleAccent": "experiences",
+          "bespokeMeta": "1–7 days",
+          "bespokeTitle": "Bespoke tour",
+          "features": [
+            "A single day, a weekend or a whole week: you choose how long.",
+            "For multi-day trips: private cabins, bathroom with shower, air conditioning, linens provided.",
+            "On-board chef on request, with menus built around your taste.",
+            "You choose the stops, timing and restaurants: we build the route together.",
+            "Tender, SUP, snorkeling gear — all on board."
+          ],
+          "moreEyebrow": "More itineraries",
+          "moreTitle": "More days",
+          "moreTitleAccent": "at sea"
+        },
+        "fleet": {
+          "title": "Our fleet",
+          "length": "Length",
+          "speed": "Top speed",
+          "guests": "Guests",
+          "cabins": "Cabins",
+          "book": "Book now"
+        },
+        "charter": {
+          "eyebrow": "Charter",
+          "title": "The journey is already",
+          "titleAccent": "part of the luxury.",
+          "desc": "Private yachts with a captain, to enjoy the sea and reach every destination in style.",
+          "serviceEyebrow": "The service",
+          "serviceTitle": "One yacht,",
+          "serviceTitleAccent": "your own captain.",
+          "serviceText1": "With our charter you have one of our three yachts at your disposal, with its own captain, to travel by sea between the towns of the Gulf of Naples and the Amalfi Coast: Capri, Naples, Sorrento, Positano, Amalfi, Ischia.",
+          "serviceText2": "For a full day, several days or just to reach your next destination. Choose the boat, the date and the time: your captain meets you at the pier and takes you wherever you want, in the comfort and privacy of a yacht all to yourself.",
+          "howEyebrow": "How it works",
+          "howTitle": "From pier to destination,",
+          "howTitleAccent": "worry-free.",
+          "steps": [
+            {
+              "h": "Choose boat and date",
+              "p": "Pick the boat, the day and the time that suit you."
+            },
+            {
+              "h": "Tell us the route",
+              "p": "Tell us where you depart from and where you're headed: Capri, Naples, Sorrento, the Amalfi Coast, Ischia and more."
+            },
+            {
+              "h": "Book online",
+              "p": "Book and pay online in a few steps, no waiting."
+            },
+            {
+              "h": "Set sail",
+              "p": "Your captain meets you at the pier at the agreed time. You just enjoy the journey."
+            }
+          ],
+          "gulfEyebrow": "Anywhere in the Gulf",
+          "gulfTitle": "Reach every destination,",
+          "gulfTitleAccent": "in complete freedom.",
+          "gulfDesc": "Reach every resort in the Gulf of Naples and along the Amalfi Coast by sea, aboard a private yacht with a captain. An exclusive, efficient way to travel: comfortable and fast.",
+          "includedEyebrow": "What's included",
+          "includedTitle": "Everything,",
+          "includedTitleAccent": "no hidden extras.",
+          "alwaysTitle": "Always included",
+          "always": [
+            "Dedicated captain",
+            "Fuel and mooring",
+            "VAT included",
+            "Soft drinks and small snacks",
+            "Beach towels on board"
+          ],
+          "requestTitle": "On request",
+          "request": [
+            "Sparkling and still wine on board",
+            "Curated aperitivo or catering",
+            "Special-occasion setup"
+          ],
+          "ctaText": "Pick the boat, date and time: we take care of the rest.",
+          "book": "Book now",
+          "fleetEyebrow": "Choose the boat",
+          "fleetTitle": "Three vessels,",
+          "fleetTitleAccent": "one promise."
+        }
       }
     }
   }

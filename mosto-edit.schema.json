@@ -2312,6 +2312,1270 @@
             "it": "EN · hero › poster",
             "en": "EN · hero › poster"
           }
+        },
+        {
+          "path": "it.tours.seeAll",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › seeAll",
+            "en": "IT · tours › seeAll"
+          }
+        },
+        {
+          "path": "it.tours.discover",
+          "kind": "text",
+          "label": {
+            "it": "IT · tours › discover",
+            "en": "IT · tours › discover"
+          }
+        },
+        {
+          "path": "it.beyond.charterTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › charterTitle",
+            "en": "IT · beyond › charterTitle"
+          }
+        },
+        {
+          "path": "it.beyond.charterDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · beyond › charterDesc",
+            "en": "IT · beyond › charterDesc"
+          }
+        },
+        {
+          "path": "it.beyond.cardCta",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › cardCta",
+            "en": "IT · beyond › cardCta"
+          }
+        },
+        {
+          "path": "it.beyond.book",
+          "kind": "text",
+          "label": {
+            "it": "IT · beyond › book",
+            "en": "IT · beyond › book"
+          }
+        },
+        {
+          "path": "it.fleet.discover",
+          "kind": "text",
+          "label": {
+            "it": "IT · fleet › discover",
+            "en": "IT · fleet › discover"
+          }
+        },
+        {
+          "path": "it.footer.contact.phone",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › contact › phone",
+            "en": "IT · footer › contact › phone"
+          }
+        },
+        {
+          "path": "it.footer.contact.email",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › contact › email",
+            "en": "IT · footer › contact › email"
+          }
+        },
+        {
+          "path": "it.footer.contact.address",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › contact › address",
+            "en": "IT · footer › contact › address"
+          }
+        },
+        {
+          "path": "it.footer.bottom",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › bottom",
+            "en": "IT · footer › bottom"
+          }
+        },
+        {
+          "path": "it.footer.legal.privacy",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › legal › privacy",
+            "en": "IT · footer › legal › privacy"
+          }
+        },
+        {
+          "path": "it.footer.legal.terms",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › legal › terms",
+            "en": "IT · footer › legal › terms"
+          }
+        },
+        {
+          "path": "it.footer.legal.cookie",
+          "kind": "text",
+          "label": {
+            "it": "IT · footer › legal › cookie",
+            "en": "IT · footer › legal › cookie"
+          }
+        },
+        {
+          "path": "it.miniCruises.video",
+          "kind": "video",
+          "label": {
+            "it": "IT · miniCruises › video",
+            "en": "IT · miniCruises › video"
+          }
+        },
+        {
+          "path": "it.miniCruises.poster",
+          "kind": "image",
+          "label": {
+            "it": "IT · miniCruises › poster",
+            "en": "IT · miniCruises › poster"
+          }
+        },
+        {
+          "path": "it.pages.tours.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › title",
+            "en": "IT · pages › tours › title"
+          }
+        },
+        {
+          "path": "it.pages.tours.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › tours › desc",
+            "en": "IT · pages › tours › desc"
+          }
+        },
+        {
+          "path": "it.pages.tours.dailyEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › dailyEyebrow",
+            "en": "IT · pages › tours › dailyEyebrow"
+          }
+        },
+        {
+          "path": "it.pages.tours.dailyTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › dailyTitle",
+            "en": "IT · pages › tours › dailyTitle"
+          }
+        },
+        {
+          "path": "it.pages.tours.dailyTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › dailyTitleAccent",
+            "en": "IT · pages › tours › dailyTitleAccent"
+          }
+        },
+        {
+          "path": "it.pages.tours.bespokeMeta",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › bespokeMeta",
+            "en": "IT · pages › tours › bespokeMeta"
+          }
+        },
+        {
+          "path": "it.pages.tours.bespokeTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › bespokeTitle",
+            "en": "IT · pages › tours › bespokeTitle"
+          }
+        },
+        {
+          "path": "it.pages.tours.features.0",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › tours › features",
+            "en": "IT · pages › tours › features"
+          }
+        },
+        {
+          "path": "it.pages.tours.features.1",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › tours › features",
+            "en": "IT · pages › tours › features"
+          }
+        },
+        {
+          "path": "it.pages.tours.features.2",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › tours › features",
+            "en": "IT · pages › tours › features"
+          }
+        },
+        {
+          "path": "it.pages.tours.features.3",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › tours › features",
+            "en": "IT · pages › tours › features"
+          }
+        },
+        {
+          "path": "it.pages.tours.features.4",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › tours › features",
+            "en": "IT · pages › tours › features"
+          }
+        },
+        {
+          "path": "it.pages.tours.moreEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › moreEyebrow",
+            "en": "IT · pages › tours › moreEyebrow"
+          }
+        },
+        {
+          "path": "it.pages.tours.moreTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › moreTitle",
+            "en": "IT · pages › tours › moreTitle"
+          }
+        },
+        {
+          "path": "it.pages.tours.moreTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › tours › moreTitleAccent",
+            "en": "IT · pages › tours › moreTitleAccent"
+          }
+        },
+        {
+          "path": "it.pages.fleet.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › fleet › title",
+            "en": "IT · pages › fleet › title"
+          }
+        },
+        {
+          "path": "it.pages.fleet.length",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › fleet › length",
+            "en": "IT · pages › fleet › length"
+          }
+        },
+        {
+          "path": "it.pages.fleet.speed",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › fleet › speed",
+            "en": "IT · pages › fleet › speed"
+          }
+        },
+        {
+          "path": "it.pages.fleet.guests",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › fleet › guests",
+            "en": "IT · pages › fleet › guests"
+          }
+        },
+        {
+          "path": "it.pages.fleet.cabins",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › fleet › cabins",
+            "en": "IT · pages › fleet › cabins"
+          }
+        },
+        {
+          "path": "it.pages.fleet.book",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › fleet › book",
+            "en": "IT · pages › fleet › book"
+          }
+        },
+        {
+          "path": "it.pages.charter.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › eyebrow",
+            "en": "IT · pages › charter › eyebrow"
+          }
+        },
+        {
+          "path": "it.pages.charter.title",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › title",
+            "en": "IT · pages › charter › title"
+          }
+        },
+        {
+          "path": "it.pages.charter.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › titleAccent",
+            "en": "IT · pages › charter › titleAccent"
+          }
+        },
+        {
+          "path": "it.pages.charter.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › desc",
+            "en": "IT · pages › charter › desc"
+          }
+        },
+        {
+          "path": "it.pages.charter.serviceEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › serviceEyebrow",
+            "en": "IT · pages › charter › serviceEyebrow"
+          }
+        },
+        {
+          "path": "it.pages.charter.serviceTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › serviceTitle",
+            "en": "IT · pages › charter › serviceTitle"
+          }
+        },
+        {
+          "path": "it.pages.charter.serviceTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › serviceTitleAccent",
+            "en": "IT · pages › charter › serviceTitleAccent"
+          }
+        },
+        {
+          "path": "it.pages.charter.serviceText1",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › serviceText1",
+            "en": "IT · pages › charter › serviceText1"
+          }
+        },
+        {
+          "path": "it.pages.charter.serviceText2",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › serviceText2",
+            "en": "IT · pages › charter › serviceText2"
+          }
+        },
+        {
+          "path": "it.pages.charter.howEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › howEyebrow",
+            "en": "IT · pages › charter › howEyebrow"
+          }
+        },
+        {
+          "path": "it.pages.charter.howTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › howTitle",
+            "en": "IT · pages › charter › howTitle"
+          }
+        },
+        {
+          "path": "it.pages.charter.howTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › howTitleAccent",
+            "en": "IT · pages › charter › howTitleAccent"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.0.h",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › steps › h",
+            "en": "IT · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.0.p",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › steps › p",
+            "en": "IT · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.1.h",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › steps › h",
+            "en": "IT · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.1.p",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › steps › p",
+            "en": "IT · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.2.h",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › steps › h",
+            "en": "IT · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.2.p",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › steps › p",
+            "en": "IT · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.3.h",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › steps › h",
+            "en": "IT · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "it.pages.charter.steps.3.p",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › steps › p",
+            "en": "IT · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "it.pages.charter.gulfEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › gulfEyebrow",
+            "en": "IT · pages › charter › gulfEyebrow"
+          }
+        },
+        {
+          "path": "it.pages.charter.gulfTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › gulfTitle",
+            "en": "IT · pages › charter › gulfTitle"
+          }
+        },
+        {
+          "path": "it.pages.charter.gulfTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › gulfTitleAccent",
+            "en": "IT · pages › charter › gulfTitleAccent"
+          }
+        },
+        {
+          "path": "it.pages.charter.gulfDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › gulfDesc",
+            "en": "IT · pages › charter › gulfDesc"
+          }
+        },
+        {
+          "path": "it.pages.charter.includedEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › includedEyebrow",
+            "en": "IT · pages › charter › includedEyebrow"
+          }
+        },
+        {
+          "path": "it.pages.charter.includedTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › includedTitle",
+            "en": "IT · pages › charter › includedTitle"
+          }
+        },
+        {
+          "path": "it.pages.charter.includedTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › includedTitleAccent",
+            "en": "IT · pages › charter › includedTitleAccent"
+          }
+        },
+        {
+          "path": "it.pages.charter.alwaysTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › alwaysTitle",
+            "en": "IT · pages › charter › alwaysTitle"
+          }
+        },
+        {
+          "path": "it.pages.charter.always.0",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › always",
+            "en": "IT · pages › charter › always"
+          }
+        },
+        {
+          "path": "it.pages.charter.always.1",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › always",
+            "en": "IT · pages › charter › always"
+          }
+        },
+        {
+          "path": "it.pages.charter.always.2",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › always",
+            "en": "IT · pages › charter › always"
+          }
+        },
+        {
+          "path": "it.pages.charter.always.3",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › always",
+            "en": "IT · pages › charter › always"
+          }
+        },
+        {
+          "path": "it.pages.charter.always.4",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › always",
+            "en": "IT · pages › charter › always"
+          }
+        },
+        {
+          "path": "it.pages.charter.requestTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › requestTitle",
+            "en": "IT · pages › charter › requestTitle"
+          }
+        },
+        {
+          "path": "it.pages.charter.request.0",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › request",
+            "en": "IT · pages › charter › request"
+          }
+        },
+        {
+          "path": "it.pages.charter.request.1",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › request",
+            "en": "IT · pages › charter › request"
+          }
+        },
+        {
+          "path": "it.pages.charter.request.2",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › request",
+            "en": "IT · pages › charter › request"
+          }
+        },
+        {
+          "path": "it.pages.charter.ctaText",
+          "kind": "multiline",
+          "label": {
+            "it": "IT · pages › charter › ctaText",
+            "en": "IT · pages › charter › ctaText"
+          }
+        },
+        {
+          "path": "it.pages.charter.book",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › book",
+            "en": "IT · pages › charter › book"
+          }
+        },
+        {
+          "path": "it.pages.charter.fleetEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › fleetEyebrow",
+            "en": "IT · pages › charter › fleetEyebrow"
+          }
+        },
+        {
+          "path": "it.pages.charter.fleetTitle",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › fleetTitle",
+            "en": "IT · pages › charter › fleetTitle"
+          }
+        },
+        {
+          "path": "it.pages.charter.fleetTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "IT · pages › charter › fleetTitleAccent",
+            "en": "IT · pages › charter › fleetTitleAccent"
+          }
+        },
+        {
+          "path": "en.tours.seeAll",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › seeAll",
+            "en": "EN · tours › seeAll"
+          }
+        },
+        {
+          "path": "en.tours.discover",
+          "kind": "text",
+          "label": {
+            "it": "EN · tours › discover",
+            "en": "EN · tours › discover"
+          }
+        },
+        {
+          "path": "en.beyond.charterTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › charterTitle",
+            "en": "EN · beyond › charterTitle"
+          }
+        },
+        {
+          "path": "en.beyond.charterDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · beyond › charterDesc",
+            "en": "EN · beyond › charterDesc"
+          }
+        },
+        {
+          "path": "en.beyond.cardCta",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › cardCta",
+            "en": "EN · beyond › cardCta"
+          }
+        },
+        {
+          "path": "en.beyond.book",
+          "kind": "text",
+          "label": {
+            "it": "EN · beyond › book",
+            "en": "EN · beyond › book"
+          }
+        },
+        {
+          "path": "en.fleet.discover",
+          "kind": "text",
+          "label": {
+            "it": "EN · fleet › discover",
+            "en": "EN · fleet › discover"
+          }
+        },
+        {
+          "path": "en.footer.contact.phone",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › contact › phone",
+            "en": "EN · footer › contact › phone"
+          }
+        },
+        {
+          "path": "en.footer.contact.email",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › contact › email",
+            "en": "EN · footer › contact › email"
+          }
+        },
+        {
+          "path": "en.footer.contact.address",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › contact › address",
+            "en": "EN · footer › contact › address"
+          }
+        },
+        {
+          "path": "en.footer.bottom",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › bottom",
+            "en": "EN · footer › bottom"
+          }
+        },
+        {
+          "path": "en.footer.legal.privacy",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › legal › privacy",
+            "en": "EN · footer › legal › privacy"
+          }
+        },
+        {
+          "path": "en.footer.legal.terms",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › legal › terms",
+            "en": "EN · footer › legal › terms"
+          }
+        },
+        {
+          "path": "en.footer.legal.cookie",
+          "kind": "text",
+          "label": {
+            "it": "EN · footer › legal › cookie",
+            "en": "EN · footer › legal › cookie"
+          }
+        },
+        {
+          "path": "en.miniCruises.video",
+          "kind": "video",
+          "label": {
+            "it": "EN · miniCruises › video",
+            "en": "EN · miniCruises › video"
+          }
+        },
+        {
+          "path": "en.miniCruises.poster",
+          "kind": "image",
+          "label": {
+            "it": "EN · miniCruises › poster",
+            "en": "EN · miniCruises › poster"
+          }
+        },
+        {
+          "path": "en.pages.tours.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › title",
+            "en": "EN · pages › tours › title"
+          }
+        },
+        {
+          "path": "en.pages.tours.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › tours › desc",
+            "en": "EN · pages › tours › desc"
+          }
+        },
+        {
+          "path": "en.pages.tours.dailyEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › dailyEyebrow",
+            "en": "EN · pages › tours › dailyEyebrow"
+          }
+        },
+        {
+          "path": "en.pages.tours.dailyTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › dailyTitle",
+            "en": "EN · pages › tours › dailyTitle"
+          }
+        },
+        {
+          "path": "en.pages.tours.dailyTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › dailyTitleAccent",
+            "en": "EN · pages › tours › dailyTitleAccent"
+          }
+        },
+        {
+          "path": "en.pages.tours.bespokeMeta",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › bespokeMeta",
+            "en": "EN · pages › tours › bespokeMeta"
+          }
+        },
+        {
+          "path": "en.pages.tours.bespokeTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › bespokeTitle",
+            "en": "EN · pages › tours › bespokeTitle"
+          }
+        },
+        {
+          "path": "en.pages.tours.features.0",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › tours › features",
+            "en": "EN · pages › tours › features"
+          }
+        },
+        {
+          "path": "en.pages.tours.features.1",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › tours › features",
+            "en": "EN · pages › tours › features"
+          }
+        },
+        {
+          "path": "en.pages.tours.features.2",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › tours › features",
+            "en": "EN · pages › tours › features"
+          }
+        },
+        {
+          "path": "en.pages.tours.features.3",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › tours › features",
+            "en": "EN · pages › tours › features"
+          }
+        },
+        {
+          "path": "en.pages.tours.features.4",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › tours › features",
+            "en": "EN · pages › tours › features"
+          }
+        },
+        {
+          "path": "en.pages.tours.moreEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › moreEyebrow",
+            "en": "EN · pages › tours › moreEyebrow"
+          }
+        },
+        {
+          "path": "en.pages.tours.moreTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › moreTitle",
+            "en": "EN · pages › tours › moreTitle"
+          }
+        },
+        {
+          "path": "en.pages.tours.moreTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › tours › moreTitleAccent",
+            "en": "EN · pages › tours › moreTitleAccent"
+          }
+        },
+        {
+          "path": "en.pages.fleet.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › fleet › title",
+            "en": "EN · pages › fleet › title"
+          }
+        },
+        {
+          "path": "en.pages.fleet.length",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › fleet › length",
+            "en": "EN · pages › fleet › length"
+          }
+        },
+        {
+          "path": "en.pages.fleet.speed",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › fleet › speed",
+            "en": "EN · pages › fleet › speed"
+          }
+        },
+        {
+          "path": "en.pages.fleet.guests",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › fleet › guests",
+            "en": "EN · pages › fleet › guests"
+          }
+        },
+        {
+          "path": "en.pages.fleet.cabins",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › fleet › cabins",
+            "en": "EN · pages › fleet › cabins"
+          }
+        },
+        {
+          "path": "en.pages.fleet.book",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › fleet › book",
+            "en": "EN · pages › fleet › book"
+          }
+        },
+        {
+          "path": "en.pages.charter.eyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › eyebrow",
+            "en": "EN · pages › charter › eyebrow"
+          }
+        },
+        {
+          "path": "en.pages.charter.title",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › title",
+            "en": "EN · pages › charter › title"
+          }
+        },
+        {
+          "path": "en.pages.charter.titleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › titleAccent",
+            "en": "EN · pages › charter › titleAccent"
+          }
+        },
+        {
+          "path": "en.pages.charter.desc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › desc",
+            "en": "EN · pages › charter › desc"
+          }
+        },
+        {
+          "path": "en.pages.charter.serviceEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › serviceEyebrow",
+            "en": "EN · pages › charter › serviceEyebrow"
+          }
+        },
+        {
+          "path": "en.pages.charter.serviceTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › serviceTitle",
+            "en": "EN · pages › charter › serviceTitle"
+          }
+        },
+        {
+          "path": "en.pages.charter.serviceTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › serviceTitleAccent",
+            "en": "EN · pages › charter › serviceTitleAccent"
+          }
+        },
+        {
+          "path": "en.pages.charter.serviceText1",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › serviceText1",
+            "en": "EN · pages › charter › serviceText1"
+          }
+        },
+        {
+          "path": "en.pages.charter.serviceText2",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › serviceText2",
+            "en": "EN · pages › charter › serviceText2"
+          }
+        },
+        {
+          "path": "en.pages.charter.howEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › howEyebrow",
+            "en": "EN · pages › charter › howEyebrow"
+          }
+        },
+        {
+          "path": "en.pages.charter.howTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › howTitle",
+            "en": "EN · pages › charter › howTitle"
+          }
+        },
+        {
+          "path": "en.pages.charter.howTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › howTitleAccent",
+            "en": "EN · pages › charter › howTitleAccent"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.0.h",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › steps › h",
+            "en": "EN · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.0.p",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › steps › p",
+            "en": "EN · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.1.h",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › steps › h",
+            "en": "EN · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.1.p",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › steps › p",
+            "en": "EN · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.2.h",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › steps › h",
+            "en": "EN · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.2.p",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › steps › p",
+            "en": "EN · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.3.h",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › steps › h",
+            "en": "EN · pages › charter › steps › h"
+          }
+        },
+        {
+          "path": "en.pages.charter.steps.3.p",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › steps › p",
+            "en": "EN · pages › charter › steps › p"
+          }
+        },
+        {
+          "path": "en.pages.charter.gulfEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › gulfEyebrow",
+            "en": "EN · pages › charter › gulfEyebrow"
+          }
+        },
+        {
+          "path": "en.pages.charter.gulfTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › gulfTitle",
+            "en": "EN · pages › charter › gulfTitle"
+          }
+        },
+        {
+          "path": "en.pages.charter.gulfTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › gulfTitleAccent",
+            "en": "EN · pages › charter › gulfTitleAccent"
+          }
+        },
+        {
+          "path": "en.pages.charter.gulfDesc",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › gulfDesc",
+            "en": "EN · pages › charter › gulfDesc"
+          }
+        },
+        {
+          "path": "en.pages.charter.includedEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › includedEyebrow",
+            "en": "EN · pages › charter › includedEyebrow"
+          }
+        },
+        {
+          "path": "en.pages.charter.includedTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › includedTitle",
+            "en": "EN · pages › charter › includedTitle"
+          }
+        },
+        {
+          "path": "en.pages.charter.includedTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › includedTitleAccent",
+            "en": "EN · pages › charter › includedTitleAccent"
+          }
+        },
+        {
+          "path": "en.pages.charter.alwaysTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › alwaysTitle",
+            "en": "EN · pages › charter › alwaysTitle"
+          }
+        },
+        {
+          "path": "en.pages.charter.always.0",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › always",
+            "en": "EN · pages › charter › always"
+          }
+        },
+        {
+          "path": "en.pages.charter.always.1",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › always",
+            "en": "EN · pages › charter › always"
+          }
+        },
+        {
+          "path": "en.pages.charter.always.2",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › always",
+            "en": "EN · pages › charter › always"
+          }
+        },
+        {
+          "path": "en.pages.charter.always.3",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › always",
+            "en": "EN · pages › charter › always"
+          }
+        },
+        {
+          "path": "en.pages.charter.always.4",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › always",
+            "en": "EN · pages › charter › always"
+          }
+        },
+        {
+          "path": "en.pages.charter.requestTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › requestTitle",
+            "en": "EN · pages › charter › requestTitle"
+          }
+        },
+        {
+          "path": "en.pages.charter.request.0",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › request",
+            "en": "EN · pages › charter › request"
+          }
+        },
+        {
+          "path": "en.pages.charter.request.1",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › request",
+            "en": "EN · pages › charter › request"
+          }
+        },
+        {
+          "path": "en.pages.charter.request.2",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › request",
+            "en": "EN · pages › charter › request"
+          }
+        },
+        {
+          "path": "en.pages.charter.ctaText",
+          "kind": "multiline",
+          "label": {
+            "it": "EN · pages › charter › ctaText",
+            "en": "EN · pages › charter › ctaText"
+          }
+        },
+        {
+          "path": "en.pages.charter.book",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › book",
+            "en": "EN · pages › charter › book"
+          }
+        },
+        {
+          "path": "en.pages.charter.fleetEyebrow",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › fleetEyebrow",
+            "en": "EN · pages › charter › fleetEyebrow"
+          }
+        },
+        {
+          "path": "en.pages.charter.fleetTitle",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › fleetTitle",
+            "en": "EN · pages › charter › fleetTitle"
+          }
+        },
+        {
+          "path": "en.pages.charter.fleetTitleAccent",
+          "kind": "text",
+          "label": {
+            "it": "EN · pages › charter › fleetTitleAccent",
+            "en": "EN · pages › charter › fleetTitleAccent"
+          }
         }
       ]
     },
