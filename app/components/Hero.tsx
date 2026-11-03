@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "../i18n/LanguageProvider";
 
 export default function Hero() {
-  const { t, path, lang } = useLang();
+  const { t, path, f } = useLang();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [ready, setReady] = useState(false);
 
@@ -54,8 +54,7 @@ export default function Hero() {
         preload="auto"
         poster={t.hero.poster}
         src={t.hero.video}
-        data-mosto-field={`content:home:${lang}.hero.video`}
-        data-mosto-kind="video"
+        {...f("hero.video", "video")}
       />
       <div className="hero-overlay" />
 
@@ -69,29 +68,29 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-pill">
           <span className="hero-pill-dot" />
-          <span data-mosto-field={`content:home:${lang}.hero.pill`}>{t.hero.pill}</span>
+          <span {...f("hero.pill")}>{t.hero.pill}</span>
         </div>
 
         <h1 className="hero-title">
           {t.hero.titleLine1 && (
             <>
-              <span data-mosto-field={`content:home:${lang}.hero.titleLine1`}>{t.hero.titleLine1}</span>
+              <span {...f("hero.titleLine1")}>{t.hero.titleLine1}</span>
               <br />
             </>
           )}
-          <span className="italic" data-mosto-field={`content:home:${lang}.hero.titleAccent`}>{t.hero.titleAccent}</span>
+          <span className="italic" {...f("hero.titleAccent")}>{t.hero.titleAccent}</span>
         </h1>
 
         <div className="hero-actions">
-          <a href={path("/tours")} className="btn-primary">{t.hero.ctaPrimary}</a>
-          <a href={path("/contact")} className="btn-secondary">
+          <a href={path("/tours")} className="btn-primary" {...f("hero.ctaPrimary")}>{t.hero.ctaPrimary}</a>
+          <a href={path("/contact")} className="btn-secondary" {...f("hero.ctaSecondary")}>
             {t.hero.ctaSecondary}
           </a>
         </div>
       </div>
 
       <div className="hero-scroll">
-        <span className="hero-scroll-text">{t.hero.scroll}</span>
+        <span className="hero-scroll-text" {...f("hero.scroll")}>{t.hero.scroll}</span>
         <div className="hero-scroll-line" />
       </div>
     </section>

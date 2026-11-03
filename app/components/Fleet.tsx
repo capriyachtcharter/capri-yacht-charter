@@ -3,6 +3,7 @@
 import Link from "next/link";
 import BoatCarousel from "./BoatCarousel";
 import { useLang } from "../i18n/LanguageProvider";
+import type { FieldKind, MostoFieldAttributes } from "@mosto-cms/overlay";
 
 type Boat = {
   id: string;
@@ -15,7 +16,7 @@ type Boat = {
   images: string[];
 };
 
-function FleetCard({ boat, delay, ctaLabel, ctaHref, fieldBase }: { boat: Boat; delay: number; ctaLabel: string; ctaHref: string; fieldBase?: string }) {
+function FleetCard({ boat, delay, ctaLabel, ctaHref, fieldBase, copy, ctaField }: { boat: Boat; delay: number; ctaLabel: string; ctaHref: string; fieldBase?: string; copy: (key: string, kind?: FieldKind) => MostoFieldAttributes; ctaField: MostoFieldAttributes }) {
   return (
     <article
       id={`fleet-${boat.id}`}
@@ -28,20 +29,20 @@ function FleetCard({ boat, delay, ctaLabel, ctaHref, fieldBase }: { boat: Boat; 
       </div>
 
       <div className="fleet-card-body">
-        <h3 className="fleet-card-name">{boat.name}</h3>
-        <div className="fleet-card-model">{boat.model}</div>
-        <div className="fleet-card-type">{boat.type}</div>
+        <h3 className="fleet-card-name" {...copy("name")}>{boat.name}</h3>
+        <div className="fleet-card-model" {...copy("model")}>{boat.model}</div>
+        <div className="fleet-card-type" {...copy("type")}>{boat.type}</div>
         <div className="fleet-card-specs">
-          <span>{boat.length}</span>
+          <span {...copy("length")}>{boat.length}</span>
           <span className="fleet-card-spec-divider" aria-hidden>·</span>
-          <span>{boat.capacity}</span>
+          <span {...copy("capacity")}>{boat.capacity}</span>
         </div>
 
         <div className="fleet-card-extra">
           <div className="fleet-card-extra-inner">
-            <p className="fleet-card-desc">{boat.desc}</p>
+            <p className="fleet-card-desc" {...copy("desc", "multiline")}>{boat.desc}</p>
             <Link href={ctaHref} className="fleet-card-cta">
-              <span>{ctaLabel}</span>
+              <span {...ctaField}>{ctaLabel}</span>
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="3" y1="8" x2="13" y2="8" />
                 <polyline points="9 4 13 8 9 12" />
@@ -55,21 +56,21 @@ function FleetCard({ boat, delay, ctaLabel, ctaHref, fieldBase }: { boat: Boat; 
 }
 
 export default function Fleet() {
-  const { lang, t, path, boatByLegacyId } = useLang();
+  const { t, path, boatByLegacyId, f } = useLang();
   const boats: Boat[] = t.fleet.boats.map((b) => ({
     ...b,
     images: boatByLegacyId[b.id]?.gallery ?? [],
   }));
-  const ctaLabel = lang === "it" ? "Scopri di più" : "Discover more";
+  const ctaLabel = t.fleet.discover;
   return (
     <section className="fleet section" data-reveal>
       <div className="section-inner">
         <div className="fleet-head">
-          <div className="eyebrow">{t.fleet.eyebrow}</div>
+          <div className="eyebrow" {...f("fleet.eyebrow")}>{t.fleet.eyebrow}</div>
           <h2 className="section-title">
-            {t.fleet.title} <span className="accent">{t.fleet.titleAccent}</span>
+            <span {...f("fleet.title")}>{t.fleet.title}</span> <span className="accent" {...f("fleet.titleAccent")}>{t.fleet.titleAccent}</span>
           </h2>
-          <p className="section-desc">{t.fleet.desc}</p>
+          <p className="section-desc" {...f("fleet.desc", "multiline")}>{t.fleet.desc}</p>
         </div>
 
         <div className="fleet-grid">
@@ -83,6 +84,8 @@ export default function Fleet() {
                 ctaLabel={ctaLabel}
                 ctaHref={path(`/fleet/${slug ?? ""}`)}
                 fieldBase={slug ? `fleet:${slug}:gallery` : undefined}
+                copy={(key, kind) => f(`fleet.boats.${i}.${key}`, kind)}
+                ctaField={f("fleet.discover")}
               />
             );
           })}

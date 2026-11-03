@@ -3,8 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import PageShell from "../../components/PageShell";
-import { useLang } from "../../i18n/LanguageProvider";
-import { tours, tourImagePosition, tourPath, formatPrice, TAILOR_MADE_SLUG } from "../../data/tours";
+import { cmsField, useLang } from "../../i18n/LanguageProvider";
+import { tourImagePosition, tourPath, formatPrice, TAILOR_MADE_SLUG } from "../../data/tours";
 
 // Bento layout — 4 principali + 3 secondari piccoli (7 cards):
 // Row 1-2: LARGE Capri & Costiera (4×2) + TALL Capri & Positano (2×2) — LA PIÙ RICHIESTA
@@ -33,7 +33,10 @@ const renderOrder = [
 ];
 
 export default function ToursHubPage() {
-  const { lang, t, path } = useLang();
+  const { lang, t, path, f, toursByLegacyId } = useLang();
+  // Live tours (published edits show without a rebuild), in catalogue order.
+  const tours = Object.values(toursByLegacyId);
+  const p = t.pages.tours;
   const dailyMap = Object.fromEntries(
     tours.filter((tr) => tr.category === "daily").map((tr) => [tr.legacyId, tr])
   );
@@ -56,7 +59,7 @@ export default function ToursHubPage() {
       <div className="bento-card-img">
         <Image
           src={bespoke.image}
-          alt={lang === "it" ? "Tour su misura" : "Bespoke tour"}
+          alt={p.bespokeTitle}
           fill
           priority
           sizes="100vw"
@@ -65,16 +68,16 @@ export default function ToursHubPage() {
         <div className="bento-card-overlay" />
       </div>
       <div className="bento-card-body">
-        <span className="bento-card-tag">{t.tours.tags.bespoke}</span>
-        <div className="bento-card-meta">{lang === "it" ? "Da 1 a 7 giorni" : "1–7 days"}</div>
-        <h3 className="bento-card-title">{lang === "it" ? "Tour su misura" : "Bespoke tour"}</h3>
+        <span className="bento-card-tag" {...f("tours.tags.bespoke")}>{t.tours.tags.bespoke}</span>
+        <div className="bento-card-meta" {...f("pages.tours.bespokeMeta")}>{p.bespokeMeta}</div>
+        <h3 className="bento-card-title" {...f("pages.tours.bespokeTitle")}>{p.bespokeTitle}</h3>
         <div className="bento-card-footer">
           <div className="bento-card-price">
-            <span>{t.tours.from}</span>
+            <span {...f("tours.from")}>{t.tours.from}</span>
             <strong>{formatPrice(bespoke.priceFrom, lang)}</strong>
           </div>
           <span className="bento-card-cta">
-            {lang === "it" ? "Scopri di più" : "Discover more"}
+            <span {...f("tours.discover")}>{t.tours.discover}</span>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="3" y1="8" x2="13" y2="8" />
               <polyline points="9 4 13 8 9 12" />
@@ -89,14 +92,12 @@ export default function ToursHubPage() {
     <PageShell>
       <section className="page-hero">
         <div className="page-hero-inner">
-          <div className="eyebrow">{t.tours.eyebrow}</div>
-          <h1 className="page-hero-title">
-            {lang === "it" ? "Tour & escursioni" : "Tours & experiences"}
+          <div className="eyebrow" {...f("tours.eyebrow")}>{t.tours.eyebrow}</div>
+          <h1 className="page-hero-title" {...f("pages.tours.title")}>
+            {p.title}
           </h1>
-          <p className="page-hero-desc">
-            {lang === "it"
-              ? "Giornate private al mare, ognuna disegnata su un'idea di Capri diversa. Scegli quella che hai in mente — o costruiamola insieme."
-              : "Private days at sea, each shaped around a different idea of Capri. Pick the one you have in mind — or let's build it together."}
+          <p className="page-hero-desc" {...f("pages.tours.desc", "multiline")}>
+            {p.desc}
           </p>
         </div>
       </section>
@@ -105,10 +106,10 @@ export default function ToursHubPage() {
       <section className="section" id="daily">
         <div className="section-inner">
           <div data-reveal>
-            <div className="eyebrow">{lang === "it" ? "Tour giornalieri" : "Day tours"}</div>
+            <div className="eyebrow" {...f("pages.tours.dailyEyebrow")}>{p.dailyEyebrow}</div>
             <h2 className="section-title">
-              {lang === "it" ? "Le esperienze " : "Signature "}
-              <span className="accent">{lang === "it" ? "in mare" : "experiences"}</span>
+              <span {...f("pages.tours.dailyTitle")}>{p.dailyTitle}</span>{" "}
+              <span className="accent" {...f("pages.tours.dailyTitleAccent")}>{p.dailyTitleAccent}</span>
             </h2>
           </div>
 
@@ -123,7 +124,7 @@ export default function ToursHubPage() {
                   href={path(tourPath(tour.slug))}
                   className={`bento-card bento-${size}`}
                 >
-                  <div className="bento-card-img">
+                  <div className="bento-card-img" {...cmsField(`tours:${tour.slug}`, "image", "image")}>
                     <Image
                       src={tour.image}
                       alt={c.title}
@@ -137,17 +138,17 @@ export default function ToursHubPage() {
                     <div className="bento-card-overlay" />
                   </div>
                   <div className="bento-card-body">
-                    {tagLabel && <span className="bento-card-tag">{tagLabel}</span>}
-                    <div className="bento-card-meta">{c.meta}</div>
-                    <h3 className="bento-card-title">{c.title}</h3>
-                    <p className="bento-card-desc">{c.short}</p>
+                    {tagLabel && <span className="bento-card-tag" {...f(`tours.tags.${tour.tag}`)}>{tagLabel}</span>}
+                    <div className="bento-card-meta" {...cmsField(`tours:${tour.slug}`, `${lang}.meta`)}>{c.meta}</div>
+                    <h3 className="bento-card-title" {...cmsField(`tours:${tour.slug}`, `${lang}.title`)}>{c.title}</h3>
+                    <p className="bento-card-desc" {...cmsField(`tours:${tour.slug}`, `${lang}.short`, "multiline")}>{c.short}</p>
                     <div className="bento-card-footer">
                       <div className="bento-card-price">
-                        <span>{t.tours.from}</span>
+                        <span {...f("tours.from")}>{t.tours.from}</span>
                         <strong>{formatPrice(tour.priceFrom, lang)}</strong>
                       </div>
                       <span className="bento-card-cta">
-                        {lang === "it" ? "Scopri di più" : "Discover more"}
+                        <span {...f("tours.discover")}>{t.tours.discover}</span>
                         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="3" y1="8" x2="13" y2="8" />
                           <polyline points="9 4 13 8 9 12" />
@@ -168,11 +169,11 @@ export default function ToursHubPage() {
       <section className="section section-alt tours-flow-tailor" id="mini-cruises">
         <div className="section-inner">
           <div data-reveal>
-            <div className="eyebrow">{t.miniCruises.eyebrow}</div>
+            <div className="eyebrow" {...f("miniCruises.eyebrow")}>{t.miniCruises.eyebrow}</div>
             <h2 className="section-title">
-              {t.miniCruises.title} <span className="accent">{t.miniCruises.titleAccent}</span>
+              <span {...f("miniCruises.title")}>{t.miniCruises.title}</span> <span className="accent" {...f("miniCruises.titleAccent")}>{t.miniCruises.titleAccent}</span>
             </h2>
-            <p className="section-desc">{t.miniCruises.desc}</p>
+            <p className="section-desc" {...f("miniCruises.desc", "multiline")}>{t.miniCruises.desc}</p>
           </div>
 
           <div className="tours-bespoke-card">
@@ -181,35 +182,15 @@ export default function ToursHubPage() {
 
           <div className="mini-cruises-features-grid" data-reveal>
             {[
-              {
-                h: t.miniCruises.bullet1,
-                it: "Una giornata, un weekend o una settimana intera: la durata la scegli tu.",
-                en: "A single day, a weekend or a whole week: you choose how long.",
-              },
-              {
-                h: t.miniCruises.bullet2,
-                it: "Per i più giorni: cabine private, bagno con doccia, aria condizionata, biancheria fornita.",
-                en: "For multi-day trips: private cabins, bathroom with shower, air conditioning, linens provided.",
-              },
-              {
-                h: t.miniCruises.bullet3,
-                it: "Chef a bordo su richiesta, con menù pensati sui tuoi gusti.",
-                en: "On-board chef on request, with menus built around your taste.",
-              },
-              {
-                h: t.miniCruises.bullet4,
-                it: "Soste, orari e ristoranti li scegli tu: costruiamo l'itinerario insieme.",
-                en: "You choose the stops, timing and restaurants: we build the route together.",
-              },
-              {
-                h: t.miniCruises.bullet5,
-                it: "Tender, SUP, attrezzatura snorkel — tutto a bordo.",
-                en: "Tender, SUP, snorkeling gear — all on board.",
-              },
-            ].map((f) => (
-              <div key={f.h} className="mini-cruise-feature">
-                <h3>{f.h}</h3>
-                <p>{lang === "it" ? f.it : f.en}</p>
+              t.miniCruises.bullet1,
+              t.miniCruises.bullet2,
+              t.miniCruises.bullet3,
+              t.miniCruises.bullet4,
+              t.miniCruises.bullet5,
+            ].map((h, i) => (
+              <div key={h} className="mini-cruise-feature">
+                <h3 {...f(`miniCruises.bullet${i + 1}`)}>{h}</h3>
+                <p {...f(`pages.tours.features.${i}`, "multiline")}>{p.features[i]}</p>
               </div>
             ))}
           </div>
@@ -223,6 +204,7 @@ export default function ToursHubPage() {
               target="_blank"
               rel="noopener"
               className="btn-primary"
+              {...f("miniCruises.ctaBook")}
             >
               {t.miniCruises.ctaBook}
             </a>
@@ -234,13 +216,13 @@ export default function ToursHubPage() {
         <section className="section tours-more-section" id="more-itineraries">
           <div className="section-inner">
             <div data-reveal>
-              <div className="eyebrow">
-                {lang === "it" ? "Altri itinerari" : "More itineraries"}
+              <div className="eyebrow" {...f("pages.tours.moreEyebrow")}>
+                {p.moreEyebrow}
               </div>
               <h2 className="section-title">
-                {lang === "it" ? "Altre giornate " : "More days "}
-                <span className="accent">
-                  {lang === "it" ? "in mare" : "at sea"}
+                <span {...f("pages.tours.moreTitle")}>{p.moreTitle}</span>{" "}
+                <span className="accent" {...f("pages.tours.moreTitleAccent")}>
+                  {p.moreTitleAccent}
                 </span>
               </h2>
             </div>
@@ -254,7 +236,7 @@ export default function ToursHubPage() {
                     href={path(tourPath(tour.slug))}
                     className="tours-more-card"
                   >
-                    <div className="tours-more-card-img">
+                    <div className="tours-more-card-img" {...cmsField(`tours:${tour.slug}`, "image", "image")}>
                       <Image
                         src={tour.image}
                         alt={c.title}
@@ -268,16 +250,16 @@ export default function ToursHubPage() {
                       <div className="tours-more-card-overlay" />
                     </div>
                     <div className="tours-more-card-body">
-                      <div className="tours-more-card-meta">{c.meta}</div>
-                      <h3 className="tours-more-card-title">{c.title}</h3>
-                      <p className="tours-more-card-desc">{c.short}</p>
+                      <div className="tours-more-card-meta" {...cmsField(`tours:${tour.slug}`, `${lang}.meta`)}>{c.meta}</div>
+                      <h3 className="tours-more-card-title" {...cmsField(`tours:${tour.slug}`, `${lang}.title`)}>{c.title}</h3>
+                      <p className="tours-more-card-desc" {...cmsField(`tours:${tour.slug}`, `${lang}.short`, "multiline")}>{c.short}</p>
                       <div className="tours-more-card-footer">
                         <div className="tours-more-card-price">
-                          <span>{t.tours.from}</span>
+                          <span {...f("tours.from")}>{t.tours.from}</span>
                           <strong>{formatPrice(tour.priceFrom, lang)}</strong>
                         </div>
                         <span className="tours-more-card-cta">
-                          {lang === "it" ? "Scopri di più" : "Discover more"}
+                          <span {...f("tours.discover")}>{t.tours.discover}</span>
                           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="3" y1="8" x2="13" y2="8" />
                             <polyline points="9 4 13 8 9 12" />

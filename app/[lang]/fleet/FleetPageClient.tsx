@@ -3,20 +3,22 @@
 import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import BoatCarousel from "../../components/BoatCarousel";
-import { useLang } from "../../i18n/LanguageProvider";
-import { fleet } from "../../data/fleet";
+import { cmsField, useLang } from "../../i18n/LanguageProvider";
 
 export default function FleetHubPage() {
-  const { lang, t, path } = useLang();
+  const { lang, t, path, f, boatByLegacyId } = useLang();
+  // Live boats (published edits show without a rebuild), in fleet order.
+  const fleet = Object.values(boatByLegacyId);
+  const p = t.pages.fleet;
   return (
     <PageShell>
       <section className="page-hero">
         <div className="page-hero-inner">
-          <div className="eyebrow">{t.fleet.eyebrow}</div>
-          <h1 className="page-hero-title">
-            {lang === "it" ? "La nostra flotta" : "Our fleet"}
+          <div className="eyebrow" {...f("fleet.eyebrow")}>{t.fleet.eyebrow}</div>
+          <h1 className="page-hero-title" {...f("pages.fleet.title")}>
+            {p.title}
           </h1>
-          <p className="page-hero-desc">{t.fleet.desc}</p>
+          <p className="page-hero-desc" {...f("fleet.desc", "multiline")}>{t.fleet.desc}</p>
         </div>
       </section>
 
@@ -25,6 +27,7 @@ export default function FleetHubPage() {
           <div className="fleet-detail-list">
             {fleet.map((b, i) => {
               const c = lang === "it" ? b.it : b.en;
+              const boat = `fleet:${b.slug}`;
               return (
                 <article
                   key={b.slug}
@@ -32,44 +35,45 @@ export default function FleetHubPage() {
                   data-reveal
                 >
                   <div className="fleet-detail-img">
-                    <BoatCarousel images={b.gallery} alt={c.name} />
+                    <BoatCarousel images={b.gallery} alt={c.name} fieldBase={`${boat}:gallery`} />
                   </div>
                   <div className="fleet-detail-body">
-                    <div className="fleet-detail-model">{c.model}</div>
-                    <h2 className="fleet-detail-name">{c.name}</h2>
-                    <div className="fleet-detail-type">{c.type}</div>
-                    <p className="fleet-detail-tagline">{c.tagline}</p>
+                    <div className="fleet-detail-model" {...cmsField(boat, `${lang}.model`)}>{c.model}</div>
+                    <h2 className="fleet-detail-name" {...cmsField(boat, `${lang}.name`)}>{c.name}</h2>
+                    <div className="fleet-detail-type" {...cmsField(boat, `${lang}.type`)}>{c.type}</div>
+                    <p className="fleet-detail-tagline" {...cmsField(boat, `${lang}.tagline`)}>{c.tagline}</p>
 
                     <ul className="fleet-detail-specs">
                       <li>
-                        <span>{lang === "it" ? "Lunghezza" : "Length"}</span>
-                        <strong>{b.specs.length}</strong>
+                        <span {...f("pages.fleet.length")}>{p.length}</span>
+                        <strong {...cmsField(boat, "specs.length")}>{b.specs.length}</strong>
                       </li>
                       <li>
-                        <span>{lang === "it" ? "Velocità" : "Top speed"}</span>
-                        <strong>{typeof b.specs.speed === "string" ? b.specs.speed : b.specs.speed[lang]}</strong>
+                        <span {...f("pages.fleet.speed")}>{p.speed}</span>
+                        <strong {...(typeof b.specs.speed === "string" ? cmsField(boat, "specs.speed") : {})}>{typeof b.specs.speed === "string" ? b.specs.speed : b.specs.speed[lang]}</strong>
                       </li>
                       <li>
-                        <span>{lang === "it" ? "Ospiti" : "Guests"}</span>
-                        <strong>{typeof b.specs.capacityDay === "string" ? b.specs.capacityDay : b.specs.capacityDay[lang]}</strong>
+                        <span {...f("pages.fleet.guests")}>{p.guests}</span>
+                        <strong {...(typeof b.specs.capacityDay === "string" ? cmsField(boat, "specs.capacityDay") : {})}>{typeof b.specs.capacityDay === "string" ? b.specs.capacityDay : b.specs.capacityDay[lang]}</strong>
                       </li>
                       <li>
-                        <span>{lang === "it" ? "Cabine" : "Cabins"}</span>
-                        <strong>{typeof b.specs.cabins === "string" ? b.specs.cabins : b.specs.cabins[lang]}</strong>
+                        <span {...f("pages.fleet.cabins")}>{p.cabins}</span>
+                        <strong {...(typeof b.specs.cabins === "string" ? cmsField(boat, "specs.cabins") : {})}>{typeof b.specs.cabins === "string" ? b.specs.cabins : b.specs.cabins[lang]}</strong>
                       </li>
                     </ul>
 
                     <div className="fleet-detail-actions">
-                      <Link href={path(`/fleet/${b.slug}`)} className="btn-primary">
-                        {lang === "it" ? "Scopri di più" : "Discover more"}
+                      <Link href={path(`/fleet/${b.slug}`)} className="btn-primary" {...f("fleet.discover")}>
+                        {t.fleet.discover}
                       </Link>
                       <a
                         href="https://wa.me/393335741333"
                         target="_blank"
                         rel="noopener"
                         className="btn-secondary-dark"
+                        {...f("pages.fleet.book")}
                       >
-                        {lang === "it" ? "Prenota ora" : "Book now"}
+                        {p.book}
                       </a>
                     </div>
                   </div>

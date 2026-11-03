@@ -10,7 +10,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
-  const { t, path } = useLang();
+  const { t, path, f } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
@@ -56,9 +56,9 @@ export default function Header() {
             </Link>
           </div>
           <nav className="nav">
-            <Link href={path("/tours")} className="nav-link">{t.nav.experiences}</Link>
-            <Link href={path("/charter")} className="nav-link">{t.nav.charter}</Link>
-            <Link href={path("/fleet")} className="nav-link">{t.nav.fleet}</Link>
+            <Link href={path("/tours")} className="nav-link" {...f("nav.experiences")}>{t.nav.experiences}</Link>
+            <Link href={path("/charter")} className="nav-link" {...f("nav.charter")}>{t.nav.charter}</Link>
+            <Link href={path("/fleet")} className="nav-link" {...f("nav.fleet")}>{t.nav.fleet}</Link>
           </nav>
           <div className="header-right">
             <LanguageSwitcher />
@@ -68,6 +68,7 @@ export default function Header() {
               onClick={() => setContactOpen(true)}
               aria-haspopup="dialog"
               aria-expanded={contactOpen}
+              {...f("nav.whatsapp")}
             >
               {t.nav.whatsapp}
             </button>
@@ -93,16 +94,16 @@ export default function Header() {
         onClick={closeMenu}
       >
         <nav className="mobile-menu-nav" onClick={(e) => e.stopPropagation()}>
-          <Link href={path("/tours")} className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/tours")} className="mobile-menu-link" onClick={closeMenu} {...f("nav.experiences")}>
             {t.nav.experiences}
           </Link>
-          <Link href={path("/charter")} className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/charter")} className="mobile-menu-link" onClick={closeMenu} {...f("nav.charter")}>
             {t.nav.charter}
           </Link>
-          <Link href={path("/fleet")} className="mobile-menu-link" onClick={closeMenu}>
+          <Link href={path("/fleet")} className="mobile-menu-link" onClick={closeMenu} {...f("nav.fleet")}>
             {t.nav.fleet}
           </Link>
-          <Link href={path("/contact")} className="mobile-menu-link mobile-menu-link-accent" onClick={closeMenu}>
+          <Link href={path("/contact")} className="mobile-menu-link mobile-menu-link-accent" onClick={closeMenu} {...f("nav.contact")}>
             {t.nav.contact}
           </Link>
         </nav>

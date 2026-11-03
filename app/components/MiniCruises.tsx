@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useLang } from "../i18n/LanguageProvider";
 
 export default function MiniCruises() {
-  const { t, path, lang } = useLang();
+  const { t, path, lang, f } = useLang();
   const waTour = `https://wa.me/393335741333?text=${encodeURIComponent(
     lang === "it" ? "Ciao, vorrei organizzare un tour su misura." : "Hi, I'd like to arrange a bespoke tour."
   )}`;
@@ -19,36 +19,37 @@ export default function MiniCruises() {
             loop
             playsInline
             preload="metadata"
-            poster="/cruises/crociera-1.jpg"
+            poster={t.miniCruises.poster}
+            {...f("miniCruises.video", "video")}
           >
-            <source src="/cruises/mini-crociere.mp4" type="video/mp4" />
+            <source src={t.miniCruises.video} type="video/mp4" />
           </video>
           <div className="mini-cruises-img-overlay" aria-hidden />
         </div>
 
         <div className="mini-cruises-body" data-reveal="right">
-          <div className="eyebrow">{t.miniCruises.eyebrow}</div>
+          <div className="eyebrow" {...f("miniCruises.eyebrow")}>{t.miniCruises.eyebrow}</div>
           <h2 className="section-title mini-cruises-title">
-            {t.miniCruises.title} <span className="accent">{t.miniCruises.titleAccent}</span>
+            <span {...f("miniCruises.title")}>{t.miniCruises.title}</span> <span className="accent" {...f("miniCruises.titleAccent")}>{t.miniCruises.titleAccent}</span>
           </h2>
-          <p className="mini-cruises-desc">{t.miniCruises.desc}</p>
+          <p className="mini-cruises-desc" {...f("miniCruises.desc", "multiline")}>{t.miniCruises.desc}</p>
 
           <ul className="mini-cruises-features">
-            {[t.miniCruises.bullet1, t.miniCruises.bullet2, t.miniCruises.bullet3, t.miniCruises.bullet4, t.miniCruises.bullet5].map((b) => (
+            {[t.miniCruises.bullet1, t.miniCruises.bullet2, t.miniCruises.bullet3, t.miniCruises.bullet4, t.miniCruises.bullet5].map((b, i) => (
               <li key={b}>
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="3 8 6.5 11.5 13 4.5" />
                 </svg>
-                <span>{b}</span>
+                <span {...f(`miniCruises.bullet${i + 1}`)}>{b}</span>
               </li>
             ))}
           </ul>
 
           <div className="mini-cruises-ctas">
-            <Link href={path("/tailor-made")} className="btn-primary">
+            <Link href={path("/tailor-made")} className="btn-primary" {...f("miniCruises.cta")}>
               {t.miniCruises.cta}
             </Link>
-            <a href={waTour} target="_blank" rel="noopener" className="btn-secondary">
+            <a href={waTour} target="_blank" rel="noopener" className="btn-secondary" {...f("miniCruises.ctaBook")}>
               {t.miniCruises.ctaBook}
             </a>
           </div>
